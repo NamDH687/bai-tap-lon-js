@@ -3,104 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
-    <script>src = "script.js"</script>
-    <style>
-        body{
-            margin:0;
-            font-family: Arial, sans-serif;
-            background-image: url('https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 100vh;
-        }    
-        .top-bar{
-            background: black;
-            color: white;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 40px;
-            font-size: 20px
-        }
-        .top-right{
-            display: flex;
-            gap: 20px;
-            align-items:center
-        }
-        .top-right a{
-           color: white;
-           text-decoration:none; 
-           transition:0.2s;
-        }
-        .menu{
-            background: rgba(23,26,33,0.95);
-            display:flex;
-            align-items:center;
-            gap:40px;
-            padding:0 50px;
-            height:70px;
-        }
 
-        .menu-item{
-            position:center;
-        }
-
-        .menu-item > a{
-            color:white;
-            text-decoration:none;
-            font-size:20px;
-            font-weight:bold;
-            display:block;
-            padding:20px 0;
-            transition:0.2s;
-        }
-
-        .menu-item > a:hover{
-            color:#ff0000;
-            border-bottom:4px solid #ff0000;
-        }
-
-        .policy {
-            position: relative
-        }
-        .dropdown{
-            position:absolute;
-            top:100%;
-            left:0;
-            width:220px;
-            background:rgba(30, 35, 45, 0.8);
-            display:none;
-            flex-direction:column;
-            z-index:999;
-        }
-        .dropdown a{
-            color:white;
-            text-decoration:none;
-            padding:15px 20px;
-            display:block;
-        }
-        .dropdown img{
-            width:15px;
-            height:15px
-        }
-        .policy:hover .dropdown{
-            display:flex
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- TOP BAR -->
+
     <div class="top-bar">
-        <div>
-            <span>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</span>
+
+        <div class="logo-text">
+            SHOP GAME BẢN QUYỀN CHÍNH HÃNG
         </div>
+
         <div class="top-right">
+
             <a href="">Về tên web |</a>
+
             <div class="policy">
-                <a href=" ">Chính sách ▾|</a>
+
+                <a href="">Chính sách ▾|</a>
+
                 <div class="dropdown">
                     <a href="">Chính sách bảo hành</a>
                     <a href="">Chính sách thanh toán</a>
@@ -108,63 +34,274 @@
                     <a href="">Chính sách đổi trả</a>
                     <a href="">Chính sách bảo mật</a>
                 </div>
+
             </div>
+
             <div class="policy">
-                <a href=" ">Thông tin liên hệ ▾|</a>
+
+                <a href="">Thông tin liên hệ ▾|</a>
+
                 <div class="dropdown">
-                    <a href="">
-                        <img src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg">
-                        Facebook
-                    </a>
-                    <a href="">
-                        <img src="https://cdn.tgdd.vn/2020/03/GameApp/Instagram-200x200.jpg">
-                        Instagram
-                    </a>
-                    <a href="">
-                        <img src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9">
-                        TikTok
-                    </a>
-                    <a href="">
-                        <img src="https://play-lh.googleusercontent.com/rFIOt4fDSCgJh_FkHU2qP8YiZUUhfVoKoNfQFbPEM-Wl8zuyuwn7vzkEx_XMh5B6FfO3=w480-h960-rw">
-                        Zalo
-                    </a>
+
+                    <a href="">Facebook</a>
+                    <a href="">Instagram</a>
+                    <a href="">TikTok</a>
+                    <a href="">Zalo</a>
+
                 </div>
+
             </div>
-        </div>
-    </div>
 
-<div class="menu">
-    <div>
-        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoc-Vien-Cong-Nghe-Buu-Chinh-Vien-Thong-PTIT.png"
-        alt="Logo" style="width: 70px; height: 65px;">
-        
-    </div>
-    <div class="policy menu-item">
-        
-        <a href="">CỬA HÀNG</a>
-
-        <div class="dropdown">
-            <a href="">Trang chủ</a>
-            <a href="">Danh sách yêu thích</a>
-            <a href="">Khám phá</a>
-            <a href="">Tin tức</a>
         </div>
 
     </div>
 
-    <div class="menu-item">
-        <a href="">CỘNG ĐỒNG</a>
+
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+        <img
+        src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoc-Vien-Cong-Nghe-Buu-Chinh-Vien-Thong-PTIT.png"
+        class="logo"
+        >
+
+        <div class="policy menu-item">
+
+            <a href="#" id="storeBtn">CỬA HÀNG</a>
+
+            <div class="dropdown">
+                <a href="">Trang chủ</a>
+                <a href="">Danh sách yêu thích</a>
+                <a href="">Khám phá</a>
+                <a href="">Tin tức</a>
+            </div>
+
+        </div>
+
+        <div class="menu-item">
+            <a href="">CỘNG ĐỒNG</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="">THÔNG TIN</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="">HỖ TRỢ</a>
+        </div>
+
     </div>
 
-    <div class="menu-item">
-        <a href="">THÔNG TIN</a>
-    </div>
 
-    <div class="menu-item">
-        <a href="">HỖ TRỢ</a>
-    </div>
 
-</div>
+    <!-- GAME -->
+
+    <div id="games"></div>
+
+
+    <script src="script.js"></script>
 
 </body>
+<style>
+    *{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+
+    font-family:Arial, sans-serif;
+
+    background-image:url('https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:white;
+
+    overflow-x:hidden;
+}
+
+
+
+/* TOP BAR */
+
+.top-bar{
+    background:black;
+
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    font-size:18px;
+}
+
+.top-right{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.top-right a{
+    color:white;
+    text-decoration:none;
+}
+
+
+
+/* MENU */
+
+.menu{
+    background:rgba(23,26,33,0.95);
+
+    display:flex;
+    align-items:center;
+
+    gap:40px;
+
+    height:70px;
+
+    padding:0 40px;
+}
+
+.logo{
+    width:70px;
+    height:65px;
+}
+
+
+
+/* MENU ITEM */
+
+.menu-item{
+    position:relative;
+}
+
+.menu-item > a{
+    color:white;
+    text-decoration:none;
+
+    font-size:22px;
+    font-weight:bold;
+
+    padding:20px 0;
+
+    display:block;
+
+    transition:0.2s;
+}
+
+.menu-item > a:hover{
+    color:#ff0000;
+
+    box-shadow: inset 0 -4px 0 #ff0000;
+}
+
+
+
+/* DROPDOWN */
+
+.policy{
+    position:relative;
+}
+
+.dropdown{
+    position:absolute;
+
+    top:100%;
+    left:0;
+
+    width:220px;
+
+    background:rgba(30,35,45,0.9);
+
+    display:none;
+    flex-direction:column;
+
+    z-index:999;
+
+    border-radius:5px;
+
+    overflow:hidden;
+}
+
+.dropdown a{
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 20px;
+
+    transition:0.2s;
+}
+
+.dropdown a:hover{
+    background:white;
+    color:black;
+}
+
+.policy:hover .dropdown{
+    display:flex;
+}
+
+
+
+/* GAME */
+
+#games{
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    padding:40px;
+}
+
+.game-card{
+    background:rgba(0,0,0,0.75);
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    transition:0.2s;
+}
+
+.game-card:hover{
+    transform:scale(1.03);
+}
+
+.game-card img{
+    width:100%;
+    height:180px;
+
+    object-fit:cover;
+}
+
+.game-info{
+    padding:15px;
+}
+
+.game-title{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.price{
+    color:#00ff99;
+
+    margin-top:10px;
+
+    font-size:18px;
+}
+</style>
 </html>

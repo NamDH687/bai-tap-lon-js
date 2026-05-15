@@ -1,0 +1,51 @@
+const storeBtn = document.getElementById("storeBtn");
+const gamesDiv = document.getElementById("games");
+
+
+storeBtn.addEventListener("click", function(e){
+
+    // chặn reload trang
+    e.preventDefault();
+
+    const games = [
+        {
+            name:"GTA V",
+            price:"500.000đ",
+            image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg"
+        },
+
+        {
+            name:"EA FC 25",
+            price:"1.200.000đ",
+            image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/header.jpg"
+        },
+
+        {
+            name:"Black Myth Wukong",
+            price:"1.300.000đ",
+            image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg"
+        }
+    ];
+
+
+    gamesDiv.innerHTML = "";
+
+
+    games.forEach(game => {
+
+        gamesDiv.innerHTML += `
+            <div class="game-card">
+
+                <img src="${game.image}">
+
+                <div class="game-info">
+                    <div class="game-title">${game.name}</div>
+                    <div class="price">${game.price}</div>
+                </div>
+
+            </div>
+        `;
+
+    });
+
+});
