@@ -24,6 +24,24 @@ storeBtn.addEventListener("click", function(e){
             name:"Black Myth Wukong",
             price:"1.300.000đ",
             image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg"
+        },
+
+        {
+            name:"Counter-Strike 2",
+            price:"Miễn phí",
+            image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861720/header.jpg"
+        },
+
+        {
+            name:"Genshin Impact",
+            price:"Miễn phí",
+            image:"https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180"
+        },
+
+        {
+            name:"Call of Duty®: Black Ops III ",
+            price:"475.000đ",
+            image:"https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663"
         }
     ];
 

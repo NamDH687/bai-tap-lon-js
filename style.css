@@ -193,3 +193,9 @@ body {
 
   font-size: 18px;
 }
+.dropdown img{
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+}
