@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
+
+  overflow-x: hidden;
+}
+
+.login-container {
+  width: 350px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-box input:focus {
+  border-color: #6c63ff;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #6c63ff;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #574bdb;
+}
+
+.register {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register a {
+  color: #6c63ff;
+  text-decoration: none;
+}
