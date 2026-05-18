@@ -174,7 +174,12 @@ body {
 
     cursor:pointer;
 }
-
+.search-box{
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+.search-box:focus-within{
+    border:2px solid pink;
+}
 /* GAME */
 
 #games {
