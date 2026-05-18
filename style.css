@@ -4,18 +4,13 @@
 
 body {
   margin: 0;
-
   font-family: Arial, sans-serif;
-
   background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
   color: white;
-
   overflow-x: hidden;
 }
 
@@ -23,15 +18,11 @@ body {
 
 .top-bar {
   background: black;
-
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 40px;
-
   font-size: 18px;
 }
 
@@ -75,20 +66,15 @@ body {
 .menu-item > a {
   color: white;
   text-decoration: none;
-
   font-size: 22px;
   font-weight: bold;
-
   padding: 20px 0;
-
   display: block;
-
   transition: 0.2s;
 }
 
 .menu-item > a:hover {
   color: #ff0000;
-
   box-shadow: inset 0 -4px 0 #ff0000;
 }
 
@@ -100,31 +86,22 @@ body {
 
 .dropdown {
   position: absolute;
-
   top: 100%;
   left: 0;
-
   width: 220px;
-
   background: rgba(30, 35, 45, 0.9);
-
   display: none;
   flex-direction: column;
-
   z-index: 999;
-
   border-radius: 5px;
-
   overflow: hidden;
 }
 
 .dropdown a {
   color: white;
-
+  font-size:17px;
   text-decoration: none;
-
   padding: 15px 20px;
-
   transition: 0.2s;
 }
 
@@ -174,7 +151,12 @@ body {
 
     cursor:pointer;
 }
-
+.search-box{
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+.search-box:focus-within{
+    border:2px solid pink;
+}
 /* GAME */
 
 #games {
