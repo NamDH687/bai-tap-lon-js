@@ -4,7 +4,6 @@ const gamesDiv = document.getElementById("games");
 
 storeBtn.addEventListener("click", function(e){
 
-    // chặn reload trang
     e.preventDefault();
 
     const games = [
