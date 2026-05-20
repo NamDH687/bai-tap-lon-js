@@ -1,203 +1,188 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    overflow-x: hidden;
 }
+
 
 /* TOP BAR */
 
 .top-bar {
-  background: black;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  font-size: 18px;
+    background: black;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    font-size: 18px;
 }
 
 .top-right {
-  display: flex;
-  gap: 20px;
-  align-items: center;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .top-right a {
-  color: white;
-  text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
+
 
 /* MENU */
 
 .menu {
-  background: rgba(23, 26, 33, 0.95);
-
-  display: flex;
-  align-items: center;
-
-  gap: 40px;
-
-  height: 70px;
-
-  padding: 0 40px;
+    background: rgba(23, 26, 33, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 70px;
+    padding: 0 40px;
 }
 
 .logo {
-  width: 70px;
-  height: 65px;
+    width: 96px;
+    height: 90px;
 }
+
 
 /* MENU ITEM */
 
 .menu-item {
-  position: relative;
+    position: relative;
 }
 
-.menu-item > a {
-  color: white;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: bold;
-  padding: 20px 0;
-  display: block;
-  transition: 0.2s;
+.menu-item>a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px 0;
+    display: block;
+    transition: 0.2s;
 }
 
-.menu-item > a:hover {
-  color: #ff0000;
-  box-shadow: inset 0 -4px 0 #ff0000;
+.menu-item>a:hover {
+    color: #ff0000;
+    box-shadow: inset 0 -4px 0 #ff0000;
 }
-
-/* DROPDOWN */
 
 .policy {
-  position: relative;
+    position: relative;
 }
 
 .dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 220px;
-  background: rgba(30, 35, 45, 0.9);
-  display: none;
-  flex-direction: column;
-  z-index: 999;
-  border-radius: 5px;
-  overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 220px;
+    background: rgba(30, 35, 45, 0.9);
+    display: none;
+    flex-direction: column;
+    z-index: 999;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .dropdown a {
-  color: white;
-  font-size:17px;
-  text-decoration: none;
-  padding: 15px 20px;
-  transition: 0.2s;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: 0.2s;
 }
 
 .dropdown a:hover {
-  background: white;
-  color: black;
+    background: white;
+    color: black;
 }
 
 .policy:hover .dropdown {
-  display: flex;
+    display: flex;
 }
 
 .dropdown img {
-  width: 18px;
-  height: 18px;
-
-  border-radius: 50%;
-}
-.search-box{
-    width:400px;
-    height:30px;
-    background:white;
-    border-radius:30px;
-    display:flex;
-    align-items:center;
-    padding:0 15px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
 }
 
-.search-box input{
-    flex:1;
-    border:none;
-    outline:none;
-    font-size:16px;
+.search-box {
+    width: 400px;
+    height: 30px;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
 }
 
-.search-box button{
-    border:none;
-    background:none;
-    font-size:20px;
-    cursor:pointer;
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
 }
-.search-box{
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+
+.search-box button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
 }
-.search-box:focus-within{
-    border:2px solid pink;
-}
-/* GAME */
 
 #games {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
 }
 
 .game-card {
-  background: rgba(0, 0, 0, 0.75);
-
-  border-radius: 10px;
-
-  overflow: hidden;
-
-  transition: 0.2s;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.2s;
 }
 
 .game-card:hover {
-  transform: scale(1.03);
+    transform: scale(1.03);
 }
 
 .game-card img {
-  width: 100%;
-  height: 180px;
-
-  object-fit: cover;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
 }
 
 .game-info {
-  padding: 15px;
+    padding: 15px;
 }
 
 .game-title {
-  font-size: 22px;
-  font-weight: bold;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .price {
-  color: #00ff99;
-
-  margin-top: 10px;
-
-  font-size: 18px;
+    color: #00ff99;
+    margin-top: 10px;
+    font-size: 18px;
 }
-.dropdown img{
-    width:18px;
-    height:18px;
 
-    border-radius:50%;
+.dropdown img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
 }
