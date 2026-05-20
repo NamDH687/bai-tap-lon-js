@@ -186,3 +186,28 @@ body {
     height: 18px;
     border-radius: 50%;
 }
+
+
+/* NÚT ĐĂNG NHẬP */
+
+.login {
+    margin-left: auto;
+}
+
+.login a {
+    background: #00bfff;
+    padding: 6px 14px;
+    border-radius: 9px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.login a:hover {
+    background: #0088cc;
+    color: white;
+    box-shadow: none;
+}
