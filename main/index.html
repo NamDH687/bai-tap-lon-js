@@ -1,97 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
-    <link rel="icon" type="image/x-icon" href="">
-    <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <!-- TOP BAR -->
-
+  <body>
     <div class="top-bar">
+      <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
+        <button>🔍</button>
+      </div>
+      <div class="top-right">
+        <a href="../intro.html">Về Tuat.vn |</a>
+        <a href="../chinhsach.html">Chính sách |</a>
 
-        <div class="logo-text">
-            SHOP GAME BẢN QUYỀN CHÍNH HÃNG
+        <div class="policy">
+          <a href="">Thông tin liên hệ ▾|</a>
+
+          <div class="dropdown">
+            <a
+              href="https://www.facebook.com/profile.php?id=61590020309778"
+              target="_blank"
+            >
+              <img
+                src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg"
+              />
+              Facebook
+            </a>
+            <a
+              href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+            >
+              <img
+                src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9"
+              />
+              TikTok
+            </a>
+            <a href="https://zalo.me/[0387918807]" target="_blank">
+              <img
+                src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ"
+              />
+              Zalo
+            </a>
+          </div>
         </div>
-        <div class="search-box">
-            <input type="text" placeholder="Gõ để tìm kiếm...">
-            
-        </div>
-        <div class="top-right">
-
-            <a href="../intro.html">Về Tuat.vn |</a>
-            <a href="../chinhsach.html">Chính sách |</a>
-            
-            <div class="policy">
-
-                <a href="">Thông tin liên hệ ▾|</a>
-
-                <div class="dropdown">
-
-                    <a href="https://www.facebook.com/share/1BsPVmb7Vb/?mibextid=wwXIfr" target="_blank">
-                        <img src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg">
-                        Facebook</a>
-                    <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.tiktok.com%2F%40shopgametuat.vnuytin%3F_r%3D1%26_t%3DZS-96S8dARROsy%26fbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExaWdWZFBLUk1FSDM2aWs3M3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4Lp8TPqirLC_6Fd1G9V3edvB-qoYEWJqofwUqapvTCQiggt8rrYmgAfl4C5g_aem_0vGaueKhaiphHk-X3x5F2g&h=AUBIPYlHvOo65RN7vfRAUkxDnmVz69WWo37sWEYZKPTLaEaKVhYxkPY6xC9KGcYkeOhD47ZMDhY_z3ELx_MDzjP4Szv2azrEi2PaixugWBilLQgZjoXiqwqmVQQWHi0AMk2OMg" target="_blank">
-                        <img src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9">
-                        TikTok</a>
-                    <a href="https://zalo.me/0395397223" target="_blank">
-                        <img src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ">
-                        Zalo</a>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      </div>
     </div>
-
 
     <div class="menu">
+      <a href="index.html">
+        <img src="../logo.jpg" class="logo" />
+      </a>
+      <div class="menu-item">
+        <a href="index.html" id="homeBtn">TRANG CHỦ</a>
+      </div>
 
-        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-Hoc-Vien-Cong-Nghe-Buu-Chinh-Vien-Thong-PTIT.png" class="logo">
+      <div class="policy menu-item">
+        <a href="#" id="storeBtn">CỬA HÀNG</a>
 
-        <div class="policy menu-item">
-
-            <a href="#" id="storeBtn">CỬA HÀNG</a>
-
-            <div class="dropdown">
-                <a href="">Trang chủ</a>
-                <a href="">Danh sách yêu thích</a>
-                <a href="">Khám phá</a>
-                <a href="">Tin tức</a>
-            </div>
-
+        <div class="dropdown" id="genreDropdown">
+          <a href="#" data-genre="all">Tất cả game</a>
+          <a href="#" data-genre="nhapvai">Game Nhập vai</a>
+          <a href="#" data-genre="thethao">Game Thể thao</a>
+          <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
+          <a href="#" data-genre="duaxe">Game Đua xe</a>
+          <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
         </div>
+      </div>
 
-        <div class="menu-item">
-            <a href="">CỘNG ĐỒNG</a>
-        </div>
+      <div class="menu-item">
+        <a href="">THÔNG TIN</a>
+      </div>
 
-        <div class="menu-item">
-            <a href="">THÔNG TIN</a>
-        </div>
-
-        <div class="menu-item">
-            <a href="">HỖ TRỢ</a>
-        </div>
-
+      <div class="menu-item">
+        <a href="">HỖ TRỢ</a>
+      </div>
+      <div class="menu-item login">
+        <a href="../login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
+      </div>
     </div>
-
 
     <div id="games"></div>
 
-
     <script src="script.js"></script>
-
-</body>
-
-</style>
-
+  </body>
 </html>
