@@ -5,7 +5,6 @@ const gamesDiv = document.getElementById("games");
 storeBtn.addEventListener("click", function(e){
 
     e.preventDefault();
-
     const games = [
         {
             name:"GTA V",
