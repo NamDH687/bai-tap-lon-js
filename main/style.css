@@ -452,3 +452,55 @@ body {
 .sp-btn-submit:hover {
     background: #cc0000;
 }
+
+
+/* Đảm bảo khung chứa menu top-right có vị trí relative */
+
+.top-right .policy-top {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Ẩn danh sách chọn khi ở trạng thái bình thường */
+
+.top-right .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1f29;
+    /* Màu nền tối phù hợp với shop */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    border-radius: 4px;
+    border: 1px solid #2d323d;
+}
+
+
+/* Hiển thị các link bên trong danh sách theo hàng dọc */
+
+.top-right .dropdown a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #2d323d;
+}
+
+.top-right .dropdown a:hover {
+    background-color: #ff0000;
+}
+
+.top-right .policy-top:hover .dropdown {
+    display: block;
+}
+
+.top-right .dropdown img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
