@@ -15,7 +15,7 @@ body {
 }
 
 
-/* ================= TOP BAR (Chuẩn trang chủ) ================= */
+/* TOP BAR (Chuẩn trang chủ)*/
 
 .top-bar {
     background: black;
@@ -43,6 +43,12 @@ body {
 .top-right a {
     color: white;
     text-decoration: none;
+    transition: color 0.2s ease;
+    /* Hiệu ứng đổi màu chữ mượt mà */
+}
+
+.top-right a:hover {
+    color: #ff0000;
 }
 
 
@@ -50,32 +56,48 @@ body {
 
 .policy-top {
     position: relative;
+    padding: 10px 0;
+}
+
+
+/* Giữ chữ "Thông tin liên hệ" luôn màu đỏ khi đang mở menu dropdown */
+
+.policy-top:hover>a {
+    color: #ff0000;
 }
 
 .dropdown {
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     width: 220px;
-    background: rgba(30, 35, 45, 0.9);
+    background: rgba(30, 35, 45, 0.95);
     display: none;
     flex-direction: column;
     z-index: 999;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .dropdown a {
-    color: white;
+    color: white !important;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 17px 23px;
     transition: 0.2s;
-    font-size: 16px;
+    font-size: 19px;
+    display: flex;
+    /* Căn ngang icon và chữ */
+    align-items: center;
+    /* Căn giữa icon theo chiều dọc */
 }
 
+
+/* Khi hover vào các lựa chọn (Facebook, TikTok, Zalo) nền sẽ biến thành màu đỏ, chữ giữ màu trắng */
+
 .dropdown a:hover {
-    background: white;
-    color: black;
+    background: #ff0000 !important;
+    color: white !important;
 }
 
 .policy-top:hover .dropdown {
@@ -83,15 +105,15 @@ body {
 }
 
 .dropdown img {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    vertical-align: middle;
-    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 10px;
+    object-fit: cover;
 }
 
 
-/* ================= MENU BAR (Chuẩn trang chủ) ================= */
+/* MENU BAR (Chuẩn trang chủ) */
 
 .menu {
     background: rgba(23, 26, 33, 0.95);
@@ -101,9 +123,6 @@ body {
     height: 70px;
     padding: 0 40px;
 }
-
-
-/* Đã xóa margin-top để logo không bị lùi xuống */
 
 .logo {
     width: 96px;
@@ -156,7 +175,7 @@ body {
 }
 
 
-/* ================= KHU VỰC NỘI DUNG CHÍNH ================= */
+/* KHU VỰC NỘI DUNG CHÍNH */
 
 .wrapper {
     padding: 40px 20px;
