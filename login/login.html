@@ -1,70 +1,125 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LOGIN</title>
     <link rel="stylesheet" href="login.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="login-container">
-        <form id="loginForm">
-            <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
-            <div class="input-box">
-                <label><span style="color: red">*</span> Tên tài khoản</label>
-                <input type="text" placeholder="Tài khoản" required />
-            </div>
+      <!-- ĐĂNG NHẬP -->
+      <form id="loginForm">
+        <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
 
-            <div class="input-box">
-                <label><span style="color: red">*</span> Mật khẩu</label>
-                <input type="password" placeholder="Mật khẩu" required />
-                <div class="forgot-password">
-                    <a href="#">Quên mật khẩu?</a>
-                </div>
-            </div>
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Tên tài khoản
+          </label>
 
-            <button type="submit">Đăng nhập</button>
+          <input type="text" placeholder="Tài khoản" required />
+        </div>
 
-            <p class="register">
-                Chưa có tài khoản?
-                <a href="#" onclick="showRegister()">Đăng ký tài khoản</a>
-            </p>
-        </form>
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Mật khẩu
+          </label>
 
-        <form id="registerForm" style="display: none">
-            <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+          <input type="password" placeholder="Mật khẩu" required />
 
-            <div class="input-box">
-                <label><span style="color: red">*</span> Tên tài khoản</label>
-                <input type="text" placeholder="Tài khoản" required />
-            </div>
+          <div class="forgot-password">
+            <a href="#" onclick="showForgotPassword()"> Quên mật khẩu? </a>
+          </div>
+        </div>
 
-            <div class="input-box">
-                <label><span style="color: red">*</span> Email</label>
-                <input type="email" placeholder="Email" required />
-            </div>
+        <button type="submit">Đăng nhập</button>
 
-            <div class="input-box">
-                <label><span style="color: red">*</span> Mật khẩu</label>
-                <input type="password" placeholder="Mật khẩu" required />
-            </div>
-            <div class="input-box">
-                <label><span style="color: red">*</span> Xác nhận mật khẩu</label>
-                <input type="password" placeholder="Xác nhận mật khẩu" required />
-            </div>
+        <p class="register">
+          Chưa có tài khoản?
 
-            <button type="submit">Đăng ký</button>
+          <a href="#" onclick="showRegister()"> Đăng ký tài khoản </a>
+        </p>
+      </form>
 
-            <p class="register">
-                Đã có tài khoản?
-                <a href="#" onclick="showLogin()">Đăng nhập tài khoản</a>
-            </p>
-        </form>
+      <!-- ĐĂNG KÝ -->
+      <form id="registerForm" style="display: none">
+        <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Tên tài khoản
+          </label>
+
+          <input type="text" placeholder="Tài khoản" required />
+        </div>
+
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Email
+          </label>
+
+          <input type="email" placeholder="Email" required />
+        </div>
+
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Mật khẩu
+          </label>
+
+          <input type="password" placeholder="Mật khẩu" required />
+        </div>
+
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+            Xác nhận mật khẩu
+          </label>
+
+          <input type="password" placeholder="Xác nhận mật khẩu" required />
+        </div>
+
+        <button type="submit">Đăng ký</button>
+
+        <p class="register">
+          Đã có tài khoản?
+
+          <a href="#" onclick="showLogin()"> Đăng nhập tài khoản </a>
+        </p>
+      </form>
+
+      <!-- QUÊN MẬT KHẨU -->
+      <form id="forgotForm" style="display: none">
+        <h2>QUÊN MẬT KHẨU</h2>
+
+        <div class="input-box">
+          <label>
+            <span style="color: red">*</span>
+
+            Nhập email của bạn
+          </label>
+
+          <input
+            type="email"
+            id="newPassword"
+            placeholder="Nhập email của bạn"
+            required
+          />
+        </div>
+
+        <button type="submit">Xác nhận</button>
+
+        <p class="register">
+          <a href="#" onclick="showLogin()"> Quay lại đăng nhập </a>
+        </p>
+      </form>
     </div>
 
     <script src="login.js"></script>
-</body>
-
+  </body>
 </html>
