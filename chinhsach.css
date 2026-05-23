@@ -15,7 +15,7 @@ body {
 }
 
 
-/* ================= TOP BAR (Chuẩn trang chủ) ================= */
+/* TOP BAR (Chuẩn trang chủ) */
 
 .top-bar {
     background: black;
@@ -68,14 +68,18 @@ body {
 .dropdown a {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
-    transition: 0.2s;
-    font-size: 16px;
+    padding: 12px 20px;
+    transition: background 0.2s ease;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .dropdown a:hover {
-    background: white;
-    color: black;
+    background: #ff0000;
+    color: white;
 }
 
 .policy-top:hover .dropdown {
@@ -83,15 +87,15 @@ body {
 }
 
 .dropdown img {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
     vertical-align: middle;
     margin-right: 8px;
 }
 
 
-/* ================= MENU BAR (Chuẩn trang chủ) ================= */
+/* MENU BAR (Chuẩn trang chủ) */
 
 .menu {
     background: rgba(23, 26, 33, 0.95);
@@ -101,9 +105,6 @@ body {
     height: 70px;
     padding: 0 40px;
 }
-
-
-/* Đã xóa margin-top để logo không bị lùi xuống */
 
 .logo {
     width: 96px;
@@ -156,7 +157,7 @@ body {
 }
 
 
-/* ================= KHU VỰC NỘI DUNG CHÍNH ================= */
+/* KHU VỰC NỘI DUNG CHÍNH */
 
 .wrapper {
     padding: 40px 20px;
