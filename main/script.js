@@ -634,18 +634,18 @@ function renderGames(gamesList) {
   });
 }
 
-// 1. TỰ ĐỘNG HIỂN THỊ TẤT CẢ GAME KHI VỪA VÀO TRANG CHỦ
+// TỰ ĐỘNG HIỂN THỊ TẤT CẢ GAME KHI VỪA VÀO TRANG CHỦ
 window.onload = function () {
   renderGames(games);
 };
 
-// 2. LOGIC KHI ẤN VÀO CHỮ "CỬA HÀNG" (HIỂN THỊ LẠI TOÀN BỘ GAME)
+// LOGIC KHI ẤN VÀO CHỮ "CỬA HÀNG" (HIỂN THỊ LẠI TOÀN BỘ GAME)
 storeBtn.addEventListener("click", function (e) {
   e.preventDefault(); // Ngăn cuộn trang
   renderGames(games);
 });
 
-// 3. XỬ LÝ SỰ KIỆN CHỌN THỂ LOẠI GAME TRONG MENU DROPDOWN
+// XỬ LÝ SỰ KIỆN CHỌN THỂ LOẠI GAME TRONG MENU DROPDOWN
 const genreDropdown = document.getElementById("genreDropdown");
 if (genreDropdown) {
   const dropdownLinks = genreDropdown.querySelectorAll("a");
@@ -681,7 +681,7 @@ searchInput.addEventListener("keyup", function () {
     }
   });
 });
-// ================= SỰ KIỆN CHUYỂN ĐỔI QUA LẠI GIỮA CỬA HÀNG VÀ HỖ TRỢ =================
+// SỰ KIỆN CHUYỂN ĐỔI QUA LẠI GIỮA CỬA HÀNG VÀ HỖ TRỢ
 const supportBtn = document.getElementById("supportBtn");
 const supportContainer = document.getElementById("support-container");
 const homeBtn = document.getElementById("homeBtn");
@@ -711,7 +711,7 @@ if (homeBtn) {
   });
 }
 
-// ================= HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ =================
+//  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
@@ -726,7 +726,7 @@ faqQuestions.forEach((question) => {
     }
   });
 });
-// ================= HIỂN THỊ USER SAU ĐĂNG NHẬP =================
+// HIỂN THỊ USER SAU ĐĂNG NHẬP
 
 window.addEventListener("DOMContentLoaded", () => {
   const authBtn = document.getElementById("userAuthLink");
@@ -734,11 +734,12 @@ window.addEventListener("DOMContentLoaded", () => {
   if (!authBtn) return;
 
   const currentUser = localStorage.getItem("currentUser");
+  const balance = localStorage.getItem("balance") || "0";
 
   if (currentUser) {
     authBtn.innerHTML = `
             <span class="user-avatar">👤</span>
-            <span>${currentUser}</span>
+            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
         `;
 
     authBtn.href = "#";

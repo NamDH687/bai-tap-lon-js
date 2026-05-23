@@ -137,5 +137,44 @@
         </p>
       </div>
     </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const authBtn = document.getElementById("userAuthLink");
+
+        if (!authBtn) return;
+
+        const currentUser = localStorage.getItem("currentUser");
+        const balance = localStorage.getItem("balance") || "0";
+
+        if (currentUser) {
+          authBtn.innerHTML = `
+            <span class="user-avatar">👤</span>
+            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
+        `;
+
+          authBtn.href = "#";
+
+          authBtn.classList.add("logged");
+
+          authBtn.style.opacity = "0";
+
+          setTimeout(() => {
+            authBtn.style.transition = "0.6s";
+            authBtn.style.opacity = "1";
+          }, 200);
+
+          authBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            if (confirm("Đăng xuất tài khoản?")) {
+              localStorage.removeItem("currentUser");
+
+              location.reload();
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
