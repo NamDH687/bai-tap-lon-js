@@ -1,7 +1,14 @@
+// ===== KHAI BÁO BIẾN DOM =====
+const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
+const searchInput = document.getElementById("searchInput");
+const supportBtn = document.getElementById("supportBtn");
 const supportContainer = document.getElementById("support-container");
+const homeBtn = document.getElementById("homeBtn");
+const ratingSection = document.getElementById("rating-section"); // Đưa lên đầu file
+const ratingBtn = document.getElementById("ratingBtn"); // Nên đặt ID cho nút Đánh giá trong HTML thay vì dùng href=""
 
-// Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
+// ===== DANH SÁCH GAME CỐ ĐỊNH =====
 const games = [
   {
     name: "GTA V",
@@ -39,7 +46,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Call of Duty®: Black Ops III",
+    name: "Call of Duty®: Black Ops III ",
     price: "475.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663",
@@ -151,7 +158,7 @@ const games = [
     genre: "chiensuat",
   },
   {
-    name: "Teamfight Tactics",
+    name: "Team Fight Tactics",
     price: "Miễn phí",
     image:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
@@ -618,142 +625,119 @@ const games = [
   },
 ];
 
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+// ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
+let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
+
+function getGameRating(gameName) {
+  if (!savedRatings[gameName]) {
+    // Chỉ giữ lại các số nguyên chẵn từ 1 đến 5
+    const starPool = [1, 2, 3, 4, 5];
+
+    const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
+
+    savedRatings[gameName] = {
+      stars: Number(randomStar),
+      reviews: Math.floor(Math.random() * 5000) + 100,
+    };
+
+    localStorage.setItem("gameRatings", JSON.stringify(savedRatings));
+  }
+
+  return savedRatings[gameName];
+}
+// Hiển thị sao
+function createStars(rate) {
+  const full = Math.floor(rate);
+  let result = "";
+  for (let i = 0; i < 5; i++) {
+    result += i < full ? "★" : "☆";
+  }
+  return result;
 }
 
+// Render game ra màn hình
+// Render game ra màn hình (Đã xóa số hiển thị bên cạnh sao)
 function renderGames(gamesList) {
+  if (!gamesDiv) return;
   gamesDiv.innerHTML = "";
+
   gamesList.forEach((game) => {
-    const title = String(game.name).trim();
+    const rating = getGameRating(game.name);
     gamesDiv.innerHTML += `
             <div class="game-card">
-                <img src="${game.image}" alt="${escapeHtml(title)}">
+                <img src="${game.image}">
                 <div class="game-info">
-                    <h3 class="game-title">${escapeHtml(title)}</h3>
-                    <p class="price">${escapeHtml(game.price)}</p>
+                    <div class="game-title">${game.name}</div>
+                    <div class="game-rating">
+                        <span class="stars">${createStars(rating.stars)}</span>
+                        <span class="review-count">(${rating.reviews.toLocaleString("vi-VN")} đánh giá)</span>
+                    </div>
+                    <div class="price">${game.price}</div>
                 </div>
             </div>
         `;
   });
 }
 
-function showSupportView() {
-  if (!gamesDiv || !supportContainer) return;
-  gamesDiv.style.display = "none";
-  supportContainer.style.display = "block";
-  window.location.hash = "ho-tro";
-}
+// ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
+window.onload = function () {
+  // Mặc định khi vừa vào trang: Hiện game, Ẩn hỗ trợ, Ẩn thanh lọc sao
+  if (gamesDiv) gamesDiv.style.display = "grid";
+  if (supportContainer) supportContainer.style.display = "none";
+  if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao đi, chỉ hiện ở trang Đánh giá
 
-function showGamesView() {
-  if (!gamesDiv || !supportContainer) return;
-  gamesDiv.style.display = "grid";
-  supportContainer.style.display = "none";
-  if (window.location.hash === "#ho-tro") {
-    history.replaceState(null, "", window.location.pathname);
-  }
-}
+  renderGames(games);
+};
 
-let mainPageInitialized = false;
-
-function initMainPage() {
-  if (mainPageInitialized || !gamesDiv) return;
-  mainPageInitialized = true;
-
-  const storeBtn = document.getElementById("storeBtn");
-  const searchInput = document.getElementById("searchInput");
-  const supportBtn = document.getElementById("supportBtn");
-  const homeBtn = document.getElementById("homeBtn");
-  const genreDropdown = document.getElementById("genreDropdown");
-
-  function renderGamesFromHash() {
-    const hash = window.location.hash;
-    if (hash.startsWith("#genre-")) {
-      const genre = hash.slice(7);
-      if (genre === "all") {
-        renderGames(games);
-      } else {
-        renderGames(games.filter((game) => game.genre === genre));
-      }
-      return true;
+// KHI CLICK TRANG CHỦ
+if (homeBtn) {
+  homeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
+      renderGames(games);
     }
-    return false;
-  }
+  });
+}
 
-  window.onload = function () {
-    if (window.location.hash === "#ho-tro") {
-      showSupportView();
-    } else if (!renderGamesFromHash()) {
+// KHI CLICK CỬA HÀNG
+if (storeBtn) {
+  storeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
       renderGames(games);
-    } else {
-      showGamesView();
     }
-  };
-
-  if (storeBtn) {
-    storeBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showGamesView();
-      renderGames(games);
-    });
-  }
-
-  if (genreDropdown && searchInput) {
-    const dropdownLinks = genreDropdown.querySelectorAll("a");
-    dropdownLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const selectedGenre = this.getAttribute("data-genre");
-        searchInput.value = "";
-        showGamesView();
-
-        if (selectedGenre === "all") {
-          renderGames(games);
-        } else {
-          renderGames(games.filter((game) => game.genre === selectedGenre));
-        }
-      });
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("keyup", function () {
-      const keyword = searchInput.value.toLowerCase();
-      document.querySelectorAll(".game-card").forEach((card) => {
-        const title = card
-          .querySelector(".game-title")
-          .textContent.toLowerCase();
-        card.style.display = title.includes(keyword) ? "block" : "none";
-      });
-    });
-  }
-
-  if (supportBtn && supportContainer) {
-    supportBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showSupportView();
-    });
-  }
-
-  if (homeBtn) {
-    homeBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showGamesView();
-      renderGames(games);
-    });
-  }
+  });
 }
 
-document.addEventListener("navbarReady", initMainPage, { once: true });
-if (document.getElementById("storeBtn")) {
-  initMainPage();
+// KHI CLICK NÚT HỖ TRỢ
+if (supportBtn) {
+  supportBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
+  });
 }
 
-//  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
+// KHI CLICK NÚT ĐÁNH GIÁ (CHỈ HIỆN THANH SAO Ở ĐÂY)
+if (ratingBtn) {
+  ratingBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
+    if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
+
+    renderGames(games);
+  });
+}
+
+// HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
@@ -761,10 +745,65 @@ faqQuestions.forEach((question) => {
     item.classList.toggle("active");
 
     const span = question.querySelector("span");
-    if (item.classList.contains("active")) {
-      span.textContent = "−";
-    } else {
-      span.textContent = "+";
+    if (span) {
+      span.textContent = item.classList.contains("active") ? "−" : "+";
     }
+  });
+});
+
+// KIỂM TRA ĐĂNG NHẬP
+window.addEventListener("DOMContentLoaded", () => {
+  const authBtn = document.getElementById("userAuthLink");
+  if (!authBtn) return;
+
+  const currentUser = localStorage.getItem("currentUser");
+  const balance = localStorage.getItem("balance") || "0";
+
+  if (currentUser) {
+    authBtn.innerHTML = `
+            <span class="user-avatar">👤</span>
+            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
+        `;
+    authBtn.href = "#";
+    authBtn.classList.add("logged");
+    authBtn.style.opacity = "0";
+
+    setTimeout(() => {
+      authBtn.style.transition = "0.6s";
+      authBtn.style.opacity = "1";
+    }, 200);
+
+    authBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (confirm("Đăng xuất tài khoản?")) {
+        localStorage.removeItem("currentUser");
+        location.reload();
+      }
+    });
+  }
+});
+
+// LỌC THEO ĐÁNH GIÁ SAO
+const starBtns = document.querySelectorAll(".star-btn");
+starBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".star-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const selected = btn.dataset.star;
+
+    if (selected === "all") {
+      renderGames(games);
+      return;
+    }
+
+    const filtered = games.filter((game) => {
+      const rating = parseFloat(getGameRating(game.name).stars);
+      return Math.floor(rating) === Number(selected);
+    });
+
+    renderGames(filtered);
   });
 });
