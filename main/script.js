@@ -556,7 +556,27 @@ genreLinks.forEach((link) => {
     if (ratingSection) ratingSection.style.display = "none";
   });
 });
+games.forEach(game => {
+    gamesDiv.innerHTML += `
+        <div class="game-card"
+        ${game.link ? `onclick="window.location.href='${game.link}'"` : ""}>
+        
+            <img src="${game.image}" alt="${game.name}">
 
+            <div class="game-info">
+                <div class="game-title">${game.name}</div>
+                <div class="price-box">
+                <span class="old-price">${game.oldPrice || ""}</span>
+                <span class="price">${game.price}</span>
+                ${game.discount ? 
+                `<span class="discount">${game.discount}</span>` 
+                : ""}
+            </div>
+            </div>
+
+        </div>
+    `;
+});
 // ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
 let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
 
@@ -602,7 +622,6 @@ function renderGames(gamesList) {
         `;
   });
 }
-
 
 // ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
 window.onload = function () {
