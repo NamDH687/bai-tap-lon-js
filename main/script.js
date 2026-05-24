@@ -1,6 +1,5 @@
-const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
-const searchInput = document.getElementById("searchInput");
+const supportContainer = document.getElementById("support-container");
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [
@@ -40,7 +39,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Call of Duty®: Black Ops III ",
+    name: "Call of Duty®: Black Ops III",
     price: "475.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663",
@@ -152,7 +151,7 @@ const games = [
     genre: "chiensuat",
   },
   {
-    name: "Team Fight Tactics",
+    name: "Teamfight Tactics",
     price: "Miễn phí",
     image:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
@@ -619,96 +618,139 @@ const games = [
   },
 ];
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function renderGames(gamesList) {
   gamesDiv.innerHTML = "";
   gamesList.forEach((game) => {
+    const title = String(game.name).trim();
     gamesDiv.innerHTML += `
             <div class="game-card">
-                <img src="${game.image}">
+                <img src="${game.image}" alt="${escapeHtml(title)}">
                 <div class="game-info">
-                    <div class="game-title">${game.name}</div>
-                    <div class="price">${game.price}</div>
+                    <h3 class="game-title">${escapeHtml(title)}</h3>
+                    <p class="price">${escapeHtml(game.price)}</p>
                 </div>
             </div>
         `;
   });
 }
 
-// TỰ ĐỘNG HIỂN THỊ TẤT CẢ GAME KHI VỪA VÀO TRANG CHỦ
-window.onload = function () {
-  renderGames(games);
-};
+function showSupportView() {
+  if (!gamesDiv || !supportContainer) return;
+  gamesDiv.style.display = "none";
+  supportContainer.style.display = "block";
+  window.location.hash = "ho-tro";
+}
 
-// LOGIC KHI ẤN VÀO CHỮ "CỬA HÀNG" (HIỂN THỊ LẠI TOÀN BỘ GAME)
-storeBtn.addEventListener("click", function (e) {
-  e.preventDefault(); // Ngăn cuộn trang
-  renderGames(games);
-});
+function showGamesView() {
+  if (!gamesDiv || !supportContainer) return;
+  gamesDiv.style.display = "grid";
+  supportContainer.style.display = "none";
+  if (window.location.hash === "#ho-tro") {
+    history.replaceState(null, "", window.location.pathname);
+  }
+}
 
-// XỬ LÝ SỰ KIỆN CHỌN THỂ LOẠI GAME TRONG MENU DROPDOWN
-const genreDropdown = document.getElementById("genreDropdown");
-if (genreDropdown) {
-  const dropdownLinks = genreDropdown.querySelectorAll("a");
-  dropdownLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault();
+let mainPageInitialized = false;
 
-      const selectedGenre = this.getAttribute("data-genre");
-      searchInput.value = "";
+function initMainPage() {
+  if (mainPageInitialized || !gamesDiv) return;
+  mainPageInitialized = true;
 
-      if (selectedGenre === "all") {
+  const storeBtn = document.getElementById("storeBtn");
+  const searchInput = document.getElementById("searchInput");
+  const supportBtn = document.getElementById("supportBtn");
+  const homeBtn = document.getElementById("homeBtn");
+  const genreDropdown = document.getElementById("genreDropdown");
+
+  function renderGamesFromHash() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#genre-")) {
+      const genre = hash.slice(7);
+      if (genre === "all") {
         renderGames(games);
       } else {
-        const filteredGames = games.filter(
-          (game) => game.genre === selectedGenre,
-        );
-        renderGames(filteredGames);
+        renderGames(games.filter((game) => game.genre === genre));
       }
-    });
-  });
-}
-
-searchInput.addEventListener("keyup", function () {
-  const keyword = searchInput.value.toLowerCase();
-  const gameCards = document.querySelectorAll(".game-card");
-
-  gameCards.forEach((card) => {
-    const title = card.querySelector(".game-title").textContent.toLowerCase();
-    if (title.includes(keyword)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
+      return true;
     }
-  });
-});
-// SỰ KIỆN CHUYỂN ĐỔI QUA LẠI GIỮA CỬA HÀNG VÀ HỖ TRỢ
-const supportBtn = document.getElementById("supportBtn");
-const supportContainer = document.getElementById("support-container");
-const homeBtn = document.getElementById("homeBtn");
+    return false;
+  }
 
-// Khi click vào nút HỖ TRỢ
-if (supportBtn) {
-  supportBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    gamesDiv.style.display = "none"; // Ẩn vùng hiển thị game đi
-    supportContainer.style.display = "block"; // Hiện vùng hỗ trợ lên
-  });
+  window.onload = function () {
+    if (window.location.hash === "#ho-tro") {
+      showSupportView();
+    } else if (!renderGamesFromHash()) {
+      renderGames(games);
+    } else {
+      showGamesView();
+    }
+  };
+
+  if (storeBtn) {
+    storeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showGamesView();
+      renderGames(games);
+    });
+  }
+
+  if (genreDropdown && searchInput) {
+    const dropdownLinks = genreDropdown.querySelectorAll("a");
+    dropdownLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const selectedGenre = this.getAttribute("data-genre");
+        searchInput.value = "";
+        showGamesView();
+
+        if (selectedGenre === "all") {
+          renderGames(games);
+        } else {
+          renderGames(games.filter((game) => game.genre === selectedGenre));
+        }
+      });
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("keyup", function () {
+      const keyword = searchInput.value.toLowerCase();
+      document.querySelectorAll(".game-card").forEach((card) => {
+        const title = card
+          .querySelector(".game-title")
+          .textContent.toLowerCase();
+        card.style.display = title.includes(keyword) ? "block" : "none";
+      });
+    });
+  }
+
+  if (supportBtn && supportContainer) {
+    supportBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showSupportView();
+    });
+  }
+
+  if (homeBtn) {
+    homeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showGamesView();
+      renderGames(games);
+    });
+  }
 }
 
-// Khi click vào TRANG CHỦ hoặc CỬA HÀNG thì hiển thị lại Game, ẩn Hỗ trợ
-if (storeBtn) {
-  storeBtn.addEventListener("click", function () {
-    supportContainer.style.display = "none";
-    gamesDiv.style.display = "grid";
-  });
-}
-if (homeBtn) {
-  homeBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    supportContainer.style.display = "none";
-    gamesDiv.style.display = "grid";
-    renderGames(games);
-  });
+document.addEventListener("navbarReady", initMainPage, { once: true });
+if (document.getElementById("storeBtn")) {
+  initMainPage();
 }
 
 //  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
@@ -725,71 +767,4 @@ faqQuestions.forEach((question) => {
       span.textContent = "+";
     }
   });
-});
-// HIỂN THỊ USER SAU ĐĂNG NHẬP
-
-window.addEventListener("DOMContentLoaded", () => {
-  const authBtn = document.getElementById("userAuthLink");
-
-  if (!authBtn) return;
-
-  const currentUser = localStorage.getItem("currentUser");
-  const balance = localStorage.getItem("balance") || "0";
-
-  if (currentUser) {
-    authBtn.innerHTML = `
-            
-            <div class="btn-group">
-  <button type="button" class="btn btn-primary"><span class="user-avatar">👤</span>
-            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span></button>
-  <button
-    type="button"
-    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    <span class="visually-hidden">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Thông tin</a></li>
-    <li><a class="dropdown-item" href="#">Nạp tiền</a></li>
-    <li><a class="dropdown-item" href="#">Cài đặt</a></li>
-    <li><hr class="dropdown-divider" /></li>
-    <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
-  </ul>
-</div>
-        `;
-
-    authBtn.href = "#";
-
-    authBtn.classList.add("logged");
-
-    const dropdownToggle = authBtn.querySelector('[data-bs-toggle="dropdown"]');
-    if (dropdownToggle && typeof bootstrap !== "undefined") {
-      new bootstrap.Dropdown(dropdownToggle);
-    }
-
-    const logoutBtn = authBtn.querySelector("#logoutBtn");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (confirm("Đăng xuất tài khoản?")) {
-          localStorage.removeItem("currentUser");
-          location.reload();
-        }
-      });
-    }
-
-    authBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-    });
-
-    authBtn.style.opacity = "0";
-
-    setTimeout(() => {
-      authBtn.style.transition = "0.6s";
-      authBtn.style.opacity = "1";
-    }, 200);
-  }
 });

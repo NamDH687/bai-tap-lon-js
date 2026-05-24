@@ -14,128 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* TOP BAR */
-
-.top-bar {
-  background: black;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  font-size: 18px;
-}
-
-.top-right {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.top-right a {
-  color: white;
-  text-decoration: none;
-}
-
-/* MENU */
-
-.menu {
-  background: rgba(23, 26, 33, 0.95);
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  height: 70px;
-  padding: 0 40px;
-}
-
-.logo {
-  width: 96px;
-  height: 90px;
-}
-
-/* MENU ITEM */
-
-.menu-item {
-  position: relative;
-}
-
-.menu-item > a {
-  color: white;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: bold;
-  padding: 20px 0;
-  display: block;
-  transition: 0.2s;
-}
-
-.menu-item > a:hover {
-  color: #ff0000;
-  box-shadow: inset 0 -4px 0 #ff0000;
-}
-
-.policy {
-  position: relative;
-}
-
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 220px;
-  background: rgba(30, 35, 45, 0.9);
-  display: none;
-  flex-direction: column;
-  z-index: 999;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.dropdown a {
-  color: white;
-  text-decoration: none;
-  padding: 15px 20px;
-  transition: 0.2s;
-}
-
-.dropdown a:hover {
-  background: white;
-  color: black;
-}
-
-.policy:hover .dropdown {
-  display: flex;
-}
-
-.dropdown img {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-}
-
-.search-box {
-  width: 400px;
-  height: 30px;
-  background: white;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-}
-
-.search-box input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 16px;
-}
-
-.search-box button {
-  border: none;
-  background: none;
-  font-size: 20px;
-  cursor: pointer;
-}
+/* Navbar: xem navbar.css */
 
 #games {
   display: grid;
@@ -164,77 +43,32 @@ body {
 }
 
 .game-info {
-  padding: 15px;
+  padding: 14px 16px 16px;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.game-title {
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.price {
-  color: #00ff99;
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-.dropdown img {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-}
-
-/* NÚT ĐĂNG NHẬP */
-
-.login {
-  margin-left: auto;
-}
-
-.login > a {
-  /* background: #00bfff; */
-  padding: 6px 14px;
-  border-radius: 9px;
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  text-decoration: none;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-.login > a:hover {
-  /* background: #0088cc; */
-  color: white;
-  box-shadow: none;
-}
-
-.login .dropdown-menu .dropdown-item {
-  color: #212529;
-  font-size: 1rem;
-  font-weight: normal;
-  padding: 0.25rem 1rem;
-}
-
-.login .dropdown-menu .dropdown-item:hover {
-  color: #1e2125;
-  background-color: #f8f9fa;
-}
-
-.login .dropdown-menu button.dropdown-item {
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.login .dropdown-menu #logoutBtn {
-  color: #dc3545;
-}
-
-.login .dropdown-menu #logoutBtn:hover {
+.game-card .game-title {
   color: #fff;
-  background-color: #dc3545;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  text-overflow: ellipsis;
+}
+
+.game-card .price {
+  color: #00ff99;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 /* THANH PHÂN LOẠI GAME */
@@ -470,81 +304,4 @@ body {
 
 .sp-btn-submit:hover {
   background: #cc0000;
-}
-
-/* Đảm bảo khung chứa menu top-right có vị trí relative */
-
-.top-right .policy-top {
-  position: relative;
-  display: inline-block;
-}
-
-/* Ẩn danh sách chọn khi ở trạng thái bình thường */
-
-.top-right .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #1a1f29;
-  /* Màu nền tối phù hợp với shop */
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  border-radius: 4px;
-  border: 1px solid #2d323d;
-}
-
-/* Hiển thị các link bên trong danh sách theo hàng dọc */
-
-.top-right .dropdown a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid #2d323d;
-}
-
-.top-right .dropdown a:hover {
-  background-color: #ff0000;
-}
-
-.top-right .policy-top:hover .dropdown {
-  display: block;
-}
-
-.top-right .dropdown img {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px;
-}
-
-.user-avatar {
-  font-size: 18px;
-  animation: avatarJump 1.5s infinite;
-}
-
-@keyframes userFade {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes avatarJump {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }

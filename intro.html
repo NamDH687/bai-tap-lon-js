@@ -4,7 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Về Tuat.vn - SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
+    <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="intro.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <style>
       .wrapper {
         padding: 40px 20px;
@@ -38,83 +45,10 @@
     </style>
   </head>
 
-  <body>
-    <!-- TOP BAR (ĐÃ XOÁ Ô TÌM KIẾM) -->
-    <div class="top-bar">
-      <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+  <body data-page="intro">
+    <div id="site-navbar"></div>
+    <script src="navbar.js"></script>
 
-      <div class="top-right">
-        <a href="intro.html">Về Tuat.vn |</a>
-        <a href="chinhsach.html">Chính sách |</a>
-
-        <!-- ĐÃ BỔ SUNG: Đổi class thành "policy-top" để khớp hoàn toàn với file CSS của bạn -->
-        <div class="policy-top">
-          <a href="#">Thông tin liên hệ ▾|</a>
-          <div class="dropdown">
-            <a
-              href="https://www.facebook.com/profile.php?id=61590020309778"
-              target="_blank"
-            >
-              <img
-                src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg"
-              />
-              Facebook
-            </a>
-            <a
-              href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc"
-              target="_blank"
-            >
-              <img
-                src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9"
-              />
-              TikTok
-            </a>
-            <!-- ĐÃ BỔ SUNG: Xóa bỏ cặp dấu ngoặc vuông [] ở link Zalo để tránh lỗi điều hướng -->
-            <a href="https://zalo.me/0387918807" target="_blank">
-              <img
-                src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ"
-              />
-              Zalo
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MENU ĐÃ ĐỒNG BỘ -->
-    <div class="menu">
-      <a href="main/index.html">
-        <img src="logo.jpg" class="logo" />
-      </a>
-      <div class="menu-item">
-        <a href="main/index.html" id="homeBtn">TRANG CHỦ</a>
-      </div>
-
-      <div class="policy menu-item">
-        <a href="main/index.html" id="storeBtn">CỬA HÀNG</a>
-        <div class="dropdown" id="genreDropdown">
-          <a href="#" data-genre="all">Tất cả game</a>
-          <a href="#" data-genre="nhapvai">Game Nhập vai</a>
-          <a href="#" data-genre="thethao">Game Thể thao</a>
-          <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
-          <a href="#" data-genre="duaxe">Game Đua xe</a>
-          <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
-        </div>
-      </div>
-
-      <div class="menu-item">
-        <a href="">THÔNG TIN</a>
-      </div>
-
-      <div class="menu-item">
-        <a href="">HỖ TRỢ</a>
-      </div>
-      <div class="menu-item login">
-        <a href="login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
-      </div>
-    </div>
-
-    <!-- NỘI DUNG GIỚI THIỆU -->
     <div class="wrapper">
       <div class="intro-container">
         <h1>Về Tuat.vn</h1>
@@ -138,43 +72,10 @@
       </div>
     </div>
 
-    <script>
-      window.addEventListener("DOMContentLoaded", () => {
-        const authBtn = document.getElementById("userAuthLink");
-
-        if (!authBtn) return;
-
-        const currentUser = localStorage.getItem("currentUser");
-        const balance = localStorage.getItem("balance") || "0";
-
-        if (currentUser) {
-          authBtn.innerHTML = `
-            <span class="user-avatar">👤</span>
-            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
-        `;
-
-          authBtn.href = "#";
-
-          authBtn.classList.add("logged");
-
-          authBtn.style.opacity = "0";
-
-          setTimeout(() => {
-            authBtn.style.transition = "0.6s";
-            authBtn.style.opacity = "1";
-          }, 200);
-
-          authBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-
-            if (confirm("Đăng xuất tài khoản?")) {
-              localStorage.removeItem("currentUser");
-
-              location.reload();
-            }
-          });
-        }
-      });
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
