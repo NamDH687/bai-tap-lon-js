@@ -1,14 +1,20 @@
-// ===== KHAI BÁO BIẾN DOM =====
 const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
+const bannerWrapper = document.querySelector(".game-banner-wrapper");
 const searchInput = document.getElementById("searchInput");
 const supportBtn = document.getElementById("supportBtn");
 const supportContainer = document.getElementById("support-container");
 const homeBtn = document.getElementById("homeBtn");
-const ratingSection = document.getElementById("rating-section"); // Đưa lên đầu file
-const ratingBtn = document.getElementById("ratingBtn"); // Nên đặt ID cho nút Đánh giá trong HTML thay vì dùng href=""
+const ratingSection = document.getElementById("rating-section");
+const ratingBtn = document.getElementById("ratingBtn");
 
-// ===== DANH SÁCH GAME CỐ ĐỊNH =====
+function showBanner() {
+  if (bannerWrapper) bannerWrapper.style.display = "block";
+}
+
+function hideBanner() {
+  if (bannerWrapper) bannerWrapper.style.display = "none";
+}
 const games = [
   {
     name: "GTA V",
@@ -624,13 +630,32 @@ const games = [
     genre: "chiensuat",
   },
 ];
+// ===== LỌC THEO THỂ LOẠI (GENRE) =====
+const genreLinks = document.querySelectorAll("#genreDropdown a");
+
+genreLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const genre = this.dataset.genre;
+
+    if (genre === "all") {
+      renderGames(games);
+    } else {
+      const filteredGames = games.filter((game) => game.genre === genre);
+      renderGames(filteredGames);
+    }
+    if (gamesDiv) gamesDiv.style.display = "grid";
+    if (supportContainer) supportContainer.style.display = "none";
+    if (ratingSection) ratingSection.style.display = "none";
+  });
+});
 
 // ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
 let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
 
 function getGameRating(gameName) {
   if (!savedRatings[gameName]) {
-    // Chỉ giữ lại các số nguyên chẵn từ 1 đến 5
     const starPool = [1, 2, 3, 4, 5];
 
     const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
@@ -656,7 +681,6 @@ function createStars(rate) {
 }
 
 // Render game ra màn hình
-// Render game ra màn hình (Đã xóa số hiển thị bên cạnh sao)
 function renderGames(gamesList) {
   if (!gamesDiv) return;
   gamesDiv.innerHTML = "";
@@ -693,6 +717,7 @@ window.onload = function () {
 if (homeBtn) {
   homeBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    showBanner();
     if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
     if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
     if (gamesDiv) {
@@ -706,6 +731,7 @@ if (homeBtn) {
 if (storeBtn) {
   storeBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    hideBanner();
     if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
     if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
     if (gamesDiv) {
@@ -719,6 +745,7 @@ if (storeBtn) {
 if (supportBtn) {
   supportBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    hideBanner();
     if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
     if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
     if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
@@ -729,6 +756,7 @@ if (supportBtn) {
 if (ratingBtn) {
   ratingBtn.addEventListener("click", function (e) {
     e.preventDefault();
+    hideBanner();
     if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
     if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
     if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
@@ -807,3 +835,33 @@ starBtns.forEach((btn) => {
     renderGames(filtered);
   });
 });
+const bannerGames = [
+  games[0],
+  games[1],
+  games[2],
+  games[3],
+  games[10],
+  games[15],
+  games[20],
+  games[30],
+  games[40],
+];
+const loopGames = [...bannerGames, ...bannerGames];
+
+function renderBanner() {
+  const track = document.getElementById("gameBannerTrack");
+  if (!track) return;
+
+  track.innerHTML = "";
+
+  loopGames.forEach((game) => {
+    track.innerHTML += `
+      <div class="banner-card">
+        <img src="${game.image}">
+        <div class="banner-title">${game.name}</div>
+      </div>
+    `;
+  });
+}
+
+window.addEventListener("load", renderBanner);
