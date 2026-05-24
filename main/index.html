@@ -16,8 +16,9 @@
             <button>🔍</button>
         </div>
         <div class="top-right">
-            <a href="../intro.html">Về Tuat.vn |</a>
-            <a href="../chinhsach.html">Chính sách |</a>
+            <a href="../intro.html" onclick="saveLogin()">Về Tuat.vn |</a>
+
+            <a href="../chinhsach.html" onclick="saveLogin()">Chính sách |</a>
             <div class="policy-top">
                 <a href="">Thông tin liên hệ ▾|</a>
                 <div class="dropdown">
@@ -53,8 +54,9 @@
             </div>
         </div>
         <div class="menu-item">
-            <a href="">THÔNG TIN</a>
+            <a href="#" id="ratingBtn">ĐÁNH GIÁ</a>
         </div>
+
         <div class="menu-item">
             <a href="#" id="supportBtn">HỖ TRỢ</a>
         </div>
@@ -69,6 +71,23 @@
 
               <span id="cart-count">0</span>
             </a>
+        </div>
+    </div>
+    <div id="rating-section" style="display: none">
+        <div class="rating-filter">
+            <button class="star-btn active" data-star="all">Tất cả</button>
+            <button class="star-btn" data-star="5">★★★★★</button>
+            <button class="star-btn" data-star="4">★★★★☆</button>
+            <button class="star-btn" data-star="3">★★★☆☆</button>
+            <button class="star-btn" data-star="2">★★☆☆☆</button>
+            <button class="star-btn" data-star="1">★☆☆☆☆</button>
+        </div>
+    </div>
+
+    </div>
+    <!-- ===== BANNER GAME HOT (NEW) ===== -->
+    <div class="game-banner-wrapper">
+        <div class="game-banner-track" id="gameBannerTrack">
         </div>
     </div>
     <div id="games"></div>
@@ -220,7 +239,6 @@
         <button type="submit" class="sp-btn-submit">Gửi Yêu Cầu Hỗ Trợ</button>
       </form>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>

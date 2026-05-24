@@ -1,5 +1,6 @@
 const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
+const bannerWrapper = document.querySelector(".game-banner-wrapper");
 const searchInput = document.getElementById("searchInput");
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
@@ -535,122 +536,233 @@ const games = [{
         genre: "chiensuat",
     },
 ];
+// ===== LỌC THEO THỂ LOẠI (GENRE) =====
+const genreLinks = document.querySelectorAll("#genreDropdown a");
 
+genreLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const genre = this.dataset.genre;
+
+    if (genre === "all") {
+      renderGames(games);
+    } else {
+      const filteredGames = games.filter((game) => game.genre === genre);
+      renderGames(filteredGames);
+    }
+    if (gamesDiv) gamesDiv.style.display = "grid";
+    if (supportContainer) supportContainer.style.display = "none";
+    if (ratingSection) ratingSection.style.display = "none";
+  });
+});
+
+// ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
+let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
+
+function getGameRating(gameName) {
+  if (!savedRatings[gameName]) {
+    const starPool = [1, 2, 3, 4, 5];
+
+    const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
+
+    savedRatings[gameName] = {
+      stars: Number(randomStar),
+      reviews: Math.floor(Math.random() * 5000) + 100,
+    };
+
+    localStorage.setItem("gameRatings", JSON.stringify(savedRatings));
+  }
+
+  return savedRatings[gameName];
+}
+// Hiển thị sao
+function createStars(rate) {
+  const full = Math.floor(rate);
+  let result = "";
+  for (let i = 0; i < 5; i++) {
+    result += i < full ? "★" : "☆";
+  }
+  return result;
+}
+
+// Render game ra màn hình
 function renderGames(gamesList) {
     gamesDiv.innerHTML = "";
     gamesList.forEach((game) => {
-        const priceHTML = game.discount
-            ? `<div class="price">
-                <span style="text-decoration:line-through; color:#888; font-size:14px;">${game.oldPrice}</span>
-                <span style="background:#e74c3c; color:#fff; font-size:12px; font-weight:bold; padding:2px 6px; border-radius:4px; margin:0 6px;">${game.discount}</span>
-                <span style="color:#00ff99; font-size:16px; font-weight:bold;">${game.price}</span>
-               </div>`
-            : `<div class="price">${game.price}</div>`;
-
         gamesDiv.innerHTML += `
-            <a href="${game.link || '#'}" class="game-link">
             <div class="game-card">
                 <img src="${game.image}">
                 <div class="game-info">
                     <div class="game-title">${game.name}</div>
-                    ${priceHTML}
+                    <div class="price">${game.price}</div>
                 </div>
             </div>
             </a>
         `;
-    });
+  });
 }
 
 
-// 1. TỰ ĐỘNG HIỂN THỊ TẤT CẢ GAME KHI VỪA VÀO TRANG CHỦ
-window.onload = function() {
-    renderGames(games);
+// ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
+window.onload = function () {
+  // Mặc định khi vừa vào trang: Hiện game, Ẩn hỗ trợ, Ẩn thanh lọc sao
+  if (gamesDiv) gamesDiv.style.display = "grid";
+  if (supportContainer) supportContainer.style.display = "none";
+  if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao đi, chỉ hiện ở trang Đánh giá
+
+  renderGames(games);
 };
 
-// 2. LOGIC KHI ẤN VÀO CHỮ "CỬA HÀNG" (HIỂN THỊ LẠI TOÀN BỘ GAME)
-storeBtn.addEventListener("click", function(e) {
-    e.preventDefault(); // Ngăn cuộn trang
-    renderGames(games);
-});
-
-// 3. XỬ LÝ SỰ KIỆN CHỌN THỂ LOẠI GAME TRONG MENU DROPDOWN
-const genreDropdown = document.getElementById("genreDropdown");
-if (genreDropdown) {
-    const dropdownLinks = genreDropdown.querySelectorAll("a");
-    dropdownLinks.forEach((link) => {
-        link.addEventListener("click", function(e) {
-            e.preventDefault();
-
-            const selectedGenre = this.getAttribute("data-genre");
-            searchInput.value = "";
-
-            if (selectedGenre === "all") {
-                renderGames(games);
-            } else {
-                const filteredGames = games.filter(
-                    (game) => game.genre === selectedGenre,
-                );
-                renderGames(filteredGames);
-            }
-        });
-    });
-}
-
-searchInput.addEventListener("keyup", function() {
-    const keyword = searchInput.value.toLowerCase();
-    const gameCards = document.querySelectorAll(".game-card");
-
-    gameCards.forEach((card) => {
-        const title = card.querySelector(".game-title").textContent.toLowerCase();
-        if (title.includes(keyword)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
-    });
-});
-// ================= SỰ KIỆN CHUYỂN ĐỔI QUA LẠI GIỮA CỬA HÀNG VÀ HỖ TRỢ =================
-const supportBtn = document.getElementById("supportBtn");
-const supportContainer = document.getElementById("support-container");
-const homeBtn = document.getElementById("homeBtn");
-
-// Khi click vào nút HỖ TRỢ
-if (supportBtn) {
-    supportBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        gamesDiv.style.display = "none"; // Ẩn vùng hiển thị game đi
-        supportContainer.style.display = "block"; // Hiện vùng hỗ trợ lên
-    });
-}
-
-// Khi click vào TRANG CHỦ hoặc CỬA HÀNG thì hiển thị lại Game, ẩn Hỗ trợ
-if (storeBtn) {
-    storeBtn.addEventListener("click", function() {
-        supportContainer.style.display = "none";
-        gamesDiv.style.display = "grid";
-    });
-}
+// KHI CLICK TRANG CHỦ
 if (homeBtn) {
-    homeBtn.addEventListener("click", function(e) {
-        e.preventDefault();
-        supportContainer.style.display = "none";
-        gamesDiv.style.display = "grid";
-        renderGames(games);
-    });
+  homeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    showBanner();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
+      renderGames(games);
+    }
+  });
 }
 
-// ================= HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ =================
+// KHI CLICK CỬA HÀNG
+if (storeBtn) {
+  storeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
+      renderGames(games);
+    }
+  });
+}
+
+// KHI CLICK NÚT HỖ TRỢ
+if (supportBtn) {
+  supportBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
+  });
+}
+
+// KHI CLICK NÚT ĐÁNH GIÁ (CHỈ HIỆN THANH SAO Ở ĐÂY)
+if (ratingBtn) {
+  ratingBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
+    if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
+
+    renderGames(games);
+  });
+}
+
+// HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
-    question.addEventListener("click", () => {
-        const item = question.parentElement;
-        item.classList.toggle("active");
+  question.addEventListener("click", () => {
+    const item = question.parentElement;
+    item.classList.toggle("active");
 
-        const span = question.querySelector("span");
-        if (item.classList.contains("active")) {
-            span.textContent = "−";
-        } else {
-            span.textContent = "+";
-        }
-    });
+    const span = question.querySelector("span");
+    if (span) {
+      span.textContent = item.classList.contains("active") ? "−" : "+";
+    }
+  });
 });
+
+// KIỂM TRA ĐĂNG NHẬP
+window.addEventListener("DOMContentLoaded", () => {
+  const authBtn = document.getElementById("userAuthLink");
+  if (!authBtn) return;
+
+  const currentUser = localStorage.getItem("currentUser");
+  const balance = localStorage.getItem("balance") || "0";
+
+  if (currentUser) {
+    authBtn.innerHTML = `
+            <span class="user-avatar">👤</span>
+            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
+        `;
+    authBtn.href = "#";
+    authBtn.classList.add("logged");
+    authBtn.style.opacity = "0";
+
+    setTimeout(() => {
+      authBtn.style.transition = "0.6s";
+      authBtn.style.opacity = "1";
+    }, 200);
+
+    authBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (confirm("Đăng xuất tài khoản?")) {
+        localStorage.removeItem("currentUser");
+        location.reload();
+      }
+    });
+  }
+});
+
+// LỌC THEO ĐÁNH GIÁ SAO
+const starBtns = document.querySelectorAll(".star-btn");
+starBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document
+      .querySelectorAll(".star-btn")
+      .forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const selected = btn.dataset.star;
+
+    if (selected === "all") {
+      renderGames(games);
+      return;
+    }
+
+    const filtered = games.filter((game) => {
+      const rating = parseFloat(getGameRating(game.name).stars);
+      return Math.floor(rating) === Number(selected);
+    });
+
+    renderGames(filtered);
+  });
+});
+const bannerGames = [
+  games[0],
+  games[1],
+  games[2],
+  games[3],
+  games[10],
+  games[15],
+  games[20],
+  games[30],
+  games[40],
+];
+const loopGames = [...bannerGames, ...bannerGames];
+
+function renderBanner() {
+  const track = document.getElementById("gameBannerTrack");
+  if (!track) return;
+
+  track.innerHTML = "";
+
+  loopGames.forEach((game) => {
+    track.innerHTML += `
+      <div class="banner-card">
+        <img src="${game.image}">
+        <div class="banner-title">${game.name}</div>
+      </div>
+    `;
+  });
+}
+
+window.addEventListener("load", renderBanner);
