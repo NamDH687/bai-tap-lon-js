@@ -5,14 +5,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
-    <link rel="stylesheet" href="../navbar.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body data-page="main">
-    <div id="site-navbar"></div>
-    <script src="../navbar.js"></script>
+<body>
+    <div class="top-bar">
+        <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
+            <button>🔍</button>
+        </div>
+        <div class="top-right">
+            <a href="../intro.html" onclick="saveLogin()">Về Tuat.vn |</a>
+
+            <a href="../chinhsach.html" onclick="saveLogin()">Chính sách |</a>
+            <div class="policy-top">
+                <a href="">Thông tin liên hệ ▾|</a>
+                <div class="dropdown">
+                    <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank">
+                        <img src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg" /> Facebook
+                    </a>
+                    <a href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc" target="_blank">
+                        <img src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9" /> TikTok
+                    </a>
+                    <a href="https://zalo.me/[0387918807]" target="_blank">
+                        <img src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ" /> Zalo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <a href="index.html">
+            <img src="../logo.jpg" class="logo" />
+        </a>
+        <div class="menu-item">
+            <a href="index.html" id="homeBtn">TRANG CHỦ</a>
+        </div>
+        <div class="policy menu-item">
+            <a href="#" id="storeBtn">CỬA HÀNG</a>
+            <div class="dropdown" id="genreDropdown">
+                <a href="#" data-genre="all">Tất cả game</a>
+                <a href="#" data-genre="nhapvai">Game Nhập vai</a>
+                <a href="#" data-genre="thethao">Game Thể thao</a>
+                <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
+                <a href="#" data-genre="duaxe">Game Đua xe</a>
+                <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="#" id="ratingBtn">ĐÁNH GIÁ</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="#" id="supportBtn">HỖ TRỢ</a>
+        </div>
+        <div class="menu-item login">
+            <a href="../login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
+        </div>
+    </div>
+    <div id="rating-section" style="display: none">
+        <div class="rating-filter">
+            <button class="star-btn active" data-star="all">Tất cả</button>
+            <button class="star-btn" data-star="5">★★★★★</button>
+            <button class="star-btn" data-star="4">★★★★☆</button>
+            <button class="star-btn" data-star="3">★★★☆☆</button>
+            <button class="star-btn" data-star="2">★★☆☆☆</button>
+            <button class="star-btn" data-star="1">★☆☆☆☆</button>
+        </div>
+    </div>
+
+    </div>
     <div id="games"></div>
     <div id="support-container" class="support-wrapper" style="display: none">
         <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
@@ -163,7 +226,6 @@
       </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
 </html>
