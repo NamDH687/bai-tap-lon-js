@@ -212,7 +212,79 @@ body {
     box-shadow: none;
 }
 
+.cart-container{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
 
+.cart-btn{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: white;
+
+    transition: 0.25s;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.cart-btn:hover{
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+}
+
+.cart-icon{
+    font-size: 24px;
+}
+
+.cart-text{
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#cart-count{
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    background: red;
+
+    color: white;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    border: 2px solid #111827;
+}
 /* THANH PHÂN LOẠI GAME */
 
 .category-bar {

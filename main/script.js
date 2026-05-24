@@ -4,10 +4,13 @@ const searchInput = document.getElementById("searchInput");
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [{
-        name: "GTA V",
-        price: "500.000đ",
-        image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
-        genre: "nhapvai",
+    name: "GTA V",
+    oldPrice: "500.000đ",
+    price: "360.000đ",
+    discount: "-28%",
+    image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
+    genre: "nhapvai",
+    link: "../game/gtaV/gtaV.html"
     },
     {
         name: "EA FC 25",
@@ -536,17 +539,28 @@ const games = [{
 function renderGames(gamesList) {
     gamesDiv.innerHTML = "";
     gamesList.forEach((game) => {
+        const priceHTML = game.discount
+            ? `<div class="price">
+                <span style="text-decoration:line-through; color:#888; font-size:14px;">${game.oldPrice}</span>
+                <span style="background:#e74c3c; color:#fff; font-size:12px; font-weight:bold; padding:2px 6px; border-radius:4px; margin:0 6px;">${game.discount}</span>
+                <span style="color:#00ff99; font-size:16px; font-weight:bold;">${game.price}</span>
+               </div>`
+            : `<div class="price">${game.price}</div>`;
+
         gamesDiv.innerHTML += `
+            <a href="${game.link || '#'}" class="game-link">
             <div class="game-card">
                 <img src="${game.image}">
                 <div class="game-info">
                     <div class="game-title">${game.name}</div>
-                    <div class="price">${game.price}</div>
+                    ${priceHTML}
                 </div>
             </div>
+            </a>
         `;
     });
 }
+
 
 // 1. TỰ ĐỘNG HIỂN THỊ TẤT CẢ GAME KHI VỪA VÀO TRANG CHỦ
 window.onload = function() {
