@@ -1,205 +1,200 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
-
-/* TOP BAR (Chuẩn trang chủ) */
+/* TOP BAR */
 
 .top-bar {
-    background: black;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    font-size: 18px;
-    color: white;
+  background: black;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 18px;
+  color: white;
 }
 
 .logo-text {
-    color: white;
-    font-weight: normal;
-    font-size: 18px;
+  color: white;
+  font-weight: normal;
+  font-size: 18px;
 }
 
 .top-right {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .top-right a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
 
 /* Dropdown Thông tin liên hệ */
 
 .policy-top {
-    position: relative;
+  position: relative;
 }
 
 .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 220px;
-    background: rgba(30, 35, 45, 0.9);
-    display: none;
-    flex-direction: column;
-    z-index: 999;
-    border-radius: 5px;
-    overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background: rgba(30, 35, 45, 0.9);
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .dropdown a {
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    transition: background 0.2s ease;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  transition: background 0.2s ease;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .dropdown a:hover {
-    background: #ff0000;
-    color: white;
+  background: #ff0000;
+  color: white;
 }
 
 .policy-top:hover .dropdown {
-    display: flex;
+  display: flex;
 }
 
 .dropdown img {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    vertical-align: middle;
-    margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
-
-/* MENU BAR (Chuẩn trang chủ) */
+/* MENU BAR */
 
 .menu {
-    background: rgba(23, 26, 33, 0.95);
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    height: 70px;
-    padding: 0 40px;
+  background: rgba(23, 26, 33, 0.95);
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 70px;
+  padding: 0 40px;
 }
 
 .logo {
-    width: 96px;
-    height: 90px;
-    display: block;
+  width: 96px;
+  height: 90px;
+  display: block;
 }
 
 .menu-item {
-    position: relative;
+  position: relative;
 }
 
-.menu-item>a {
-    color: white;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 23px 0;
-    display: block;
-    transition: 0.2s;
+.menu-item > a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 23px 0;
+  display: block;
+  transition: 0.2s;
 }
 
-.menu-item>a:hover {
-    color: #ff0000;
-    box-shadow: inset 0 -4px 0 #ff0000;
+.menu-item > a:hover {
+  color: #ff0000;
+  box-shadow: inset 0 -4px 0 #ff0000;
 }
-
 
 /* NÚT ĐĂNG NHẬP */
 
 .login {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .login a {
-    background: #00aeef;
-    padding: 6px 15px;
-    border-radius: 5px;
-    color: white;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    display: inline-block;
-    letter-spacing: -0.3px;
-    line-height: normal;
+  background: #00aeef;
+  padding: 6px 15px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+  letter-spacing: -0.3px;
+  line-height: normal;
 }
 
 .login a:hover {
-    background: #0088cc;
+  background: #0088cc;
 }
-
 
 /* KHU VỰC NỘI DUNG CHÍNH */
 
 .wrapper {
-    padding: 40px 20px;
+  padding: 40px 20px;
 }
 
 .policy-container {
-    max-width: 1000px;
-    margin: auto;
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .policy-container h1 {
-    text-align: center;
-    color: #0f172a;
-    margin-bottom: 40px;
-    font-size: 40px;
-    border-bottom: 3px solid #2563eb;
-    padding-bottom: 15px;
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 40px;
+  font-size: 40px;
+  border-bottom: 3px solid #2563eb;
+  padding-bottom: 15px;
 }
 
 .policy-container h3 {
-    color: #2563eb;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 24px;
-    padding-left: 10px;
-    border-left: 5px solid #2563eb;
-    text-align: left;
+  color: #2563eb;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  padding-left: 10px;
+  border-left: 5px solid #2563eb;
+  text-align: left;
 }
 
 .policy-container p {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 17px;
-    text-align: justify;
-    line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 17px;
+  text-align: justify;
+  line-height: 1.8;
 }
 
 .policy-container p:hover {
-    color: #111827;
-    transition: 0.3s;
+  color: #111827;
+  transition: 0.3s;
 }
