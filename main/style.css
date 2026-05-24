@@ -190,8 +190,8 @@ body {
   margin-left: auto;
 }
 
-.login a {
-  background: #00bfff;
+.login > a {
+  /* background: #00bfff; */
   padding: 6px 14px;
   border-radius: 9px;
   color: white;
@@ -202,10 +202,39 @@ body {
   display: inline-block;
 }
 
-.login a:hover {
-  background: #0088cc;
+.login > a:hover {
+  /* background: #0088cc; */
   color: white;
   box-shadow: none;
+}
+
+.login .dropdown-menu .dropdown-item {
+  color: #212529;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 0.25rem 1rem;
+}
+
+.login .dropdown-menu .dropdown-item:hover {
+  color: #1e2125;
+  background-color: #f8f9fa;
+}
+
+.login .dropdown-menu button.dropdown-item {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.login .dropdown-menu #logoutBtn {
+  color: #dc3545;
+}
+
+.login .dropdown-menu #logoutBtn:hover {
+  color: #fff;
+  background-color: #dc3545;
 }
 
 /* THANH PHÂN LOẠI GAME */
@@ -490,17 +519,6 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 4px;
-}
-
-/* USER SAU ĐĂNG NHẬP */
-
-.login a.logged {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  animation: userFade 0.6s ease;
 }
 
 .user-avatar {

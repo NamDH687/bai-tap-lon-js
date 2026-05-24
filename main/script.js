@@ -738,13 +738,52 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (currentUser) {
     authBtn.innerHTML = `
-            <span class="user-avatar">👤</span>
-            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
+            
+            <div class="btn-group">
+  <button type="button" class="btn btn-primary"><span class="user-avatar">👤</span>
+            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span></button>
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <span class="visually-hidden">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Thông tin</a></li>
+    <li><a class="dropdown-item" href="#">Nạp tiền</a></li>
+    <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+    <li><hr class="dropdown-divider" /></li>
+    <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
+  </ul>
+</div>
         `;
 
     authBtn.href = "#";
 
     authBtn.classList.add("logged");
+
+    const dropdownToggle = authBtn.querySelector('[data-bs-toggle="dropdown"]');
+    if (dropdownToggle && typeof bootstrap !== "undefined") {
+      new bootstrap.Dropdown(dropdownToggle);
+    }
+
+    const logoutBtn = authBtn.querySelector("#logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (confirm("Đăng xuất tài khoản?")) {
+          localStorage.removeItem("currentUser");
+          location.reload();
+        }
+      });
+    }
+
+    authBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+    });
 
     authBtn.style.opacity = "0";
 
@@ -752,15 +791,5 @@ window.addEventListener("DOMContentLoaded", () => {
       authBtn.style.transition = "0.6s";
       authBtn.style.opacity = "1";
     }, 200);
-
-    authBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      if (confirm("Đăng xuất tài khoản?")) {
-        localStorage.removeItem("currentUser");
-
-        location.reload();
-      }
-    });
   }
 });
