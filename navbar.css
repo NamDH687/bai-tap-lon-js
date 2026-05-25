@@ -1,5 +1,18 @@
 /* ========== NAVBAR DÙNG CHUNG ========== */
+/* Ép thanh navbar luôn dính chặt ở trên cùng */
+#site-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* Đảm bảo luôn nổi lên trên slider và video */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ nhẹ cho đẹp khi cuộn */
+}
 
+/* Đẩy nội dung trang xuống một chút để không bị navbar che mất */
+body {
+  padding-top: 130px; /* Độ cao này bằng hoặc lớn hơn độ cao thanh navbar của bạn một chút */
+}
 .top-bar {
   background: black;
   height: 40px;
@@ -107,7 +120,7 @@
 
 .logo {
   width: 96px;
-  height: 90px;
+  height: 70px;
   display: block;
 }
 

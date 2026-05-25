@@ -52,8 +52,7 @@
   function buildGenreLinks(p) {
     if (p.page === "main") {
       return GENRES.map(
-        (g) =>
-          `<a href="#" data-genre="${g.id}">${g.label}</a>`,
+        (g) => `<a href="#" data-genre="${g.id}">${g.label}</a>`,
       ).join("");
     }
     return GENRES.map((g) => {
@@ -87,7 +86,7 @@
         <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
         ${buildSearchHtml(p.showSearch)}
         <div class="top-right">
-          <a href="${p.intro}">Về Tuat.vn |</a>
+          <a href="${p.intro}">Về Gamecuatui.vn |</a>
           <a href="${p.policy}">Chính sách |</a>
           <div class="policy-top">
             <a href="#">Thông tin liên hệ ▾|</a>
@@ -95,7 +94,7 @@
               <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank" rel="noopener noreferrer">
                 <img src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg" alt="Facebook" /> Facebook
               </a>
-              <a href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&amp;sender_device=pc" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
                 <img src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9" alt="TikTok" /> TikTok
               </a>
               <a href="https://zalo.me/0387918807" target="_blank" rel="noopener noreferrer">
@@ -107,14 +106,14 @@
       </div>
       <div class="menu">
         <a href="${p.home}">
-          <img src="${p.logo}" class="logo" alt="Logo Tuat.vn" />
+          <img src="https://img.freepik.com/premium-vector/gct-letter-logo-design-technology-company-gct-logo-design-black-white-color-combination-gct-logo-gct-vector-gct-design-gct-icon-gct-alphabet-gct-typography-logo-design_229120-150392.jpg?w=1380" class="logo" alt="Logo" />
         </a>
         <div class="menu-item">
           <a href="${p.home}" id="homeBtn">TRANG CHỦ</a>
         </div>
         ${buildStoreMenu(p)}
         <div class="menu-item">
-          <a href="#">THÔNG TIN</a>
+          <a href="#" id="infoBtn">THÔNG TIN</a>
         </div>
         <div class="menu-item">
           ${buildSupportLink(p)}

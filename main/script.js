@@ -768,3 +768,222 @@ faqQuestions.forEach((question) => {
     }
   });
 });
+
+const mediaList = [
+
+  // VIDEO
+  {
+    type: "video",
+    id: "u83VdXAVq08"
+  },
+
+  // ẢNH
+  {
+    type: "image",
+    src:"https://game8.vn/media/202208/images/wukong-3195.jpg"
+  },
+
+  {
+    type: "image",
+    src:"https://motionbgs.com/media/6470/black-myth-wukong.jpg"
+  },
+
+  {
+    type: "video",
+    id: "592If-pP2_A"
+  },
+
+  {
+    type: "image",
+    src:"https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837"
+  },
+
+  {
+    type: "image",
+    src:"https://wallpaperaccess.com/full/2403437.jpg"
+  },
+
+  {
+    type: "video",
+    id: "14FfhVQrrAo"
+  },
+
+  {
+    type: "image",
+    src:"https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg"
+  },
+
+  {
+    type: "image",
+    src:"https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg"
+  },
+
+  {
+    type: "video",
+    id: "QdBZY2fkU-0"
+  },
+
+  {
+    type: "image",
+    src:"https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg"
+  },
+
+  {
+    type: "image",
+    src:"https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg"
+  },
+
+  {
+    type: "video",
+    id: "4ViBoFiHYlI"
+  },
+
+  {
+    type: "image",
+    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg"
+  },
+
+  {
+    type: "image",
+    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg"
+  },
+
+  {
+    type: "video",
+    id: "WS9aGypJPJ4"
+  },
+
+  {
+    type: "image",
+    src:"https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp"
+  },
+
+  {
+    type: "image",
+    src:"https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg"
+  },
+
+  {
+    type: "video",
+    id: "LTqczRnNqDc"
+  },
+  
+  {
+    type: "image",
+    src:"https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg"
+  },
+
+  {
+    type: "image",
+    src:"https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg"
+  }
+
+
+
+];
+
+let currentMedia = 0;
+let player = null;
+let imageTimer = null;
+let isSliderActive = true; 
+
+function hasSlider() {
+    return document.getElementById("media") !== null;
+}
+
+function onYouTubeIframeAPIReady(){
+    if (hasSlider() && isSliderActive) {
+        showMedia();
+    }
+}
+
+function showMedia(){
+    if (!hasSlider() || !isSliderActive) return; 
+
+    clearTimeout(imageTimer);
+    if (typeof mediaList === 'undefined' || mediaList.length === 0) return;
+
+    const media = mediaList[currentMedia];
+    const container = document.getElementById("media");
+    if (!container) return;
+
+    if(media.type === "video"){
+        container.innerHTML = `<div id="player"></div>`;
+        player = new YT.Player('player', {
+            videoId: media.id,
+            playerVars: { autoplay: 1, mute: 1 },
+            events: { onStateChange: onPlayerStateChange }
+        });
+    } else {
+        container.innerHTML = `<img src="${media.src}">`;
+        imageTimer = setTimeout(() => {
+            if (isSliderActive) nextMedia();
+        }, 5000);
+    }
+}
+
+function onPlayerStateChange(event){
+    if(event.data == YT.PlayerState.ENDED && isSliderActive){
+        nextMedia();
+    }
+}
+
+function nextMedia(){
+    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
+    currentMedia++;
+    if(currentMedia >= mediaList.length) currentMedia = 0;
+    showMedia();
+}
+
+function prevMedia(){
+    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
+    currentMedia--;
+    if(currentMedia < 0) currentMedia = mediaList.length - 1;
+    showMedia();
+}
+
+// ================================================================
+// BỘ TỰ ĐỘNG THEO DÕI ĐỂ ẨN/HIỆN VÀ TẮT SLIDER CHẠY NGẦM
+// ================================================================
+function startWatchingSupportPage() {
+    const supportContainer = document.getElementById("support-container");
+    const sliderBlock = document.querySelector(".slider");
+    
+    if (!supportContainer) return;
+
+    // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
+    function checkAndToggle() {
+        // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
+        if (supportContainer.style.display !== "none") {
+            isSliderActive = false;
+            clearTimeout(imageTimer);
+            if (sliderBlock) sliderBlock.style.setProperty("display", "none", "important");
+            if (player && typeof player.pauseVideo === "function") player.pauseVideo();
+        } 
+        // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
+        else {
+            if (!isSliderActive) {
+                isSliderActive = true;
+                if (sliderBlock) sliderBlock.style.setProperty("display", "block", "important");
+                showMedia();
+            }
+        }
+    }
+
+    // Chạy kiểm tra ngay lần đầu load trang
+    checkAndToggle();
+
+    // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
+    const observer = new MutationObserver(checkAndToggle);
+    observer.observe(supportContainer, { attributes: true, attributeFilter: ["style"] });
+}
+
+// Kích hoạt khi toàn bộ tài nguyên trang sẵn sàng
+window.addEventListener("load", () => {
+    startWatchingSupportPage();
+    if (hasSlider() && isSliderActive) {
+        if (typeof mediaList !== 'undefined' && mediaList[currentMedia] && mediaList[currentMedia].type !== "video") {
+            showMedia();
+        }
+    }
+});
