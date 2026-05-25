@@ -1,391 +1,579 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GTA V</title>
-    <link rel="stylesheet" href="gtaV.css">
-</head>
-<body>
+    <link rel="stylesheet" href="gtaV.css" />
+  </head>
+  <body>
     <div class="top-bar">
-        <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
-            <button>🔍</button>
+      <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
+        <button>🔍</button>
+      </div>
+      <div class="top-right">
+        <a href="../../intro.html">Về Tuat.vn |</a>
+        <a href="../../chinhsach.html">Chính sách |</a>
+        <div class="policy-top">
+          <a href="">Thông tin liên hệ ▾|</a>
+          <div class="dropdown">
+            <a
+              href="https://www.facebook.com/profile.php?id=61590020309778"
+              target="_blank"
+            >
+              <img
+                src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg"
+              />
+              Facebook
+            </a>
+            <a
+              href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc"
+              target="_blank"
+            >
+              <img
+                src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9"
+              />
+              TikTok
+            </a>
+            <a href="https://zalo.me/[0387918807]" target="_blank">
+              <img
+                src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ"
+              />
+              Zalo
+            </a>
+          </div>
         </div>
-        <div class="top-right">
-            <a href="../../intro.html">Về Tuat.vn |</a>
-            <a href="../../chinhsach.html">Chính sách |</a>
-            <div class="policy-top">
-                <a href="">Thông tin liên hệ ▾|</a>
-                <div class="dropdown">
-                    <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank">
-                        <img src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg" /> Facebook
-                    </a>
-                    <a href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc" target="_blank">
-                        <img src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9" /> TikTok
-                    </a>
-                    <a href="https://zalo.me/[0387918807]" target="_blank">
-                        <img src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ" /> Zalo
-                    </a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="menu">
-        <a href="../../index.html">
-            <img src="../../logo.jpg" class="logo" />
+      <a href="../../main/index.html">
+        <img src="../../logo.jpg" class="logo" />
+      </a>
+      <div class="menu-item">
+        <a href="../../main/index.html" id="homeBtn">TRANG CHỦ</a>
+      </div>
+      <div class="policy menu-item">
+        <a href="../../main/index.html" id="storeBtn">CỬA HÀNG</a>
+        <div class="dropdown" id="genreDropdown">
+          <a href="#" data-genre="all">Tất cả game</a>
+          <a href="#" data-genre="nhapvai">Game Nhập vai</a>
+          <a href="#" data-genre="thethao">Game Thể thao</a>
+          <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
+          <a href="#" data-genre="duaxe">Game Đua xe</a>
+          <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
+        </div>
+      </div>
+      <div class="menu-item">
+        <a href="">THÔNG TIN</a>
+      </div>
+      <div class="menu-item">
+        <a href="#" id="supportBtn">HỖ TRỢ</a>
+      </div>
+      <div class="menu-item login">
+        <a href="../../login/login.html" id="userAuthLink"
+          >ĐĂNG NHẬP / ĐĂNG KÝ</a
+        >
+      </div>
+      <div class="cart-container">
+        <a href="cart.html" class="cart-btn">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-text">GIỎ HÀNG</span>
+          <span id="cart-count">0</span>
         </a>
-        <div class="menu-item">
-            <a href="../../main/index.html" id="homeBtn">TRANG CHỦ</a>
-        </div>
-        <div class="policy menu-item">
-            <a href="#" id="storeBtn">CỬA HÀNG</a>
-            <div class="dropdown" id="genreDropdown">
-                <a href="#" data-genre="all">Tất cả game</a>
-                <a href="#" data-genre="nhapvai">Game Nhập vai</a>
-                <a href="#" data-genre="thethao">Game Thể thao</a>
-                <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
-                <a href="#" data-genre="duaxe">Game Đua xe</a>
-                <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
-            </div>
-        </div>
-        <div class="menu-item">
-            <a href="">THÔNG TIN</a>
-        </div>
-        <div class="menu-item">
-            <a href="#" id="supportBtn">HỖ TRỢ</a>
-        </div>
-        <div class="menu-item login">
-            <a href="../../login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
-        </div>
-        <div class="cart-container">
-            <a href="cart.html" class="cart-btn">
-              <span class="cart-icon">🛒</span>
-              <span class="cart-text">GIỎ HÀNG</span>
-              <span id="cart-count">0</span>
-            </a>
-        </div>
+      </div>
     </div>
     <div class="product-page">
-  
-        <div class="product-body">
-            <h1 class="product-title">Grand Theft Auto V (GTA 5) – Tài Khoản Steam Online Mới + Mail</h1>
-            <div>
-                <div class="slider-wrap" id="sliderWrap">
-                    <button class="nav-btn left" id="prevBtn">&#8249;</button>
-                    <button class="nav-btn right" id="nextBtn">&#8250;</button>
-                    <div class="dots" id="dots"></div>
-                </div>
-                <div class="thumbnails" id="thumbs"></div>
-            </div>
-            <div class="info-panel">
-                <div class="rating-row">
-                    <span class="stars">★★★★★</span>
-                    <span class="rating-text">(3 đánh giá)</span>
-                    <span style="color:#555">|</span>
-                    <span class="sold">Đã bán 772</span>
-                </div>
-                <div class="price-row">
-                    <span class="price-old">500,000đ</span>
-                    <span class="badge-discount">-28%</span>
-                    <span class="price-new">360,000đ</span>
-                </div>
-                <div class="btn-row">
-                    <button class="btn-cart">🛒 Thêm vào giỏ hàng</button>
-                    <button class="btn-buy">Mua ngay ›</button>
-                </div>
-                <ul class="features">
-                    <li><span class="check">✓</span><span>Đây là tài khoản Steam tạo mới và mua sẵn game</span></li>
-                    <li><span class="check">✓</span><span>Bàn giao kèm Email sử dụng để đăng ký tài khoản</span></li>
-                    <li><span class="check">✓</span><span>Full bản quyền có thể chơi Offline, Online với bạn bè</span></li>
-                    <li><span class="check">✓</span><span>Sở hữu hoàn toàn (có thể đổi được email, pass, SĐT)</span></li>
-                    <li><span class="check">✓</span><span>Bảo Hành Vĩnh Viễn (xem Tab chính sách bảo hành)</span></li>
-                </ul>
-            </div>
+      <div class="product-body">
+        <h1 class="product-title">
+          Grand Theft Auto V (GTA 5) – Tài Khoản Steam Online Mới + Mail
+        </h1>
+        <div>
+          <div class="slider-wrap" id="sliderWrap">
+            <button class="nav-btn left" id="prevBtn">&#8249;</button>
+            <button class="nav-btn right" id="nextBtn">&#8250;</button>
+            <div class="dots" id="dots"></div>
+          </div>
+          <div class="thumbnails" id="thumbs"></div>
         </div>
-    </div>
-
-  <div class="page">
-    <div class="content">
-      <div class="left-panel">
-        <div class="section-title">Mô tả</div>
-        <div class="desc">
-          <p>
-            <span class="highlight">Grand Theft Auto V (GTA V)</span> là một game hành động phiêu lưu thế giới mở do
-            <span class="highlight">Rockstar Games</span> phát triển và phát hành. Game lấy bối cảnh tại thành phố hư cấu
-            <span class="highlight">Los Santos</span>, mô phỏng theo Los Angeles của Mỹ.
-          </p>
-          <p><span class="highlight">Điểm nổi bật của GTA V:</span></p>
-          <ul>
-            <li>Người chơi điều khiển <span class="highlight">3 nhân vật chính:</span>
-              <ul>
-                <li><span class="highlight">Michael De Santa</span>: cựu tội phạm đã nghỉ hưu.</li>
-                <li><span class="highlight">Franklin Clinton</span>: thanh niên muốn đổi đời.</li>
-                <li><span class="highlight">Trevor Philips</span>: tên tội phạm điên loạn và cực kỳ nguy hiểm.</li>
-              </ul>
+        <div class="info-panel">
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">(3 đánh giá)</span>
+            <span style="color: #555">|</span>
+            <span class="sold">Đã bán 772</span>
+          </div>
+          <div class="price-row">
+            <span class="price-old">500,000đ</span>
+            <span class="badge-discount">-28%</span>
+            <span class="price-new">360,000đ</span>
+          </div>
+          <div class="btn-row">
+            <button class="btn-cart">🛒 Thêm vào giỏ hàng</button>
+            <button class="btn-buy">Mua ngay ›</button>
+          </div>
+          <ul class="features">
+            <li>
+              <span class="check">✓</span
+              ><span>Đây là tài khoản Steam tạo mới và mua sẵn game</span>
             </li>
-            <li><span class="highlight">Gameplay tự do</span>: lái xe, làm nhiệm vụ, khám phá thành phố, mua nhà, đầu tư, chiến đấu…</li>
-            <li>Có chế độ online là <span class="highlight">Grand Theft Auto Online</span> cho phép nhiều người chơi cùng tham gia thế giới mở.</li>
-            <li>Được đánh giá rất cao nhờ đồ họa đẹp, cốt truyện hấp dẫn và thế giới rộng lớn.</li>
+            <li>
+              <span class="check">✓</span
+              ><span>Bàn giao kèm Email sử dụng để đăng ký tài khoản</span>
+            </li>
+            <li>
+              <span class="check">✓</span
+              ><span
+                >Full bản quyền có thể chơi Offline, Online với bạn bè</span
+              >
+            </li>
+            <li>
+              <span class="check">✓</span
+              ><span>Sở hữu hoàn toàn (có thể đổi được email, pass, SĐT)</span>
+            </li>
+            <li>
+              <span class="check">✓</span
+              ><span>Bảo Hành Vĩnh Viễn (xem Tab chính sách bảo hành)</span>
+            </li>
           </ul>
         </div>
-
-        <hr class="divider" />
-
-        <div class="section-title">Đánh giá (0)</div>
-        <p class="review-subtitle">Đánh giá GTA V – Steam Offline</p>
-
-        <div class="rating-box">
-          <div class="rating-left">
-            <div class="rating-score">0.0</div>
-            <div class="rating-star">★</div>
-            <div class="rating-label">ĐÁNH GIÁ TRUNG BÌNH</div>
-          </div>
-          <div class="rating-bars">
-            <div class="bar-row"><span>5 ★</span><div class="bar"><div class="bar-fill" style="width:0%"></div></div><span>0% | 0 đánh giá</span></div>
-            <div class="bar-row"><span>4 ★</span><div class="bar"><div class="bar-fill" style="width:0%"></div></div><span>0% | 0 đánh giá</span></div>
-            <div class="bar-row"><span>3 ★</span><div class="bar"><div class="bar-fill" style="width:0%"></div></div><span>0% | 0 đánh giá</span></div>
-            <div class="bar-row"><span>2 ★</span><div class="bar"><div class="bar-fill" style="width:0%"></div></div><span>0% | 0 đánh giá</span></div>
-            <div class="bar-row"><span>1 ★</span><div class="bar"><div class="bar-fill" style="width:0%"></div></div><span>0% | 0 đánh giá</span></div>
-          </div>
-          <button class="btn-review">ĐÁNH GIÁ NGAY</button>
-        </div>
-
-        <div class="filter-bar">
-          <button class="filter-btn active">Tất cả</button>
-          <button class="filter-btn">5 ★</button>
-          <button class="filter-btn">4 ★</button>
-          <button class="filter-btn">3 ★</button>
-          <button class="filter-btn">2 ★</button>
-          <button class="filter-btn">1 ★</button>
-          <button class="filter-btn">Có video</button>
-          <button class="filter-btn">Có ảnh</button>
-        </div>
-
-        <p class="no-review">Chưa có đánh giá nào.</p>
-        <hr class="divider" />
-
-        <div class="section-title">Hỏi đáp</div>
-        <textarea class="comment-box" placeholder="Mời bạn tham gia thảo luận, vui lòng nhập tiếng Việt có dấu."></textarea>
-        <div class="comment-form">
-          <label class="radio-label"><input type="radio" name="gender" checked /> Anh</label>
-          <label class="radio-label"><input type="radio" name="gender" /> Chị</label>
-          <input type="text" class="form-input" placeholder="Họ tên *" />
-          <input type="email" class="form-input" placeholder="Email *" />
-          <button class="btn-camera">📷</button>
-          <button class="btn-submit">GỬI</button>
-        </div>
-
-        <p class="no-review" style="margin-top:24px;">Không có bình luận nào</p>
-
       </div>
-
-      <div class="right-panel">
-        <div class="spec-section-header">Cấu hình tối thiểu:</div>
-        <div class="spec-row"><div class="spec-label">Ghi chú</div><div class="spec-value">Yêu cầu vi xử lý và hệ điều hành đều chạy 64-bit</div></div>
-        <div class="spec-row"><div class="spec-label">Hệ điều hành</div><div class="spec-value">Windows 10 22H2 (version 19045) or higher</div></div>
-        <div class="spec-row"><div class="spec-label">Vi xử lý</div><div class="spec-value">Intel i5-8400 OR AMD Ryzen 5 1600</div></div>
-        <div class="spec-row"><div class="spec-label">Bộ nhớ RAM</div><div class="spec-value">16 GB RAM</div></div>
-        <div class="spec-row"><div class="spec-label">Card đồ họa</div><div class="spec-value">Nvidia GTX 1650 OR AMD RX 6500 XT OR Intel Arc A380</div></div>
-        <div class="spec-row"><div class="spec-label">DirectX</div><div class="spec-value">Phiên bản 12</div></div>
-        <div class="spec-row"><div class="spec-label">Kết nối</div><div class="spec-value">Cáp mạng Internet</div></div>
-        <div class="spec-row"><div class="spec-label">Dung lượng trống</div><div class="spec-value">167 GB chỗ trống khả dụng</div></div>
-        <div class="spec-row"><div class="spec-label">Ghi chú thêm</div><div class="spec-value">SSD Required</div></div>
-
-        <div class="spec-section-header">Cấu hình đề nghị:</div>
-        <div class="spec-row"><div class="spec-label">Ghi chú</div><div class="spec-value">Yêu cầu vi xử lý và hệ điều hành đều chạy 64-bit</div></div>
-        <div class="spec-row"><div class="spec-label">Hệ điều hành</div><div class="spec-value">Windows 10 22H2 (version 19045) or higher</div></div>
-        <div class="spec-row"><div class="spec-label">Vi xử lý</div><div class="spec-value">Intel i5-12400F OR AMD Ryzen 5 5600X</div></div>
-      </div>
-
     </div>
-  </div>
-    <div class="similar-section">
-  <div class="section-title">Sản phẩm tương tự</div>
-  <div class="similar-grid">
 
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/header.jpg?t=1759852929" alt="Mafia Definitive Edition" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Mafia Definitive Edition</p>
-        <div class="similar-price-row">
-          <span class="similar-final">1.200.000đ</span>
-        </div>
-      </div>
-    </a>
+    <div class="page">
+      <div class="content">
+        <div class="left-panel">
+          <div class="section-title">Mô tả</div>
+          <div class="desc">
+            <p>
+              <span class="highlight">Grand Theft Auto V (GTA V)</span> là một
+              game hành động phiêu lưu thế giới mở do
+              <span class="highlight">Rockstar Games</span> phát triển và phát
+              hành. Game lấy bối cảnh tại thành phố hư cấu
+              <span class="highlight">Los Santos</span>, mô phỏng theo Los
+              Angeles của Mỹ.
+            </p>
+            <p><span class="highlight">Điểm nổi bật của GTA V:</span></p>
+            <ul>
+              <li>
+                Người chơi điều khiển
+                <span class="highlight">3 nhân vật chính:</span>
+                <ul>
+                  <li>
+                    <span class="highlight">Michael De Santa</span>: cựu tội
+                    phạm đã nghỉ hưu.
+                  </li>
+                  <li>
+                    <span class="highlight">Franklin Clinton</span>: thanh niên
+                    muốn đổi đời.
+                  </li>
+                  <li>
+                    <span class="highlight">Trevor Philips</span>: tên tội phạm
+                    điên loạn và cực kỳ nguy hiểm.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <span class="highlight">Gameplay tự do</span>: lái xe, làm nhiệm
+                vụ, khám phá thành phố, mua nhà, đầu tư, chiến đấu…
+              </li>
+              <li>
+                Có chế độ online là
+                <span class="highlight">Grand Theft Auto Online</span> cho phép
+                nhiều người chơi cùng tham gia thế giới mở.
+              </li>
+              <li>
+                Được đánh giá rất cao nhờ đồ họa đẹp, cốt truyện hấp dẫn và thế
+                giới rộng lớn.
+              </li>
+            </ul>
+          </div>
 
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991" alt="The Witcher 3" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">The Witcher 3: Wild Hunt</p>
-        <div class="similar-price-row">
-          <span class="similar-final">400.000đ</span>
-        </div>
-      </div>
-    </a>
+          <hr class="divider" />
 
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778" alt="Skyrim" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">The Elder Scrolls V Skyrim Special Edition</p>
-        <div class="similar-price-row">
-          <span class="similar-final">500.000đ</span>
-        </div>
-      </div>
-    </a>
+          <div class="section-title">Đánh giá (0)</div>
+          <p class="review-subtitle">Đánh giá GTA V – Steam Offline</p>
 
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://store-images.s-microsoft.com/image/apps.21661.14216416494490173.9772fa78-5a01-45ce-9b9e-6ec61a10f4e2.f787fea4-1e7a-4458-a112-c5ac10fec5c0" alt="Minecraft" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Minecraft</p>
-        <div class="similar-price-row">
-          <span class="similar-final">300.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1767883716" alt="Elden Ring" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">ELDEN RING</p>
-        <div class="similar-price-row">
-          <span class="similar-final">990.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499" alt="Spider-Man Miles Morales" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Marvel's Spider-Man: Miles Morales</p>
-        <div class="similar-price-row">
-          <span class="similar-final">1.159.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg" alt="Black Myth Wukong" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Black Myth Wukong</p>
-        <div class="similar-price-row">
-          <span class="similar-final">1.300.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662" alt="Sekiro" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Sekiro: Shadows Die Twice</p>
-        <div class="similar-price-row">
-          <span class="similar-final">300.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552520/header_292x136.jpg?t=1762190084" alt="Far Cry 5" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Far Cry® 5</p>
-        <div class="similar-price-row">
-          <span class="similar-final">148.500đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578650/header.jpg?t=1776350110" alt="The Outer Worlds" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">The Outer Worlds</p>
-        <div class="similar-price-row">
-          <span class="similar-final">1.200.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_292x136.jpg?t=1777456112" alt="Subnautica" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Subnautica</p>
-        <div class="similar-price-row">
-          <span class="similar-final">360.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header_292x136.jpg?t=1777456254" alt="Subnautica Below Zero" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Subnautica: Below Zero</p>
-        <div class="similar-price-row">
-          <span class="similar-final">148.500đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1773936597" alt="Palworld" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Palworld</p>
-        <div class="similar-price-row">
-          <span class="similar-final">385.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/header.jpg?t=1778854831" alt="Disco Elysium" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Disco Elysium - The Final Cut</p>
-        <div class="similar-price-row">
-          <span class="similar-final">495.000đ</span>
-        </div>
-      </div>
-    </a>
-
-    <a class="similar-card" href="" target="_blank">
-      <div class="similar-img">
-        <img src="https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180" alt="Genshin Impact" />
-      </div>
-      <div class="similar-info">
-        <p class="similar-name">Genshin Impact</p>
-        <div class="similar-price-row">
-          <span class="similar-final">Miễn phí</span>
+          <div class="rating-box">
+            <div class="rating-left">
+              <div class="rating-score">0.0</div>
+              <div class="rating-star">★</div>
+              <div class="rating-label">ĐÁNH GIÁ TRUNG BÌNH</div>
             </div>
+            <div class="rating-bars">
+              <div class="bar-row">
+                <span>5 ★</span>
+                <div class="bar">
+                  <div class="bar-fill" style="width: 0%"></div>
+                </div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>4 ★</span>
+                <div class="bar">
+                  <div class="bar-fill" style="width: 0%"></div>
+                </div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>3 ★</span>
+                <div class="bar">
+                  <div class="bar-fill" style="width: 0%"></div>
+                </div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>2 ★</span>
+                <div class="bar">
+                  <div class="bar-fill" style="width: 0%"></div>
+                </div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>1 ★</span>
+                <div class="bar">
+                  <div class="bar-fill" style="width: 0%"></div>
+                </div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+            </div>
+            <button class="btn-review">ĐÁNH GIÁ NGAY</button>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn active">Tất cả</button>
+            <button class="filter-btn">5 ★</button>
+            <button class="filter-btn">4 ★</button>
+            <button class="filter-btn">3 ★</button>
+            <button class="filter-btn">2 ★</button>
+            <button class="filter-btn">1 ★</button>
+            <button class="filter-btn">Có video</button>
+            <button class="filter-btn">Có ảnh</button>
+          </div>
+
+          <p class="no-review">Chưa có đánh giá nào.</p>
+          <hr class="divider" />
+
+          <div class="section-title">Hỏi đáp</div>
+          <textarea
+            class="comment-box"
+            placeholder="Mời bạn tham gia thảo luận, vui lòng nhập tiếng Việt có dấu."
+          ></textarea>
+          <div class="comment-form">
+            <label class="radio-label"
+              ><input type="radio" name="gender" checked /> Anh</label
+            >
+            <label class="radio-label"
+              ><input type="radio" name="gender" /> Chị</label
+            >
+            <input type="text" class="form-input" placeholder="Họ tên *" />
+            <input type="email" class="form-input" placeholder="Email *" />
+            <button class="btn-camera">📷</button>
+            <button class="btn-submit">GỬI</button>
+          </div>
+
+          <p class="no-review" style="margin-top: 24px">
+            Không có bình luận nào
+          </p>
         </div>
+
+        <div class="right-panel">
+          <div class="spec-section-header">Cấu hình tối thiểu:</div>
+          <div class="spec-row">
+            <div class="spec-label">Ghi chú</div>
+            <div class="spec-value">
+              Yêu cầu vi xử lý và hệ điều hành đều chạy 64-bit
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Hệ điều hành</div>
+            <div class="spec-value">
+              Windows 10 22H2 (version 19045) or higher
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Vi xử lý</div>
+            <div class="spec-value">Intel i5-8400 OR AMD Ryzen 5 1600</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Bộ nhớ RAM</div>
+            <div class="spec-value">16 GB RAM</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Card đồ họa</div>
+            <div class="spec-value">
+              Nvidia GTX 1650 OR AMD RX 6500 XT OR Intel Arc A380
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">DirectX</div>
+            <div class="spec-value">Phiên bản 12</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Kết nối</div>
+            <div class="spec-value">Cáp mạng Internet</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Dung lượng trống</div>
+            <div class="spec-value">167 GB chỗ trống khả dụng</div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Ghi chú thêm</div>
+            <div class="spec-value">SSD Required</div>
+          </div>
+
+          <div class="spec-section-header">Cấu hình đề nghị:</div>
+          <div class="spec-row">
+            <div class="spec-label">Ghi chú</div>
+            <div class="spec-value">
+              Yêu cầu vi xử lý và hệ điều hành đều chạy 64-bit
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Hệ điều hành</div>
+            <div class="spec-value">
+              Windows 10 22H2 (version 19045) or higher
+            </div>
+          </div>
+          <div class="spec-row">
+            <div class="spec-label">Vi xử lý</div>
+            <div class="spec-value">Intel i5-12400F OR AMD Ryzen 5 5600X</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="similar-section">
+      <div class="section-title">Sản phẩm tương tự</div>
+      <div class="similar-grid">
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/header.jpg?t=1759852929"
+              alt="Mafia Definitive Edition"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Mafia Definitive Edition</p>
+            <div class="similar-price-row">
+              <span class="similar-final">1.200.000đ</span>
+            </div>
+          </div>
         </a>
 
-    </div>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991"
+              alt="The Witcher 3"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">The Witcher 3: Wild Hunt</p>
+            <div class="similar-price-row">
+              <span class="similar-final">400.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778"
+              alt="Skyrim"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">
+              The Elder Scrolls V Skyrim Special Edition
+            </p>
+            <div class="similar-price-row">
+              <span class="similar-final">500.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://store-images.s-microsoft.com/image/apps.21661.14216416494490173.9772fa78-5a01-45ce-9b9e-6ec61a10f4e2.f787fea4-1e7a-4458-a112-c5ac10fec5c0"
+              alt="Minecraft"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Minecraft</p>
+            <div class="similar-price-row">
+              <span class="similar-final">300.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1767883716"
+              alt="Elden Ring"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">ELDEN RING</p>
+            <div class="similar-price-row">
+              <span class="similar-final">990.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499"
+              alt="Spider-Man Miles Morales"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Marvel's Spider-Man: Miles Morales</p>
+            <div class="similar-price-row">
+              <span class="similar-final">1.159.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg"
+              alt="Black Myth Wukong"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Black Myth Wukong</p>
+            <div class="similar-price-row">
+              <span class="similar-final">1.300.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662"
+              alt="Sekiro"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Sekiro: Shadows Die Twice</p>
+            <div class="similar-price-row">
+              <span class="similar-final">300.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552520/header_292x136.jpg?t=1762190084"
+              alt="Far Cry 5"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Far Cry® 5</p>
+            <div class="similar-price-row">
+              <span class="similar-final">148.500đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578650/header.jpg?t=1776350110"
+              alt="The Outer Worlds"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">The Outer Worlds</p>
+            <div class="similar-price-row">
+              <span class="similar-final">1.200.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_292x136.jpg?t=1777456112"
+              alt="Subnautica"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Subnautica</p>
+            <div class="similar-price-row">
+              <span class="similar-final">360.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header_292x136.jpg?t=1777456254"
+              alt="Subnautica Below Zero"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Subnautica: Below Zero</p>
+            <div class="similar-price-row">
+              <span class="similar-final">148.500đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1773936597"
+              alt="Palworld"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Palworld</p>
+            <div class="similar-price-row">
+              <span class="similar-final">385.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/header.jpg?t=1778854831"
+              alt="Disco Elysium"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Disco Elysium - The Final Cut</p>
+            <div class="similar-price-row">
+              <span class="similar-final">495.000đ</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180"
+              alt="Genshin Impact"
+            />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Genshin Impact</p>
+            <div class="similar-price-row">
+              <span class="similar-final">Miễn phí</span>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
     <script src="gtaV.js"></script>
-</body>
+  </body>
+</html>
