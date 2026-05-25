@@ -768,6 +768,7 @@ faqQuestions.forEach((question) => {
     }
   });
 });
+<<<<<<< HEAD
 
 const mediaList = [
 
@@ -879,12 +880,125 @@ const mediaList = [
   }
 
 
+=======
+const mediaList = [
+
+    // VIDEO
+    {
+      type: "video",
+      id: "u83VdXAVq08"
+    },
+  
+    // ẢNH
+    {
+      type: "image",
+      src:"https://game8.vn/media/202208/images/wukong-3195.jpg"
+    },
+  
+    {
+      type: "image",
+      src:"https://motionbgs.com/media/6470/black-myth-wukong.jpg"
+    },
+  
+    {
+      type: "video",
+      id: "592If-pP2_A"
+    },
+  
+    {
+      type: "image",
+      src:"https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837"
+    },
+  
+    {
+      type: "image",
+      src:"https://wallpaperaccess.com/full/2403437.jpg"
+    },
+  
+    {
+      type: "video",
+      id: "14FfhVQrrAo"
+    },
+  
+    {
+      type: "image",
+      src:"https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg"
+    },
+  
+    {
+      type: "image",
+      src:"https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg"
+    },
+  
+    {
+      type: "video",
+      id: "QdBZY2fkU-0"
+    },
+  
+    {
+      type: "image",
+      src:"https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg"
+    },
+  
+    {
+      type: "image",
+      src:"https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg"
+    },
+  
+    {
+      type: "video",
+      id: "4ViBoFiHYlI"
+    },
+  
+    {
+      type: "image",
+      src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg"
+    },
+  
+    {
+      type: "image",
+      src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg"
+    },
+
+    {
+      type: "video",
+      id: "WS9aGypJPJ4"
+    },
+
+    {
+      type: "image",
+      src:"https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp"
+    },
+
+    {
+      type: "image",
+      src:"https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg"
+    },
+
+    {
+      type: "video",
+      id: "LTqczRnNqDc"
+    },
+    
+    {
+      type: "image",
+      src:"https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg"
+    },
+  
+    {
+      type: "image",
+      src:"https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg"
+    }
+  
+  
+>>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
 
 ];
 
 let currentMedia = 0;
 let player = null;
 let imageTimer = null;
+<<<<<<< HEAD
 let isSliderActive = true; 
 
 function hasSlider() {
@@ -918,16 +1032,72 @@ function showMedia(){
         container.innerHTML = `<img src="${media.src}">`;
         imageTimer = setTimeout(() => {
             if (isSliderActive) nextMedia();
+=======
+
+// YouTube API ready
+function onYouTubeIframeAPIReady(){
+    showMedia();
+}
+
+// HIỂN THỊ
+function showMedia(){
+
+    clearTimeout(imageTimer);
+
+    const media = mediaList[currentMedia];
+    const container = document.getElementById("media");
+
+    // VIDEO
+    if(media.type === "video"){
+
+        container.innerHTML = `
+            <div id="player"></div>
+        `;
+
+        player = new YT.Player('player', {
+
+            videoId: media.id,
+
+            playerVars:{
+                autoplay:1,
+                mute:1
+            },
+
+            events:{
+                onStateChange:onPlayerStateChange
+            }
+        });
+    }
+
+    // IMAGE
+    else{
+
+        container.innerHTML = `
+            <img src="${media.src}">
+        `;
+
+        // ảnh tự chuyển sau 5 giây
+        imageTimer = setTimeout(() => {
+            nextMedia();
+>>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
         }, 5000);
     }
 }
 
+<<<<<<< HEAD
 function onPlayerStateChange(event){
     if(event.data == YT.PlayerState.ENDED && isSliderActive){
+=======
+// VIDEO KẾT THÚC
+function onPlayerStateChange(event){
+
+    if(event.data == YT.PlayerState.ENDED){
+>>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
         nextMedia();
     }
 }
 
+<<<<<<< HEAD
 function nextMedia(){
     if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
     currentMedia++;
@@ -987,3 +1157,28 @@ window.addEventListener("load", () => {
         }
     }
 });
+=======
+// NEXT
+function nextMedia(){
+
+    currentMedia++;
+
+    if(currentMedia >= mediaList.length){
+        currentMedia = 0;
+    }
+
+    showMedia();
+}
+
+// PREV
+function prevMedia(){
+
+    currentMedia--;
+
+    if(currentMedia < 0){
+        currentMedia = mediaList.length - 1;
+    }
+
+    showMedia();
+}
+>>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
