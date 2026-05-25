@@ -7,56 +7,68 @@
     <link rel="stylesheet" href="gtaV.css" />
   </head>
 
-  <body>
-    <div class="top-bar">
-      <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
-        <button>🔍</button>
-      </div>
-      <div class="top-right">
-        <a href="../../intro.html">Về Tuat.vn |</a>
-        <a href="../../chinhsach.html">Chính sách |</a>
-        <div class="policy-top">
-          <a href="">Thông tin liên hệ ▾|</a>
-          <div class="dropdown">
-            <a
-              href="https://www.facebook.com/profile.php?id=61590020309778"
-              target="_blank"
-            >
-              <img
-                src="https://cdn.tgdd.vn/2020/03/GameApp/Facebook-200x200.jpg"
-              />
-              Facebook
-            </a>
-            <a
-              href="https://www.tiktok.com/@shopgametuat.vnuytin?is_from_webapp=1&sender_device=pc"
-              target="_blank"
-            >
-              <img
-                src="https://p16-tiktokcdn-com.akamaized.net/obj/tiktok-obj/c793ec5430b28c9d157f34562a0596b9"
-              />
-              TikTok
-            </a>
-            <a href="https://zalo.me/[0387918807]" target="_blank">
-              <img
-                src="https://play-lh.googleusercontent.com/Zs0-SVFd7FHABCT6buDhAVmOZHlIJS8Z37LMmWghcJV9N4ryZfpI0dZa0jzejcJ3cQ"
-              />
-              Zalo
-            </a>
-          </div>
+      <div class="top-bar">
+        <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
+            <button>🔍</button>
         </div>
-      </div>
+        <div class="top-right">
+            <button id="cartToggleBtn" style="background: #28a745; color: white; border: none; padding: 6px 12px; font-weight: bold; border-radius: 4px; cursor: pointer;">
+        🛒 Giỏ hàng (<span id="cartCount">0</span>)
+    </button>
+            <a href="../../intro.html" onclick="saveLogin()">Về Tuat.vn |</a>
+            <a href="../../chinhsach.html" onclick="saveLogin()">Chính sách |</a>
+        </div>
+
+        <div id="cartSidebar" style="position: fixed; top: 0; right: -380px; width: 380px; height: 100%; background: #171a21; border-left: 2px solid #2a475e; box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 9999; display: flex; flex-direction: column; transition: 0.3s; padding: 20px; color: white;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a475e; padding-bottom: 15px;">
+                <h3 style="margin: 0; color: #66c0f4;">Giỏ Hàng Của Bạn</h3>
+                <button id="closeCartBtn" style="background: none; border: none; color: #ced4da; font-size: 24px; cursor: pointer;">&times;</button>
+            </div>
+            <div id="cartItems" style="flex-grow: 1; overflow-y: auto; padding: 15px 0;">
+                <p style="text-align: center; color: #8f98a0; margin-top: 50px;">Giỏ hàng trống.</p>
+            </div>
+            <div style="border-top: 1px solid #2a475e; padding-top: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 15px;">
+                    <span>Tổng tiền:</span>
+                    <span id="cartTotal" style="color: #ffcc00;">0đ</span>
+                </div>
+                <button id="checkoutBtn" style="width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer;">Tiến Hành Thanh Toán</button>
+            </div>
+        </div>
+
+        <div id="checkoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+            <div style="background: #171a21; border: 2px solid #2a475e; padding: 30px; border-radius: 8px; width: 90%; max-width: 450px; position: relative; color: white;">
+                <button id="closeCheckoutBtn" style="position: absolute; top: 10px; right: 15px; background: none; border: none; color: #999; font-size: 24px; cursor: pointer;">&times;</button>
+                <h3 style="margin-top: 0; margin-bottom: 20px; color: #66c0f4; border-bottom: 2px solid #2a475e; padding-bottom: 8px;">Thông Tin Nhận Game</h3>
+                <form id="checkoutForm">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Họ và tên:</label>
+                        <input type="text" required placeholder="Nhập họ tên" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Số điện thoại / Zalo:</label>
+                        <input type="tel" required placeholder="Nhập số điện thoại" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Email nhận tài khoản/key game:</label>
+                        <input type="email" required placeholder="Ví dụ: nguyenvana@gmail.com" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <button type="submit" style="width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer;">Xác Nhận Thanh Toán</button>
+                </form>
+            </div>
+        </div>
     </div>
     <div class="menu">
-        <a href="../../index.html">
+        <a href="../../main/index.html">
             <img src="../../logo.jpg" class="logo" />
         </a>
         <div class="menu-item">
             <a href="../../main/index.html" id="homeBtn">TRANG CHỦ</a>
         </div>
         <div class="policy menu-item">
-            <a href="#" id="storeBtn">CỬA HÀNG</a>
+            <a href="../../main/index.html" id="storeBtn">CỬA HÀNG</a>
             <div class="dropdown" id="genreDropdown">
                 <a href="#" data-genre="all">Tất cả game</a>
                 <a href="#" data-genre="nhapvai">Game Nhập vai</a>
@@ -67,21 +79,181 @@
             </div>
         </div>
         <div class="menu-item">
-            <a href="">THÔNG TIN</a>
+            <a href="#" id="ratingBtn">ĐÁNH GIÁ</a>
         </div>
+
         <div class="menu-item">
             <a href="#" id="supportBtn">HỖ TRỢ</a>
         </div>
         <div class="menu-item login">
             <a href="../../login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
         </div>
-        <div class="cart-container">
-            <a href="cart.html" class="cart-btn">
-              <span class="cart-icon">🛒</span>
-              <span class="cart-text">GIỎ HÀNG</span>
-              <span id="cart-count">0</span>
-            </a>
+    </div>
+    <div id="rating-section" style="display: none">
+        <div class="rating-filter">
+            <button class="star-btn active" data-star="all">Tất cả</button>
+            <button class="star-btn" data-star="5">★★★★★</button>
+            <button class="star-btn" data-star="4">★★★★☆</button>
+            <button class="star-btn" data-star="3">★★★☆☆</button>
+            <button class="star-btn" data-star="2">★★☆☆☆</button>
+            <button class="star-btn" data-star="1">★☆☆☆☆</button>
         </div>
+    </div>
+
+    </div>
+    <!-- ===== BANNER GAME HOT (NEW) ===== -->
+    <div class="game-banner-wrapper">
+        <div class="game-banner-track" id="gameBannerTrack">
+        </div>
+    </div>
+    <div id="games"></div>
+    <div id="support-container" class="support-wrapper" style="display: none">
+        <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
+        <h2 class="sp-heading">1. Kênh Liên Hệ Trực Tiếp (Hotline & Chat)</h2>
+        <div class="sp-contact-channels">
+            <div class="sp-contact-card">
+                <h3>Live Chat 24/7</h3>
+                <p>Hỗ trợ trực tuyến ngay trên web/app.</p>
+                <p><small class="sp-note">(Phản hồi trong 3-5 phút)</small></p>
+                <a href="#" class="sp-btn sp-btn-chat">Chat Ngay</a>
+            </div>
+            <div class="sp-contact-card">
+                <h3>Hotline Hỗ Trợ</h3>
+                <p><strong>1900 xxxx</strong></p>
+                <p>
+                    <small>Cước phí: 1.000đ/phút<br />Hoạt động: 8h00 - 22h00</small>
+                </p>
+                <a href="tel:1900xxxx" class="sp-btn sp-btn-hotline">Gọi Tổng Đài</a>
+            </div>
+            <div class="sp-contact-card">
+                <h3>Zalo / Fanpage</h3>
+                <p>
+                    Nhắn tin trực tiếp qua Fanpage Facebook ShopGame để được xử lý nhanh nhất.
+                </p>
+                <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank" class="sp-btn sp-btn-fb">Nhắn Tin Ngay</a
+          >
+        </div>
+      </div>
+
+      <h2 class="sp-heading">2. Các Câu Hỏi Thường Gặp (FAQ)</h2>
+      <div class="sp-faq-section">
+        <h3 class="sp-faq-sub">Về Nạp Thẻ & Thanh Toán</h3>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Lỗi nạp thẻ chậm: Thẻ báo thành công nhưng chưa nhận được tiền/xu?
+            <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>
+              Thời gian hệ thống xử lý thường từ 1-5 phút. Nếu quá thời gian
+              trên, hãy cung cấp mã thẻ và số seri cho bộ phận CSKH để được kiểm
+              tra lại.
+            </p>
+          </div>
+        </div>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Các phương thức thanh toán được shop hỗ trợ? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>
+              Shop hỗ trợ quét mã QR Banking, ví điện tử (Momo, ZaloPay) và các
+              loại thẻ cào điện thoại thông dụng.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="sp-faq-sub">Về Chính Sách Đổi/Trả & Bảo Hành</h3>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Điều kiện để được bảo hành tài khoản? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>
+              Acc bị khóa do lỗi từ phía nhà phát hành hoặc có tranh chấp xảy ra
+              trước đó sẽ được áp dụng chính sách đổi trả 1-1 trong ngày đầu
+              tiên.
+            </p>
+          </div>
+        </div>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Các trường hợp nào bị từ chối bảo hành? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>
+              Khách hàng tự ý thay đổi các thông tin bảo mật cốt lõi (email, số
+              điện thoại gắn kết) hoặc sử dụng phần mềm thứ 3 (hack, cheat) dẫn
+              đến bị khóa acc.
+            </p>
+          </div>
+        </div>
+      </div>
+      <h2 class="sp-heading">
+        3. Quy Trình Giải Quyết Khiếu Nại (Quy chuẩn 3 bước)
+      </h2>
+      <div class="sp-steps-container">
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 1</div>
+          <p>
+            <strong>Gửi thông tin:</strong> Khách hàng cung cấp Mã đơn hàng,
+            hình ảnh/video lỗi và tên tài khoản qua mục Trung tâm Hỗ trợ.
+          </p>
+        </div>
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 2</div>
+          <p>
+            <strong>Xác minh:</strong> Nhân viên tiếp nhận, tiến hành check lại
+            lịch sử giao dịch và xác minh lỗi cụ thể trong vòng
+            <span class="sp-note">[15-30 phút]</span>.
+          </p>
+        </div>
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 3</div>
+          <p>
+            <strong>Xử lý:</strong> Tiến hành hoàn tiền trực tiếp vào số dư tài
+            khoản web hoặc đổi acc mới theo đúng Chính sách hoàn tiền đã cam
+            kết.
+          </p>
+        </div>
+      </div>
+      <h2 class="sp-heading">
+        4. Biểu Mẫu Gửi Yêu Cầu Hỗ Trợ (Ticket tốc độ cao)
+      </h2>
+      <form
+        class="sp-ticket-form"
+        onsubmit="
+          alert('Gửi yêu cầu thành công! Chúng tôi sẽ phản hồi sớm nhất.');
+          return false;
+        "
+      >
+        <div class="sp-form-group">
+          <label>Nội dung cần hỗ trợ:</label>
+          <select required>
+            <option value="">-- Chọn vấn đề cần hỗ trợ --</option>
+            <option value="error-recharge">Lỗi nạp tiền / Nạp thẻ chậm</option>
+            <option value="warranty">Yêu cầu bảo hành / Đổi trả</option>
+            <option value="other">Vấn đề khác</option>
+          </select>
+        </div>
+        <div class="sp-form-group">
+          <label>Mã đơn hàng (nếu có):</label>
+          <input type="text" placeholder="Ví dụ: #12345" />
+        </div>
+        <div class="sp-form-group">
+          <label>Tài khoản đăng nhập shop:</label>
+          <input
+            type="text"
+            placeholder="Nhập Email hoặc Số điện thoại đăng nhập"
+            required
+          />
+        </div>
+        <div class="sp-form-group">
+          <label>Hình ảnh / Video đính kèm:</label>
+          <input type="file" accept="image/*,video/*" />
+        </div>
+        <button type="submit" class="sp-btn-submit">Gửi Yêu Cầu Hỗ Trợ</button>
+      </form>
     </div>
     <div class="product-page">
       <div class="product-body">

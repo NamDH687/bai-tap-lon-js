@@ -22,6 +22,7 @@ const games = [
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
     genre: "nhapvai",
+    link: "../game/gtaV/gtaV.html"
   },
   {
     name: "EA FC 25",
@@ -136,7 +137,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Marvel’s Spider-Man: Miles Morales",
+    name: "Marvel's Spider-Man: Miles Morales",
     price: "1.159.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499",
@@ -630,6 +631,7 @@ const games = [
     genre: "chiensuat",
   },
 ];
+
 // ===== LỌC THEO THỂ LOẠI (GENRE) =====
 const genreLinks = document.querySelectorAll("#genreDropdown a");
 
@@ -651,25 +653,43 @@ genreLinks.forEach((link) => {
   });
 });
 
+games.forEach(game => {
+    gamesDiv.innerHTML += `
+        <div class="game-card"
+        ${game.link ? `onclick="window.location.href='${game.link}'"` : ""}>
+        
+            <img src="${game.image}" alt="${game.name}">
+
+            <div class="game-info">
+                <div class="game-title">${game.name}</div>
+
+                <div class="price-box">
+                    <span class="old-price">${game.oldPrice || ""}</span>
+                    <span class="price">${game.price}</span>
+                    <span class="discount">${game.discount || ""}</span>
+                </div>
+            </div>
+
+        </div>
+    `;
+});
+
 // ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
 let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
 
 function getGameRating(gameName) {
   if (!savedRatings[gameName]) {
     const starPool = [1, 2, 3, 4, 5];
-
     const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
-
     savedRatings[gameName] = {
       stars: Number(randomStar),
       reviews: Math.floor(Math.random() * 5000) + 100,
     };
-
     localStorage.setItem("gameRatings", JSON.stringify(savedRatings));
   }
-
   return savedRatings[gameName];
 }
+
 // Hiển thị sao
 function createStars(rate) {
   const full = Math.floor(rate);
@@ -680,8 +700,7 @@ function createStars(rate) {
   return result;
 }
 
-// Render game ra màn hình
-// 1. THAY THẾ HOÀN TOÀN HÀM RENDERGAMES CŨ ĐỂ TÍCH HỢP NÚT "THÊM VÀO GIỎ" VÀ SỬA LINK GTA V
+// ===== RENDER GAMES =====
 function renderGames(gamesList) {
   if (!gamesDiv) return;
   gamesDiv.innerHTML = "";
@@ -692,25 +711,27 @@ function renderGames(gamesList) {
     const ratingData = getGameRating
       ? getGameRating(game.name)
       : { stars: "★★★★★", count: 0 };
-    const targetLink = game.name === "GTA V" ? "gtaV.html" : "#";
+
+    // SỬA Ở ĐÂY: dùng game.link thay vì hardcode tên game
+    const targetLink = game.link ? game.link : "#";
 
     gameCard.innerHTML = `
-            <a href="${targetLink}" style="text-decoration: none; color: inherit; display: block;">
-                <img src="${game.image}" alt="${game.name}" style="width:100%; border-radius:8px; height: 140px; object-fit: cover;">
-                <h3 style="margin: 10px 0 5px 0; font-size:16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${game.name}</h3>
-                
-                <div class="rating" style="margin-bottom: 8px; font-size: 13px;">
-                    <span style="color: gold;">★</span> 
-                    <span style="color: #fff; font-weight: bold;">${ratingData.stars}</span> 
-                    <span style="color: #8f98a0; font-size: 12px;">(${ratingData.count})</span>
-                </div>
+      <a href="${targetLink}" style="text-decoration: none; color: inherit; display: block;">
+        <img src="${game.image}" alt="${game.name}" style="width:100%; border-radius:8px; height: 140px; object-fit: cover;">
+        <h3 style="margin: 10px 0 5px 0; font-size:16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${game.name}</h3>
+        
+        <div class="rating" style="margin-bottom: 8px; font-size: 13px;">
+          <span style="color: gold;">★</span> 
+          <span style="color: #fff; font-weight: bold;">${ratingData.stars}</span> 
+          <span style="color: #8f98a0; font-size: 12px;">(${ratingData.reviews})</span>
+        </div>
 
-                <p style="color: #ffcc00; font-weight: bold; margin:0 0 10px 0;">${game.price}</p>
-            </a>
-            <button class="add-to-cart-btn" data-name="${game.name}" style="width: 100%; background: #007bff; color: white; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;">
-                🛒 Thêm vào giỏ
-            </button>
-        `;
+        <p style="color: #ffcc00; font-weight: bold; margin:0 0 10px 0;">${game.price}</p>
+      </a>
+      <button class="add-to-cart-btn" data-name="${game.name}" style="width: 100%; background: #007bff; color: white; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+        🛒 Thêm vào giỏ
+      </button>
+    `;
     gamesDiv.appendChild(gameCard);
   });
 
@@ -725,7 +746,7 @@ function renderGames(gamesList) {
 }
 
 // ==========================================
-// CÁC CHỨC NĂNG BỔ SUNG: GIỎ HÀNG & TÌM KIẾM
+// GIỎ HÀNG
 // ==========================================
 
 let cart = [];
@@ -741,7 +762,6 @@ const checkoutBtn = document.getElementById("checkoutBtn");
 const closeCheckoutBtn = document.getElementById("closeCheckoutBtn");
 const checkoutForm = document.getElementById("checkoutForm");
 
-// Hàm cập nhật giao diện Giỏ hàng khi có thay đổi
 function updateCartUI() {
   if (!cartItemsContainer) return;
   cartItemsContainer.innerHTML = "";
@@ -758,8 +778,6 @@ function updateCartUI() {
 
   cart.forEach((item) => {
     totalItems += item.quantity;
-
-    // Chuyển chuỗi giá "360.000đ" -> số 360000 để tính toán
     const numericPrice = parseInt(
       item.price.replace(/\./g, "").replace("đ", ""),
     );
@@ -769,18 +787,18 @@ function updateCartUI() {
     cartItem.style.cssText =
       "display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid #2a475e; padding-bottom: 10px;";
     cartItem.innerHTML = `
-            <img src="${item.image}" style="width: 50px; height: 60px; object-fit: cover; border-radius: 4px;">
-            <div style="flex-grow: 1;">
-                <div style="font-size: 14px; font-weight: bold; color: #fff;">${item.name}</div>
-                <div style="color: #ffcc00; font-size: 13px; font-weight: bold; margin-top: 4px;">${item.price}</div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                    <button onclick="changeCartQuantity('${item.name}', -1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">-</button>
-                    <span style="font-size:14px;">${item.quantity}</span>
-                    <button onclick="changeCartQuantity('${item.name}', 1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">+</button>
-                    <button onclick="removeFromCart('${item.name}')" style="background:none; border:none; color:#e53935; cursor:pointer; font-size:12px; margin-left:10px;">Xóa</button>
-                </div>
-            </div>
-        `;
+      <img src="${item.image}" style="width: 50px; height: 60px; object-fit: cover; border-radius: 4px;">
+      <div style="flex-grow: 1;">
+        <div style="font-size: 14px; font-weight: bold; color: #fff;">${item.name}</div>
+        <div style="color: #ffcc00; font-size: 13px; font-weight: bold; margin-top: 4px;">${item.price}</div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+          <button onclick="changeCartQuantity('${item.name}', -1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">-</button>
+          <span style="font-size:14px;">${item.quantity}</span>
+          <button onclick="changeCartQuantity('${item.name}', 1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">+</button>
+          <button onclick="removeFromCart('${item.name}')" style="background:none; border:none; color:#e53935; cursor:pointer; font-size:12px; margin-left:10px;">Xóa</button>
+        </div>
+      </div>
+    `;
     cartItemsContainer.appendChild(cartItem);
   });
 
@@ -788,7 +806,6 @@ function updateCartUI() {
   cartTotal.innerText = totalPrice.toLocaleString("vi-VN") + "đ";
 }
 
-// Hàm thêm game vào giỏ hàng
 function addToCart(gameName) {
   const gameData = games.find((g) => g.name === gameName);
   if (!gameData) return;
@@ -801,11 +818,9 @@ function addToCart(gameName) {
   }
 
   updateCartUI();
-  // Tự động trượt sidebar mở giỏ hàng ra để người dùng thấy trực quan
   if (cartSidebar) cartSidebar.style.right = "0";
 }
 
-// Hàm thay đổi số lượng từng item trong giỏ
 window.changeCartQuantity = function (gameName, amount) {
   const item = cart.find((i) => i.name === gameName);
   if (!item) return;
@@ -817,19 +832,16 @@ window.changeCartQuantity = function (gameName, amount) {
   }
 };
 
-// Hàm xóa hẳn game khỏi giỏ
 window.removeFromCart = function (gameName) {
   cart = cart.filter((item) => item.name !== gameName);
   updateCartUI();
 };
 
-// Bắt sự kiện Ẩn / Hiện thanh Giỏ hàng Sidebar
 if (cartToggleBtn)
   cartToggleBtn.onclick = () => (cartSidebar.style.right = "0");
 if (closeCartBtn)
   closeCartBtn.onclick = () => (cartSidebar.style.right = "-380px");
 
-// Xử lý bật popup Thanh toán đặt hàng
 if (checkoutBtn) {
   checkoutBtn.onclick = () => {
     if (cart.length === 0) {
@@ -848,36 +860,30 @@ if (checkoutForm) {
     alert(
       "🎉 Đặt mua thành công! Shop sẽ gửi thông tin tài khoản và key kích hoạt qua Email bạn đã đăng ký trong giây lát.",
     );
-    cart = []; // Reset giỏ hàng sạch sẽ
+    cart = [];
     updateCartUI();
     checkoutModal.style.display = "none";
     cartSidebar.style.right = "-380px";
   };
 }
 
-// THAY THẾ/BỔ SUNG SỰ KIỆN TÌM KIẾM SẢN PHẨM REAL-TIME KHÔNG REFRESH TRANG
+// ===== TÌM KIẾM =====
 if (searchInput) {
   searchInput.addEventListener("input", (e) => {
     if (!gamesDiv) return;
     const keyword = e.target.value.toLowerCase().trim();
-
-    // Lọc danh sách game khớp ký tự viết thường
     const filtered = games.filter((game) =>
       game.name.toLowerCase().includes(keyword),
     );
-
-    // Gọi lại hàm để render danh sách game lọc ngay lập tức
     renderGames(filtered);
   });
 }
 
 // ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
 window.onload = function () {
-  // Mặc định khi vừa vào trang: Hiện game, Ẩn hỗ trợ, Ẩn thanh lọc sao
   if (gamesDiv) gamesDiv.style.display = "grid";
   if (supportContainer) supportContainer.style.display = "none";
-  if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao đi, chỉ hiện ở trang Đánh giá
-
+  if (ratingSection) ratingSection.style.display = "none";
   renderGames(games);
 };
 
@@ -886,10 +892,10 @@ if (homeBtn) {
   homeBtn.addEventListener("click", function (e) {
     e.preventDefault();
     showBanner();
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (ratingSection) ratingSection.style.display = "none";
+    if (supportContainer) supportContainer.style.display = "none";
     if (gamesDiv) {
-      gamesDiv.style.display = "grid"; // Hiện game
+      gamesDiv.style.display = "grid";
       renderGames(games);
     }
   });
@@ -900,10 +906,10 @@ if (storeBtn) {
   storeBtn.addEventListener("click", function (e) {
     e.preventDefault();
     hideBanner();
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (ratingSection) ratingSection.style.display = "none";
+    if (supportContainer) supportContainer.style.display = "none";
     if (gamesDiv) {
-      gamesDiv.style.display = "grid"; // Hiện game
+      gamesDiv.style.display = "grid";
       renderGames(games);
     }
   });
@@ -914,32 +920,30 @@ if (supportBtn) {
   supportBtn.addEventListener("click", function (e) {
     e.preventDefault();
     hideBanner();
-    if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
+    if (gamesDiv) gamesDiv.style.display = "none";
+    if (ratingSection) ratingSection.style.display = "none";
+    if (supportContainer) supportContainer.style.display = "block";
   });
 }
 
-// KHI CLICK NÚT ĐÁNH GIÁ (CHỈ HIỆN THANH SAO Ở ĐÂY)
+// KHI CLICK NÚT ĐÁNH GIÁ
 if (ratingBtn) {
   ratingBtn.addEventListener("click", function (e) {
     e.preventDefault();
     hideBanner();
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
-    if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
-    if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
-
+    if (supportContainer) supportContainer.style.display = "none";
+    if (gamesDiv) gamesDiv.style.display = "grid";
+    if (ratingSection) ratingSection.style.display = "block";
     renderGames(games);
   });
 }
 
-// HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
+// HIỆU ỨNG FAQ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
     const item = question.parentElement;
     item.classList.toggle("active");
-
     const span = question.querySelector("span");
     if (span) {
       span.textContent = item.classList.contains("active") ? "−" : "+";
@@ -957,9 +961,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (currentUser) {
     authBtn.innerHTML = `
-            <span class="user-avatar">👤</span>
-            <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
-        `;
+      <span class="user-avatar">👤</span>
+      <span>${currentUser} - ${Number(balance).toLocaleString("vi-VN")}đ</span>
+    `;
     authBtn.href = "#";
     authBtn.classList.add("logged");
     authBtn.style.opacity = "0";
@@ -1003,6 +1007,8 @@ starBtns.forEach((btn) => {
     renderGames(filtered);
   });
 });
+
+// BANNER
 const bannerGames = [
   games[0],
   games[1],
