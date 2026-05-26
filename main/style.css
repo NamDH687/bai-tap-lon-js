@@ -15,10 +15,7 @@ body {
 }
 
 /* Navbar: xem navbar.css */
-<<<<<<< HEAD
 
-=======
->>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
 .slider{
   position:relative;
   width:900px;
@@ -75,11 +72,8 @@ body {
   right:15px;
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
 #games {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -1,5 +1,4 @@
 /* ========== NAVBAR DÙNG CHUNG ========== */
-<<<<<<< HEAD
 /* Ép thanh navbar luôn dính chặt ở trên cùng */
 #site-navbar {
   position: fixed;
@@ -14,9 +13,6 @@
 body {
   padding-top: 130px; /* Độ cao này bằng hoặc lớn hơn độ cao thanh navbar của bạn một chút */
 }
-=======
-
->>>>>>> 5adfabf11f4347ba497bd231a399a16ebac4453f
 .top-bar {
   background: black;
   height: 40px;
