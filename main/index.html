@@ -1,65 +1,60 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
-    <link rel="stylesheet" href="../navbar.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body data-page="main">
+  <body data-page="main">
     <div id="site-navbar"></div>
     <script src="../navbar.js"></script>
 
     <!-- slide -->
     <div class="slider">
-
       <!-- nút trái -->
-      <button class="nav prev" onclick="prevMedia()">
-        &lsaquo;
-    </button>
+      <button class="nav prev" onclick="prevMedia()">&lsaquo;</button>
       <!-- nút phải -->
-    <button class="nav next" onclick="nextMedia()">
-        &rsaquo;
-    </button>
-  
+      <button class="nav next" onclick="nextMedia()">&rsaquo;</button>
+
       <!-- media -->
       <div id="media"></div>
-  
-  
-  </div>
-  
-  <!-- Youtube API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+    </div>
+
+    <!-- Youtube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 
     <div id="games"></div>
     <div id="support-container" class="support-wrapper" style="display: none">
-        <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
-        <h2 class="sp-heading">1. Kênh Liên Hệ Trực Tiếp (Hotline & Chat)</h2>
-        <div class="sp-contact-channels">
-            <div class="sp-contact-card">
-                <h3>Live Chat 24/7</h3>
-                <p>Hỗ trợ trực tuyến ngay trên web/app.</p>
-                <p><small class="sp-note">(Phản hồi trong 3-5 phút)</small></p>
-                <a href="#" class="sp-btn sp-btn-chat">Chat Ngay</a>
-            </div>
-            <div class="sp-contact-card">
-                <h3>Hotline Hỗ Trợ</h3>
-                <p><strong>1900 xxxx</strong></p>
-                <p>
-                    <small>Cước phí: 1.000đ/phút<br />Hoạt động: 8h00 - 22h00</small>
-                </p>
-                <a href="tel:1900xxxx" class="sp-btn sp-btn-hotline">Gọi Tổng Đài</a>
-            </div>
-            <div class="sp-contact-card">
-                <h3>Zalo / Fanpage</h3>
-                <p>
-                    Nhắn tin trực tiếp qua Fanpage Facebook ShopGame để được xử lý nhanh nhất.
-                </p>
-                <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank" class="sp-btn sp-btn-fb">Nhắn Tin Ngay</a
+      <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
+      <h2 class="sp-heading">1. Kênh Liên Hệ Trực Tiếp (Hotline & Chat)</h2>
+      <div class="sp-contact-channels">
+        <div class="sp-contact-card">
+          <h3>Live Chat 24/7</h3>
+          <p>Hỗ trợ trực tuyến ngay trên web/app.</p>
+          <p><small class="sp-note">(Phản hồi trong 3-5 phút)</small></p>
+          <a href="#" class="sp-btn sp-btn-chat">Chat Ngay</a>
+        </div>
+        <div class="sp-contact-card">
+          <h3>Hotline Hỗ Trợ</h3>
+          <p><strong>1900 xxxx</strong></p>
+          <p>
+            <small>Cước phí: 1.000đ/phút<br />Hoạt động: 8h00 - 22h00</small>
+          </p>
+          <a href="tel:1900xxxx" class="sp-btn sp-btn-hotline">Gọi Tổng Đài</a>
+        </div>
+        <div class="sp-contact-card">
+          <h3>Zalo / Fanpage</h3>
+          <p>
+            Nhắn tin trực tiếp qua Fanpage Facebook ShopGame để được xử lý nhanh
+            nhất.
+          </p>
+          <a
+            href="https://www.facebook.com/profile.php?id=61590020309778"
+            target="_blank"
+            class="sp-btn sp-btn-fb"
+            >Nhắn Tin Ngay</a
           >
         </div>
       </div>
@@ -184,8 +179,6 @@
         <button type="submit" class="sp-btn-submit">Gửi Yêu Cầu Hỗ Trợ</button>
       </form>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
 </html>

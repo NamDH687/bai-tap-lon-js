@@ -1,7 +1,20 @@
+const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
+const bannerWrapper = document.querySelector(".game-banner-wrapper");
+const searchInput = document.getElementById("searchInput");
+const supportBtn = document.getElementById("supportBtn");
 const supportContainer = document.getElementById("support-container");
+const homeBtn = document.getElementById("homeBtn");
+const ratingSection = document.getElementById("rating-section");
+const ratingBtn = document.getElementById("ratingBtn");
 
-// Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
+function showBanner() {
+  if (bannerWrapper) bannerWrapper.style.display = "block";
+}
+
+function hideBanner() {
+  if (bannerWrapper) bannerWrapper.style.display = "none";
+}
 const games = [
   {
     name: "GTA V",
@@ -39,7 +52,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Call of Duty®: Black Ops III",
+    name: "Call of Duty®: Black Ops III ",
     price: "475.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663",
@@ -151,7 +164,7 @@ const games = [
     genre: "chiensuat",
   },
   {
-    name: "Teamfight Tactics",
+    name: "Team Fight Tactics",
     price: "Miễn phí",
     image:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
@@ -617,143 +630,310 @@ const games = [
     genre: "chiensuat",
   },
 ];
+// ===== LỌC THEO THỂ LOẠI (GENRE) =====
+const genreLinks = document.querySelectorAll("#genreDropdown a");
 
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+genreLinks.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const genre = this.dataset.genre;
+
+    if (genre === "all") {
+      renderGames(games);
+    } else {
+      const filteredGames = games.filter((game) => game.genre === genre);
+      renderGames(filteredGames);
+    }
+    if (gamesDiv) gamesDiv.style.display = "grid";
+    if (supportContainer) supportContainer.style.display = "none";
+    if (ratingSection) ratingSection.style.display = "none";
+  });
+});
+
+// ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
+let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
+
+function getGameRating(gameName) {
+  if (!savedRatings[gameName]) {
+    const starPool = [1, 2, 3, 4, 5];
+
+    const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
+
+    savedRatings[gameName] = {
+      stars: Number(randomStar),
+      reviews: Math.floor(Math.random() * 5000) + 100,
+    };
+
+    localStorage.setItem("gameRatings", JSON.stringify(savedRatings));
+  }
+
+  return savedRatings[gameName];
+}
+// Hiển thị sao
+function createStars(rate) {
+  const full = Math.floor(rate);
+  let result = "";
+  for (let i = 0; i < 5; i++) {
+    result += i < full ? "★" : "☆";
+  }
+  return result;
 }
 
+// Render game ra màn hình
+// 1. THAY THẾ HOÀN TOÀN HÀM RENDERGAMES CŨ ĐỂ TÍCH HỢP NÚT "THÊM VÀO GIỎ" VÀ SỬA LINK GTA V
 function renderGames(gamesList) {
+  if (!gamesDiv) return;
   gamesDiv.innerHTML = "";
+
   gamesList.forEach((game) => {
-    const title = String(game.name).trim();
-    gamesDiv.innerHTML += `
-            <div class="game-card">
-                <img src="${game.image}" alt="${escapeHtml(title)}">
-                <div class="game-info">
-                    <h3 class="game-title">${escapeHtml(title)}</h3>
-                    <p class="price">${escapeHtml(game.price)}</p>
+    const gameCard = document.createElement("div");
+    gameCard.className = "game-card";
+    const ratingData = getGameRating
+      ? getGameRating(game.name)
+      : { stars: "★★★★★", count: 0 };
+    const targetLink = game.name === "GTA V" ? "gtaV.html" : "#";
+
+    gameCard.innerHTML = `
+            <a href="${targetLink}" style="text-decoration: none; color: inherit; display: block;">
+                <img src="${game.image}" alt="${game.name}" style="width:100%; border-radius:8px; height: 140px; object-fit: cover;">
+                <h3 style="margin: 10px 0 5px 0; font-size:16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${game.name}</h3>
+                
+                <div class="rating" style="margin-bottom: 8px; font-size: 13px;">
+                    <span style="color: gold;">★</span> 
+                    <span style="color: #fff; font-weight: bold;">${ratingData.stars}</span> 
+                    <span style="color: #8f98a0; font-size: 12px;">(${ratingData.count})</span>
                 </div>
-            </div>
+
+                <p style="color: #ffcc00; font-weight: bold; margin:0 0 10px 0;">${game.price}</p>
+            </a>
+            <button class="add-to-cart-btn" data-name="${game.name}" style="width: 100%; background: #007bff; color: white; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;">
+                🛒 Thêm vào giỏ
+            </button>
         `;
+    gamesDiv.appendChild(gameCard);
+  });
+
+  const addToCartBtns = gamesDiv.querySelectorAll(".add-to-cart-btn");
+  addToCartBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const gameName = btn.getAttribute("data-name");
+      addToCart(gameName);
+    });
   });
 }
 
-function showSupportView() {
-  if (!gamesDiv || !supportContainer) return;
-  gamesDiv.style.display = "none";
-  supportContainer.style.display = "block";
-  window.location.hash = "ho-tro";
-}
+// ==========================================
+// CÁC CHỨC NĂNG BỔ SUNG: GIỎ HÀNG & TÌM KIẾM
+// ==========================================
 
-function showGamesView() {
-  if (!gamesDiv || !supportContainer) return;
-  gamesDiv.style.display = "grid";
-  supportContainer.style.display = "none";
-  if (window.location.hash === "#ho-tro") {
-    history.replaceState(null, "", window.location.pathname);
-  }
-}
+let cart = [];
+const cartSidebar = document.getElementById("cartSidebar");
+const cartToggleBtn = document.getElementById("cartToggleBtn");
+const closeCartBtn = document.getElementById("closeCartBtn");
+const cartItemsContainer = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const cartTotal = document.getElementById("cartTotal");
 
-let mainPageInitialized = false;
+const checkoutModal = document.getElementById("checkoutModal");
+const checkoutBtn = document.getElementById("checkoutBtn");
+const closeCheckoutBtn = document.getElementById("closeCheckoutBtn");
+const checkoutForm = document.getElementById("checkoutForm");
 
-function initMainPage() {
-  if (mainPageInitialized || !gamesDiv) return;
-  mainPageInitialized = true;
+// Hàm cập nhật giao diện Giỏ hàng khi có thay đổi
+function updateCartUI() {
+  if (!cartItemsContainer) return;
+  cartItemsContainer.innerHTML = "";
 
-  const storeBtn = document.getElementById("storeBtn");
-  const searchInput = document.getElementById("searchInput");
-  const supportBtn = document.getElementById("supportBtn");
-  const homeBtn = document.getElementById("homeBtn");
-  const genreDropdown = document.getElementById("genreDropdown");
-
-  function renderGamesFromHash() {
-    const hash = window.location.hash;
-    if (hash.startsWith("#genre-")) {
-      const genre = hash.slice(7);
-      if (genre === "all") {
-        renderGames(games);
-      } else {
-        renderGames(games.filter((game) => game.genre === genre));
-      }
-      return true;
-    }
-    return false;
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `<p style="text-align: center; color: #8f98a0; margin-top: 50px;">Giỏ hàng trống.</p>`;
+    cartCount.innerText = "0";
+    cartTotal.innerText = "0đ";
+    return;
   }
 
-  window.onload = function () {
-    if (window.location.hash === "#ho-tro") {
-      showSupportView();
-    } else if (!renderGamesFromHash()) {
-      renderGames(games);
-    } else {
-      showGamesView();
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  cart.forEach((item) => {
+    totalItems += item.quantity;
+
+    // Chuyển chuỗi giá "360.000đ" -> số 360000 để tính toán
+    const numericPrice = parseInt(
+      item.price.replace(/\./g, "").replace("đ", ""),
+    );
+    totalPrice += numericPrice * item.quantity;
+
+    const cartItem = document.createElement("div");
+    cartItem.style.cssText =
+      "display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid #2a475e; padding-bottom: 10px;";
+    cartItem.innerHTML = `
+            <img src="${item.image}" style="width: 50px; height: 60px; object-fit: cover; border-radius: 4px;">
+            <div style="flex-grow: 1;">
+                <div style="font-size: 14px; font-weight: bold; color: #fff;">${item.name}</div>
+                <div style="color: #ffcc00; font-size: 13px; font-weight: bold; margin-top: 4px;">${item.price}</div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+                    <button onclick="changeCartQuantity('${item.name}', -1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">-</button>
+                    <span style="font-size:14px;">${item.quantity}</span>
+                    <button onclick="changeCartQuantity('${item.name}', 1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">+</button>
+                    <button onclick="removeFromCart('${item.name}')" style="background:none; border:none; color:#e53935; cursor:pointer; font-size:12px; margin-left:10px;">Xóa</button>
+                </div>
+            </div>
+        `;
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  cartCount.innerText = totalItems;
+  cartTotal.innerText = totalPrice.toLocaleString("vi-VN") + "đ";
+}
+
+// Hàm thêm game vào giỏ hàng
+function addToCart(gameName) {
+  const gameData = games.find((g) => g.name === gameName);
+  if (!gameData) return;
+
+  const existingItem = cart.find((item) => item.name === gameName);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ ...gameData, quantity: 1 });
+  }
+
+  updateCartUI();
+  // Tự động trượt sidebar mở giỏ hàng ra để người dùng thấy trực quan
+  if (cartSidebar) cartSidebar.style.right = "0";
+}
+
+// Hàm thay đổi số lượng từng item trong giỏ
+window.changeCartQuantity = function (gameName, amount) {
+  const item = cart.find((i) => i.name === gameName);
+  if (!item) return;
+  item.quantity += amount;
+  if (item.quantity <= 0) {
+    removeFromCart(gameName);
+  } else {
+    updateCartUI();
+  }
+};
+
+// Hàm xóa hẳn game khỏi giỏ
+window.removeFromCart = function (gameName) {
+  cart = cart.filter((item) => item.name !== gameName);
+  updateCartUI();
+};
+
+// Bắt sự kiện Ẩn / Hiện thanh Giỏ hàng Sidebar
+if (cartToggleBtn)
+  cartToggleBtn.onclick = () => (cartSidebar.style.right = "0");
+if (closeCartBtn)
+  closeCartBtn.onclick = () => (cartSidebar.style.right = "-380px");
+
+// Xử lý bật popup Thanh toán đặt hàng
+if (checkoutBtn) {
+  checkoutBtn.onclick = () => {
+    if (cart.length === 0) {
+      alert("Giỏ hàng của bạn đang trống!");
+      return;
     }
+    checkoutModal.style.display = "flex";
   };
+}
+if (closeCheckoutBtn)
+  closeCheckoutBtn.onclick = () => (checkoutModal.style.display = "none");
 
-  if (storeBtn) {
-    storeBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showGamesView();
-      renderGames(games);
-    });
-  }
-
-  if (genreDropdown && searchInput) {
-    const dropdownLinks = genreDropdown.querySelectorAll("a");
-    dropdownLinks.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        const selectedGenre = this.getAttribute("data-genre");
-        searchInput.value = "";
-        showGamesView();
-
-        if (selectedGenre === "all") {
-          renderGames(games);
-        } else {
-          renderGames(games.filter((game) => game.genre === selectedGenre));
-        }
-      });
-    });
-  }
-
-  if (searchInput) {
-    searchInput.addEventListener("keyup", function () {
-      const keyword = searchInput.value.toLowerCase();
-      document.querySelectorAll(".game-card").forEach((card) => {
-        const title = card
-          .querySelector(".game-title")
-          .textContent.toLowerCase();
-        card.style.display = title.includes(keyword) ? "block" : "none";
-      });
-    });
-  }
-
-  if (supportBtn && supportContainer) {
-    supportBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showSupportView();
-    });
-  }
-
-  if (homeBtn) {
-    homeBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      showGamesView();
-      renderGames(games);
-    });
-  }
+if (checkoutForm) {
+  checkoutForm.onsubmit = (e) => {
+    e.preventDefault();
+    alert(
+      "🎉 Đặt mua thành công! Shop sẽ gửi thông tin tài khoản và key kích hoạt qua Email bạn đã đăng ký trong giây lát.",
+    );
+    cart = []; // Reset giỏ hàng sạch sẽ
+    updateCartUI();
+    checkoutModal.style.display = "none";
+    cartSidebar.style.right = "-380px";
+  };
 }
 
-document.addEventListener("navbarReady", initMainPage, { once: true });
-if (document.getElementById("storeBtn")) {
-  initMainPage();
+// THAY THẾ/BỔ SUNG SỰ KIỆN TÌM KIẾM SẢN PHẨM REAL-TIME KHÔNG REFRESH TRANG
+if (searchInput) {
+  searchInput.addEventListener("input", (e) => {
+    if (!gamesDiv) return;
+    const keyword = e.target.value.toLowerCase().trim();
+
+    // Lọc danh sách game khớp ký tự viết thường
+    const filtered = games.filter((game) =>
+      game.name.toLowerCase().includes(keyword),
+    );
+
+    // Gọi lại hàm để render danh sách game lọc ngay lập tức
+    renderGames(filtered);
+  });
 }
 
-//  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
+// ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
+window.onload = function () {
+  // Mặc định khi vừa vào trang: Hiện game, Ẩn hỗ trợ, Ẩn thanh lọc sao
+  if (gamesDiv) gamesDiv.style.display = "grid";
+  if (supportContainer) supportContainer.style.display = "none";
+  if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao đi, chỉ hiện ở trang Đánh giá
+
+  renderGames(games);
+};
+
+// KHI CLICK TRANG CHỦ
+if (homeBtn) {
+  homeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    showBanner();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
+      renderGames(games);
+    }
+  });
+}
+
+// KHI CLICK CỬA HÀNG
+if (storeBtn) {
+  storeBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) {
+      gamesDiv.style.display = "grid"; // Hiện game
+      renderGames(games);
+    }
+  });
+}
+
+// KHI CLICK NÚT HỖ TRỢ
+if (supportBtn) {
+  supportBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
+    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
+    if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
+  });
+}
+
+// KHI CLICK NÚT ĐÁNH GIÁ (CHỈ HIỆN THANH SAO Ở ĐÂY)
+if (ratingBtn) {
+  ratingBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    hideBanner();
+    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
+    if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
+    if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
+
+    renderGames(games);
+  });
+}
+
+// HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
@@ -761,231 +941,237 @@ faqQuestions.forEach((question) => {
     item.classList.toggle("active");
 
     const span = question.querySelector("span");
-    if (item.classList.contains("active")) {
-      span.textContent = "−";
-    } else {
-      span.textContent = "+";
+    if (span) {
+      span.textContent = item.classList.contains("active") ? "−" : "+";
     }
   });
 });
 
 const mediaList = [
-
   // VIDEO
   {
     type: "video",
-    id: "u83VdXAVq08"
+    id: "u83VdXAVq08",
   },
 
   // ẢNH
   {
     type: "image",
-    src:"https://game8.vn/media/202208/images/wukong-3195.jpg"
+    src: "https://game8.vn/media/202208/images/wukong-3195.jpg",
   },
 
   {
     type: "image",
-    src:"https://motionbgs.com/media/6470/black-myth-wukong.jpg"
+    src: "https://motionbgs.com/media/6470/black-myth-wukong.jpg",
   },
 
   {
     type: "video",
-    id: "592If-pP2_A"
+    id: "592If-pP2_A",
   },
 
   {
     type: "image",
-    src:"https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837"
+    src: "https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
   },
 
   {
     type: "image",
-    src:"https://wallpaperaccess.com/full/2403437.jpg"
+    src: "https://wallpaperaccess.com/full/2403437.jpg",
   },
 
   {
     type: "video",
-    id: "14FfhVQrrAo"
+    id: "14FfhVQrrAo",
   },
 
   {
     type: "image",
-    src:"https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg"
+    src: "https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg",
   },
 
   {
     type: "image",
-    src:"https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg"
+    src: "https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg",
   },
 
   {
     type: "video",
-    id: "QdBZY2fkU-0"
+    id: "QdBZY2fkU-0",
   },
 
   {
     type: "image",
-    src:"https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg"
+    src: "https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg",
   },
 
   {
     type: "image",
-    src:"https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg"
+    src: "https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg",
   },
 
   {
     type: "video",
-    id: "4ViBoFiHYlI"
+    id: "4ViBoFiHYlI",
   },
 
   {
     type: "image",
-    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg"
+    src: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg",
   },
 
   {
     type: "image",
-    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg"
+    src: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg",
   },
 
   {
     type: "video",
-    id: "WS9aGypJPJ4"
+    id: "WS9aGypJPJ4",
   },
 
   {
     type: "image",
-    src:"https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp"
+    src: "https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp",
   },
 
   {
     type: "image",
-    src:"https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg"
+    src: "https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg",
   },
 
   {
     type: "video",
-    id: "LTqczRnNqDc"
-  },
-  
-  {
-    type: "image",
-    src:"https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg"
+    id: "LTqczRnNqDc",
   },
 
   {
     type: "image",
-    src:"https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg"
-  }
+    src: "https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg",
+  },
 
-
-
+  {
+    type: "image",
+    src: "https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg",
+  },
 ];
 
 let currentMedia = 0;
 let player = null;
 let imageTimer = null;
-let isSliderActive = true; 
+let isSliderActive = true;
 
 function hasSlider() {
-    return document.getElementById("media") !== null;
+  return document.getElementById("media") !== null;
 }
 
-function onYouTubeIframeAPIReady(){
-    if (hasSlider() && isSliderActive) {
-        showMedia();
-    }
-}
-
-function showMedia(){
-    if (!hasSlider() || !isSliderActive) return; 
-
-    clearTimeout(imageTimer);
-    if (typeof mediaList === 'undefined' || mediaList.length === 0) return;
-
-    const media = mediaList[currentMedia];
-    const container = document.getElementById("media");
-    if (!container) return;
-
-    if(media.type === "video"){
-        container.innerHTML = `<div id="player"></div>`;
-        player = new YT.Player('player', {
-            videoId: media.id,
-            playerVars: { autoplay: 1, mute: 1 },
-            events: { onStateChange: onPlayerStateChange }
-        });
-    } else {
-        container.innerHTML = `<img src="${media.src}">`;
-        imageTimer = setTimeout(() => {
-            if (isSliderActive) nextMedia();
-        }, 5000);
-    }
-}
-
-function onPlayerStateChange(event){
-    if(event.data == YT.PlayerState.ENDED && isSliderActive){
-        nextMedia();
-    }
-}
-
-function nextMedia(){
-    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
-    currentMedia++;
-    if(currentMedia >= mediaList.length) currentMedia = 0;
+function onYouTubeIframeAPIReady() {
+  if (hasSlider() && isSliderActive) {
     showMedia();
+  }
 }
 
-function prevMedia(){
-    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
-    currentMedia--;
-    if(currentMedia < 0) currentMedia = mediaList.length - 1;
-    showMedia();
+function showMedia() {
+  if (!hasSlider() || !isSliderActive) return;
+
+  clearTimeout(imageTimer);
+  if (typeof mediaList === "undefined" || mediaList.length === 0) return;
+
+  const media = mediaList[currentMedia];
+  const container = document.getElementById("media");
+  if (!container) return;
+
+  if (media.type === "video") {
+    container.innerHTML = `<div id="player"></div>`;
+    player = new YT.Player("player", {
+      videoId: media.id,
+      playerVars: { autoplay: 1, mute: 1 },
+      events: { onStateChange: onPlayerStateChange },
+    });
+  } else {
+    container.innerHTML = `<img src="${media.src}">`;
+    imageTimer = setTimeout(() => {
+      if (isSliderActive) nextMedia();
+    }, 5000);
+  }
+}
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.ENDED && isSliderActive) {
+    nextMedia();
+  }
+}
+
+function nextMedia() {
+  if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
+    return;
+  currentMedia++;
+  if (currentMedia >= mediaList.length) currentMedia = 0;
+  showMedia();
+}
+
+function prevMedia() {
+  if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
+    return;
+  currentMedia--;
+  if (currentMedia < 0) currentMedia = mediaList.length - 1;
+  showMedia();
 }
 
 // ================================================================
 // BỘ TỰ ĐỘNG THEO DÕI ĐỂ ẨN/HIỆN VÀ TẮT SLIDER CHẠY NGẦM
 // ================================================================
 function startWatchingSupportPage() {
-    const supportContainer = document.getElementById("support-container");
-    const sliderBlock = document.querySelector(".slider");
-    
-    if (!supportContainer) return;
+  const supportContainer = document.getElementById("support-container");
+  const sliderBlock = document.querySelector(".slider");
 
-    // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
-    function checkAndToggle() {
-        // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
-        if (supportContainer.style.display !== "none") {
-            isSliderActive = false;
-            clearTimeout(imageTimer);
-            if (sliderBlock) sliderBlock.style.setProperty("display", "none", "important");
-            if (player && typeof player.pauseVideo === "function") player.pauseVideo();
-        } 
-        // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
-        else {
-            if (!isSliderActive) {
-                isSliderActive = true;
-                if (sliderBlock) sliderBlock.style.setProperty("display", "block", "important");
-                showMedia();
-            }
-        }
+  if (!supportContainer) return;
+
+  // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
+  function checkAndToggle() {
+    // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
+    if (supportContainer.style.display !== "none") {
+      isSliderActive = false;
+      clearTimeout(imageTimer);
+      if (sliderBlock)
+        sliderBlock.style.setProperty("display", "none", "important");
+      if (player && typeof player.pauseVideo === "function")
+        player.pauseVideo();
     }
+    // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
+    else {
+      if (!isSliderActive) {
+        isSliderActive = true;
+        if (sliderBlock)
+          sliderBlock.style.setProperty("display", "block", "important");
+        showMedia();
+      }
+    }
+  }
 
-    // Chạy kiểm tra ngay lần đầu load trang
-    checkAndToggle();
+  // Chạy kiểm tra ngay lần đầu load trang
+  checkAndToggle();
 
-    // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
-    const observer = new MutationObserver(checkAndToggle);
-    observer.observe(supportContainer, { attributes: true, attributeFilter: ["style"] });
+  // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
+  const observer = new MutationObserver(checkAndToggle);
+  observer.observe(supportContainer, {
+    attributes: true,
+    attributeFilter: ["style"],
+  });
 }
 
 // Kích hoạt khi toàn bộ tài nguyên trang sẵn sàng
 window.addEventListener("load", () => {
-    startWatchingSupportPage();
-    if (hasSlider() && isSliderActive) {
-        if (typeof mediaList !== 'undefined' && mediaList[currentMedia] && mediaList[currentMedia].type !== "video") {
-            showMedia();
-        }
+  startWatchingSupportPage();
+  if (hasSlider() && isSliderActive) {
+    if (
+      typeof mediaList !== "undefined" &&
+      mediaList[currentMedia] &&
+      mediaList[currentMedia].type !== "video"
+    ) {
+      showMedia();
     }
+  }
 });
 
 // giỏ hàng
