@@ -1,20 +1,7 @@
-const storeBtn = document.getElementById("storeBtn");
 const gamesDiv = document.getElementById("games");
-const bannerWrapper = document.querySelector(".game-banner-wrapper");
-const searchInput = document.getElementById("searchInput");
-const supportBtn = document.getElementById("supportBtn");
 const supportContainer = document.getElementById("support-container");
-const homeBtn = document.getElementById("homeBtn");
-const ratingSection = document.getElementById("rating-section");
-const ratingBtn = document.getElementById("ratingBtn");
 
-function showBanner() {
-  if (bannerWrapper) bannerWrapper.style.display = "block";
-}
-
-function hideBanner() {
-  if (bannerWrapper) bannerWrapper.style.display = "none";
-}
+// Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [
   {
     name: "GTA V",
@@ -52,7 +39,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Call of Duty®: Black Ops III ",
+    name: "Call of Duty®: Black Ops III",
     price: "475.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663",
@@ -164,7 +151,7 @@ const games = [
     genre: "chiensuat",
   },
   {
-    name: "Team Fight Tactics",
+    name: "Teamfight Tactics",
     price: "Miễn phí",
     image:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
@@ -630,310 +617,143 @@ const games = [
     genre: "chiensuat",
   },
 ];
-// ===== LỌC THEO THỂ LOẠI (GENRE) =====
-const genreLinks = document.querySelectorAll("#genreDropdown a");
 
-genreLinks.forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const genre = this.dataset.genre;
-
-    if (genre === "all") {
-      renderGames(games);
-    } else {
-      const filteredGames = games.filter((game) => game.genre === genre);
-      renderGames(filteredGames);
-    }
-    if (gamesDiv) gamesDiv.style.display = "grid";
-    if (supportContainer) supportContainer.style.display = "none";
-    if (ratingSection) ratingSection.style.display = "none";
-  });
-});
-
-// ===== HỆ THỐNG ĐÁNH GIÁ CỐ ĐỊNH =====
-let savedRatings = JSON.parse(localStorage.getItem("gameRatings")) || {};
-
-function getGameRating(gameName) {
-  if (!savedRatings[gameName]) {
-    const starPool = [1, 2, 3, 4, 5];
-
-    const randomStar = starPool[Math.floor(Math.random() * starPool.length)];
-
-    savedRatings[gameName] = {
-      stars: Number(randomStar),
-      reviews: Math.floor(Math.random() * 5000) + 100,
-    };
-
-    localStorage.setItem("gameRatings", JSON.stringify(savedRatings));
-  }
-
-  return savedRatings[gameName];
-}
-// Hiển thị sao
-function createStars(rate) {
-  const full = Math.floor(rate);
-  let result = "";
-  for (let i = 0; i < 5; i++) {
-    result += i < full ? "★" : "☆";
-  }
-  return result;
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
-// Render game ra màn hình
-// 1. THAY THẾ HOÀN TOÀN HÀM RENDERGAMES CŨ ĐỂ TÍCH HỢP NÚT "THÊM VÀO GIỎ" VÀ SỬA LINK GTA V
 function renderGames(gamesList) {
-  if (!gamesDiv) return;
   gamesDiv.innerHTML = "";
-
   gamesList.forEach((game) => {
-    const gameCard = document.createElement("div");
-    gameCard.className = "game-card";
-    const ratingData = getGameRating
-      ? getGameRating(game.name)
-      : { stars: "★★★★★", count: 0 };
-    const targetLink = game.name === "GTA V" ? "gtaV.html" : "#";
-
-    gameCard.innerHTML = `
-            <a href="${targetLink}" style="text-decoration: none; color: inherit; display: block;">
-                <img src="${game.image}" alt="${game.name}" style="width:100%; border-radius:8px; height: 140px; object-fit: cover;">
-                <h3 style="margin: 10px 0 5px 0; font-size:16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${game.name}</h3>
-                
-                <div class="rating" style="margin-bottom: 8px; font-size: 13px;">
-                    <span style="color: gold;">★</span> 
-                    <span style="color: #fff; font-weight: bold;">${ratingData.stars}</span> 
-                    <span style="color: #8f98a0; font-size: 12px;">(${ratingData.count})</span>
-                </div>
-
-                <p style="color: #ffcc00; font-weight: bold; margin:0 0 10px 0;">${game.price}</p>
-            </a>
-            <button class="add-to-cart-btn" data-name="${game.name}" style="width: 100%; background: #007bff; color: white; border: none; padding: 8px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s;">
-                🛒 Thêm vào giỏ
-            </button>
-        `;
-    gamesDiv.appendChild(gameCard);
-  });
-
-  const addToCartBtns = gamesDiv.querySelectorAll(".add-to-cart-btn");
-  addToCartBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const gameName = btn.getAttribute("data-name");
-      addToCart(gameName);
-    });
-  });
-}
-
-// ==========================================
-// CÁC CHỨC NĂNG BỔ SUNG: GIỎ HÀNG & TÌM KIẾM
-// ==========================================
-
-let cart = [];
-const cartSidebar = document.getElementById("cartSidebar");
-const cartToggleBtn = document.getElementById("cartToggleBtn");
-const closeCartBtn = document.getElementById("closeCartBtn");
-const cartItemsContainer = document.getElementById("cartItems");
-const cartCount = document.getElementById("cartCount");
-const cartTotal = document.getElementById("cartTotal");
-
-const checkoutModal = document.getElementById("checkoutModal");
-const checkoutBtn = document.getElementById("checkoutBtn");
-const closeCheckoutBtn = document.getElementById("closeCheckoutBtn");
-const checkoutForm = document.getElementById("checkoutForm");
-
-// Hàm cập nhật giao diện Giỏ hàng khi có thay đổi
-function updateCartUI() {
-  if (!cartItemsContainer) return;
-  cartItemsContainer.innerHTML = "";
-
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = `<p style="text-align: center; color: #8f98a0; margin-top: 50px;">Giỏ hàng trống.</p>`;
-    cartCount.innerText = "0";
-    cartTotal.innerText = "0đ";
-    return;
-  }
-
-  let totalItems = 0;
-  let totalPrice = 0;
-
-  cart.forEach((item) => {
-    totalItems += item.quantity;
-
-    // Chuyển chuỗi giá "360.000đ" -> số 360000 để tính toán
-    const numericPrice = parseInt(
-      item.price.replace(/\./g, "").replace("đ", ""),
-    );
-    totalPrice += numericPrice * item.quantity;
-
-    const cartItem = document.createElement("div");
-    cartItem.style.cssText =
-      "display: flex; align-items: center; gap: 12px; margin-bottom: 15px; border-bottom: 1px solid #2a475e; padding-bottom: 10px;";
-    cartItem.innerHTML = `
-            <img src="${item.image}" style="width: 50px; height: 60px; object-fit: cover; border-radius: 4px;">
-            <div style="flex-grow: 1;">
-                <div style="font-size: 14px; font-weight: bold; color: #fff;">${item.name}</div>
-                <div style="color: #ffcc00; font-size: 13px; font-weight: bold; margin-top: 4px;">${item.price}</div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
-                    <button onclick="changeCartQuantity('${item.name}', -1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">-</button>
-                    <span style="font-size:14px;">${item.quantity}</span>
-                    <button onclick="changeCartQuantity('${item.name}', 1)" style="background:#2a475e; border:none; color:white; width:20px; height:20px; cursor:pointer; font-weight:bold; border-radius:3px;">+</button>
-                    <button onclick="removeFromCart('${item.name}')" style="background:none; border:none; color:#e53935; cursor:pointer; font-size:12px; margin-left:10px;">Xóa</button>
+    const title = String(game.name).trim();
+    gamesDiv.innerHTML += `
+            <div class="game-card">
+                <img src="${game.image}" alt="${escapeHtml(title)}">
+                <div class="game-info">
+                    <h3 class="game-title">${escapeHtml(title)}</h3>
+                    <p class="price">${escapeHtml(game.price)}</p>
                 </div>
             </div>
         `;
-    cartItemsContainer.appendChild(cartItem);
   });
-
-  cartCount.innerText = totalItems;
-  cartTotal.innerText = totalPrice.toLocaleString("vi-VN") + "đ";
 }
 
-// Hàm thêm game vào giỏ hàng
-function addToCart(gameName) {
-  const gameData = games.find((g) => g.name === gameName);
-  if (!gameData) return;
+function showSupportView() {
+  if (!gamesDiv || !supportContainer) return;
+  gamesDiv.style.display = "none";
+  supportContainer.style.display = "block";
+  window.location.hash = "ho-tro";
+}
 
-  const existingItem = cart.find((item) => item.name === gameName);
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.push({ ...gameData, quantity: 1 });
+function showGamesView() {
+  if (!gamesDiv || !supportContainer) return;
+  gamesDiv.style.display = "grid";
+  supportContainer.style.display = "none";
+  if (window.location.hash === "#ho-tro") {
+    history.replaceState(null, "", window.location.pathname);
+  }
+}
+
+let mainPageInitialized = false;
+
+function initMainPage() {
+  if (mainPageInitialized || !gamesDiv) return;
+  mainPageInitialized = true;
+
+  const storeBtn = document.getElementById("storeBtn");
+  const searchInput = document.getElementById("searchInput");
+  const supportBtn = document.getElementById("supportBtn");
+  const homeBtn = document.getElementById("homeBtn");
+  const genreDropdown = document.getElementById("genreDropdown");
+
+  function renderGamesFromHash() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#genre-")) {
+      const genre = hash.slice(7);
+      if (genre === "all") {
+        renderGames(games);
+      } else {
+        renderGames(games.filter((game) => game.genre === genre));
+      }
+      return true;
+    }
+    return false;
   }
 
-  updateCartUI();
-  // Tự động trượt sidebar mở giỏ hàng ra để người dùng thấy trực quan
-  if (cartSidebar) cartSidebar.style.right = "0";
-}
+  window.onload = function () {
+    if (window.location.hash === "#ho-tro") {
+      showSupportView();
+    } else if (!renderGamesFromHash()) {
+      renderGames(games);
+    } else {
+      showGamesView();
+    }
+  };
 
-// Hàm thay đổi số lượng từng item trong giỏ
-window.changeCartQuantity = function (gameName, amount) {
-  const item = cart.find((i) => i.name === gameName);
-  if (!item) return;
-  item.quantity += amount;
-  if (item.quantity <= 0) {
-    removeFromCart(gameName);
-  } else {
-    updateCartUI();
+  if (storeBtn) {
+    storeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showGamesView();
+      renderGames(games);
+    });
   }
-};
 
-// Hàm xóa hẳn game khỏi giỏ
-window.removeFromCart = function (gameName) {
-  cart = cart.filter((item) => item.name !== gameName);
-  updateCartUI();
-};
+  if (genreDropdown && searchInput) {
+    const dropdownLinks = genreDropdown.querySelectorAll("a");
+    dropdownLinks.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const selectedGenre = this.getAttribute("data-genre");
+        searchInput.value = "";
+        showGamesView();
 
-// Bắt sự kiện Ẩn / Hiện thanh Giỏ hàng Sidebar
-if (cartToggleBtn)
-  cartToggleBtn.onclick = () => (cartSidebar.style.right = "0");
-if (closeCartBtn)
-  closeCartBtn.onclick = () => (cartSidebar.style.right = "-380px");
+        if (selectedGenre === "all") {
+          renderGames(games);
+        } else {
+          renderGames(games.filter((game) => game.genre === selectedGenre));
+        }
+      });
+    });
+  }
 
-// Xử lý bật popup Thanh toán đặt hàng
-if (checkoutBtn) {
-  checkoutBtn.onclick = () => {
-    if (cart.length === 0) {
-      alert("Giỏ hàng của bạn đang trống!");
-      return;
-    }
-    checkoutModal.style.display = "flex";
-  };
-}
-if (closeCheckoutBtn)
-  closeCheckoutBtn.onclick = () => (checkoutModal.style.display = "none");
+  if (searchInput) {
+    searchInput.addEventListener("keyup", function () {
+      const keyword = searchInput.value.toLowerCase();
+      document.querySelectorAll(".game-card").forEach((card) => {
+        const title = card
+          .querySelector(".game-title")
+          .textContent.toLowerCase();
+        card.style.display = title.includes(keyword) ? "block" : "none";
+      });
+    });
+  }
 
-if (checkoutForm) {
-  checkoutForm.onsubmit = (e) => {
-    e.preventDefault();
-    alert(
-      "🎉 Đặt mua thành công! Shop sẽ gửi thông tin tài khoản và key kích hoạt qua Email bạn đã đăng ký trong giây lát.",
-    );
-    cart = []; // Reset giỏ hàng sạch sẽ
-    updateCartUI();
-    checkoutModal.style.display = "none";
-    cartSidebar.style.right = "-380px";
-  };
-}
+  if (supportBtn && supportContainer) {
+    supportBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showSupportView();
+    });
+  }
 
-// THAY THẾ/BỔ SUNG SỰ KIỆN TÌM KIẾM SẢN PHẨM REAL-TIME KHÔNG REFRESH TRANG
-if (searchInput) {
-  searchInput.addEventListener("input", (e) => {
-    if (!gamesDiv) return;
-    const keyword = e.target.value.toLowerCase().trim();
-
-    // Lọc danh sách game khớp ký tự viết thường
-    const filtered = games.filter((game) =>
-      game.name.toLowerCase().includes(keyword),
-    );
-
-    // Gọi lại hàm để render danh sách game lọc ngay lập tức
-    renderGames(filtered);
-  });
-}
-
-// ===== XỬ LÝ SỰ KIỆN KHI TẢI TRANG =====
-window.onload = function () {
-  // Mặc định khi vừa vào trang: Hiện game, Ẩn hỗ trợ, Ẩn thanh lọc sao
-  if (gamesDiv) gamesDiv.style.display = "grid";
-  if (supportContainer) supportContainer.style.display = "none";
-  if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao đi, chỉ hiện ở trang Đánh giá
-
-  renderGames(games);
-};
-
-// KHI CLICK TRANG CHỦ
-if (homeBtn) {
-  homeBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    showBanner();
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
-    if (gamesDiv) {
-      gamesDiv.style.display = "grid"; // Hiện game
+  if (homeBtn) {
+    homeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showGamesView();
       renderGames(games);
-    }
-  });
+    });
+  }
 }
 
-// KHI CLICK CỬA HÀNG
-if (storeBtn) {
-  storeBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    hideBanner();
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
-    if (gamesDiv) {
-      gamesDiv.style.display = "grid"; // Hiện game
-      renderGames(games);
-    }
-  });
+document.addEventListener("navbarReady", initMainPage, { once: true });
+if (document.getElementById("storeBtn")) {
+  initMainPage();
 }
 
-// KHI CLICK NÚT HỖ TRỢ
-if (supportBtn) {
-  supportBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    hideBanner();
-    if (gamesDiv) gamesDiv.style.display = "none"; // Ẩn khu vực game
-    if (ratingSection) ratingSection.style.display = "none"; // Ẩn thanh sao
-    if (supportContainer) supportContainer.style.display = "block"; // Hiện hỗ trợ
-  });
-}
-
-// KHI CLICK NÚT ĐÁNH GIÁ (CHỈ HIỆN THANH SAO Ở ĐÂY)
-if (ratingBtn) {
-  ratingBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    hideBanner();
-    if (supportContainer) supportContainer.style.display = "none"; // Ẩn hỗ trợ
-    if (gamesDiv) gamesDiv.style.display = "grid"; // Hiện game
-    if (ratingSection) ratingSection.style.display = "block"; // CHỈ HIỆN THANH SAO TẠI ĐÂY
-
-    renderGames(games);
-  });
-}
-
-// HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
+//  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
@@ -941,8 +761,10 @@ faqQuestions.forEach((question) => {
     item.classList.toggle("active");
 
     const span = question.querySelector("span");
-    if (span) {
-      span.textContent = item.classList.contains("active") ? "−" : "+";
+    if (item.classList.contains("active")) {
+      span.textContent = "−";
+    } else {
+      span.textContent = "+";
     }
   });
 });
