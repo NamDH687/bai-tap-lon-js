@@ -11,6 +11,7 @@ const games = [
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg",
     genre: "nhapvai",
+    link: "../game/gtaV/gtaV.html",
   },
   {
     name: "EA FC 25",
@@ -633,7 +634,7 @@ function renderGames(gamesList) {
   gamesList.forEach((game) => {
     const title = String(game.name).trim();
     gamesDiv.innerHTML += `
-            <div class="game-card">
+            <div class="game-card" onclick="window.location.href='${game.link}'">
                 <img src="${game.image}" alt="${escapeHtml(title)}">
                 <div class="game-info">
                     <h3 class="game-title">${escapeHtml(title)}</h3>
