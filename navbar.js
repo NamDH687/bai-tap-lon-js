@@ -30,6 +30,22 @@
     };
   }
 
+  function getCurrentUser() {
+    return localStorage.getItem("currentUser");
+  }
+
+  function getBalanceKey(username = getCurrentUser()) {
+    return username ? `balance:${username}` : "balance";
+  }
+
+  function getUserBalance(username = getCurrentUser()) {
+    return Number(localStorage.getItem(getBalanceKey(username)) || 0);
+  }
+
+  function setUserBalance(balance, username = getCurrentUser()) {
+    localStorage.setItem(getBalanceKey(username), String(balance));
+  }
+
   function buildSearchHtml(showSearch) {
     if (!showSearch) return "";
     return `
@@ -80,7 +96,102 @@
     return `<a href="${p.support}" id="supportBtn">HỖ TRỢ</a>`;
   }
 
+  function buildInfoLink(p) {
+    if (p.page === "main") {
+      return `<a href="#" id="infoBtn">THƯ VIỆN</a>`;
+    }
+    return `<a href="${p.main}#danh-gia" id="infoBtn">THƯ VIỆN</a>`;
+  }
+
+  function buildCartModal(p) {
+    if (p.page === "main") return "";
+
+    return `
+      <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Giỏ hàng</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div id="cartItems"></div>
+              <hr>
+              <h5>Tổng tiền: <span id="cartTotal">0đ</span></h5>
+              <h5>Số dư: <span id="userBalance">0đ</span></h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" id="clearCartBtn">Xóa giỏ hàng</button>
+              <a class="btn btn-success" href="${p.main}#store">Thanh toán ở trang chủ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function buildAccountModals(p) {
+    const accountInfoModal = `
+      <div class="modal fade" id="accountInfoModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Thông tin tài khoản</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <p><strong>Tài khoản:</strong> <span id="accountInfoName"></span></p>
+              <p class="mb-0"><strong>Số dư:</strong> <span id="accountInfoBalance"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    if (p.page === "main") return accountInfoModal;
+
+    return `
+      ${accountInfoModal}
+      <div class="modal fade" id="depositModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Nạp tiền</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div class="mt-3 text-center">
+                <h6>Quét mã QR để thanh toán</h6>
+                <img
+                  src="qr.jpg"
+                  alt="QR Thanh Toán"
+                  class="img-fluid rounded"
+                  style="max-width: 300px;"
+                />
+                <p class="mt-3 mb-0">
+                  <strong>Ngân hàng:</strong> MSB BANK<br />
+                  <strong>Chủ tài khoản:</strong> VU TUAN MINH<br />
+                  <strong>Số tài khoản:</strong> 80001841292
+                </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="confirmDeposit">Nạp tiền</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   function buildNavbarHtml(p) {
+    const cartButton = `
+        <button type="button" class="navbar-cart-btn" id="openCartBtn" aria-label="Mo gio hang">
+          <span class="navbar-cart-icon">&#128722;</span>
+          <span class="navbar-cart-count" id="cartCount">0</span>
+        </button>
+      `;
+
     return `
       <div class="top-bar">
         <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
@@ -113,7 +224,7 @@
         </div>
         ${buildStoreMenu(p)}
         <div class="menu-item">
-          <a href="#" id="infoBtn">THÔNG TIN</a>
+          ${buildInfoLink(p)}
         </div>
         <div class="menu-item">
           ${buildSupportLink(p)}
@@ -121,7 +232,10 @@
         <div class="login">
           <a href="${p.login}" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
         </div>
+        ${cartButton}
       </div>
+      ${buildCartModal(p)}
+      ${buildAccountModals(p)}
     `;
   }
 
@@ -131,8 +245,8 @@
     const authBtn = document.getElementById("userAuthLink");
     if (!authBtn) return;
 
-    const currentUser = localStorage.getItem("currentUser");
-    const balance = localStorage.getItem("balance") || "0";
+    const currentUser = getCurrentUser();
+    const balance = getUserBalance(currentUser);
 
     if (!currentUser) return;
 
@@ -153,9 +267,8 @@
           <span class="visually-hidden">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Thông tin</a></li>
+          <li><a class="dropdown-item" id="accountInfoBtn" href="#">Thông tin</a></li>
           <li><a class="dropdown-item" id="depositBtn" href="#">Nạp tiền</a></li>
-          <li><a class="dropdown-item" href="#">Cài đặt</a></li>
           <li><hr class="dropdown-divider" /></li>
           <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
         </ul>
@@ -170,12 +283,57 @@
       new bootstrap.Dropdown(dropdownToggle);
     }
 
+    const accountInfoBtn = authBtn.querySelector("#accountInfoBtn");
     const depositBtn = authBtn.querySelector("#depositBtn");
+    const qrBtn = authBtn.querySelector("#qrBtn");
+
+    if (accountInfoBtn) {
+      accountInfoBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const accountInfoModal = document.getElementById("accountInfoModal");
+        if (!accountInfoModal || typeof bootstrap === "undefined") return;
+
+        const accountInfoName = document.getElementById("accountInfoName");
+        const accountInfoBalance =
+          document.getElementById("accountInfoBalance");
+
+        if (accountInfoName) accountInfoName.innerText = currentUser;
+        if (accountInfoBalance) {
+          accountInfoBalance.innerText =
+            getUserBalance(currentUser).toLocaleString(
+              "vi-VN",
+            ) + "đ";
+        }
+
+        new bootstrap.Modal(accountInfoModal).show();
+      });
+    }
+
+    if (qrBtn) {
+      qrBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const qrModal = document.getElementById("qrModal");
+        if (!qrModal || typeof bootstrap === "undefined") return;
+
+        const modal = new bootstrap.Modal(qrModal);
+
+        modal.show();
+      });
+    }
     if (depositBtn) {
       depositBtn.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.href = "deposit.html";
+        const depositModal = document.getElementById("depositModal");
+        if (!depositModal || typeof bootstrap === "undefined") return;
+
+        const modal = new bootstrap.Modal(depositModal);
+
+        modal.show();
       });
     }
 
@@ -202,12 +360,125 @@
     }, 200);
   }
 
+  function parseCartPrice(price) {
+    return Number(
+      String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""),
+    );
+  }
+
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function initDeposit() {
+    const confirmDepositBtn = document.getElementById("confirmDeposit");
+    if (!confirmDepositBtn) return;
+
+    confirmDepositBtn.addEventListener("click", function () {
+      const amount = Number(prompt("Nhập số tiền muốn nạp:"));
+
+      if (!amount || amount <= 0) {
+        alert("Nhập số tiền hợp lệ");
+        return;
+      }
+
+      const currentUser = getCurrentUser();
+
+      if (!currentUser) {
+        alert("Vui long dang nhap truoc khi nap tien");
+        return;
+      }
+
+      const balance = getUserBalance(currentUser) + amount;
+      setUserBalance(balance, currentUser);
+
+      const accountInfoBalance = document.getElementById("accountInfoBalance");
+      if (accountInfoBalance) {
+        accountInfoBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
+      }
+
+      alert("Nạp tiền thành công!");
+      location.reload();
+    });
+  }
+
+  function updateCartCount() {
+    const cartCount = document.getElementById("cartCount");
+    if (!cartCount) return;
+
+    cartCount.innerText = getCart().length;
+  }
+
+  function renderSharedCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const userBalance = document.getElementById("userBalance");
+
+    if (!cartItems || !cartTotal || !userBalance) return;
+
+    const cart = getCart();
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = `<p class="text-muted mb-0">Giỏ hàng trống</p>`;
+    } else {
+      cartItems.innerHTML = cart
+        .map((item) => {
+          total += parseCartPrice(item.price);
+          return `
+            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+              <span>${item.name}</span>
+              <span>${item.price}</span>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
+    userBalance.innerText =
+      getUserBalance().toLocaleString("vi-VN") +
+      "đ";
+  }
+
+  function initCart() {
+    updateCartCount();
+
+    const openCartBtn = document.getElementById("openCartBtn");
+    if (openCartBtn) {
+      openCartBtn.addEventListener("click", function () {
+        const cartModal = document.getElementById("cartModal");
+        if (!cartModal || typeof bootstrap === "undefined") return;
+
+        renderSharedCart();
+        new bootstrap.Modal(cartModal).show();
+      });
+    }
+
+    const clearCartBtn = document.getElementById("clearCartBtn");
+    if (clearCartBtn) {
+      clearCartBtn.addEventListener("click", function () {
+        localStorage.removeItem("cart");
+        renderSharedCart();
+        updateCartCount();
+      });
+    }
+  }
+
   function renderNavbar() {
     const root = document.getElementById(NAVBAR_ROOT_ID);
     if (!root) return;
 
     const paths = getPaths();
     root.innerHTML = buildNavbarHtml(paths);
+    initCart();
+    if (paths.page !== "main") {
+      initDeposit();
+    }
     document.dispatchEvent(new CustomEvent("navbarReady"));
   }
 

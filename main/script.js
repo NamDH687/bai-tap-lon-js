@@ -1,7 +1,24 @@
 const gamesDiv = document.getElementById("games");
 const supportContainer = document.getElementById("support-container");
 const sliderBlock = document.querySelector(".slider");
+const infoContainer = document.getElementById("info-container");
 let currentView = "home";
+
+function getCurrentUser() {
+  return localStorage.getItem("currentUser");
+}
+
+function getBalanceKey(username = getCurrentUser()) {
+  return username ? `balance:${username}` : "balance";
+}
+
+function getUserBalance(username = getCurrentUser()) {
+  return Number(localStorage.getItem(getBalanceKey(username)) || 0);
+}
+
+function setUserBalance(balance, username = getCurrentUser()) {
+  localStorage.setItem(getBalanceKey(username), String(balance));
+}
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [
@@ -28,14 +45,14 @@ const games = [
   },
   {
     name: "Counter-Strike 2",
-    price: "Miễn phí",
+    price: "100.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861720/header.jpg",
     genre: "bansung",
   },
   {
     name: "Genshin Impact",
-    price: "Miễn phí",
+    price: "360.000đ",
     image:
       "https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180",
     genre: "nhapvai",
@@ -77,7 +94,7 @@ const games = [
   },
   {
     name: "PUBG: BATTLEGROUNDS",
-    price: "Miễn phí",
+    price: "200.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1778634253",
     genre: "bansung",
@@ -98,7 +115,7 @@ const games = [
   },
   {
     name: "Marvel Rivals",
-    price: "Miễn phí",
+    price: "18.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/dabf1f6f9513340c90c154b3cf02c9661aeaeecb/header_alt_assets_7.jpg?t=1778835753",
     genre: "bansung",
@@ -133,7 +150,7 @@ const games = [
   },
   {
     name: "Wuthering Waves",
-    price: "Miễn phí",
+    price: "36.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3513350/86b44bb422a013c1510f029ca79ea7c4a8ffb9e8/header.jpg?t=1777505458",
     genre: "nhapvai",
@@ -154,14 +171,14 @@ const games = [
   },
   {
     name: "Teamfight Tactics",
-    price: "Miễn phí",
+    price: "69.696đ",
     image:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
     genre: "chiensuat",
   },
   {
     name: "Arena Of Valor",
-    price: "Miễn phí",
+    price: "300.000đ",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvJIcWWmq9HgJznaAYMGmFBT7C1dSPncVwQ&s",
     genre: "chiensuat",
@@ -301,7 +318,7 @@ const games = [
   },
   {
     name: "Age of Empires",
-    price: "Miễn phí",
+    price: "210.000đ",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/4/40/Age_of_Empires_franchise_logo.png",
     genre: "chiensuat",
@@ -350,7 +367,7 @@ const games = [
   },
   {
     name: "90 Minute Fever - Online Football (Soccer) Manager",
-    price: "Miễn phí",
+    price: "100.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/468070/header.jpg?t=1738484847",
     genre: "thethao",
@@ -364,7 +381,7 @@ const games = [
   },
   {
     name: "Dream League Soccer",
-    price: "Miễn phí",
+    price: "200.000đ",
     image: "https://cdn-media.sforum.vn/storage/app/media/dls-2025-13.jpg",
     genre: "thethao",
   },
@@ -377,7 +394,7 @@ const games = [
   },
   {
     name: "Wreckfest - Đua Xe Đâm Va",
-    price: "Miễn phí",
+    price: "30.000đ",
     image:
       "https://static0.anpoimages.com/wordpress/wp-content/uploads/2022/08/wreckfest.png?w=1600&h=900&fit=crop",
     genre: "duaxe",
@@ -405,7 +422,7 @@ const games = [
   },
   {
     name: "Asphalt 8: Airborne",
-    price: "Miễn phí",
+    price: "500.000đ",
     image:
       "https://upload.wikimedia.org/wikipedia/vi/8/87/Asphalt_8_Airborne_open_screenshot.jpg?utm_source=vi.wikipedia.org&utm_campaign=index&utm_content=original",
     genre: "duaxe",
@@ -516,14 +533,14 @@ const games = [
   },
   {
     name: "Legend of Leagues",
-    price: "Miễn phí",
+    price: "500.000đ",
     image:
       "https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/09/league-of-legends.jpeg?fit=1607%2C895&ssl=1",
     genre: "chiensuat",
   },
   {
     name: "Valorant",
-    price: "Miễn phí",
+    price: "10.000đ",
     image:
       "https://www.riotgames.com/darkroom/1200/1dbd7211e78ce5faa7a8af9d10afad47:2b5979e3922758399ba389561e797919/ps-f2p-val-console-launch-16x9.jpg",
     genre: "bansung",
@@ -551,7 +568,7 @@ const games = [
   },
   {
     name: "Apex Legends™",
-    price: "Miễn phí",
+    price: "500.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/0bd74245b869287a2dc7f682e6013f7ed08d98e3/header.jpg?t=1778502442",
     genre: "bansung",
@@ -586,7 +603,7 @@ const games = [
   },
   {
     name: "FC Online",
-    price: "Miễn phí",
+    price: "30.000đ",
     image:
       "https://yt3.googleusercontent.com/4W8oATzTPHLlUha4Jk4WXGvvvnoEqvCXvEv88tBYDfWo1atYM7R4zXTgTqeD0R75PTu5vor0aQ=s900-c-k-c0x00ffffff-no-rj",
     genre: "thethao",
@@ -619,6 +636,9 @@ const games = [
     genre: "chiensuat",
   },
 ];
+games.forEach((game, index) => {
+  game.rating = (4.3 + (index % 7) * 0.1).toFixed(1);
+});
 
 function escapeHtml(text) {
   return String(text)
@@ -630,16 +650,31 @@ function escapeHtml(text) {
 
 function renderGames(gamesList) {
   gamesDiv.innerHTML = "";
+
   gamesList.forEach((game) => {
     const title = String(game.name).trim();
+
     gamesDiv.innerHTML += `
-            <div class="game-card">
-                <img src="${game.image}" alt="${escapeHtml(title)}">
-                <div class="game-info">
-                    <h3 class="game-title">${escapeHtml(title)}</h3>
-                    <p class="price">${escapeHtml(game.price)}</p>
-                </div>
+        <div class="game-card">
+            <img src="${game.image}" alt="${escapeHtml(title)}">
+
+            <div class="game-info">
+                <h3 class="game-title">
+                    ${escapeHtml(title)}
+                    <span class="game-rating">⭐ ${game.rating}</span>
+                </h3>
+
+                <p class="price">${escapeHtml(game.price)}</p>
+
+              <button
+    class="btn btn-success add-cart-btn"
+    data-cart-name="${escapeHtml(title)}"
+    data-cart-price="${escapeHtml(game.price)}"
+    data-cart-image="${game.image}">
+    Thêm vào giỏ
+</button>
             </div>
+        </div>
         `;
   });
 }
@@ -648,7 +683,11 @@ function setSliderVisible(isVisible) {
   if (!sliderBlock) return;
 
   isSliderActive = isVisible;
-  sliderBlock.style.setProperty("display", isVisible ? "block" : "none", "important");
+  sliderBlock.style.setProperty(
+    "display",
+    isVisible ? "block" : "none",
+    "important",
+  );
 
   if (!isVisible) {
     clearTimeout(imageTimer);
@@ -660,34 +699,59 @@ function setSliderVisible(isVisible) {
 }
 
 function showHomeView() {
-  if (!gamesDiv || !supportContainer) return;
   currentView = "home";
+
   gamesDiv.style.display = "grid";
   supportContainer.style.display = "none";
-  setSliderVisible(true);
-  if (window.location.hash) {
-    history.replaceState(null, "", window.location.pathname);
+
+  if (infoContainer) {
+    infoContainer.style.display = "none";
   }
+
+  setSliderVisible(true);
 }
 
 function showSupportView() {
   if (!gamesDiv || !supportContainer) return;
+
   currentView = "support";
+
   gamesDiv.style.display = "none";
   supportContainer.style.display = "block";
+
+  if (infoContainer) {
+    infoContainer.style.display = "none";
+  }
+
   setSliderVisible(false);
   window.location.hash = "ho-tro";
+}
+
+function showInfoView() {
+  currentView = "info";
+
+  gamesDiv.style.display = "none";
+  supportContainer.style.display = "none";
+
+  if (infoContainer) {
+    infoContainer.style.display = "block";
+  }
+
+  setSliderVisible(false);
 }
 
 function showGamesView() {
   if (!gamesDiv || !supportContainer) return;
   currentView = "store";
+
   gamesDiv.style.display = "grid";
   supportContainer.style.display = "none";
-  setSliderVisible(false);
-  if (!window.location.hash || window.location.hash === "#ho-tro") {
-    history.replaceState(null, "", `${window.location.pathname}#store`);
+
+  if (infoContainer) {
+    infoContainer.style.display = "none";
   }
+
+  setSliderVisible(false);
 }
 
 let mainPageInitialized = false;
@@ -700,6 +764,7 @@ function initMainPage() {
   const searchInput = document.getElementById("searchInput");
   const supportBtn = document.getElementById("supportBtn");
   const homeBtn = document.getElementById("homeBtn");
+  const infoBtn = document.getElementById("infoBtn");
   const genreDropdown = document.getElementById("genreDropdown");
 
   function renderGamesFromHash() {
@@ -716,13 +781,14 @@ function initMainPage() {
     }
     return false;
   }
-
   window.onload = function () {
     if (window.location.hash === "#ho-tro") {
       showSupportView();
     } else if (window.location.hash === "#store") {
       renderGames(games);
       showGamesView();
+    } else if (window.location.hash === "#danh-gia") {
+      showInfoView();
     } else if (!renderGamesFromHash()) {
       renderGames(games);
       showHomeView();
@@ -781,6 +847,13 @@ function initMainPage() {
       showHomeView();
     });
   }
+
+  if (infoBtn) {
+    infoBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      showInfoView();
+    });
+  }
 }
 
 document.addEventListener("navbarReady", initMainPage, { once: true });
@@ -805,217 +878,463 @@ faqQuestions.forEach((question) => {
 });
 
 const mediaList = [
-
   // VIDEO
   {
     type: "video",
-    id: "u83VdXAVq08"
+    id: "u83VdXAVq08",
   },
 
   // ẢNH
   {
     type: "image",
-    src:"https://game8.vn/media/202208/images/wukong-3195.jpg"
+    src: "https://game8.vn/media/202208/images/wukong-3195.jpg",
   },
 
   {
     type: "image",
-    src:"https://motionbgs.com/media/6470/black-myth-wukong.jpg"
+    src: "https://motionbgs.com/media/6470/black-myth-wukong.jpg",
   },
 
   {
     type: "video",
-    id: "592If-pP2_A"
+    id: "592If-pP2_A",
   },
 
   {
     type: "image",
-    src:"https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837"
+    src: "https://cdn1.epicgames.com/item/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S1_2560x1440-4c231557ef0a0626fbb97e0bd137d837",
   },
 
   {
     type: "image",
-    src:"https://wallpaperaccess.com/full/2403437.jpg"
+    src: "https://wallpaperaccess.com/full/2403437.jpg",
   },
 
   {
     type: "video",
-    id: "14FfhVQrrAo"
+    id: "14FfhVQrrAo",
   },
 
   {
     type: "image",
-    src:"https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg"
+    src: "https://genk.mediacdn.vn/2019/2/12/1-15499467961211158891152.jpg",
   },
 
   {
     type: "image",
-    src:"https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg"
+    src: "https://i.pinimg.com/originals/cf/a8/21/cfa821cd8213ac508b9fe968d1dbcb43.jpg",
   },
 
   {
     type: "video",
-    id: "QdBZY2fkU-0"
+    id: "QdBZY2fkU-0",
   },
 
   {
     type: "image",
-    src:"https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg"
+    src: "https://images.hdqwalls.com/download/gta-6-game-5k-cn-1920x1200.jpg",
   },
 
   {
     type: "image",
-    src:"https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg"
+    src: "https://images.hdqwalls.com/wallpapers/gta-6-game-2026-94.jpg",
   },
 
   {
     type: "video",
-    id: "4ViBoFiHYlI"
+    id: "4ViBoFiHYlI",
   },
 
   {
     type: "image",
-    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg"
+    src: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/10/dead-by-dayllight-movie-update.jpg",
   },
 
   {
     type: "image",
-    src:"https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg"
+    src: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/07/dead-by-daylight-survivors-official-artwork.jpeg",
   },
 
   {
     type: "video",
-    id: "WS9aGypJPJ4"
+    id: "WS9aGypJPJ4",
   },
 
   {
     type: "image",
-    src:"https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp"
+    src: "https://www.insidexbox.de/wp-content/uploads/2025/08/bf6-phantom.webp",
   },
 
   {
     type: "image",
-    src:"https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg"
+    src: "https://cdn.mos.cms.futurecdn.net/2mC9MmkMN6oKTUhgYbYe28.jpg",
   },
 
   {
     type: "video",
-    id: "LTqczRnNqDc"
-  },
-  
-  {
-    type: "image",
-    src:"https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg"
+    id: "LTqczRnNqDc",
   },
 
   {
     type: "image",
-    src:"https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg"
-  }
+    src: "https://image.api.playstation.com/vulcan/img/rnd/202011/0714/cKD24Gt2wgE2FeMf5HfqONeV.jpg",
+  },
 
-
-
+  {
+    type: "image",
+    src: "https://4kwallpapers.com/images/wallpapers/marvels-spider-man-3840x2160-12434.jpeg",
+  },
 ];
 
 let currentMedia = 0;
 let player = null;
 let imageTimer = null;
-let isSliderActive = true; 
+let isSliderActive = true;
 
 function hasSlider() {
-    return document.getElementById("media") !== null;
+  return document.getElementById("media") !== null;
 }
 
-function onYouTubeIframeAPIReady(){
-    if (hasSlider() && isSliderActive) {
-        showMedia();
-    }
-}
-
-function showMedia(){
-    if (!hasSlider() || !isSliderActive) return; 
-
-    clearTimeout(imageTimer);
-    if (typeof mediaList === 'undefined' || mediaList.length === 0) return;
-
-    const media = mediaList[currentMedia];
-    const container = document.getElementById("media");
-    if (!container) return;
-
-    if(media.type === "video"){
-        if (typeof YT === "undefined" || !YT.Player) return;
-        container.innerHTML = `<div id="player"></div>`;
-        player = new YT.Player('player', {
-            videoId: media.id,
-            playerVars: { autoplay: 1, mute: 1 },
-            events: { onStateChange: onPlayerStateChange }
-        });
-    } else {
-        container.innerHTML = `<img src="${media.src}">`;
-        imageTimer = setTimeout(() => {
-            if (isSliderActive) nextMedia();
-        }, 5000);
-    }
-}
-
-function onPlayerStateChange(event){
-    if(event.data == YT.PlayerState.ENDED && isSliderActive){
-        nextMedia();
-    }
-}
-
-function nextMedia(){
-    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
-    currentMedia++;
-    if(currentMedia >= mediaList.length) currentMedia = 0;
+function onYouTubeIframeAPIReady() {
+  if (hasSlider() && isSliderActive) {
     showMedia();
+  }
 }
 
-function prevMedia(){
-    if (!hasSlider() || !isSliderActive || typeof mediaList === 'undefined') return;
-    currentMedia--;
-    if(currentMedia < 0) currentMedia = mediaList.length - 1;
-    showMedia();
+function showMedia() {
+  if (!hasSlider() || !isSliderActive) return;
+
+  clearTimeout(imageTimer);
+  if (typeof mediaList === "undefined" || mediaList.length === 0) return;
+
+  const media = mediaList[currentMedia];
+  const container = document.getElementById("media");
+  if (!container) return;
+
+  if (media.type === "video") {
+    if (typeof YT === "undefined" || !YT.Player) return;
+    container.innerHTML = `<div id="player"></div>`;
+    player = new YT.Player("player", {
+      videoId: media.id,
+      playerVars: { autoplay: 1, mute: 1 },
+      events: { onStateChange: onPlayerStateChange },
+    });
+  } else {
+    container.innerHTML = `<img src="${media.src}">`;
+    imageTimer = setTimeout(() => {
+      if (isSliderActive) nextMedia();
+    }, 5000);
+  }
+}
+
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.ENDED && isSliderActive) {
+    nextMedia();
+  }
+}
+
+function nextMedia() {
+  if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
+    return;
+  currentMedia++;
+  if (currentMedia >= mediaList.length) currentMedia = 0;
+  showMedia();
+}
+
+function prevMedia() {
+  if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
+    return;
+  currentMedia--;
+  if (currentMedia < 0) currentMedia = mediaList.length - 1;
+  showMedia();
 }
 
 // ================================================================
 // BỘ TỰ ĐỘNG THEO DÕI ĐỂ ẨN/HIỆN VÀ TẮT SLIDER CHẠY NGẦM
 // ================================================================
 function startWatchingSupportPage() {
-    const supportContainer = document.getElementById("support-container");
-    
-    if (!supportContainer) return;
+  const supportContainer = document.getElementById("support-container");
 
-    // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
-    function checkAndToggle() {
-        // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
-        if (supportContainer.style.display !== "none") {
-            setSliderVisible(false);
-        } 
-        // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
-        else {
-            if (currentView === "home" && !isSliderActive) {
-                setSliderVisible(true);
-            }
-        }
+  if (!supportContainer) return;
+
+  // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
+  function checkAndToggle() {
+    // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
+    if (supportContainer.style.display !== "none") {
+      setSliderVisible(false);
     }
+    // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
+    else {
+      if (currentView === "home" && !isSliderActive) {
+        setSliderVisible(true);
+      }
+    }
+  }
 
-    // Chạy kiểm tra ngay lần đầu load trang
-    checkAndToggle();
+  // Chạy kiểm tra ngay lần đầu load trang
+  checkAndToggle();
 
-    // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
-    const observer = new MutationObserver(checkAndToggle);
-    observer.observe(supportContainer, { attributes: true, attributeFilter: ["style"] });
+  // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
+  const observer = new MutationObserver(checkAndToggle);
+  observer.observe(supportContainer, {
+    attributes: true,
+    attributeFilter: ["style"],
+  });
 }
 
 // Kích hoạt khi toàn bộ tài nguyên trang sẵn sàng
 window.addEventListener("load", () => {
-    startWatchingSupportPage();
-    if (hasSlider() && isSliderActive) {
-        if (typeof mediaList !== 'undefined' && mediaList[currentMedia] && mediaList[currentMedia].type !== "video") {
-            showMedia();
-        }
+  startWatchingSupportPage();
+  if (hasSlider() && isSliderActive) {
+    if (
+      typeof mediaList !== "undefined" &&
+      mediaList[currentMedia] &&
+      mediaList[currentMedia].type !== "video"
+    ) {
+      showMedia();
     }
+  }
 });
 
 // giỏ hàng
+
+// Nap tien
+document.addEventListener("click", function (e) {
+  if (e.target.id !== "confirmDeposit") return;
+
+  const amountInput = document.getElementById("depositAmount");
+  const rawAmount = amountInput
+    ? amountInput.value
+    : prompt("Nhập số tiền muốn nạp:");
+  const amount = Number(rawAmount);
+
+  if (!amount || amount <= 0) {
+    alert("Nhập số tiền hợp lệ");
+    return;
+  }
+
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    alert("Vui long dang nhap truoc khi nap tien");
+    return;
+  }
+
+  const balance = getUserBalance(currentUser) + amount;
+  setUserBalance(balance, currentUser);
+
+  alert("Nạp tiền thành công!");
+  location.reload();
+});
+
+// Danh gia
+function loadReviews() {
+  const reviewList = document.getElementById("reviewList");
+  if (!reviewList) return;
+
+  const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+  reviewList.innerHTML = "";
+
+  reviews.forEach((review) => {
+    reviewList.innerHTML += `
+            <div class="review-item">
+                <div class="review-name">${review.name}</div>
+                <div class="review-star">${"⭐".repeat(review.star)}</div>
+                <div class="review-text">${review.text}</div>
+            </div>
+        `;
+  });
+}
+
+const sendReviewBtn = document.getElementById("sendReviewBtn");
+
+if (sendReviewBtn) {
+  sendReviewBtn.addEventListener("click", () => {
+    const name = document.getElementById("reviewName").value.trim();
+    const star = document.getElementById("reviewStar").value;
+    const text = document.getElementById("reviewText").value.trim();
+
+    if (!name || !text) {
+      alert("Vui lòng nhập đầy đủ thông tin");
+      return;
+    }
+
+    const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    reviews.unshift({ name, star, text });
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+
+    document.getElementById("reviewName").value = "";
+    document.getElementById("reviewText").value = "";
+    loadReviews();
+  });
+}
+
+loadReviews();
+
+// Gio hang
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCartCount() {
+  const cartCount = document.getElementById("cartCount");
+  if (!cartCount) return;
+
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cartCount.innerText = cart.length;
+}
+
+function openCartModal() {
+  document.getElementById("cartSidebar").style.display = "flex";
+  renderCart();
+}
+
+document.addEventListener("click", function (e) {
+  const addCartBtn = e.target.closest(".add-cart-btn");
+
+  if (addCartBtn) {
+    addToCart(
+      addCartBtn.dataset.cartName,
+      addCartBtn.dataset.cartPrice,
+      addCartBtn.dataset.cartImage,
+    );
+    return;
+  }
+
+  const openCartBtn = e.target.closest("#openCartBtn");
+
+  if (openCartBtn) {
+    openCartModal();
+  }
+});
+
+function addToCart(name, price, image) {
+  const exists = cart.find((item) => item.name === name);
+
+  if (exists) {
+    alert("Game này đã có trong giỏ hàng");
+    return;
+  }
+
+  cart.push({
+    name,
+    price,
+    image,
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  updateCartCount();
+
+  // Nếu sidebar đang mở thì cập nhật luôn
+  const cartSidebar = document.getElementById("cartSidebar");
+
+  if (cartSidebar && cartSidebar.style.display !== "none") {
+    renderCart();
+  }
+}
+
+function parsePrice(price) {
+  return Number(
+    String(price).replaceAll(".", "").replace("đ", "").replace("Ä‘", ""),
+  );
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+
+  if (!cartItems || !cartTotal) return;
+
+  const userBalance = document.getElementById("userBalance");
+
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<p class="text-muted mb-0">Giỏ hàng trống</p>`;
+  }
+
+  cart.forEach((item, index) => {
+    total += parsePrice(item.price);
+
+    cartItems.innerHTML += `
+<div class="cart-item">
+
+    <img src="${item.image}" class="cart-img">
+
+    <div class="cart-info">
+        <div class="cart-name">${item.name}</div>
+        <div class="cart-price">${item.price}</div>
+    </div>
+
+    <button class="btn btn-sm btn-danger"
+        onclick="removeCartItem(${index})">
+        X
+    </button>
+
+</div>
+`;
+  });
+
+  cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
+
+  if (userBalance) {
+    const balance = getUserBalance();
+    userBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
+  }
+
+  updateCartCount();
+}
+
+function removeCartItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  cart = [];
+  renderCart();
+}
+
+function checkoutCart() {
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    alert("Giỏ hàng trống");
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + parsePrice(item.price), 0);
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    alert("Vui long dang nhap truoc khi thanh toan");
+    return;
+  }
+
+  let balance = getUserBalance(currentUser);
+
+  if (balance < total) {
+    alert("Số dư không đủ, vui lòng nạp thêm tiền");
+    return;
+  }
+
+  balance -= total;
+  setUserBalance(balance, currentUser);
+  localStorage.removeItem("cart");
+  cart = [];
+  renderCart();
+
+  alert("Thanh toán thành công!\nTài khoản game đã được gửi.");
+  location.reload();
+}
+
+updateCartCount();
+document.addEventListener("click", function (e) {
+  if (e.target.id === "closeCartBtn") {
+    document.getElementById("cartSidebar").style.display = "none";
+  }
+});
