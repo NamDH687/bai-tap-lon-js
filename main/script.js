@@ -1,5 +1,7 @@
 const gamesDiv = document.getElementById("games");
 const supportContainer = document.getElementById("support-container");
+const sliderBlock = document.querySelector(".slider");
+let currentView = "home";
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [
@@ -642,19 +644,53 @@ function renderGames(gamesList) {
   });
 }
 
+function setSliderVisible(isVisible) {
+  if (!sliderBlock) return;
+
+  isSliderActive = isVisible;
+  sliderBlock.style.setProperty(
+    "display",
+    isVisible ? "block" : "none",
+    "important",
+  );
+
+  if (!isVisible) {
+    clearTimeout(imageTimer);
+    if (player && typeof player.pauseVideo === "function") player.pauseVideo();
+    return;
+  }
+
+  showMedia();
+}
+
+function showHomeView() {
+  if (!gamesDiv || !supportContainer) return;
+  currentView = "home";
+  gamesDiv.style.display = "grid";
+  supportContainer.style.display = "none";
+  setSliderVisible(true);
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname);
+  }
+}
+
 function showSupportView() {
   if (!gamesDiv || !supportContainer) return;
+  currentView = "support";
   gamesDiv.style.display = "none";
   supportContainer.style.display = "block";
+  setSliderVisible(false);
   window.location.hash = "ho-tro";
 }
 
 function showGamesView() {
   if (!gamesDiv || !supportContainer) return;
+  currentView = "store";
   gamesDiv.style.display = "grid";
   supportContainer.style.display = "none";
-  if (window.location.hash === "#ho-tro") {
-    history.replaceState(null, "", window.location.pathname);
+  setSliderVisible(false);
+  if (!window.location.hash || window.location.hash === "#ho-tro") {
+    history.replaceState(null, "", `${window.location.pathname}#store`);
   }
 }
 
@@ -679,6 +715,7 @@ function initMainPage() {
       } else {
         renderGames(games.filter((game) => game.genre === genre));
       }
+      showGamesView();
       return true;
     }
     return false;
@@ -687,10 +724,12 @@ function initMainPage() {
   window.onload = function () {
     if (window.location.hash === "#ho-tro") {
       showSupportView();
+    } else if (window.location.hash === "#store") {
+      renderGames(games);
+      showGamesView();
     } else if (!renderGamesFromHash()) {
       renderGames(games);
-    } else {
-      showGamesView();
+      showHomeView();
     }
   };
 
@@ -742,8 +781,8 @@ function initMainPage() {
   if (homeBtn) {
     homeBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      showGamesView();
       renderGames(games);
+      showHomeView();
     });
   }
 }
@@ -904,6 +943,7 @@ function showMedia() {
   if (!container) return;
 
   if (media.type === "video") {
+    if (typeof YT === "undefined" || !YT.Player) return;
     container.innerHTML = `<div id="player"></div>`;
     player = new YT.Player("player", {
       videoId: media.id,
