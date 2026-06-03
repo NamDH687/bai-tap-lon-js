@@ -302,9 +302,7 @@
         if (accountInfoName) accountInfoName.innerText = currentUser;
         if (accountInfoBalance) {
           accountInfoBalance.innerText =
-            getUserBalance(currentUser).toLocaleString(
-              "vi-VN",
-            ) + "đ";
+            getUserBalance(currentUser).toLocaleString("vi-VN") + "đ";
         }
 
         new bootstrap.Modal(accountInfoModal).show();
@@ -389,7 +387,7 @@
       const currentUser = getCurrentUser();
 
       if (!currentUser) {
-        alert("Vui long dang nhap truoc khi nap tien");
+        alert("Vui lòng đăng nhập để nạp tiền");
         return;
       }
 
@@ -440,9 +438,7 @@
     }
 
     cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
-    userBalance.innerText =
-      getUserBalance().toLocaleString("vi-VN") +
-      "đ";
+    userBalance.innerText = getUserBalance().toLocaleString("vi-VN") + "đ";
   }
 
   function initCart() {

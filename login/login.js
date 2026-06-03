@@ -52,7 +52,7 @@ document
     const users = getUsers();
 
     if (!username || !password) {
-      alert("Vui long nhap day du!");
+      alert("Vui lòng nhập đầy đủ thông tin!");
     } else if (users[username] && users[username].password === password) {
       ensureUserBalance(username);
       localStorage.setItem("currentUser", username);
@@ -68,7 +68,7 @@ document
                 font-size:18px;
                 z-index:9999;
             ">
-                Dang nhap thanh cong!
+                Đăng nhập thành công!
             </div>
         `;
       setTimeout(() => {
@@ -76,7 +76,7 @@ document
         window.location.href = "../main/index.html";
       }, 1500);
     } else {
-      alert("Sai tai khoan hoac mat khau!");
+      alert("Sai tài khoản hoặc mật khẩu!");
     }
   });
 
@@ -93,13 +93,13 @@ document
     const users = getUsers();
 
     if (!username) {
-      alert("Vui long nhap tai khoan!");
+      alert("Vui lòng nhập tài khoản!");
       usernameInput.focus();
     } else if (users[username]) {
-      alert("Tai khoan da ton tai!");
+      alert("Tài khoản đã tồn tại!");
       usernameInput.focus();
     } else if (password !== confirmPassword) {
-      alert("Mat khau va xac nhan mat khau khong trung khop!");
+      alert("Mật khẩu và xác nhận mật khẩu không trùng khớp!");
       passwordInputs[1].focus();
       passwordInputs[1].select();
     } else {
@@ -108,7 +108,7 @@ document
       localStorage.setItem(getBalanceKey(username), "0");
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
-      alert("Dang ky tai khoan thanh cong!");
+      alert("Đăng ký tài khoản thành công!");
       showLogin();
     }
   });
@@ -125,7 +125,7 @@ document.getElementById("forgotForm").addEventListener("submit", function (e) {
   const newPassword = document.getElementById("newPassword").value.trim();
 
   if (newPassword === "") {
-    alert("Vui long nhap mat khau!");
+    alert("Vui lòng nhập mật khẩu!");
     return;
   }
 
@@ -141,7 +141,7 @@ document.getElementById("forgotForm").addEventListener("submit", function (e) {
   }
 
   localStorage.setItem("password", newPassword);
-  alert("Lay lai mat khau thanh cong!");
+  alert("Lấy lại mật khẩu thành công!");
   document.getElementById("newPassword").value = "";
   showLogin();
 });
