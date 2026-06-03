@@ -30,6 +30,22 @@
     };
   }
 
+  function getCurrentUser() {
+    return localStorage.getItem("currentUser");
+  }
+
+  function getBalanceKey(username = getCurrentUser()) {
+    return username ? `balance:${username}` : "balance";
+  }
+
+  function getUserBalance(username = getCurrentUser()) {
+    return Number(localStorage.getItem(getBalanceKey(username)) || 0);
+  }
+
+  function setUserBalance(balance, username = getCurrentUser()) {
+    localStorage.setItem(getBalanceKey(username), String(balance));
+  }
+
   function buildSearchHtml(showSearch) {
     if (!showSearch) return "";
     return `
@@ -82,9 +98,9 @@
 
   function buildInfoLink(p) {
     if (p.page === "main") {
-      return `<a href="#" id="infoBtn">ĐÁNH GIÁ</a>`;
+      return `<a href="#" id="infoBtn">THƯ VIỆN</a>`;
     }
-    return `<a href="${p.main}#danh-gia" id="infoBtn">ĐÁNH GIÁ</a>`;
+    return `<a href="${p.main}#danh-gia" id="infoBtn">THƯ VIỆN</a>`;
   }
 
   function buildCartModal(p) {
@@ -147,7 +163,7 @@
               <div class="mt-3 text-center">
                 <h6>Quét mã QR để thanh toán</h6>
                 <img
-                  src="main/qr.jpg"
+                  src="qr.jpg"
                   alt="QR Thanh Toán"
                   class="img-fluid rounded"
                   style="max-width: 300px;"
@@ -229,8 +245,8 @@
     const authBtn = document.getElementById("userAuthLink");
     if (!authBtn) return;
 
-    const currentUser = localStorage.getItem("currentUser");
-    const balance = localStorage.getItem("balance") || "0";
+    const currentUser = getCurrentUser();
+    const balance = getUserBalance(currentUser);
 
     if (!currentUser) return;
 
@@ -286,9 +302,7 @@
         if (accountInfoName) accountInfoName.innerText = currentUser;
         if (accountInfoBalance) {
           accountInfoBalance.innerText =
-            Number(localStorage.getItem("balance") || 0).toLocaleString(
-              "vi-VN",
-            ) + "đ";
+            getUserBalance(currentUser).toLocaleString("vi-VN") + "đ";
         }
 
         new bootstrap.Modal(accountInfoModal).show();
@@ -370,8 +384,15 @@
         return;
       }
 
-      const balance = Number(localStorage.getItem("balance") || 0) + amount;
-      localStorage.setItem("balance", balance);
+      const currentUser = getCurrentUser();
+
+      if (!currentUser) {
+        alert("Vui lòng đăng nhập để nạp tiền");
+        return;
+      }
+
+      const balance = getUserBalance(currentUser) + amount;
+      setUserBalance(balance, currentUser);
 
       const accountInfoBalance = document.getElementById("accountInfoBalance");
       if (accountInfoBalance) {
@@ -395,7 +416,7 @@
     const cartTotal = document.getElementById("cartTotal");
     const userBalance = document.getElementById("userBalance");
 
-    if (!cartItems || !cartTotal) return;
+    if (!cartItems || !cartTotal || !userBalance) return;
 
     const cart = getCart();
     let total = 0;
@@ -417,11 +438,7 @@
     }
 
     cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
-    if (userBalance) {
-      userBalance.innerText =
-        Number(localStorage.getItem("balance") || 0).toLocaleString("vi-VN") +
-        "đ";
-    }
+    userBalance.innerText = getUserBalance().toLocaleString("vi-VN") + "đ";
   }
 
   function initCart() {
