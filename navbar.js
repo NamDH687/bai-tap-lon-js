@@ -154,7 +154,7 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
           <li><a class="dropdown-item" href="#">Thông tin</a></li>
-          <li><a class="dropdown-item" href="#">Nạp tiền</a></li>
+          <li><a class="dropdown-item" id="depositBtn" href="#">Nạp tiền</a></li>
           <li><a class="dropdown-item" href="#">Cài đặt</a></li>
           <li><hr class="dropdown-divider" /></li>
           <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
@@ -168,6 +168,15 @@
     const dropdownToggle = authBtn.querySelector('[data-bs-toggle="dropdown"]');
     if (dropdownToggle && typeof bootstrap !== "undefined") {
       new bootstrap.Dropdown(dropdownToggle);
+    }
+
+    const depositBtn = authBtn.querySelector("#depositBtn");
+    if (depositBtn) {
+      depositBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = "deposit.html";
+      });
     }
 
     const logoutBtn = authBtn.querySelector("#logoutBtn");
