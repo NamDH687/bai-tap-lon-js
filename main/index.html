@@ -4,34 +4,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHOP GAME BẢN QUYỀN CHÍNH HÃNG</title>
-    <link rel="stylesheet" href="../navbar.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body data-page="main">
-    <div id="site-navbar"></div>
-    <script src="../navbar.js"></script>
+<body>
+    <div class="top-bar">
+        <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
+            <button>🔍</button>
+        </div>
+        <div class="top-right">
+            <button id="cartToggleBtn" style="background: #28a745; color: white; border: none; padding: 6px 12px; font-weight: bold; border-radius: 4px; cursor: pointer;">
+        🛒 Giỏ hàng (<span id="cartCount">0</span>)
+    </button>
+            <a href="../intro.html" onclick="saveLogin()">Về Tuat.vn |</a>
+            <a href="../chinhsach.html" onclick="saveLogin()">Chính sách |</a>
+        </div>
 
-    <!-- slide -->
-    <div class="slider">
-      <!-- nút trái -->
-      <button class="nav prev" onclick="prevMedia()">&lsaquo;</button>
-      <!-- nút phải -->
-      <button class="nav next" onclick="nextMedia()">&rsaquo;</button>
+        <div id="cartSidebar" style="position: fixed; top: 0; right: -380px; width: 380px; height: 100%; background: #171a21; border-left: 2px solid #2a475e; box-shadow: -5px 0 15px rgba(0,0,0,0.5); z-index: 9999; display: flex; flex-direction: column; transition: 0.3s; padding: 20px; color: white;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a475e; padding-bottom: 15px;">
+                <h3 style="margin: 0; color: #66c0f4;">Giỏ Hàng Của Bạn</h3>
+                <button id="closeCartBtn" style="background: none; border: none; color: #ced4da; font-size: 24px; cursor: pointer;">&times;</button>
+            </div>
+            <div id="cartItems" style="flex-grow: 1; overflow-y: auto; padding: 15px 0;">
+                <p style="text-align: center; color: #8f98a0; margin-top: 50px;">Giỏ hàng trống.</p>
+            </div>
+            <div style="border-top: 1px solid #2a475e; padding-top: 15px;">
+                <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 15px;">
+                    <span>Tổng tiền:</span>
+                    <span id="cartTotal" style="color: #ffcc00;">0đ</span>
+                </div>
+                <button id="checkoutBtn" style="width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer;">Tiến Hành Thanh Toán</button>
+            </div>
+        </div>
 
-      <!-- media -->
-      <div id="media"></div>
+        <div id="checkoutModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;">
+            <div style="background: #171a21; border: 2px solid #2a475e; padding: 30px; border-radius: 8px; width: 90%; max-width: 450px; position: relative; color: white;">
+                <button id="closeCheckoutBtn" style="position: absolute; top: 10px; right: 15px; background: none; border: none; color: #999; font-size: 24px; cursor: pointer;">&times;</button>
+                <h3 style="margin-top: 0; margin-bottom: 20px; color: #66c0f4; border-bottom: 2px solid #2a475e; padding-bottom: 8px;">Thông Tin Nhận Game</h3>
+                <form id="checkoutForm">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Họ và tên:</label>
+                        <input type="text" required placeholder="Nhập họ tên" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Số điện thoại / Zalo:</label>
+                        <input type="tel" required placeholder="Nhập số điện thoại" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display:block; margin-bottom:5px; font-size:14px;">Email nhận tài khoản/key game:</label>
+                        <input type="email" required placeholder="Ví dụ: nguyenvana@gmail.com" style="width:100%; padding:8px; background:#2a475e; border:1px solid #4b6d85; color:white; border-radius:4px;">
+                    </div>
+                    <button type="submit" style="width: 100%; background: #28a745; color: white; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer;">Xác Nhận Thanh Toán</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <a href="index.html">
+            <img src="../logo.jpg" class="logo" />
+        </a>
+        <div class="menu-item">
+            <a href="index.html" id="homeBtn">TRANG CHỦ</a>
+        </div>
+        <div class="policy menu-item">
+            <a href="#" id="storeBtn">CỬA HÀNG</a>
+            <div class="dropdown" id="genreDropdown">
+                <a href="#" data-genre="all">Tất cả game</a>
+                <a href="#" data-genre="nhapvai">Game Nhập vai</a>
+                <a href="#" data-genre="thethao">Game Thể thao</a>
+                <a href="#" data-genre="bansung">Hành động / Bắn súng</a>
+                <a href="#" data-genre="duaxe">Game Đua xe</a>
+                <a href="#" data-genre="chiensuat">Chiến thuật / Sinh tồn</a>
+            </div>
+        </div>
+        <div class="menu-item">
+            <a href="#" id="ratingBtn">ĐÁNH GIÁ</a>
+        </div>
+
+        <div class="menu-item">
+            <a href="#" id="supportBtn">HỖ TRỢ</a>
+        </div>
+        <div class="menu-item login">
+            <a href="../login/login.html" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
+        </div>
+    </div>
+    <div id="rating-section" style="display: none">
+        <div class="rating-filter">
+            <button class="star-btn active" data-star="all">Tất cả</button>
+            <button class="star-btn" data-star="5">★★★★★</button>
+            <button class="star-btn" data-star="4">★★★★☆</button>
+            <button class="star-btn" data-star="3">★★★☆☆</button>
+            <button class="star-btn" data-star="2">★★☆☆☆</button>
+            <button class="star-btn" data-star="1">★☆☆☆☆</button>
+        </div>
     </div>
 
-    <!-- Youtube API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-
+    </div>
+    <!-- ===== BANNER GAME HOT (NEW) ===== -->
+    <div class="game-banner-wrapper">
+        <div class="game-banner-track" id="gameBannerTrack">
+        </div>
+    </div>
     <div id="games"></div>
     <div id="support-container" class="support-wrapper" style="display: none">
       <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
@@ -90,20 +165,6 @@
             <p>
               Shop hỗ trợ quét mã QR Banking, ví điện tử (Momo, ZaloPay) và các
               loại thẻ cào điện thoại thông dụng.
-            </p>
-          </div>
-        </div>
-
-        <h3 class="sp-faq-sub">Về Chính Sách Đổi/Trả & Bảo Hành</h3>
-        <div class="sp-faq-item">
-          <div class="sp-faq-question">
-            Điều kiện để được bảo hành tài khoản? <span>+</span>
-          </div>
-          <div class="sp-faq-answer">
-            <p>
-              Acc bị khóa do lỗi từ phía nhà phát hành hoặc có tranh chấp xảy ra
-              trước đó sẽ được áp dụng chính sách đổi trả 1-1 trong ngày đầu
-              tiên.
             </p>
           </div>
         </div>
@@ -194,4 +255,33 @@
     ></script>
     <script src="script.js"></script>
   </body>
+  <div class="modal fade" id="depositModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nạp tiền</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <input
+            type="number"
+            id="depositAmount"
+            class="form-control"
+            placeholder="Nhập số tiền"
+          />
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="confirmDeposit">
+            Nạp tiền
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
