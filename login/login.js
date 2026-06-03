@@ -97,7 +97,7 @@ document.getElementById("forgotForm").addEventListener("submit", function (e) {
 
   localStorage.setItem("password", newPassword);
 
-  alert("Đổi mật khẩu thành công!");
+  alert("Lấy lại mật khẩu thành công!");
 
   document.getElementById("newPassword").value = "";
 
