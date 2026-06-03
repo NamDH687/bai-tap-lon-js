@@ -155,7 +155,6 @@
         <ul class="dropdown-menu dropdown-menu-end">
           <li><a class="dropdown-item" href="#">Thông tin</a></li>
           <li><a class="dropdown-item" id="depositBtn" href="#">Nạp tiền</a></li>
-          <li><a class="dropdown-item" href="#">Cài đặt</a></li>
           <li><hr class="dropdown-divider" /></li>
           <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
         </ul>
@@ -171,6 +170,18 @@
         }
 
         const depositBtn = authBtn.querySelector("#depositBtn");
+        const qrBtn = authBtn.querySelector("#qrBtn");
+
+        if (qrBtn) {
+            qrBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const modal = new bootstrap.Modal(document.getElementById("qrModal"));
+
+                modal.show();
+            });
+        }
         if (depositBtn) {
             depositBtn.addEventListener("click", function(e) {
                 e.preventDefault();
