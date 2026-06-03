@@ -1113,8 +1113,15 @@ document.addEventListener("click", function (e) {
     return;
   }
 
-  const balance = Number(localStorage.getItem("balance") || 0) + amount;
-  localStorage.setItem("balance", balance);
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    alert("Vui long dang nhap truoc khi nap tien");
+    return;
+  }
+
+  const balance = getUserBalance(currentUser) + amount;
+  setUserBalance(balance, currentUser);
 
   alert("Nạp tiền thành công!");
   location.reload();
@@ -1273,7 +1280,7 @@ function renderCart() {
   cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
 
   if (userBalance) {
-    const balance = Number(localStorage.getItem("balance") || 0);
+    const balance = getUserBalance();
     userBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
   }
 
@@ -1301,7 +1308,14 @@ function checkoutCart() {
   }
 
   const total = cart.reduce((sum, item) => sum + parsePrice(item.price), 0);
-  let balance = Number(localStorage.getItem("balance") || 0);
+  const currentUser = getCurrentUser();
+
+  if (!currentUser) {
+    alert("Vui long dang nhap truoc khi thanh toan");
+    return;
+  }
+
+  let balance = getUserBalance(currentUser);
 
   if (balance < total) {
     alert("Số dư không đủ, vui lòng nạp thêm tiền");
@@ -1309,7 +1323,7 @@ function checkoutCart() {
   }
 
   balance -= total;
-  localStorage.setItem("balance", balance);
+  setUserBalance(balance, currentUser);
   localStorage.removeItem("cart");
   cart = [];
   renderCart();

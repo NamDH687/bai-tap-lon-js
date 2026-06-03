@@ -141,9 +141,7 @@ document.getElementById("forgotForm").addEventListener("submit", function (e) {
   }
 
   localStorage.setItem("password", newPassword);
-
   alert("Lấy lại mật khẩu thành công!");
-
   document.getElementById("newPassword").value = "";
   showLogin();
 });
