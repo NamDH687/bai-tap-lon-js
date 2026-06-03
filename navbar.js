@@ -56,13 +56,13 @@
       ).join("");
     }
     return GENRES.map((g) => {
-      const hash = g.id === "all" ? "" : `#genre-${g.id}`;
+      const hash = `#genre-${g.id}`;
       return `<a href="${p.main}${hash}">${g.label}</a>`;
     }).join("");
   }
 
   function buildStoreMenu(p) {
-    const storeHref = p.page === "main" ? "#" : p.main;
+    const storeHref = p.page === "main" ? "#store" : `${p.main}#store`;
     return `
       <div class="policy menu-item store-menu">
         <a href="${storeHref}" id="storeBtn">CỬA HÀNG</a>
