@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: black;
+    background:black
 }
 
 
@@ -204,60 +204,6 @@ body {
     background: #0088cc;
     color: white;
     box-shadow: none;
-}
-
-.cart-container {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-}
-
-.cart-btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    padding: 12px 18px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: white;
-    transition: 0.25s;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.cart-btn:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-}
-
-.cart-icon {
-    font-size: 24px;
-}
-
-.cart-text {
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-#cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: red;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
-    font-weight: bold;
-    border: 2px solid #111827;
 }
 
 
@@ -551,6 +497,162 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 4px;
+}
+
+
+/* USER SAU ĐĂNG NHẬP */
+
+.login a.logged {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    animation: userFade 0.6s ease;
+}
+
+.user-avatar {
+    font-size: 18px;
+    animation: avatarJump 1.5s infinite;
+}
+
+@keyframes userFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes avatarJump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.game-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.stars {
+    color: gold;
+    font-size: 18px;
+}
+
+.rating-number {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.review-count {
+    color: #999;
+    font-size: 13px;
+}
+
+
+/* LỌC ĐÁNH GIÁ SAO */
+
+.rating-filter {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.star-btn {
+    background: #1e232d;
+    color: gold;
+    border: 2px solid #444;
+    padding: 10px 18px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.star-btn:hover {
+    transform: translateY(-2px);
+    border-color: red;
+}
+
+.star-btn.active {
+    background: red;
+    color: white;
+}
+
+
+/* ===== GAME BANNER STEAM STYLE ===== */
+
+.game-banner-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.game-banner-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: scrollBanner 60s linear infinite;
+}
+
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.banner-card {
+    min-width: 280px;
+    height: 140px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.banner-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-card:hover {
+    transform: scale(1.05);
+}
+
+.banner-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .product-page {
