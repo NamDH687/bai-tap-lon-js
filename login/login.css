@@ -1,109 +1,109 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: white;
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-dep-cho-powerpoint-chuyen-nghiep-nhat.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .login-container {
-  width: 700px;
-  background: rgb(255, 255, 255);
-  padding: 80px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  border-radius: 18px;
+    width: 700px;
+    background: rgb(255, 255, 255);
+    padding: 80px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 18px;
 }
 
 .login-container h2 {
-  margin-bottom: 30px;
-  color: #333;
+    margin-bottom: 30px;
+    color: #333;
 }
 
 .input-box {
-  margin-bottom: 20px;
-  text-align: left;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .input-box label {
-  display: block;
-  margin-bottom: 8px;
-  color: #333333;
-  font-size: 15px;
-  font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    color: #333333;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .input-box input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  outline: none;
-  font-size: 16px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
 }
 
 .input-box input:focus {
-  border-color: #6c63ff;
+    border-color: #6c63ff;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #6c63ff;
-  color: white;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #6c63ff;
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-  background: #574bdb;
+    background: #574bdb;
 }
 
 .register {
-  margin-top: 25px;
-  font-size: 14px;
-  color: #555;
-  text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
 }
 
 .register a {
-  color: #6c63ff;
-  text-decoration: none;
-  font-weight: 600;
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .register a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .forgot-password {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
 .forgot-password a {
-  color: red;
-  font-size: 14px;
-  text-decoration: none;
-  transition: 0.3s;
+    color: red;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .forgot-password a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
