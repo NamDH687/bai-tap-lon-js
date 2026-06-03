@@ -548,19 +548,29 @@ function escapeHtml(text) {
 
 function renderGames(gamesList) {
     gamesDiv.innerHTML = "";
+
     gamesList.forEach((game) => {
         const title = String(game.name).trim();
+
         gamesDiv.innerHTML += `
-            <div class="game-card">
-                <img src="${game.image}" alt="${escapeHtml(title)}">
-                <div class="game-info">
-                    <h3 class="game-title">
-    ${escapeHtml(title)}
-    <span class="game-rating">⭐ ${game.rating}</span>
-</h3>
-                    <p class="price">${escapeHtml(game.price)}</p>
-                </div>
+        <div class="game-card">
+            <img src="${game.image}" alt="${escapeHtml(title)}">
+
+            <div class="game-info">
+                <h3 class="game-title">
+                    ${escapeHtml(title)}
+                    <span class="game-rating">⭐ ${game.rating}</span>
+                </h3>
+
+                <p class="price">${escapeHtml(game.price)}</p>
+
+                <button
+                    class="btn btn-success add-cart-btn"
+                    onclick="addToCart('${title}','${game.price}')">
+                    Thêm vào giỏ
+                </button>
             </div>
+        </div>
         `;
     });
 }
@@ -1061,4 +1071,119 @@ function loadReviews() {
       </div>
     `;
     });
+}
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price) {
+    if (price === "Miễn phí") {
+        alert("Game miễn phí không cần mua");
+        return;
+    }
+
+    cart.push({
+        name,
+        price,
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Đã thêm vào giỏ hàng");
+}
+
+function parsePrice(price) {
+    return Number(price.replaceAll(".", "").replace("đ", ""));
+}
+
+function renderCart() {
+    const cartItems = document.getElementById("cartItems");
+
+    const cartTotal = document.getElementById("cartTotal");
+
+    const userBalance = document.getElementById("userBalance");
+
+    cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += parsePrice(item.price);
+
+        cartItems.innerHTML += `
+            <div class="d-flex justify-content-between border-bottom py-2">
+                <span>${item.name}</span>
+
+                <span>
+                    ${item.price}
+
+                    <button
+                    class="btn btn-sm btn-danger ms-2"
+                    onclick="removeCartItem(${index})">
+                        X
+                    </button>
+
+                </span>
+            </div>
+        `;
+    });
+
+    cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
+
+    const balance = Number(localStorage.getItem("balance") || 0);
+
+    userBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
+}
+
+function removeCartItem(index) {
+    cart.splice(index, 1);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    renderCart();
+}
+
+function clearCart() {
+    localStorage.removeItem("cart");
+
+    cart = [];
+
+    renderCart();
+}
+
+function checkoutCart() {
+    cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+        alert("Giỏ hàng trống");
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item) => {
+        total += parsePrice(item.price);
+    });
+
+    let balance = Number(localStorage.getItem("balance") || 0);
+
+    if (balance < total) {
+        alert("Số dư không đủ, vui lòng nạp thêm tiền");
+
+        return;
+    }
+
+    balance -= total;
+
+    localStorage.setItem("balance", balance);
+
+    localStorage.removeItem("cart");
+
+    alert("Thanh toán thành công!\nTài khoản game đã được gửi.");
+
+    cart = [];
+
+    renderCart();
+
+    location.reload();
 }
