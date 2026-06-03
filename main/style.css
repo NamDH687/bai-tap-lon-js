@@ -38,29 +38,73 @@ body {
 }
 
 /* nút */
+
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
   width: 55px;
   height: 55px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 0;
-
   border: none;
   border-radius: 50%;
-
   background: rgba(0, 0, 0, 0.5);
   color: white;
-
   font-size: 32px;
   line-height: 1;
+  cursor: pointer;
+  z-index: 100;
+}
 
+.prev {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+.slider {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  margin: auto;
+}
+
+#media {
+  width: 100%;
+  height: 100%;
+}
+
+#media iframe,
+#media img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+/* nút */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 32px;
+  line-height: 1;
   cursor: pointer;
   z-index: 100;
 }
@@ -110,14 +154,18 @@ body {
   color: #fff;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.35;
   margin: 0 0 8px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  word-break: break-word;
-  text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.game-rating {
+  color: gold;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .game-card .price {
@@ -360,4 +408,202 @@ body {
 
 .sp-btn-submit:hover {
   background: #cc0000;
+}
+
+.review-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: rgba(20, 24, 32, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.review-wrapper h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 12px;
+  background: #11141b;
+  border: 1px solid #2d323d;
+  color: white;
+  border-radius: 6px;
+}
+
+.review-form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.review-form button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.review-item {
+  background: #1a1f29;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.review-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.review-star {
+  color: gold;
+  margin: 5px 0;
+}
+
+.review-text {
+  color: #ddd;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 430px;
+  height: 100vh;
+  background: #fff;
+  z-index: 99999;
+  display: none;
+  /* sửa dòng này */
+  flex-direction: column;
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-header h2 {
+  color: #333;
+  font-size: 34px;
+  margin: 0;
+  font-weight: 700;
+}
+
+#closeCartBtn {
+  cursor: pointer;
+  color: #999;
+  font-size: 28px;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.empty-cart {
+  text-align: center;
+  color: #999;
+  margin-top: 80px;
+}
+
+.cart-footer {
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.cart-total span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#cartTotal {
+  color: #e63946;
+}
+
+.checkout-btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  background: #28a745;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  color: #333;
+}
+
+.cart-items span {
+  color: #333;
+}
+
+.cart-items .border-bottom {
+  color: #333;
+}
+
+.cart-items .d-flex {
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.cart-items button {
+  margin-left: 10px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-info {
+  flex: 1;
+}
+
+.cart-name {
+  font-weight: bold;
+  color: #222;
+}
+
+.cart-price {
+  color: #e63946;
+  margin-top: 4px;
 }

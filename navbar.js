@@ -30,22 +30,6 @@
     };
   }
 
-  function getCurrentUser() {
-    return localStorage.getItem("currentUser");
-  }
-
-  function getBalanceKey(username = getCurrentUser()) {
-    return username ? `balance:${username}` : "balance";
-  }
-
-  function getUserBalance(username = getCurrentUser()) {
-    return Number(localStorage.getItem(getBalanceKey(username)) || 0);
-  }
-
-  function setUserBalance(balance, username = getCurrentUser()) {
-    localStorage.setItem(getBalanceKey(username), String(balance));
-  }
-
   function buildSearchHtml(showSearch) {
     if (!showSearch) return "";
     return `
@@ -98,9 +82,9 @@
 
   function buildInfoLink(p) {
     if (p.page === "main") {
-      return `<a href="#" id="infoBtn">THƯ VIỆN</a>`;
+      return `<a href="#" id="infoBtn">ĐÁNH GIÁ</a>`;
     }
-    return `<a href="${p.main}#danh-gia" id="infoBtn">THƯ VIỆN</a>`;
+    return `<a href="${p.main}#danh-gia" id="infoBtn">ĐÁNH GIÁ</a>`;
   }
 
   function buildCartModal(p) {
@@ -163,7 +147,7 @@
               <div class="mt-3 text-center">
                 <h6>Quét mã QR để thanh toán</h6>
                 <img
-                  src="qr.jpg"
+                  src="main/qr.jpg"
                   alt="QR Thanh Toán"
                   class="img-fluid rounded"
                   style="max-width: 300px;"
@@ -185,6 +169,13 @@
   }
 
   function buildNavbarHtml(p) {
+    const cartButton = `
+        <button type="button" class="navbar-cart-btn" id="openCartBtn" aria-label="Mo gio hang">
+          <span class="navbar-cart-icon">&#128722;</span>
+          <span class="navbar-cart-count" id="cartCount">0</span>
+        </button>
+      `;
+
     return `
       <div class="top-bar">
         <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
@@ -217,7 +208,7 @@
         </div>
         ${buildStoreMenu(p)}
         <div class="menu-item">
-          <a href="#" id="infoBtn">THÔNG TIN</a>
+          ${buildInfoLink(p)}
         </div>
         <div class="menu-item">
           ${buildSupportLink(p)}
@@ -225,7 +216,10 @@
         <div class="login">
           <a href="${p.login}" id="userAuthLink">ĐĂNG NHẬP / ĐĂNG KÝ</a>
         </div>
+        ${cartButton}
       </div>
+      ${buildCartModal(p)}
+      ${buildAccountModals(p)}
     `;
   }
 
@@ -235,8 +229,8 @@
     const authBtn = document.getElementById("userAuthLink");
     if (!authBtn) return;
 
-    const currentUser = getCurrentUser();
-    const balance = getUserBalance(currentUser);
+    const currentUser = localStorage.getItem("currentUser");
+    const balance = localStorage.getItem("balance") || "0";
 
     if (!currentUser) return;
 
@@ -257,9 +251,8 @@
           <span class="visually-hidden">Toggle Dropdown</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="#">Thông tin</a></li>
-          <li><a class="dropdown-item" href="#">Nạp tiền</a></li>
-          <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+          <li><a class="dropdown-item" id="accountInfoBtn" href="#">Thông tin</a></li>
+          <li><a class="dropdown-item" id="depositBtn" href="#">Nạp tiền</a></li>
           <li><hr class="dropdown-divider" /></li>
           <li><button type="button" class="dropdown-item" id="logoutBtn">Đăng xuất</button></li>
         </ul>
@@ -293,7 +286,9 @@
         if (accountInfoName) accountInfoName.innerText = currentUser;
         if (accountInfoBalance) {
           accountInfoBalance.innerText =
-            getUserBalance(currentUser).toLocaleString("vi-VN") + "đ";
+            Number(localStorage.getItem("balance") || 0).toLocaleString(
+              "vi-VN",
+            ) + "đ";
         }
 
         new bootstrap.Modal(accountInfoModal).show();
@@ -375,15 +370,8 @@
         return;
       }
 
-      const currentUser = getCurrentUser();
-
-      if (!currentUser) {
-        alert("Vui lòng đăng nhập để nạp tiền");
-        return;
-      }
-
-      const balance = getUserBalance(currentUser) + amount;
-      setUserBalance(balance, currentUser);
+      const balance = Number(localStorage.getItem("balance") || 0) + amount;
+      localStorage.setItem("balance", balance);
 
       const accountInfoBalance = document.getElementById("accountInfoBalance");
       if (accountInfoBalance) {
@@ -407,7 +395,7 @@
     const cartTotal = document.getElementById("cartTotal");
     const userBalance = document.getElementById("userBalance");
 
-    if (!cartItems || !cartTotal || !userBalance) return;
+    if (!cartItems || !cartTotal) return;
 
     const cart = getCart();
     let total = 0;
@@ -429,7 +417,11 @@
     }
 
     cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
-    userBalance.innerText = getUserBalance().toLocaleString("vi-VN") + "đ";
+    if (userBalance) {
+      userBalance.innerText =
+        Number(localStorage.getItem("balance") || 0).toLocaleString("vi-VN") +
+        "đ";
+    }
   }
 
   function initCart() {
@@ -462,6 +454,10 @@
 
     const paths = getPaths();
     root.innerHTML = buildNavbarHtml(paths);
+    initCart();
+    if (paths.page !== "main") {
+      initDeposit();
+    }
     document.dispatchEvent(new CustomEvent("navbarReady"));
   }
 
