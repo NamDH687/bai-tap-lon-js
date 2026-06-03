@@ -3,6 +3,22 @@ const supportContainer = document.getElementById("support-container");
 const sliderBlock = document.querySelector(".slider");
 let currentView = "home";
 
+function getCurrentUser() {
+  return localStorage.getItem("currentUser");
+}
+
+function getBalanceKey(username = getCurrentUser()) {
+  return username ? `balance:${username}` : "balance";
+}
+
+function getUserBalance(username = getCurrentUser()) {
+  return Number(localStorage.getItem(getBalanceKey(username)) || 0);
+}
+
+function setUserBalance(balance, username = getCurrentUser()) {
+  localStorage.setItem(getBalanceKey(username), String(balance));
+}
+
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
 const games = [
   {
@@ -1674,10 +1690,77 @@ function loadReviews() {
           ${"⭐".repeat(review.star)}
         </div>
 
-        <div class="review-text">
-          ${review.text}
-        </div>
-      </div>
-    `;
-    });
+    <button class="btn btn-sm btn-danger"
+        onclick="removeCartItem(${index})">
+        X
+    </button>
+
+</div>
+`;
+  });
+
+  cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
+
+    const balance = Number(localStorage.getItem("balance") || 0);
+
+    userBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
+  }
+
+  updateCartCount();
 }
+
+function removeCartItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  cart = [];
+  renderCart();
+}
+
+function checkoutCart() {
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    alert("Giỏ hàng trống");
+    return;
+  }
+
+    let total = 0;
+
+    cart.forEach((item) => {
+        total += parsePrice(item.price);
+    });
+
+    let balance = Number(localStorage.getItem("balance") || 0);
+
+  if (balance < total) {
+    alert("Số dư không đủ, vui lòng nạp thêm tiền");
+    return;
+  }
+
+    balance -= total;
+
+    localStorage.setItem("balance", balance);
+
+    localStorage.removeItem("cart");
+
+    alert("Thanh toán thành công!\nTài khoản game đã được gửi.");
+
+    cart = [];
+
+    renderCart();
+
+  alert("Thanh toán thành công!\nTài khoản game đã được gửi.");
+  location.reload();
+}
+
+updateCartCount();
+document.addEventListener("click", function (e) {
+  if (e.target.id === "closeCartBtn") {
+    document.getElementById("cartSidebar").style.display = "none";
+  }
+});

@@ -285,3 +285,7 @@ body {
     transform: translateY(0);
   }
 }
+
+#depositModal .modal-dialog {
+  margin-top: 120px;
+}
