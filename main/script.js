@@ -12,6 +12,14 @@ function getBalanceKey(username = getCurrentUser()) {
   return username ? `balance:${username}` : "balance";
 }
 
+function getPurchasedKey(username = getCurrentUser()) {
+  return username ? `purchasedGames:${username}` : "purchasedGames";
+}
+
+function getPurchasedGames(username = getCurrentUser()) {
+  return JSON.parse(localStorage.getItem(getPurchasedKey(username))) || [];
+}
+
 function getUserBalance(username = getCurrentUser()) {
   return Number(localStorage.getItem(getBalanceKey(username)) || 0);
 }
@@ -1207,6 +1215,12 @@ document.addEventListener("click", function (e) {
 });
 
 function addToCart(name, price, image) {
+  // ❌ chặn nếu đã mua
+  if (isGamePurchased(name)) {
+    alert("Bạn đã sở hữu game này rồi!");
+    return;
+  }
+
   const exists = cart.find((item) => item.name === name);
 
   if (exists) {
@@ -1214,19 +1228,12 @@ function addToCart(name, price, image) {
     return;
   }
 
-  cart.push({
-    name,
-    price,
-    image,
-  });
-
+  cart.push({ name, price, image });
   localStorage.setItem("cart", JSON.stringify(cart));
 
   updateCartCount();
 
-  // Nếu sidebar đang mở thì cập nhật luôn
   const cartSidebar = document.getElementById("cartSidebar");
-
   if (cartSidebar && cartSidebar.style.display !== "none") {
     renderCart();
   }
@@ -1311,7 +1318,7 @@ function checkoutCart() {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    alert("Vui long dang nhap truoc khi thanh toan");
+    alert("Vui lòng đăng nhập trước khi thanh toán");
     return;
   }
 
@@ -1321,6 +1328,16 @@ function checkoutCart() {
     alert("Số dư không đủ, vui lòng nạp thêm tiền");
     return;
   }
+  cart.forEach((item) => {
+    if (isGamePurchased(item.name)) {
+      return; // đã mua rồi thì bỏ qua
+    }
+
+    addPurchasedGame({
+      name: item.name,
+      image: item.image,
+    });
+  });
 
   balance -= total;
   setUserBalance(balance, currentUser);
@@ -1337,4 +1354,73 @@ document.addEventListener("click", function (e) {
   if (e.target.id === "closeCartBtn") {
     document.getElementById("cartSidebar").style.display = "none";
   }
+});
+
+function getPurchasedGames(username = getCurrentUser()) {
+  return JSON.parse(localStorage.getItem(getPurchasedKey(username))) || [];
+}
+
+function renderPurchasedGames() {
+  const container = document.getElementById("purchaseList");
+  if (!container) return;
+
+  const list = getPurchasedGames(); // theo user hiện tại
+
+  if (list.length === 0) {
+    container.innerHTML = "<p>Bạn chưa mua game nào.</p>";
+    return;
+  }
+
+  container.innerHTML = list
+    .map(
+      (game) => `
+      <div class="purchased-item">
+        <img src="${game.image}" />
+        <div>
+          <h3>${game.name}</h3>
+        </div>
+      </div>
+    `,
+    )
+    .join("");
+}
+document.addEventListener("click", function (e) {
+  if (e.target && e.target.id === "infoBtn") {
+    document.getElementById("games").style.display = "none";
+    document.getElementById("info-container").style.display = "block";
+
+    renderPurchasedGames();
+  }
+});
+
+function addPurchasedGame(game) {
+  const key = getPurchasedKey();
+  let list = JSON.parse(localStorage.getItem(key)) || [];
+
+  list.unshift(game);
+
+  localStorage.setItem(key, JSON.stringify(list));
+}
+
+function isGamePurchased(gameName) {
+  const list = getPurchasedGames();
+  return list.some((game) => game.name === gameName);
+}
+
+function logout() {
+  localStorage.removeItem("currentUser");
+  localStorage.removeItem("cart");
+  cart = [];
+  updateCartCount();
+  location.reload();
+}
+
+function clearSessionData() {
+  cart = [];
+  currentView = "home";
+}
+window.addEventListener("load", () => {
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  updateCartCount();
+  renderCart();
 });
