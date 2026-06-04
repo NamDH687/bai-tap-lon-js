@@ -53,14 +53,14 @@ const games = [
   },
   {
     name: "Counter-Strike 2",
-    price: "100.000đ",
+    price: "Miễn phí",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1749053861720/header.jpg",
     genre: "bansung",
   },
   {
     name: "Genshin Impact",
-    price: "360.000đ",
+    price: "Miễn phí",
     image:
       "https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180",
     genre: "nhapvai",
@@ -102,7 +102,7 @@ const games = [
   },
   {
     name: "PUBG: BATTLEGROUNDS",
-    price: "200.000đ",
+    price: "Miễn phí",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1778634253",
     genre: "bansung",
@@ -284,7 +284,7 @@ const games = [
   },
   {
     name: "EA Play",
-    price: "140.000đ",
+    price: "Miễn phí",
     image:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1289670/49e5a469fef9e70e4f49e518986c07a5ae054212/header_292x136.jpg?t=1776976561",
     genre: "thethao",
@@ -389,7 +389,7 @@ const games = [
   },
   {
     name: "Dream League Soccer",
-    price: "200.000đ",
+    price: "Miễn phí",
     image: "https://cdn-media.sforum.vn/storage/app/media/dls-2025-13.jpg",
     genre: "thethao",
   },
@@ -540,15 +540,15 @@ const games = [
     genre: "duaxe",
   },
   {
-    name: "Legend of Leagues",
-    price: "500.000đ",
+    name: "Leagues of Legend",
+    price: "Miễn phí",
     image:
       "https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/09/league-of-legends.jpeg?fit=1607%2C895&ssl=1",
     genre: "chiensuat",
   },
   {
     name: "Valorant",
-    price: "10.000đ",
+    price: "Miễn phí",
     image:
       "https://www.riotgames.com/darkroom/1200/1dbd7211e78ce5faa7a8af9d10afad47:2b5979e3922758399ba389561e797919/ps-f2p-val-console-launch-16x9.jpg",
     genre: "bansung",
@@ -611,7 +611,7 @@ const games = [
   },
   {
     name: "FC Online",
-    price: "30.000đ",
+    price: "Miễn phí",
     image:
       "https://yt3.googleusercontent.com/4W8oATzTPHLlUha4Jk4WXGvvvnoEqvCXvEv88tBYDfWo1atYM7R4zXTgTqeD0R75PTu5vor0aQ=s900-c-k-c0x00ffffff-no-rj",
     genre: "thethao",
@@ -647,6 +647,7 @@ const games = [
 games.forEach((game, index) => {
   game.rating = (4.3 + (index % 7) * 0.1).toFixed(1);
 });
+
 
 function escapeHtml(text) {
   return String(text)
@@ -1104,7 +1105,6 @@ window.addEventListener("load", () => {
   }
 });
 
-// giỏ hàng
 
 // Nap tien
 document.addEventListener("click", function (e) {
@@ -1124,7 +1124,7 @@ document.addEventListener("click", function (e) {
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
-    alert("Vui long dang nhap truoc khi nap tien");
+    alert("Vui lòng đăng nhập trước khi nạp tiền");
     return;
   }
 
@@ -1179,7 +1179,7 @@ if (sendReviewBtn) {
 
 loadReviews();
 
-// Gio hang
+// Giỏ hàng
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCartCount() {
@@ -1240,6 +1240,9 @@ function addToCart(name, price, image) {
 }
 
 function parsePrice(price) {
+  if (price === "Miễn phí") {
+    return 0;
+  }
   return Number(
     String(price).replaceAll(".", "").replace("đ", "").replace("Ä‘", ""),
   );
@@ -1282,6 +1285,7 @@ function renderCart() {
 
 </div>
 `;
+
   });
 
   cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
@@ -1323,7 +1327,7 @@ function checkoutCart() {
   }
 
   let balance = getUserBalance(currentUser);
-
+  
   if (balance < total) {
     alert("Số dư không đủ, vui lòng nạp thêm tiền");
     return;
