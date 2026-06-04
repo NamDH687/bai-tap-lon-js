@@ -289,12 +289,6 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.login .dropdown-menu {
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.175);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}
-
 .login .dropdown-menu .dropdown-item {
   background: transparent !important;
   color: #212529 !important;
