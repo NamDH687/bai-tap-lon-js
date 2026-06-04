@@ -1,69 +1,85 @@
-(function() {
-    const NAVBAR_ROOT_ID = "site-navbar";
-    let authInitialized = false;
+(function () {
+  const NAVBAR_ROOT_ID = "site-navbar";
+  let authInitialized = false;
 
-    function getPaths() {
-        const page = document.body.getAttribute("data-page") || "intro";
-        if (page === "main") {
-            return {
-                page,
-                home: "index.html",
-                main: "index.html",
-                support: "#",
-                intro: "../intro.html",
-                policy: "../chinhsach.html",
-                login: "../login/login.html",
-                logo: "../logo.jpg",
-                showSearch: true,
-            };
-        }
-        return {
-            page,
-            home: "main/index.html",
-            main: "main/index.html",
-            support: "main/index.html#ho-tro",
-            intro: "intro.html",
-            policy: "chinhsach.html",
-            login: "login/login.html",
-            logo: "logo.jpg",
-            showSearch: false,
-        };
+  function getPaths() {
+    const page = document.body.getAttribute("data-page") || "intro";
+    if (page === "main") {
+      return {
+        page,
+        home: "index.html",
+        main: "index.html",
+        support: "#",
+        intro: "../intro.html",
+        policy: "../chinhsach.html",
+        login: "../login/login.html",
+        logo: "../logo.jpg",
+        showSearch: true,
+      };
     }
+    return {
+      page,
+      home: "main/index.html",
+      main: "main/index.html",
+      support: "main/index.html#ho-tro",
+      intro: "intro.html",
+      policy: "chinhsach.html",
+      login: "login/login.html",
+      logo: "logo.jpg",
+      showSearch: false,
+    };
+  }
 
-    function buildSearchHtml(showSearch) {
-        if (!showSearch) return "";
-        return `
+  function getCurrentUser() {
+    return localStorage.getItem("currentUser");
+  }
+
+  function getBalanceKey(username = getCurrentUser()) {
+    return username ? `balance:${username}` : "balance";
+  }
+
+  function getUserBalance(username = getCurrentUser()) {
+    return Number(localStorage.getItem(getBalanceKey(username)) || 0);
+  }
+
+  function setUserBalance(balance, username = getCurrentUser()) {
+    localStorage.setItem(getBalanceKey(username), String(balance));
+  }
+
+  function buildSearchHtml(showSearch) {
+    if (!showSearch) return "";
+    return `
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="Gõ để tìm kiếm..." />
         <button type="button" aria-label="Tìm kiếm">🔍</button>
       </div>
     `;
+  }
+
+  const GENRES = [
+    { id: "all", label: "Tất cả game" },
+    { id: "nhapvai", label: "Game Nhập vai" },
+    { id: "thethao", label: "Game Thể thao" },
+    { id: "bansung", label: "Hành động / Bắn súng" },
+    { id: "duaxe", label: "Game Đua xe" },
+    { id: "chiensuat", label: "Chiến thuật / Sinh tồn" },
+  ];
+
+  function buildGenreLinks(p) {
+    if (p.page === "main") {
+      return GENRES.map(
+        (g) => `<a href="#" data-genre="${g.id}">${g.label}</a>`,
+      ).join("");
     }
+    return GENRES.map((g) => {
+      const hash = `#genre-${g.id}`;
+      return `<a href="${p.main}${hash}">${g.label}</a>`;
+    }).join("");
+  }
 
-    const GENRES = [
-        { id: "all", label: "Tất cả game" },
-        { id: "nhapvai", label: "Game Nhập vai" },
-        { id: "thethao", label: "Game Thể thao" },
-        { id: "bansung", label: "Hành động / Bắn súng" },
-        { id: "duaxe", label: "Game Đua xe" },
-        { id: "chiensuat", label: "Chiến thuật / Sinh tồn" },
-    ];
-
-    function buildGenreLinks(p) {
-        if (p.page === "main") {
-            return GENRES.map(
-                (g) => `<a href="#" data-genre="${g.id}">${g.label}</a>`,
-            ).join("");
-        }
-        return GENRES.map((g) => {
-            const hash = `#genre-${g.id}`;
-            return `<a href="${p.main}${hash}">${g.label}</a>`;
-        }).join("");
-    }
-
-    function buildStoreMenu(p) {
-        const storeHref = p.page === "main" ? "#store" : `${p.main}#store`;
-        return `
+  function buildStoreMenu(p) {
+    const storeHref = p.page === "main" ? "#store" : `${p.main}#store`;
+    return `
       <div class="policy menu-item store-menu">
         <a href="${storeHref}" id="storeBtn">CỬA HÀNG</a>
         <div class="menu-submenu" id="genreDropdown">
@@ -71,26 +87,26 @@
         </div>
       </div>
     `;
+  }
+
+  function buildSupportLink(p) {
+    if (p.page === "main") {
+      return `<a href="#" id="supportBtn">HỖ TRỢ</a>`;
     }
+    return `<a href="${p.support}" id="supportBtn">HỖ TRỢ</a>`;
+  }
 
-    function buildSupportLink(p) {
-        if (p.page === "main") {
-            return `<a href="#" id="supportBtn">HỖ TRỢ</a>`;
-        }
-        return `<a href="${p.support}" id="supportBtn">HỖ TRỢ</a>`;
+  function buildInfoLink(p) {
+    if (p.page === "main") {
+      return `<a href="#" id="infoBtn">THƯ VIỆN</a>`;
     }
+    return `<a href="${p.main}#danh-gia" id="infoBtn">THƯ VIỆN</a>`;
+  }
 
-    function buildInfoLink(p) {
-        if (p.page === "main") {
-            return `<a href="#" id="infoBtn">ĐÁNH GIÁ</a>`;
-        }
-        return `<a href="${p.main}#danh-gia" id="infoBtn">ĐÁNH GIÁ</a>`;
-    }
+  function buildCartModal(p) {
+    if (p.page === "main") return "";
 
-    function buildCartModal(p) {
-        if (p.page === "main") return "";
-
-        return `
+    return `
       <div class="modal fade" id="cartModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -112,10 +128,10 @@
         </div>
       </div>
     `;
-    }
+  }
 
-    function buildAccountModals(p) {
-        const accountInfoModal = `
+  function buildAccountModals(p) {
+    const accountInfoModal = `
       <div class="modal fade" id="accountInfoModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -132,9 +148,9 @@
       </div>
     `;
 
-        if (p.page === "main") return accountInfoModal;
+    if (p.page === "main") return accountInfoModal;
 
-        return `
+    return `
       ${accountInfoModal}
       <div class="modal fade" id="depositModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -147,7 +163,7 @@
               <div class="mt-3 text-center">
                 <h6>Quét mã QR để thanh toán</h6>
                 <img
-                  src="main/qr.jpg"
+                  src="qr.jpg"
                   alt="QR Thanh Toán"
                   class="img-fluid rounded"
                   style="max-width: 300px;"
@@ -166,17 +182,17 @@
         </div>
       </div>
     `;
-    }
+  }
 
-    function buildNavbarHtml(p) {
-        const cartButton = `
+  function buildNavbarHtml(p) {
+    const cartButton = `
         <button type="button" class="navbar-cart-btn" id="openCartBtn" aria-label="Mo gio hang">
           <span class="navbar-cart-icon">&#128722;</span>
           <span class="navbar-cart-count" id="cartCount">0</span>
         </button>
       `;
 
-        return `
+    return `
       <div class="top-bar">
         <div class="logo-text">SHOP GAME BẢN QUYỀN CHÍNH HÃNG</div>
         ${buildSearchHtml(p.showSearch)}
@@ -221,22 +237,22 @@
       ${buildCartModal(p)}
       ${buildAccountModals(p)}
     `;
-    }
+  }
 
-    function initUserAuth() {
-        if (authInitialized) return;
+  function initUserAuth() {
+    if (authInitialized) return;
 
-        const authBtn = document.getElementById("userAuthLink");
-        if (!authBtn) return;
+    const authBtn = document.getElementById("userAuthLink");
+    if (!authBtn) return;
 
-        const currentUser = localStorage.getItem("currentUser");
-        const balance = localStorage.getItem("balance") || "0";
+    const currentUser = getCurrentUser();
+    const balance = getUserBalance(currentUser);
 
-        if (!currentUser) return;
+    if (!currentUser) return;
 
-        authInitialized = true;
+    authInitialized = true;
 
-        authBtn.innerHTML = `
+    authBtn.innerHTML = `
       <div class="btn-group">
         <button type="button" class="btn btn-primary">
           <span class="user-avatar">👤</span>
@@ -259,209 +275,218 @@
       </div>
     `;
 
-        authBtn.href = "#";
-        authBtn.classList.add("logged");
+    authBtn.href = "#";
+    authBtn.classList.add("logged");
 
-        const dropdownToggle = authBtn.querySelector('[data-bs-toggle="dropdown"]');
-        if (dropdownToggle && typeof bootstrap !== "undefined") {
-            new bootstrap.Dropdown(dropdownToggle);
-        }
-
-        const accountInfoBtn = authBtn.querySelector("#accountInfoBtn");
-        const depositBtn = authBtn.querySelector("#depositBtn");
-        const qrBtn = authBtn.querySelector("#qrBtn");
-
-        if (accountInfoBtn) {
-            accountInfoBtn.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const accountInfoModal = document.getElementById("accountInfoModal");
-                if (!accountInfoModal || typeof bootstrap === "undefined") return;
-
-                const accountInfoName = document.getElementById("accountInfoName");
-                const accountInfoBalance = document.getElementById("accountInfoBalance");
-
-                if (accountInfoName) accountInfoName.innerText = currentUser;
-                if (accountInfoBalance) {
-                    accountInfoBalance.innerText =
-                        Number(localStorage.getItem("balance") || 0).toLocaleString("vi-VN") + "đ";
-                }
-
-                new bootstrap.Modal(accountInfoModal).show();
-            });
-        }
-
-        if (qrBtn) {
-            qrBtn.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                const qrModal = document.getElementById("qrModal");
-                if (!qrModal || typeof bootstrap === "undefined") return;
-
-                const modal = new bootstrap.Modal(qrModal);
-
-                modal.show();
-            });
-        }
-        if (depositBtn) {
-            depositBtn.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const depositModal = document.getElementById("depositModal");
-                if (!depositModal || typeof bootstrap === "undefined") return;
-
-                const modal = new bootstrap.Modal(depositModal);
-
-                modal.show();
-            });
-        }
-
-        const logoutBtn = authBtn.querySelector("#logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (confirm("Đăng xuất tài khoản?")) {
-                    localStorage.removeItem("currentUser");
-                    location.reload();
-                }
-            });
-        }
-
-        authBtn.addEventListener("click", function(e) {
-            e.preventDefault();
-        });
-
-        authBtn.style.opacity = "0";
-        setTimeout(() => {
-            authBtn.style.transition = "0.6s";
-            authBtn.style.opacity = "1";
-        }, 200);
+    const dropdownToggle = authBtn.querySelector('[data-bs-toggle="dropdown"]');
+    if (dropdownToggle && typeof bootstrap !== "undefined") {
+      new bootstrap.Dropdown(dropdownToggle);
     }
 
-    function parseCartPrice(price) {
-        return Number(String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""));
-    }
+    const accountInfoBtn = authBtn.querySelector("#accountInfoBtn");
+    const depositBtn = authBtn.querySelector("#depositBtn");
+    const qrBtn = authBtn.querySelector("#qrBtn");
 
-    function getCart() {
-        try {
-            return JSON.parse(localStorage.getItem("cart")) || [];
-        } catch (e) {
-            return [];
+    if (accountInfoBtn) {
+      accountInfoBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const accountInfoModal = document.getElementById("accountInfoModal");
+        if (!accountInfoModal || typeof bootstrap === "undefined") return;
+
+        const accountInfoName = document.getElementById("accountInfoName");
+        const accountInfoBalance =
+          document.getElementById("accountInfoBalance");
+
+        if (accountInfoName) accountInfoName.innerText = currentUser;
+        if (accountInfoBalance) {
+          accountInfoBalance.innerText =
+            getUserBalance(currentUser).toLocaleString("vi-VN") + "đ";
         }
+
+        new bootstrap.Modal(accountInfoModal).show();
+      });
     }
 
-    function initDeposit() {
-        const confirmDepositBtn = document.getElementById("confirmDeposit");
-        if (!confirmDepositBtn) return;
+    if (qrBtn) {
+      qrBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
 
-        confirmDepositBtn.addEventListener("click", function() {
-            const amount = Number(prompt("Nhập số tiền muốn nạp:"));
+        const qrModal = document.getElementById("qrModal");
+        if (!qrModal || typeof bootstrap === "undefined") return;
 
-            if (!amount || amount <= 0) {
-                alert("Nhập số tiền hợp lệ");
-                return;
-            }
+        const modal = new bootstrap.Modal(qrModal);
 
-            const balance = Number(localStorage.getItem("balance") || 0) + amount;
-            localStorage.setItem("balance", balance);
+        modal.show();
+      });
+    }
+    if (depositBtn) {
+      depositBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const depositModal = document.getElementById("depositModal");
+        if (!depositModal || typeof bootstrap === "undefined") return;
 
-            const accountInfoBalance = document.getElementById("accountInfoBalance");
-            if (accountInfoBalance) {
-                accountInfoBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
-            }
+        const modal = new bootstrap.Modal(depositModal);
 
-            alert("Nạp tiền thành công!");
-            location.reload();
-        });
+        modal.show();
+      });
     }
 
-    function updateCartCount() {
-        const cartCount = document.getElementById("cartCount");
-        if (!cartCount) return;
-
-        cartCount.innerText = getCart().length;
+    const logoutBtn = authBtn.querySelector("#logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (confirm("Đăng xuất tài khoản?")) {
+          localStorage.removeItem("currentUser");
+          location.reload();
+        }
+      });
     }
 
-    function renderSharedCart() {
-        const cartItems = document.getElementById("cartItems");
-        const cartTotal = document.getElementById("cartTotal");
-        const userBalance = document.getElementById("userBalance");
+    authBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+    });
 
-        if (!cartItems || !cartTotal || !userBalance) return;
+    authBtn.style.opacity = "0";
+    setTimeout(() => {
+      authBtn.style.transition = "0.6s";
+      authBtn.style.opacity = "1";
+    }, 200);
+  }
 
-        const cart = getCart();
-        let total = 0;
+  function parseCartPrice(price) {
+    return Number(
+      String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""),
+    );
+  }
 
-        if (cart.length === 0) {
-            cartItems.innerHTML = `<p class="text-muted mb-0">Giỏ hàng trống</p>`;
-        } else {
-            cartItems.innerHTML = cart
-                .map((item) => {
-                    total += parseCartPrice(item.price);
-                    return `
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function initDeposit() {
+    const confirmDepositBtn = document.getElementById("confirmDeposit");
+    if (!confirmDepositBtn) return;
+
+    confirmDepositBtn.addEventListener("click", function () {
+      const amount = Number(prompt("Nhập số tiền muốn nạp:"));
+
+      if (!amount || amount <= 0) {
+        alert("Nhập số tiền hợp lệ");
+        return;
+      }
+
+      const currentUser = getCurrentUser();
+
+      if (!currentUser) {
+        alert("Vui lòng đăng nhập để nạp tiền");
+        return;
+      }
+
+      const balance = getUserBalance(currentUser) + amount;
+      setUserBalance(balance, currentUser);
+
+      const accountInfoBalance = document.getElementById("accountInfoBalance");
+      if (accountInfoBalance) {
+        accountInfoBalance.innerText = balance.toLocaleString("vi-VN") + "đ";
+      }
+
+      alert("Nạp tiền thành công!");
+      location.reload();
+    });
+  }
+
+  function updateCartCount() {
+    const cartCount = document.getElementById("cartCount");
+    if (!cartCount) return;
+
+    cartCount.innerText = getCart().length;
+  }
+
+  function renderSharedCart() {
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const userBalance = document.getElementById("userBalance");
+
+    if (!cartItems || !cartTotal || !userBalance) return;
+
+    const cart = getCart();
+    let total = 0;
+
+    if (cart.length === 0) {
+      cartItems.innerHTML = `<p class="text-muted mb-0">Giỏ hàng trống</p>`;
+    } else {
+      cartItems.innerHTML = cart
+        .map((item) => {
+          total += parseCartPrice(item.price);
+          return `
             <div class="d-flex justify-content-between align-items-center border-bottom py-2">
               <span>${item.name}</span>
               <span>${item.price}</span>
             </div>
           `;
-                })
-                .join("");
-        }
-
-        cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
-        userBalance.innerText =
-            Number(localStorage.getItem("balance") || 0).toLocaleString("vi-VN") + "đ";
+        })
+        .join("");
     }
 
-    function initCart() {
+    cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
+    userBalance.innerText = getUserBalance().toLocaleString("vi-VN") + "đ";
+  }
+
+  function initCart() {
+    updateCartCount();
+
+    const openCartBtn = document.getElementById("openCartBtn");
+    if (openCartBtn) {
+      openCartBtn.addEventListener("click", function () {
+        const cartModal = document.getElementById("cartModal");
+        if (!cartModal || typeof bootstrap === "undefined") return;
+
+        renderSharedCart();
+        new bootstrap.Modal(cartModal).show();
+      });
+    }
+
+    const clearCartBtn = document.getElementById("clearCartBtn");
+    if (clearCartBtn) {
+      clearCartBtn.addEventListener("click", function () {
+        localStorage.removeItem("cart");
+        renderSharedCart();
         updateCartCount();
-
-        const openCartBtn = document.getElementById("openCartBtn");
-        if (openCartBtn) {
-            openCartBtn.addEventListener("click", function() {
-                const cartModal = document.getElementById("cartModal");
-                if (!cartModal || typeof bootstrap === "undefined") return;
-
-                renderSharedCart();
-                new bootstrap.Modal(cartModal).show();
-            });
-        }
-
-        const clearCartBtn = document.getElementById("clearCartBtn");
-        if (clearCartBtn) {
-            clearCartBtn.addEventListener("click", function() {
-                localStorage.removeItem("cart");
-                renderSharedCart();
-                updateCartCount();
-            });
-        }
+      });
     }
+  }
 
-    function renderNavbar() {
-        const root = document.getElementById(NAVBAR_ROOT_ID);
-        if (!root) return;
+  function renderNavbar() {
+    const root = document.getElementById(NAVBAR_ROOT_ID);
+    if (!root) return;
 
-        const paths = getPaths();
-        root.innerHTML = buildNavbarHtml(paths);
-        initCart();
-        if (paths.page !== "main") {
-            initDeposit();
-        }
-        document.dispatchEvent(new CustomEvent("navbarReady"));
+    const paths = getPaths();
+    root.innerHTML = buildNavbarHtml(paths);
+    initCart();
+    if (paths.page !== "main") {
+      initDeposit();
     }
+    document.dispatchEvent(new CustomEvent("navbarReady"));
+  }
 
-    function scheduleUserAuth() {
-        initUserAuth();
-    }
+  function scheduleUserAuth() {
+    initUserAuth();
+  }
 
-    renderNavbar();
+  renderNavbar();
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", scheduleUserAuth);
-    } else {
-        scheduleUserAuth();
-    }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scheduleUserAuth);
+  } else {
+    scheduleUserAuth();
+  }
 })();
