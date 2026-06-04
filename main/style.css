@@ -609,3 +609,26 @@ body {
   color: #e63946;
   margin-top: 4px;
 }
+
+.purchased-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 12px;
+  margin: 10px 0;
+  background: #1a1f29;
+  border-radius: 8px;
+  border: 1px solid #2d323d;
+}
+
+.purchased-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.purchased-item h3 {
+  color: white;
+  margin: 0;
+}
