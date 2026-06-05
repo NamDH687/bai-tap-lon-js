@@ -10,22 +10,22 @@
         home: "index.html",
         main: "index.html",
         support: "#",
-        intro: "../intro.html",
-        policy: "../chinhsach.html",
-        login: "../login/login.html",
-        logo: "../logo.jpg",
+        intro: "main/intro.html",
+        policy: "main/chinhsach.html",
+        login: "login/login.html",
+        logo: "",
         showSearch: true,
       };
     }
     return {
       page,
-      home: "index.html",
-      main: "index.html",
-      support: "index.html#ho-tro",
+      home: "../index.html",
+      main: "../index.html",
+      support: "../index.html#ho-tro",
       intro: "intro.html",
       policy: "chinhsach.html",
-      login: "login/login.html",
-      logo: "logo.jpg",
+      login: "../login/login.html",
+      logo: "",
       showSearch: false,
     };
   }
@@ -150,6 +150,8 @@
 
     if (p.page === "main") return accountInfoModal;
 
+    const qrPath = p.page === "main" ? "main/qr.jpg" : "qr.jpg";
+
     return `
       ${accountInfoModal}
       <div class="modal fade" id="depositModal" tabindex="-1">
@@ -163,7 +165,7 @@
               <div class="mt-3 text-center">
                 <h6>Quét mã QR để thanh toán</h6>
                 <img
-                  src="qr.jpg"
+                  src="${qrPath}"
                   alt="QR Thanh Toán"
                   class="img-fluid rounded"
                   style="max-width: 300px;"
