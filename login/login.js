@@ -73,7 +73,7 @@ document
         `;
       setTimeout(() => {
         localStorage.setItem("currentUser", username);
-        window.location.href = "../main/index.html";
+        window.location.href = "../index.html";
       }, 1500);
     } else {
       alert("Sai tài khoản hoặc mật khẩu!");

@@ -19,9 +19,9 @@
     }
     return {
       page,
-      home: "main/index.html",
-      main: "main/index.html",
-      support: "main/index.html#ho-tro",
+      home: "index.html",
+      main: "index.html",
+      support: "index.html#ho-tro",
       intro: "intro.html",
       policy: "chinhsach.html",
       login: "login/login.html",
