@@ -361,9 +361,10 @@
   }
 
   function parseCartPrice(price) {
-    return Number(
+    const value = Number(
       String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""),
     );
+    return Number.isNaN(value) ? 0 : value;
   }
 
   function getCart() {
