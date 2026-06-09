@@ -10,21 +10,21 @@
         home: "index.html",
         main: "index.html",
         support: "#",
-        intro: "../intro.html",
-        policy: "../chinhsach.html",
-        login: "../login/login.html",
-        logo: "../logo.jpg",
+        intro: "main/intro.html",
+        policy: "main/chinhsach.html",
+        login: "login/login.html",
+        logo: "logo.jpg",
         showSearch: true,
       };
     }
     if (page === "game") {
       return {
         page,
-        home: "../main/index.html",
-        main: "../main/index.html",
-        support: "../main/index.html#ho-tro",
-        intro: "../intro.html",
-        policy: "../chinhsach.html",
+        home: "../index.html",
+        main: "../index.html",
+        support: "../index.html#ho-tro",
+        intro: "../main/intro.html",
+        policy: "../main/chinhsach.html",
         login: "../login/login.html",
         logo: "../logo.jpg",
         showSearch: true,
@@ -32,13 +32,13 @@
     }
     return {
       page,
-      home: "main/index.html",
-      main: "main/index.html",
-      support: "main/index.html#ho-tro",
+      home: "../index.html",
+      main: "../index.html",
+      support: "../index.html#ho-tro",
       intro: "intro.html",
       policy: "chinhsach.html",
-      login: "login/login.html",
-      logo: "logo.jpg",
+      login: "../login/login.html",
+      logo: "../logo.jpg",
       showSearch: false,
     };
   }

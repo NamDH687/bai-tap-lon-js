@@ -136,7 +136,7 @@ const gamePageMap = {
 
 function getGamePageUrl(gameName) {
   const id = gamePageMap[gameName];
-  if (id) return `../game/game.html?game=${id}`; // chỉnh đường dẫn cho đúng cấu trúc thư mục
+  if (id) return `./game/game.html?game=${id}`; // chỉnh đường dẫn cho đúng cấu trúc thư mục
   return null;
 }
 const games = [
