@@ -632,3 +632,17 @@ body {
   color: white;
   margin: 0;
 }
+
+/* Game card - phần click được */
+.game-card [onclick] img {
+  transition: opacity 0.2s;
+}
+.game-card [onclick]:hover img {
+  opacity: 0.85;
+}
+.game-card [onclick] .game-title {
+  transition: color 0.2s;
+}
+.game-card [onclick]:hover .game-title {
+  color: #00bfff;
+}

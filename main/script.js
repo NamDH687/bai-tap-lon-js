@@ -1,3 +1,12 @@
+if (window.location.hash === "#lich-su") {
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.querySelector(".slider");
+    const games = document.getElementById("games");
+    if (slider) slider.style.display = "none";
+    if (games) games.style.display = "none";
+  });
+}
+
 const gamesDiv = document.getElementById("games");
 const supportContainer = document.getElementById("support-container");
 const sliderBlock = document.querySelector(".slider");
@@ -29,6 +38,103 @@ function setUserBalance(balance, username = getCurrentUser()) {
 }
 
 // Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
+// Thêm vào đầu script.js, sau phần khai báo const games = [...]
+const gamePageMap = {
+  "GTA V": "gta5",
+  "EA FC 25": "eafc25",
+  "Black Myth Wukong": "blackmyth",
+  "Counter-Strike 2": "cs2",
+  "Genshin Impact": "genshin",
+  "Call of Duty®: Black Ops III": "codbo3",
+  "Rust": "rust",
+  "Terraria": "terraria",
+  "ICARUS": "icarus",
+  "Forza Horizon 6": "forzahorizon6",
+  "PUBG: BATTLEGROUNDS": "pubg",
+  "Battlefield™ 6": "battlefield6",
+  "Squad": "squad",
+  "Marvel Rivals": "marvelrivals",
+  "Windrose": "windrose",
+  "Palworld": "palworld",
+  "LEGO® Batman™: Legacy of the Dark Knight": "legobatman",
+  "Marvel's Spider-Man: Miles Morales": "spidermanmm",
+  "Wuthering Waves": "wutheringwaves",
+  "ELDEN RING": "eldenring",
+  "Subnautica": "subnautica",
+  "Teamfight Tactics": "tft",
+  "Arena Of Valor": "aov",
+  "NBA 2K26": "nba2k26",
+  "Gamble With Your Friends": "gamblewithfriends",
+  "Subnautica: Below Zero": "belowzero",
+  "Nine Sols": "ninesols",
+  "MISERY": "misery",
+  "Phasmophobia": "phasmophobia",
+  "Everything is Vampires": "everythingisvampires",
+  "Kerbal Space Program": "kerbal",
+  "Space Haven": "spacehaven",
+  "Everything is Crab: The Animal Evolution Roguelite": "everythingcrab",
+  "RV There Yet?": "rvthereyet",
+  "Deep Rock Galactic": "deeprock",
+  "Smalland: Survive the Wilds": "smalland",
+  "EA Play": "eaplay",
+  "YAPYAP": "yapyap",
+  "Far Cry® 5": "farcry5",
+  "World War Z": "worldwarz",
+  "The Outer Worlds": "outerworlds",
+  "Shovel Knight: Treasure Trove": "shovelknight",
+  "Age of Empires": "aoe",
+  "eFootball": "efootball",
+  "Football, Tactics & Glory": "footballtactics",
+  "Kopanito All-Stars Soccer": "kopanito",
+  "Football Drama": "footballdrama",
+  "Street Power Football": "streetpowerfootball",
+  "Football Manager 2021 Touch - Unlimited Scouting": "footballmanager2021",
+  "90 Minute Fever - Online Football (Soccer) Manager": "90minutefever",
+  "Pro 11 - Football Manager Game": "pro11",
+  "Dream League Soccer": "dreamleaguesoccer",
+  "Final Soccer VR": "finalsoccervr",
+  "Madden NFL 24": "maddennfl24",
+  "FC Online": "fconline",
+  "Wreckfest - Đua Xe Đâm Va": "wreckfest",
+  "Project CARS 2": "projectcars2",
+  "F1 2020": "f12020",
+  "Asphalt 8: Airborne": "asphalt8",
+  "Trackmania® Turbo": "trackmaniacturbo",
+  "Assetto Corsa Competizione": "assettocorsacomp",
+  "GRID Autosport": "gridautosport",
+  "TrackMania² Valley": "trackmania2valley",
+  "Burnout™ Paradise Remastered": "burnoutparadise",
+  "Sonic Racing: CrossWorlds": "sonicracingcrossworlds",
+  "Real Racing 3": "realracing3",
+  "Hotshot Racing": "hotshotracing",
+  "Forza Motorsport": "forzamotorsport",
+  "WRC Generations – The FIA WRC Official Game": "wrcgenerations",
+  "DiRT Rally 2.0": "dirtrally2",
+  "Need for Speed™ Heat": "needforspeedheat",
+  "Forza Horizon 4": "forzahorizon4",
+  "Forza Horizon 5": "forzahorizon5",
+  "Assetto Corsa": "assettocorsa",
+  "Sekiro: Shadows Die Twice": "sekiro",
+  "The Witcher 3: Wild Hunt": "witcher3",
+  "Minecraft": "minecraft",
+  "The Elder Scrolls V Skyrim Special Edition": "skyrim",
+  "Disco Elysium - The Final Cut": "discoelysium",
+  "Valorant": "valorant",
+  "Tom Clancy's Rainbow Six Siege": "r6siege",
+  "Overwatch®": "overwatch2",
+  "Apex Legends™": "apexlegends",
+  "Mafia Definitive Edition": "mafia",
+  "Legend of Leagues": "legendofleagues",
+  "Far Far West": "farfarwest",
+  "StarCraft II": "starcraft2",
+  "Age of Empires II: Definitive Edition": "aoe2",
+};
+
+function getGamePageUrl(gameName) {
+  const id = gamePageMap[gameName];
+  if (id) return `../game/game.html?game=${id}`; // chỉnh đường dẫn cho đúng cấu trúc thư mục
+  return null;
+}
 const games = [{
         name: "GTA V",
         price: "500.000đ",
@@ -557,6 +663,7 @@ const games = [{
         image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813780/header.jpg?t=1777577197",
         genre: "chiensuat",
     },
+    
 ];
 games.forEach((game, index) => {
     game.rating = (4.3 + (index % 7) * 0.1).toFixed(1);
@@ -571,34 +678,40 @@ function escapeHtml(text) {
 }
 
 function renderGames(gamesList) {
-    gamesDiv.innerHTML = "";
+  gamesDiv.innerHTML = "";
 
-    gamesList.forEach((game) => {
-        const title = String(game.name).trim();
+  gamesList.forEach((game) => {
+    const title = String(game.name).trim();
+    const pageUrl = getGamePageUrl(title);
 
-        gamesDiv.innerHTML += `
-        <div class="game-card">
-            <img src="${game.image}" alt="${escapeHtml(title)}">
+    const clickableOpen = pageUrl
+      ? `style="cursor:pointer;" onclick="window.location.href='${pageUrl}'"` 
+      : "";
 
-            <div class="game-info">
-                <h3 class="game-title">
-                    ${escapeHtml(title)}
-                    <span class="game-rating">⭐ ${game.rating}</span>
-                </h3>
-
-                <p class="price">${escapeHtml(game.price)}</p>
-
-              <button
-    class="btn btn-success add-cart-btn"
-    data-cart-name="${escapeHtml(title)}"
-    data-cart-price="${escapeHtml(game.price)}"
-    data-cart-image="${game.image}">
-    Thêm vào giỏ
-</button>
-            </div>
+    gamesDiv.innerHTML += `
+      <div class="game-card">
+        <div ${clickableOpen}>
+          <img src="${game.image}" alt="${escapeHtml(title)}">
+          <div class="game-info">
+            <h3 class="game-title">
+              ${escapeHtml(title)}
+              <span class="game-rating">⭐ ${game.rating}</span>
+            </h3>
+            <p class="price">${escapeHtml(game.price)}</p>
+          </div>
         </div>
-        `;
-    });
+        <div style="padding: 0 16px 16px;">
+          <button
+            class="btn btn-success add-cart-btn"
+            data-cart-name="${escapeHtml(title)}"
+            data-cart-price="${escapeHtml(game.price)}"
+            data-cart-image="${game.image}">
+            Thêm vào giỏ
+          </button>
+        </div>
+      </div>
+    `;
+  });
 }
 
 function setSliderVisible(isVisible) {
@@ -704,18 +817,26 @@ function initMainPage() {
         return false;
     }
     window.onload = function() {
-        if (window.location.hash === "#ho-tro") {
-            showSupportView();
-        } else if (window.location.hash === "#store") {
-            renderGames(games);
-            showGamesView();
-        } else if (window.location.hash === "#danh-gia") {
-            showInfoView();
-        } else if (!renderGamesFromHash()) {
+    if (window.location.hash === "#ho-tro") {
+        showSupportView();
+    } else if (window.location.hash === "#store") {
+        renderGames(games);
+        showGamesView();
+    } else if (window.location.hash === "#danh-gia" || window.location.hash === "#lich-su") {
+        const currentUser = getCurrentUser();
+        if (!currentUser) {
+            alert("Vui lòng đăng nhập để xem thư viện game!");
             renderGames(games);
             showHomeView();
+        } else {
+            showInfoView();
+            renderPurchasedGames();
         }
-    };
+    } else if (!renderGamesFromHash()) {
+        renderGames(games);
+        showHomeView();
+    }
+};
 
     if (storeBtn) {
         storeBtn.addEventListener("click", function(e) {
@@ -1355,3 +1476,5 @@ window.addEventListener("load", () => {
     updateCartCount();
     renderCart();
 });
+
+

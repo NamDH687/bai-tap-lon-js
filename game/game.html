@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">Game</title>
+
+    <!-- Dùng chung navbar với trang chủ -->
+    <link rel="stylesheet" href="../navbar.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="game.css" />
+  </head>
+
+  <body data-page="game">
+    <!-- NAVBAR DÙNG CHUNG -->
+    <div id="site-navbar"></div>
+    <script src="../navbar.js"></script>
+
+    <!-- HERO TAGLINE BANNER -->
+    <div class="hero-tagline-banner">
+      <p id="heroTagline"></p>
+    </div>
+
+    <!-- PRODUCT SECTION -->
+    <div class="product-page">
+      <div class="product-body">
+        <div class="product-title-wrap">
+          <h1 class="product-title" id="pageTitle2"></h1>
+          <p class="product-subtitle" id="gameSubtitle"></p>
+          <span id="tagline" style="display:none"></span>
+        </div>
+
+        <!-- SLIDER -->
+        <div>
+          <div class="slider-wrap" id="sliderWrap">
+            <button class="nav-btn left" id="prevBtn">&#8249;</button>
+            <button class="nav-btn right" id="nextBtn">&#8250;</button>
+            <div class="dots" id="dots"></div>
+          </div>
+          <div class="thumbnails" id="thumbs"></div>
+        </div>
+
+        <!-- INFO PANEL -->
+        <div class="info-panel">
+          <div class="rating-row">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text" id="ratingText">(0 đánh giá)</span>
+            <span style="color:#555">|</span>
+            <span class="sold" id="soldCount">Đã bán 0</span>
+          </div>
+          <div class="price-row">
+            <span class="price-old" id="priceOld"></span>
+            <span class="badge-discount" id="badgeDiscount"></span>
+            <span class="price-new" id="priceNew"></span>
+          </div>
+          <div class="btn-row">
+            <button class="btn-cart" id="btnCart">🛒 Thêm vào giỏ hàng</button>
+            <button class="btn-buy" id="btnBuy">Mua ngay ›</button>
+          </div>
+          <ul class="features" id="featureList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION + REVIEWS + SPECS -->
+    <div class="page">
+      <div class="content">
+        <!-- LEFT: Description & Reviews -->
+        <div class="left-panel">
+          <div class="section-title">Mô tả</div>
+          <div class="desc" id="descContent"></div>
+
+          <hr class="divider" />
+
+          <div class="section-title">Đánh giá (0)</div>
+          <p class="review-subtitle">Chia sẻ trải nghiệm của bạn</p>
+
+          <div class="rating-box">
+            <div class="rating-left">
+              <div class="rating-score">0.0</div>
+              <div class="rating-star">★</div>
+              <div class="rating-label">ĐÁNH GIÁ TRUNG BÌNH</div>
+            </div>
+            <div class="rating-bars">
+              <div class="bar-row">
+                <span>5 ★</span>
+                <div class="bar"><div class="bar-fill" style="width:0%"></div></div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>4 ★</span>
+                <div class="bar"><div class="bar-fill" style="width:0%"></div></div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>3 ★</span>
+                <div class="bar"><div class="bar-fill" style="width:0%"></div></div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>2 ★</span>
+                <div class="bar"><div class="bar-fill" style="width:0%"></div></div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+              <div class="bar-row">
+                <span>1 ★</span>
+                <div class="bar"><div class="bar-fill" style="width:0%"></div></div>
+                <span>0% | 0 đánh giá</span>
+              </div>
+            </div>
+            <button class="btn-review">ĐÁNH GIÁ NGAY</button>
+          </div>
+
+          <div class="filter-bar">
+            <button class="filter-btn">5 ★</button>
+            <button class="filter-btn">4 ★</button>
+            <button class="filter-btn">3 ★</button>
+            <button class="filter-btn">2 ★</button>
+            <button class="filter-btn">1 ★</button>
+          </div>
+          <textarea class="comment-box" placeholder="Mời bạn tham gia thảo luận, vui lòng nhập tiếng Việt có dấu."></textarea>
+          <div id="reviewList"></div>
+          <p id="noReviewMsg">Chưa có đánh giá nào.</p>
+        </div>
+
+        <!-- RIGHT: Specs -->
+        <div class="right-panel">
+          <div class="spec-section-header">Cấu hình tối thiểu</div>
+          <div id="specMin"></div>
+          <div class="spec-section-header">Cấu hình đề nghị</div>
+          <div id="specRec"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPORT SECTION (ẩn mặc định) -->
+    <div id="support-container" class="support-wrapper" style="display:none">
+      <h1 class="sp-title">Trung Tâm Trợ Giúp & Khiếu Nại</h1>
+
+      <h2 class="sp-heading">1. Kênh Liên Hệ Trực Tiếp</h2>
+      <div class="sp-contact-channels">
+        <div class="sp-contact-card">
+          <h3>Live Chat 24/7</h3>
+          <p>Hỗ trợ trực tuyến ngay trên web/app.</p>
+          <p><small class="sp-note">(Phản hồi trong 3-5 phút)</small></p>
+          <a href="#" class="sp-btn sp-btn-chat">Chat Ngay</a>
+        </div>
+        <div class="sp-contact-card">
+          <h3>Hotline Hỗ Trợ</h3>
+          <p><strong>1900 xxxx</strong></p>
+          <p><small>Cước phí: 1.000đ/phút<br />Hoạt động: 8h00 – 22h00</small></p>
+          <a href="tel:1900xxxx" class="sp-btn">Gọi Tổng Đài</a>
+        </div>
+        <div class="sp-contact-card">
+          <h3>Zalo / Fanpage</h3>
+          <p>Nhắn tin trực tiếp qua Fanpage Facebook để được xử lý nhanh nhất.</p>
+          <a href="https://www.facebook.com/profile.php?id=61590020309778" target="_blank" class="sp-btn sp-btn-fb">Nhắn Tin Ngay</a>
+        </div>
+      </div>
+
+      <h2 class="sp-heading">2. Các Câu Hỏi Thường Gặp (FAQ)</h2>
+      <div class="sp-faq-section">
+        <h3 class="sp-faq-sub">Về Nạp Thẻ & Thanh Toán</h3>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Thẻ báo thành công nhưng chưa nhận được tiền? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>Thời gian hệ thống xử lý từ 1-5 phút. Nếu quá thời gian, cung cấp mã thẻ và số seri cho CSKH để kiểm tra lại.</p>
+          </div>
+        </div>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Các phương thức thanh toán được hỗ trợ? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>Shop hỗ trợ QR Banking, ví điện tử (Momo, ZaloPay) và thẻ cào điện thoại thông dụng.</p>
+          </div>
+        </div>
+        <h3 class="sp-faq-sub">Về Chính Sách Đổi/Trả & Bảo Hành</h3>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Điều kiện để được bảo hành tài khoản? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>Acc bị khóa do lỗi từ nhà phát hành sẽ được đổi trả 1-1 trong ngày đầu tiên.</p>
+          </div>
+        </div>
+        <div class="sp-faq-item">
+          <div class="sp-faq-question">
+            Các trường hợp bị từ chối bảo hành? <span>+</span>
+          </div>
+          <div class="sp-faq-answer">
+            <p>Khách hàng tự ý thay đổi thông tin bảo mật hoặc sử dụng phần mềm thứ 3 dẫn đến bị khóa acc.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="sp-heading">3. Quy Trình Giải Quyết Khiếu Nại</h2>
+      <div class="sp-steps-container">
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 1</div>
+          <p><strong>Gửi thông tin:</strong> Cung cấp Mã đơn hàng, hình ảnh/video lỗi và tên tài khoản.</p>
+        </div>
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 2</div>
+          <p><strong>Xác minh:</strong> Nhân viên kiểm tra lịch sử giao dịch trong <span class="sp-note">15-30 phút</span>.</p>
+        </div>
+        <div class="sp-step-card">
+          <div class="sp-step-number">Bước 3</div>
+          <p><strong>Xử lý:</strong> Hoàn tiền vào số dư hoặc đổi acc mới theo đúng chính sách đã cam kết.</p>
+        </div>
+      </div>
+
+      <h2 class="sp-heading">4. Gửi Yêu Cầu Hỗ Trợ</h2>
+      <form class="sp-ticket-form" onsubmit="alert('Gửi yêu cầu thành công! Chúng tôi sẽ phản hồi sớm nhất.'); return false;">
+        <div class="sp-form-group">
+          <label>Nội dung cần hỗ trợ:</label>
+          <select required>
+            <option value="">-- Chọn vấn đề cần hỗ trợ --</option>
+            <option value="error-recharge">Lỗi nạp tiền / Nạp thẻ chậm</option>
+            <option value="warranty">Yêu cầu bảo hành / Đổi trả</option>
+            <option value="other">Vấn đề khác</option>
+          </select>
+        </div>
+        <div class="sp-form-group">
+          <label>Mã đơn hàng (nếu có):</label>
+          <input type="text" placeholder="Ví dụ: #12345" />
+        </div>
+        <div class="sp-form-group">
+          <label>Tài khoản đăng nhập shop:</label>
+          <input type="text" placeholder="Nhập Email hoặc Số điện thoại" required />
+        </div>
+        <div class="sp-form-group">
+          <label>Mô tả chi tiết vấn đề:</label>
+          <textarea placeholder="Mô tả rõ vấn đề bạn gặp phải..."></textarea>
+        </div>
+        <div class="sp-form-group">
+          <label>Hình ảnh / Video đính kèm:</label>
+          <input type="file" accept="image/*,video/*" />
+        </div>
+        <button type="submit" class="sp-btn-submit">Gửi Yêu Cầu Hỗ Trợ</button>
+      </form>
+    </div>
+
+    <!-- SIMILAR PRODUCTS -->
+    <div class="similar-section">
+      <div class="section-title">Sản phẩm tương tự</div>
+      <div class="similar-grid">
+        <a class="similar-card" href="game.html?game=gta5">
+          <div class="similar-img">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg" alt="GTA V" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Grand Theft Auto V</p>
+            <div><span class="similar-final">360.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="game.html?game=eafc25">
+          <div class="similar-img">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/header.jpg" alt="EA FC 25" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">EA Sports FC 25</p>
+            <div><span class="similar-final">1.200.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="game.html?game=blackmyth">
+          <div class="similar-img">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg" alt="Black Myth Wukong" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Black Myth: Wukong</p>
+            <div><span class="similar-final">1.300.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="game.html?game=cs2">
+          <div class="similar-img">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg" alt="CS2" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Counter-Strike 2</p>
+            <div><span class="similar-final">Miễn phí</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="game.html?game=genshin">
+          <div class="similar-img">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180" alt="Genshin Impact" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Genshin Impact</p>
+            <div><span class="similar-final">Miễn phí</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg" alt="Elden Ring" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">ELDEN RING</p>
+            <div><span class="similar-final">990.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg" alt="The Witcher 3" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">The Witcher 3: Wild Hunt</p>
+            <div><span class="similar-final">400.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg" alt="Sekiro" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Sekiro: Shadows Die Twice</p>
+            <div><span class="similar-final">300.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg" alt="Spider-Man Miles Morales" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Marvel's Spider-Man: Miles Morales</p>
+            <div><span class="similar-final">1.159.000đ</span></div>
+          </div>
+        </a>
+        <a class="similar-card" href="" target="_blank">
+          <div class="similar-img">
+            <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/header.jpg" alt="Palworld" />
+          </div>
+          <div class="similar-info">
+            <p class="similar-name">Palworld</p>
+            <div><span class="similar-final">385.000đ</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const h1 = document.getElementById("pageTitle2");
+        const titleEl = document.getElementById("pageTitle");
+        if (h1 && titleEl) h1.textContent = titleEl.textContent;
+      });
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
