@@ -10,22 +10,35 @@
         home: "index.html",
         main: "index.html",
         support: "#",
-        intro: "main/intro.html",
-        policy: "main/chinhsach.html",
-        login: "login/login.html",
-        logo: "",
+        intro: "../intro.html",
+        policy: "../chinhsach.html",
+        login: "../login/login.html",
+        logo: "../logo.jpg",
+        showSearch: true,
+      };
+    }
+    if (page === "game") {
+      return {
+        page,
+        home: "../main/index.html",
+        main: "../main/index.html",
+        support: "../main/index.html#ho-tro",
+        intro: "../intro.html",
+        policy: "../chinhsach.html",
+        login: "../login/login.html",
+        logo: "../logo.jpg",
         showSearch: true,
       };
     }
     return {
       page,
-      home: "../index.html",
-      main: "../index.html",
-      support: "../index.html#ho-tro",
+      home: "main/index.html",
+      main: "main/index.html",
+      support: "main/index.html#ho-tro",
       intro: "intro.html",
       policy: "chinhsach.html",
-      login: "../login/login.html",
-      logo: "",
+      login: "login/login.html",
+      logo: "logo.jpg",
       showSearch: false,
     };
   }
@@ -36,6 +49,10 @@
 
   function getBalanceKey(username = getCurrentUser()) {
     return username ? `balance:${username}` : "balance";
+  }
+
+  function getCartKey(username = getCurrentUser()) {
+    return username ? `cart:${username}` : "cart:guest";
   }
 
   function getUserBalance(username = getCurrentUser()) {
@@ -90,6 +107,8 @@
   }
 
   function buildSupportLink(p) {
+    // Trang main: toggle support section tại chỗ (xử lý bằng JS)
+    // Trang game và các trang khác: chuyển thẳng sang trang chủ #ho-tro
     if (p.page === "main") {
       return `<a href="#" id="supportBtn">HỖ TRỢ</a>`;
     }
@@ -100,7 +119,7 @@
     if (p.page === "main") {
       return `<a href="#" id="infoBtn">THƯ VIỆN</a>`;
     }
-    return `<a href="${p.main}#danh-gia" id="infoBtn">THƯ VIỆN</a>`;
+    return `<a href="${p.main}#lich-su" id="infoBtn">THƯ VIỆN</a>`;
   }
 
   function buildCartModal(p) {
@@ -122,7 +141,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" id="clearCartBtn">Xóa giỏ hàng</button>
-              <a class="btn btn-success" href="${p.main}#store">Thanh toán ở trang chủ</a>
+              <button type="button" class="btn btn-success" id="checkoutNowBtn">Thanh toán ngay</button>
             </div>
           </div>
         </div>
@@ -150,8 +169,6 @@
 
     if (p.page === "main") return accountInfoModal;
 
-    const qrPath = p.page === "main" ? "main/qr.jpg" : "qr.jpg";
-
     return `
       ${accountInfoModal}
       <div class="modal fade" id="depositModal" tabindex="-1">
@@ -165,7 +182,7 @@
               <div class="mt-3 text-center">
                 <h6>Quét mã QR để thanh toán</h6>
                 <img
-                  src="${qrPath}"
+                  src="qr.jpg"
                   alt="QR Thanh Toán"
                   class="img-fluid rounded"
                   style="max-width: 300px;"
@@ -343,6 +360,8 @@
         e.preventDefault();
         e.stopPropagation();
         if (confirm("Đăng xuất tài khoản?")) {
+          // Xóa giỏ hàng của tài khoản này khi đăng xuất
+          localStorage.removeItem(getCartKey(currentUser));
           localStorage.removeItem("currentUser");
           location.reload();
         }
@@ -361,18 +380,21 @@
   }
 
   function parseCartPrice(price) {
-    const value = Number(
+    return Number(
       String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""),
     );
-    return Number.isNaN(value) ? 0 : value;
   }
 
   function getCart() {
     try {
-      return JSON.parse(localStorage.getItem("cart")) || [];
+      return JSON.parse(localStorage.getItem(getCartKey())) || [];
     } catch (e) {
       return [];
     }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem(getCartKey(), JSON.stringify(cart));
   }
 
   function initDeposit() {
@@ -461,10 +483,87 @@
     const clearCartBtn = document.getElementById("clearCartBtn");
     if (clearCartBtn) {
       clearCartBtn.addEventListener("click", function () {
-        localStorage.removeItem("cart");
+        localStorage.removeItem(getCartKey());
         renderSharedCart();
         updateCartCount();
       });
+    }
+    const checkoutNowBtn = document.getElementById("checkoutNowBtn");
+    if (checkoutNowBtn) {
+      checkoutNowBtn.addEventListener("click", function () {
+        const currentUser = localStorage.getItem("currentUser");
+        if (!currentUser) {
+          alert("Vui lòng đăng nhập trước khi thanh toán!");
+          return;
+        }
+
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert("Giỏ hàng trống!");
+          return;
+        }
+
+        function parseCartPrice(price) {
+          if (!price || price === "Miễn phí") return 0;
+          return Number(
+            String(price).replaceAll(".", "").replace("đ", "").trim(),
+          );
+        }
+
+        const total = cart.reduce(
+          (sum, item) => sum + parseCartPrice(item.price),
+          0,
+        );
+        const balanceKey = `balance:${currentUser}`;
+        const balance = Number(localStorage.getItem(balanceKey) || 0);
+
+        if (balance < total) {
+          alert(
+            `Số dư không đủ!\n\nTổng tiền: ${total.toLocaleString("vi-VN")}đ\nSố dư hiện tại: ${balance.toLocaleString("vi-VN")}đ\n\nVui lòng nạp thêm tiền.`,
+          );
+          return;
+        }
+
+        // Trừ tiền
+        const newBalance = balance - total;
+        localStorage.setItem(balanceKey, String(newBalance));
+
+        // Lưu game vào thư viện
+        const purchasedKey = `purchasedGames:${currentUser}`;
+        const purchased = JSON.parse(localStorage.getItem(purchasedKey)) || [];
+        cart.forEach((item) => {
+          if (!purchased.some((g) => g.name === item.name)) {
+            purchased.unshift({ name: item.name, image: item.image || "" });
+          }
+        });
+        localStorage.setItem(purchasedKey, JSON.stringify(purchased));
+
+        // Xóa giỏ hàng
+        localStorage.removeItem(getCartKey());
+
+        alert(
+          `✅ Thanh toán thành công!\n\nĐã mua ${cart.length} game.\nSố dư còn lại: ${newBalance.toLocaleString("vi-VN")}đ`,
+        );
+        location.reload();
+      });
+    }
+  }
+
+  // Khi trang chủ được mở với hash #ho-tro (ví dụ từ trang game navigate sang),
+  // tự động hiện support-container và scroll đến ngay, không cần click thêm.
+  function handleSupportHash() {
+    if (window.location.hash === "#ho-tro") {
+      const sc = document.getElementById("support-container");
+      if (!sc) return;
+      sc.style.display = "block";
+      setTimeout(() => sc.scrollIntoView({ behavior: "smooth" }), 100);
+    }
+    if (window.location.hash === "#lich-su") {
+      const ls = document.getElementById("info-container");
+      if (ls) {
+        ls.style.display = "block";
+        setTimeout(() => ls.scrollIntoView({ behavior: "smooth" }), 100);
+      }
     }
   }
 
@@ -478,7 +577,17 @@
     if (paths.page !== "main") {
       initDeposit();
     }
-    document.dispatchEvent(new CustomEvent("navbarReady"));
+    // Xử lý hash #ho-tro sau khi DOM sẵn sàng
+    if (paths.page === "main") {
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", handleSupportHash);
+      } else {
+        handleSupportHash();
+      }
+    }
+    setTimeout(() => {
+      document.dispatchEvent(new CustomEvent("navbarReady"));
+    }, 0);
   }
 
   function scheduleUserAuth() {
