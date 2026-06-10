@@ -24,7 +24,6 @@ const gameData = {
       "https://hoanghapc.vn/media/news/2505_cau-hinh-choi-gta-v-3.jpg",
       "https://photo.znews.vn/w660/Uploaded/spivovxi/2021_09_07/240443739_2945559315702740_2995327324342774909_n.jpg",
       "https://cdn.tgdd.vn/2020/05/content/nhanh-tay-nhan-ngay-gta-v-tri-gia-450000-vnd-dang-mien-phi-tren-epic-game-store-3-800x450.jpg",
-      "https://images6.alphacoders.com/553/553248.jpg",
     ],
     tagline:
       "Thành phố Los Santos — Thế giới không có luật lệ, chỉ có sức mạnh.",
@@ -83,6 +82,7 @@ const gameData = {
       "https://cdn-media.sforum.vn/storage/app/media/vantien/huskyflyaway/fc-25-1.jpg",
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/ss_009991924bc40dd9d9793bbef7b5783470e3030d.1920x1080.jpg?t=1777395910",
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3170610/ss_857b4aaf3c10b2a886d60f029f32b2f86d968311.1920x1080.jpg?t=1752684565",
+      "https://image.api.playstation.com/vulcan/ap/rnd/202503/2520/09767c0f0551c8a3edf9ab4727eb084c7cae88fecef16a09.png",
     ],
     tagline: "Sân cỏ ảo — Cảm xúc thật. Kỹ thuật mới, bóng đá mới.",
     description: `
@@ -138,10 +138,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg",
-      "https://cdn.mos.cms.futurecdn.net/HBEdtHv9VEaAp4fqWJbvmZ.jpg",
-      "https://www.gameinformer.com/sites/default/files/styles/full/public/2024/08/20/90949938/black_myth_wukong_review_2.jpg",
-      "https://assets.gamepur.com/wp-content/uploads/2024/08/14162248/Black-Myth-Wukong-Review-1.jpg",
-      "https://i.ytimg.com/vi/bJWml4c9M7Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/O2DMj2BxvkA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBprD9OOJDMyw4ychm3uQBRP3nE6Q",
+      "https://cdn-media.sforum.vn/storage/app/media/phuonganh/black-myth-wukong-cap-nhat-100gb.jpg",
+      "https://cdn-media.sforum.vn/storage/app/media/bookgrinder/black-myth-wukong-review-3.jpg",
+      "https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/Knms/dien-thoai-di-dong/black-myth-wukong-mang-lai-nhieu-thanh-cong-vang-doi.jpg",
     ],
     tagline:
       "Hành trình của Thiên Mệnh Nhân — Giữa thần thoại và huyền sử Trung Hoa.",
@@ -198,9 +198,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/730/ss_34090867f6f9a0a1e5aec0c74b9620c5e0d18090.jpg",
-      "https://www.pcgamer.com/images/2023/09/counter-strike-2-review-2.jpg",
-      "https://i.ytimg.com/vi/W_lZEyDLEkc/maxresdefault.jpg",
+      "https://cdn.gametv.vn/news_media/image/counter-strike-2-gameplay_0x0_1679626314_0x0_1679885841.png",
+      "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/178295/Originals/Counter-Strike-2-8.jpg",
+      "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/178295/Originals/Counter-Strike-2-2.jpg",
+      "https://i.ytimg.com/vi/aRRQuvD4E5E/maxresdefault.jpg",
     ],
     tagline: "Một viên đạn. Một quyết định. Không có chỗ cho sai lầm.",
     description: `
@@ -256,9 +257,10 @@ const gameData = {
       "https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180",
     images: [
       "https://tse3.mm.bing.net/th/id/OIP.QOej3091XMbEqB5P8o2O9AHaHa?pid=Api&P=0&h=180",
-      "https://cdn.mos.cms.futurecdn.net/hYJZBaAHeK5ruvGhFtRCmL.jpg",
-      "https://i.ytimg.com/vi/sfXqkJgJcuQ/maxresdefault.jpg",
-      "https://assets1.ignimgs.com/2020/09/28/genshin-impact---button-1601314700633.jpg",
+      "https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2023/08/genshin-impact-1.jpg",
+      "https://cdn-media.sforum.vn/storage/app/media/Bookgrinder2/genshin-impact-61-luna-ii-1.jpg",
+      "https://media.wired.com/photos/5f74d2f4df8a35780989d792/16:9/w_3840,h_2160,c_limit/Genshin%20Impact%20_Keyart.png",
+      "https://cdn.tgdd.vn/News/0/thumb-1280x720-35.jpg",
     ],
     tagline:
       "Thế giới Teyvat mời gọi — Bảy nguyên tố, vô vàn phép màu đang chờ bạn.",
@@ -316,6 +318,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311210/header.jpg?t=1748022663",
+      "https://hoanghamobile.com/tin-tuc/call-of-duty-black-ops-iii/call-of-duty-black-ops-iii-9/",
+      "https://file.hstatic.net/1000231532/file/call_of_duty_black_ops_iii_shop_grande.jpg",
+      "https://file.hstatic.net/1000231532/file/call_of_duty_black_ops_iii_grande.jpg",
+      "https://divineshop.vn/image/ckeditor/010300.jpg",
     ],
 
     tagline: "Chiến tranh tương lai — Khi con người trở thành vũ khí hoàn hảo.",
@@ -380,6 +386,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg?t=1778597738",
+      "https://cdn.mos.cms.futurecdn.net/9LYHPZ22BX6ERzjs9pmyYM.jpg",
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_4_9_638482981879941452_rust-la-gi-1-1.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT54J3RfFakDqOVvw7dhkNP2j1RJF8n887cog&s",
+      "https://images.squarespace-cdn.com/content/v1/64b9a29ce2f8b717c65126a7/c584a7c8-7207-4bfa-b417-a797dc2eba2f/rust+gameplay.jpg",
     ],
 
     tagline: "Không luật lệ. Không lòng thương hại. Chỉ có kẻ sống sót.",
@@ -444,6 +454,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg?t=1769844435",
+      "https://play-lh.googleusercontent.com/VAxJd3C0F94AfzNtwtE6SJK7bMgJDIRn8uSdFiGMRDrrmmdJuLKMUMUU5-WuD3eoZWM=w526-h296-rw",
+      "https://preview.redd.it/new-to-terraria-v0-sgelayjr52ng1.jpeg?width=640&crop=smart&auto=webp&s=87fa44d43d2b0ead7b83cf8c2053079bca408510",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX8sdwTcoVzqNoY6-2t413wfGv9sxN5h6qLw&s",
+      "https://www.pcgamesn.com/wp-content/sites/pcgamesn/2026/01/terraria-1-4-5-update-bigger-and-boulder-all-changes-new-items-creatures-features-additions-relogic-sandbox-rpg.jpg",
     ],
 
     tagline: "Đào sâu hơn. Chiến đấu mạnh hơn. Khám phá vô tận.",
@@ -506,6 +520,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1149460/header.jpg?t=1772745915",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1648531/ss_71323ca651735d89764fa9e62c5d1756a9b64d4f.1920x1080.jpg?t=1687219747",
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638392928445521150_icarus-thumb.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIhLHdygW3WO1j0pBHH2We_izO1v7SONGjmg&s",
+      "https://www.denofgeek.com/wp-content/uploads/2020/06/icarus-game.jpg?fit=1920%2C1080",
     ],
 
     tagline: "Hành tinh thất bại đang chờ những người khai phá cuối cùng.",
@@ -568,6 +586,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2483190/27abb1584a118d50d0e3950fd48d557c51981db7/header.jpg?t=1778870245",
+      "https://cdn.forza.net/strapi-uploads/assets/Forza_Horizon6_Pre_Order_03_Cherry_Blossoms_16x9_WM_fabba95b64.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GxsZCoqLwEXCbMccyU8YVuLaWmcpGtWcDQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3xcTGUbOMsDUkf3GDbSIoaloybUd84Plmig&s",
+      "https://kamikey.com/wp-content/uploads/2026/05/forza-horizon-6-8.jpg",
     ],
 
     tagline: "Tự do tăng tốc — Cả thế giới là đường đua của bạn.",
@@ -629,6 +651,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/841ea38bc58cabb70aef65365cf50bc2d79329d9/header.jpg?t=1778634253",
+      "https://cellphones.com.vn/sforum/wp-content/uploads/2022/01/pubg-mobile-Copy.jpg",
+      "https://wstatic-prod-boc.krafton.com/common/content/news/20260407/J6CNmKLI_thumb.jpg",
+      "https://wstatic-prod.pubg.com/web/live/main_4d83b2d/img/8253dec.webp",
+      "https://vcdn1-vnexpress.vnecdn.net/2026/03/02/1771920554109-1771920557-1772420983.png?w=1200&h=0&q=100&dpr=1&fit=crop&s=MMxfrjaYJhGzBkc_XdALOA",
     ],
 
     tagline: "100 người nhảy dù. Một người sống sót.",
@@ -693,6 +719,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/c12d12ce3c7d217398d3fcad77427bfc9d57c570/header.jpg?t=1778612637",
+      "https://st.quantrimang.com/photos/image/2025/11/26/Tai-Battlefield-6-3.png",
+      "https://st.quantrimang.com/photos/image/2025/08/08/Battlefield-6-Code-12.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo5ist-4PRcfmf9EK0ylOb5z4rrd9DTR4QEg&s",
+      "https://st.quantrimang.com/photos/image/2025/08/10/cau-hinh-bf-6-2.png",
     ],
 
     tagline: "Chiến tranh tổng lực ở quy mô chưa từng có.",
@@ -4511,6 +4541,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/header.jpg?t=1754985171",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/header.jpg?t=1754985171",
+      "https://i.ytimg.com/vi/zH99auA3cL4/maxresdefault.jpg",
+      "https://assettocorsa.gg/wp-content/uploads/85.jpg",
+      "https://static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497/images/thumbs/0001721_assetto-corsa-competizione-gt4-pack.png",
+      "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/171646/Originals/assetto-corsa-game-dua-xe-mo-phong-thuc-te-4.jpg",
     ],
 
     tagline: "Chuẩn mực vàng của sim racing — Nơi vật lý xe là tôn giáo.",
@@ -5120,6 +5154,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/header.jpg?t=1759852929",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/header.jpg?t=1759852929",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/ss_7a147e0dd092400229c6c1fd513625a62ae9a4eb.1920x1080.jpg?t=1759852929",
+      "https://stevivor.com/wp-content/uploads/2020/09/MafiaReview1.webp",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1030840/ss_f531c551d9794deafc1e45421b70e8d4c254aaca.1920x1080.jpg?t=1779310017",
+      "https://media.gqitalia.it/photos/5f7c01c2c6e0bedb05357e44/16:9/w_2560%2Cc_limit/MafiaDE-LostHeaven1-1920.jpg",
     ],
 
     tagline: "Lost Heaven, 1930 — Bạn không gia nhập mafia. Mafia chọn bạn.",
@@ -5299,7 +5337,13 @@ const gameData = {
     accentColor: "#1a73e8",
 
     heroImage: "https://i.ytimg.com/vi/HWXFVv69YBU/sddefault.jpg",
-    images: ["https://i.ytimg.com/vi/HWXFVv69YBU/sddefault.jpg"],
+    images: [
+      "https://i.ytimg.com/vi/HWXFVv69YBU/sddefault.jpg",
+      "https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt47620dd0ad424ebb/69644be7f4fa3f283301a323/overview_thumbnail.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfv_C_b7MVXh3Gvd33Q67NHA4-tw-_ioDlNQ&s",
+      "https://i.pcmag.com/imagery/reviews/02ii6blphwd3VSkADARGyok-7..v1569481111.png",
+      "https://blz-contentstack-images.akamaized.net/v3/assets/bltf408a0557f4e4998/bltc6cc211fe02079c7/6322504d251b540e0aea79d6/starcraft-ii-campaign-collection-section1-feature3.jpg?imwidth=1920&imdensity=2.625",
+    ],
 
     tagline: "Terran. Zerg. Protoss. Ba chủng tộc — Một chiến trường vũ trụ.",
 
@@ -5359,6 +5403,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813780/header.jpg?t=1777577197",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/813780/header.jpg?t=1777577197",
+      "https://store-images.s-microsoft.com/image/apps.10451.13678235101671609.6ca6b3d7-f538-4bc0-aeb7-42f19e88b13b.dd9c8b91-8813-4b86-997e-e779bca951cf",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1389240/ss_b594fcaabd1c9d9a9ed87c070fa2204c6715ddc4.1920x1080.jpg?t=1779956630",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/813780/ss_f270aa4e146459dc8b75a69bfecf23d13b0e8df6.1920x1080.jpg?t=1780505425",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1557210/ss_eed04b3c349d06dda0fb2c194399faeacfc3a560.1920x1080.jpg?t=1779956627",
     ],
 
     tagline: "Xây dựng đế chế. Chinh phục thế giới. Ghi tên vào lịch sử.",
