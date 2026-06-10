@@ -80,9 +80,9 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/header.jpg",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/header.jpg",
-      "https://cdn.mos.cms.futurecdn.net/BZELkEuHdAGPz4RoMSu6zf.jpg",
-      "https://assetsio.gnwcdn.com/ea-sports-fc-25-review-2.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp",
-      "https://cdn.mos.cms.futurecdn.net/KS3bqFa4emgkxgJ7MhzEkb.jpg",
+      "https://cdn-media.sforum.vn/storage/app/media/vantien/huskyflyaway/fc-25-1.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2669320/ss_009991924bc40dd9d9793bbef7b5783470e3030d.1920x1080.jpg?t=1777395910",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3170610/ss_857b4aaf3c10b2a886d60f029f32b2f86d968311.1920x1080.jpg?t=1752684565",
     ],
     tagline: "Sân cỏ ảo — Cảm xúc thật. Kỹ thuật mới, bóng đá mới.",
     description: `
