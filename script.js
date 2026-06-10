@@ -61,7 +61,7 @@ const gamePageMap = {
   Windrose: "windrose",
   Palworld: "palworld",
   "LEGO® Batman™: Legacy of the Dark Knight": "legobatman",
-  "Marvel's Spider-Man: Miles Morales": "spidermanmm",
+  "Marvel’s Spider-Man: Miles Morales": "spidermanmm",
   "Wuthering Waves": "wutheringwaves",
   "ELDEN RING": "eldenring",
   Subnautica: "subnautica",
