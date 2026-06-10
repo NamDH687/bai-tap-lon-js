@@ -73,7 +73,7 @@ const gameData = {
     developer: "EA Sports",
     price: "1.200.000đ",
     sold: "411",
-    rating: "4.7",
+    rating: "4.4",
     reviews: 12,
     accentColor: "#00c3ff",
     heroImage:
@@ -131,7 +131,7 @@ const gameData = {
     developer: "Game Science",
     price: "1.300.000đ",
     sold: "589",
-    rating: "5.0",
+    rating: "4.5",
     reviews: 28,
     accentColor: "#ff8c00",
     heroImage:
@@ -996,22 +996,29 @@ const gameData = {
     rating: "4.7",
     reviews: 15,
     accentColor: "#ffc107",
+
     heroImage:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/a07a9a6c0c9c1225f5b260b4f29fe40e6f099f6b/header.jpg?t=1778617453",
+
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/a07a9a6c0c9c1225f5b260b4f29fe40e6f099f6b/header.jpg?t=1778617453",
     ],
+
     tagline: "Gotham được xây lại bằng những viên gạch LEGO.",
+
     description: `
     <p><span class="hl">Batman</span> trở lại trong một cuộc phiêu lưu hoàn toàn mới với phong cách hài hước đặc trưng của LEGO.</p>
+
     <ul>
       <li><span class="hl">Nhiều nhân vật DC</span> nổi tiếng.</li>
       <li><span class="hl">Giải đố kết hợp hành động</span>.</li>
       <li><span class="hl">Co-op hai người</span>.</li>
       <li><span class="hl">Khám phá Gotham City</span>.</li>
     </ul>
+
     <p>Thích hợp cho cả trẻ em và người hâm mộ Batman lâu năm.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Chơi Offline và Online",
@@ -1022,26 +1029,26 @@ const gameData = {
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 970 / AMD RX 480"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "25 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7 / AMD Ryzen 7"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1070 / AMD RX 5700"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "35 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
 
   spidermanmm: {
     id: "spidermanmm",
-    name: "Marvel’s Spider-Man: Miles Morales",
+    name: "Marvel's Spider-Man: Miles Morales",
     subtitle: "Tài Khoản Steam Bản Quyền + Mail",
     genre: "Hành động / Thế giới mở",
     developer: "Insomniac Games",
@@ -1050,22 +1057,29 @@ const gameData = {
     rating: "4.9",
     reviews: 67,
     accentColor: "#ff1744",
+
     heroImage:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499",
+
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499",
     ],
+
     tagline: "Người Nhện mới của New York đã xuất hiện.",
+
     description: `
     <p><span class="hl">Miles Morales</span> bước lên phía trước để trở thành Người Nhện mới bảo vệ thành phố New York.</p>
+
     <ul>
       <li><span class="hl">Venom Powers</span> cực mạnh.</li>
       <li><span class="hl">Tàng hình sinh học</span>.</li>
       <li><span class="hl">Đồ họa Ray Tracing</span> tuyệt đẹp.</li>
       <li><span class="hl">Thế giới mở New York</span> sống động.</li>
     </ul>
+
     <p>Một trong những tựa game siêu anh hùng xuất sắc nhất hiện nay.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Full DLC",
@@ -1076,19 +1090,19 @@ const gameData = {
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-8600 / AMD Ryzen 5 3600"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1060 6GB / AMD RX 5600 XT"],
-        ["DirectX", "Phiên bản 12"],
-        ["Dung lượng", "75 GB (SSD bắt buộc)"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
+        ["DirectX", "Phiên bản 11"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7-8700K / AMD Ryzen 7 3700X"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia RTX 2070 / AMD RX 6700 XT"],
-        ["DirectX", "Phiên bản 12"],
-        ["Dung lượng", "75 GB (SSD bắt buộc)"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
+        ["DirectX", "Phiên bản 11"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1104,22 +1118,29 @@ const gameData = {
     rating: "4.8",
     reviews: 79,
     accentColor: "#9c27b0",
+
     heroImage:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3513350/86b44bb422a013c1510f029ca79ea7c4a8ffb9e8/header.jpg?t=1777505458",
+
     images: [
       "https://cdn-media.sforum.vn/storage/app/media/phuonganh/cantarella-wuthering-waves.jpg",
     ],
+
     tagline: "Thức tỉnh sau tận thế và khám phá thế giới mới.",
+
     description: `
     <p><span class="hl">Wuthering Waves</span> là game nhập vai thế giới mở với hệ thống chiến đấu tốc độ cao và đồ họa anime hiện đại.</p>
+
     <ul>
       <li><span class="hl">Combo hành động</span> cực kỳ mượt mà.</li>
       <li><span class="hl">Khám phá thế giới rộng lớn</span>.</li>
       <li><span class="hl">Thu thập Resonator</span>.</li>
       <li><span class="hl">Boss thử thách</span> đa dạng.</li>
     </ul>
+
     <p>Một trong những đối thủ lớn nhất của Genshin Impact.</p>
   `,
+
     features: [
       "Tài khoản Kuro Games",
       "Cross-platform",
@@ -1130,22 +1151,23 @@ const gameData = {
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-8600 / AMD Ryzen 5 3600"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1060 / AMD RX 580"],
-        ["DirectX", "Phiên bản 12"],
-        ["Dung lượng", "30 GB (SSD khuyến nghị)"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
+        ["DirectX", "Phiên bản 11"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7-8700 / AMD Ryzen 7 3700X"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia RTX 2060 / AMD RX 5700 XT"],
-        ["DirectX", "Phiên bản 12"],
-        ["Dung lượng", "30 GB (SSD khuyến nghị)"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
+        ["DirectX", "Phiên bản 11"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
+
   eldenring: {
     id: "eldenring",
     name: "ELDEN RING",
@@ -1218,22 +1240,29 @@ const gameData = {
     rating: "4.9",
     reviews: 74,
     accentColor: "#00bcd4",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_292x136.jpg?t=1777456112",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_292x136.jpg?t=1777456112",
     ],
+
     tagline: "Một đại dương xa lạ. Hàng nghìn bí mật dưới đáy sâu.",
+
     description: `
     <p><span class="hl">Subnautica</span> đưa người chơi đến hành tinh đại dương 4546B sau một vụ tai nạn tàu vũ trụ.</p>
+
     <ul>
       <li><span class="hl">Khám phá đại dương mở</span> đầy sinh vật kỳ lạ.</li>
       <li><span class="hl">Xây dựng căn cứ dưới nước</span>.</li>
       <li><span class="hl">Chế tạo tàu ngầm</span> và thiết bị sinh tồn.</li>
       <li><span class="hl">Cốt truyện hấp dẫn</span> với nhiều bí ẩn.</li>
     </ul>
+
     <p>Một trong những game sinh tồn hay nhất từng được phát triển.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Cốt truyện hoàn chỉnh",
@@ -1243,20 +1272,20 @@ const gameData = {
     ],
     specs: {
       min: [
-        ["Hệ điều hành", "Windows 7 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 950 / AMD RX 480"],
+        ["Hệ điều hành", "Windows 10 (64-bit)"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7 / AMD Ryzen 7"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1060 / AMD RX 5600 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1272,22 +1301,29 @@ const gameData = {
     rating: "4.7",
     reviews: 126,
     accentColor: "#673ab7",
+
     heroImage:
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
+
     images: [
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
     ],
+
     tagline: "Sắp xếp đội hình. Thống trị bàn cờ.",
+
     description: `
     <p><span class="hl">Teamfight Tactics</span> là tựa game chiến thuật Auto Chess nổi tiếng của Riot Games.</p>
+
     <ul>
       <li><span class="hl">Hàng trăm tướng</span> với nhiều tộc hệ.</li>
       <li><span class="hl">Chiến thuật đa dạng</span>.</li>
       <li><span class="hl">Cập nhật mùa giải thường xuyên</span>.</li>
       <li><span class="hl">Xếp hạng cạnh tranh</span>.</li>
     </ul>
+
     <p>Mỗi trận đấu là một thử thách về khả năng thích nghi và tư duy chiến thuật.</p>
   `,
+
     features: [
       "Tài khoản Riot",
       "Chơi miễn phí",
@@ -1295,22 +1331,23 @@ const gameData = {
       "Cross-platform",
       "Bảo hành tài khoản",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i3-530 / AMD A6-3650"],
+        ["Vi xử lý", "Intel Core i5-6400"],
         ["RAM", "4 GB"],
-        ["Card đồ họa", "Nvidia GeForce 560 Ti / AMD HD 6950"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "16 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-3300 / AMD Ryzen 3"],
+        ["Vi xử lý", "Intel Core i7"],
         ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 960 / AMD R9 280X"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "16 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1326,22 +1363,29 @@ const gameData = {
     rating: "4.6",
     reviews: 204,
     accentColor: "#ff9800",
+
     heroImage:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvJIcWWmq9HgJznaAYMGmFBT7C1dSPncVwQ&s",
+
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvJIcWWmq9HgJznaAYMGmFBT7C1dSPncVwQ&s",
     ],
+
     tagline: "5 đấu 5. Chiến thắng thuộc về chiến thuật tốt nhất.",
+
     description: `
     <p><span class="hl">Arena Of Valor</span> là một trong những tựa game MOBA phổ biến nhất tại châu Á.</p>
+
     <ul>
       <li><span class="hl">Hơn 100 tướng</span> đa dạng.</li>
       <li><span class="hl">Đấu hạng cạnh tranh</span>.</li>
       <li><span class="hl">Chơi cùng bạn bè</span>.</li>
       <li><span class="hl">Cập nhật liên tục</span>.</li>
     </ul>
+
     <p>Kỹ năng cá nhân và phối hợp đồng đội quyết định tất cả.</p>
   `,
+
     features: [
       "Tài khoản Garena",
       "Chơi miễn phí",
@@ -1349,22 +1393,23 @@ const gameData = {
       "Đổi thông tin",
       "Bảo hành tài khoản",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i3 / AMD Ryzen 3"],
+        ["Vi xử lý", "Intel Core i5-6400"],
         ["RAM", "4 GB"],
-        ["Card đồ họa", "Intel HD 4000 / AMD Radeon R5"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "5 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
+        ["Vi xử lý", "Intel Core i7"],
         ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 750 Ti / AMD RX 460"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "10 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1380,22 +1425,29 @@ const gameData = {
     rating: "4.5",
     reviews: 23,
     accentColor: "#e53935",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/3c8f3700289081daa466b27681cd08cd2eeff04d/header_292x136_alt_assets_5.jpg?t=1778857348",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/3c8f3700289081daa466b27681cd08cd2eeff04d/header_292x136_alt_assets_5.jpg?t=1778857348",
     ],
+
     tagline: "Sân đấu NBA chân thực hơn bao giờ hết.",
+
     description: `
     <p><span class="hl">NBA 2K26</span> tiếp tục là chuẩn mực của dòng game bóng rổ mô phỏng.</p>
+
     <ul>
       <li><span class="hl">Đồ họa thế hệ mới</span>.</li>
       <li><span class="hl">MyCareer</span> đầy chiều sâu.</li>
       <li><span class="hl">MyTeam</span> xây dựng đội hình mơ ước.</li>
       <li><span class="hl">Hàng trăm cầu thủ NBA</span>.</li>
     </ul>
+
     <p>Trải nghiệm bóng rổ đỉnh cao dành cho mọi người hâm mộ NBA.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Online Multiplayer",
@@ -1403,22 +1455,23 @@ const gameData = {
       "MyTeam",
       "Bảo hành vĩnh viễn",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-4430 / AMD FX-8370"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 770 / AMD R9 270X"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "110 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7-4770 / AMD Ryzen 5 1600"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1060 / AMD RX 5500 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "110 GB (SSD bắt buộc)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1434,22 +1487,29 @@ const gameData = {
     rating: "4.4",
     reviews: 8,
     accentColor: "#4caf50",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3892270/395e6d7972474333a698b26f8aa5597bf38109a1/header_292x136.jpg?t=1778274309",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3892270/395e6d7972474333a698b26f8aa5597bf38109a1/header_292x136.jpg?t=1778274309",
     ],
+
     tagline: "Niềm vui nhân đôi khi chơi cùng bạn bè.",
+
     description: `
     <p><span class="hl">Gamble With Your Friends</span> là trò chơi giải trí nhiều người chơi với hàng loạt thử thách vui nhộn.</p>
+
     <ul>
       <li><span class="hl">Multiplayer Online</span>.</li>
       <li><span class="hl">Mini-game đa dạng</span>.</li>
       <li><span class="hl">Dễ chơi</span>.</li>
       <li><span class="hl">Thích hợp cho nhóm bạn</span>.</li>
     </ul>
+
     <p>Một lựa chọn tuyệt vời cho những buổi giải trí cùng bạn bè.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Online Multiplayer",
@@ -1460,23 +1520,22 @@ const gameData = {
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i3 / AMD Ryzen 3"],
+        ["Vi xử lý", "Intel Core i5-6400"],
         ["RAM", "4 GB"],
-        ["Card đồ họa", "Nvidia GTX 750 / AMD RX 460"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "2 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
+        ["Vi xử lý", "Intel Core i7"],
         ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 1050 / AMD RX 570"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "2 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
-
   belowzero: {
     id: "belowzero",
     name: "Subnautica: Below Zero",
@@ -1488,22 +1547,29 @@ const gameData = {
     rating: "4.8",
     reviews: 51,
     accentColor: "#4fc3f7",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header_292x136.jpg?t=1777456254",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header_292x136.jpg?t=1777456254",
     ],
+
     tagline: "Sinh tồn giữa đại dương băng giá của hành tinh 4546B.",
+
     description: `
     <p><span class="hl">Subnautica: Below Zero</span> tiếp nối huyền thoại sinh tồn dưới nước với vùng cực lạnh đầy nguy hiểm.</p>
+
     <ul>
       <li><span class="hl">Khám phá vùng băng giá</span> hoàn toàn mới.</li>
       <li><span class="hl">Cốt truyện sâu sắc</span> hơn phiên bản gốc.</li>
       <li><span class="hl">Sinh vật biển kỳ lạ</span> và đáng sợ.</li>
       <li><span class="hl">Xây dựng căn cứ hiện đại</span>.</li>
     </ul>
+
     <p>Một chuyến phiêu lưu đầy bí ẩn nơi sự sống và cái chết chỉ cách nhau vài phút.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Offline hoàn chỉnh",
@@ -1511,22 +1577,23 @@ const gameData = {
       "Đổi thông tin tài khoản",
       "Bảo hành vĩnh viễn",
     ],
+
     specs: {
       min: [
-        ["Hệ điều hành", "Windows 7 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 950 / AMD RX 480"],
+        ["Hệ điều hành", "Windows 10 (64-bit)"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "15 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7 / AMD Ryzen 7"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1080 / AMD RX 5700 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "15 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1542,22 +1609,29 @@ const gameData = {
     rating: "4.9",
     reviews: 43,
     accentColor: "#f44336",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1809540/header_292x136.jpg?t=1762838904",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1809540/header_292x136.jpg?t=1762838904",
     ],
+
     tagline: "Hành trình báo thù trong thế giới thần thoại Taopunk.",
+
     description: `
     <p><span class="hl">Nine Sols</span> là tựa game Metroidvania nổi bật với cơ chế phản đòn lấy cảm hứng từ Sekiro.</p>
+
     <ul>
       <li><span class="hl">Chiến đấu tốc độ cao</span>.</li>
       <li><span class="hl">Boss thử thách</span> đầy tính chiến thuật.</li>
       <li><span class="hl">Đồ họa vẽ tay tuyệt đẹp</span>.</li>
       <li><span class="hl">Cốt truyện đậm chất phương Đông</span>.</li>
     </ul>
+
     <p>Mỗi trận chiến là một bài kiểm tra kỹ năng và sự tập trung tuyệt đối.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Offline hoàn chỉnh",
@@ -1565,22 +1639,23 @@ const gameData = {
       "Cloud Save",
       "Bảo hành tài khoản",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-8400 / AMD Ryzen 5 2600"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 1050 Ti / AMD RX 570"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
         ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7-8700 / AMD Ryzen 5 3600"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1660 / AMD RX 5600 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "6 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1596,22 +1671,29 @@ const gameData = {
     rating: "4.5",
     reviews: 18,
     accentColor: "#616161",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2119830/f4aa2f3b4b352f7f373026fe592d32eef2c72fce/header_292x136.jpg?t=1779043039",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2119830/f4aa2f3b4b352f7f373026fe592d32eef2c72fce/header_292x136.jpg?t=1779043039",
     ],
+
     tagline: "Nơi nỗi sợ hãi là kẻ săn mồi thực sự.",
+
     description: `
     <p><span class="hl">MISERY</span> mang đến trải nghiệm kinh dị sinh tồn căng thẳng trong thế giới hậu tận thế.</p>
+
     <ul>
       <li><span class="hl">Không khí u ám</span> đầy áp lực.</li>
       <li><span class="hl">Quản lý tài nguyên khắc nghiệt</span>.</li>
       <li><span class="hl">Kẻ địch nguy hiểm</span>.</li>
       <li><span class="hl">Khám phá môi trường rộng lớn</span>.</li>
     </ul>
+
     <p>Mỗi bước tiến đều tiềm ẩn nguy cơ mất mạng bất cứ lúc nào.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Offline",
@@ -1619,22 +1701,23 @@ const gameData = {
       "Đổi thông tin tài khoản",
       "Bảo hành vĩnh viễn",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 970 / AMD RX 480"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7 / AMD Ryzen 7"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1070 / AMD RX 5700"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1650,22 +1733,29 @@ const gameData = {
     rating: "4.9",
     reviews: 142,
     accentColor: "#9c27b0",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/739630/0a424398a10445bbb922b45771dab7118fe139d2/header_292x136_alt_assets_10.jpg?t=1778659672",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/739630/0a424398a10445bbb922b45771dab7118fe139d2/header_292x136_alt_assets_10.jpg?t=1778659672",
     ],
+
     tagline: "Bạn không săn ma. Bạn tìm cách sống sót khỏi chúng.",
+
     description: `
     <p><span class="hl">Phasmophobia</span> là game kinh dị co-op nổi tiếng nơi người chơi vào vai thợ săn hiện tượng siêu nhiên.</p>
+
     <ul>
       <li><span class="hl">Co-op tối đa 4 người</span>.</li>
       <li><span class="hl">Nhiều loại ma</span> với hành vi khác nhau.</li>
       <li><span class="hl">Hệ thống nhận diện giọng nói</span>.</li>
       <li><span class="hl">Không khí cực kỳ căng thẳng</span>.</li>
     </ul>
+
     <p>Chỉ cần một sai lầm nhỏ, cả đội có thể trở thành nạn nhân tiếp theo.</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Online Multiplayer",
@@ -1676,19 +1766,19 @@ const gameData = {
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5-4590 / AMD FX-8350"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 970 / AMD RX 480"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7-6700K / AMD Ryzen 5 1600"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1080 Ti / AMD RX 5700 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "20 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -1704,22 +1794,29 @@ const gameData = {
     rating: "4.6",
     reviews: 14,
     accentColor: "#e91e63",
+
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/74928/ctl750vzp7zd7y1t/04efa8acdde02428165e45627516a24a08a8cb86/header_292x136.jpg?t=1777982271",
+
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/74928/ctl750vzp7zd7y1t/04efa8acdde02428165e45627516a24a08a8cb86/header_292x136.jpg?t=1777982271",
     ],
+
     tagline: "Khi màn đêm buông xuống, mọi thứ đều trở thành ma cà rồng.",
+
     description: `
     <p><span class="hl">Everything is Vampires</span> là game roguelike hành động với nhịp độ nhanh và hệ thống nâng cấp đa dạng.</p>
+
     <ul>
       <li><span class="hl">Hàng trăm kỹ năng</span>.</li>
       <li><span class="hl">Chiến đấu chống đàn quái vật</span>.</li>
       <li><span class="hl">Mỗi lần chơi là một trải nghiệm mới</span>.</li>
       <li><span class="hl">Tiến trình phát triển nhân vật sâu sắc</span>.</li>
     </ul>
+
     <p>Liệu bạn có thể sống sót trước làn sóng quái vật vô tận?</p>
   `,
+
     features: [
       "Steam bản quyền",
       "Offline hoàn chỉnh",
@@ -1727,22 +1824,23 @@ const gameData = {
       "Đổi thông tin",
       "Bảo hành tài khoản",
     ],
+
     specs: {
       min: [
         ["Hệ điều hành", "Windows 10 (64-bit)"],
-        ["Vi xử lý", "Intel Core i5 / AMD Ryzen 5"],
-        ["RAM", "8 GB"],
-        ["Card đồ họa", "Nvidia GTX 970 / AMD RX 480"],
+        ["Vi xử lý", "Intel Core i5-6400"],
+        ["RAM", "4 GB"],
+        ["Card đồ họa", "GTX 770"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "4 GB"],
+        ["Dung lượng", "6 GB"],
       ],
       rec: [
         ["Hệ điều hành", "Windows 10/11 (64-bit)"],
-        ["Vi xử lý", "Intel Core i7 / AMD Ryzen 7"],
-        ["RAM", "16 GB"],
-        ["Card đồ họa", "Nvidia GTX 1060 / AMD RX 5600 XT"],
+        ["Vi xử lý", "Intel Core i7"],
+        ["RAM", "8 GB"],
+        ["Card đồ họa", "GTX 1060"],
         ["DirectX", "Phiên bản 11"],
-        ["Dung lượng", "4 GB (SSD khuyến nghị)"],
+        ["Dung lượng", "6 GB SSD"],
       ],
     },
   },
@@ -2793,10 +2891,10 @@ const gameData = {
     accentColor: "#8e44ad",
 
     heroImage:
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/964650/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/876190/header.jpg?t=1725006050",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/964650/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/876190/header.jpg?t=1725006050",
     ],
 
     tagline: "Bóng đá không chỉ có trên sân cỏ.",
@@ -2859,7 +2957,7 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194410/header.jpg",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1194410/header.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1275760/header.jpg?t=1771250404",
     ],
 
     tagline: "Bóng đá đường phố với phong cách freestyle đỉnh cao.",
@@ -4953,6 +5051,9 @@ const gameData = {
     genre: "Bắn súng / Battle Royale",
     developer: "Respawn Entertainment",
     price: "Miễn phí",
+    sold: "890",
+    rating: "4.4",
+    reviews: 41,
     accentColor: "#da3e52",
 
     heroImage:
@@ -5308,6 +5409,105 @@ const gameData = {
 
 const gameIndexMap = { gta5: 0, eafc25: 1, blackmyth: 2, cs2: 3, genshin: 4 };
 
+// Bảng rating đầy đủ — tự động bổ sung vào gameData nếu thiếu
+const _gameRatingMap = {
+  gta5: "4.3",
+  eafc25: "4.4",
+  blackmyth: "4.5",
+  cs2: "4.5",
+  genshin: "4.8",
+  codbo3: "4.6",
+  forzahorizon6: "4.9",
+  pubg: "4.6",
+  battlefield6: "4.7",
+  marvelrivals: "4.8",
+  legobatman: "4.7",
+  wutheringwaves: "4.8",
+  eldenring: "5.0",
+  tft: "4.7",
+  aov: "4.6",
+  nba2k26: "4.5",
+  gamblewithfriends: "4.4",
+  belowzero: "4.8",
+  ninesols: "4.9",
+  everythingisvampires: "4.6",
+  kerbal: "4.8",
+  spacehaven: "4.7",
+  everythingcrab: "4.5",
+  rvthereyet: "4.4",
+  deeprock: "4.9",
+  smalland: "4.6",
+  eaplay: "4.7",
+  yapyap: "4.5",
+  farcry5: "4.8",
+  worldwarz: "4.7",
+  outerworlds: "4.8",
+  shovelknight: "4.9",
+  aoe: "4.9",
+  efootball: "4.6",
+  footballtactics: "4.7",
+  kopanito: "4.6",
+  footballdrama: "4.4",
+  streetpowerfootball: "4.5",
+  footballmanager2021: "4.9",
+  "90minutefever": "4.3",
+  pro11: "4.4",
+  dreamleaguesoccer: "4.5",
+  finalsoccervr: "4.6",
+  maddennfl24: "4.8",
+  fconline: "4.9",
+  wreckfest: "4.7",
+  projectcars2: "4.9",
+  f12020: "4.3",
+  asphalt8: "4.4",
+  trackmaniacturbo: "4.5",
+  assettocorsacomp: "4.6",
+  gridautosport: "4.7",
+  witcher3: "4.8",
+  trackmania2valley: "4.9",
+  burnoutparadise: "4.3",
+  sonicracingcrossworlds: "4.4",
+  realracing3: "4.5",
+  hotshotracing: "4.6",
+  forzamotorsport: "4.7",
+  wrcgenerations: "4.8",
+  dirtrally2: "4.9",
+  needforspeedheat: "4.3",
+  forzahorizon4: "4.4",
+  forzahorizon5: "4.5",
+  legendofleagues: "4.6",
+  r6siege: "4.8",
+  overwatch2: "4.9",
+  farfarwest: "4.3",
+  apexlegends: "4.4",
+  skyrim: "4.6",
+  discoelysium: "4.7",
+  mafia: "4.3",
+  assettocorsa: "4.4",
+  starcraft2: "4.5",
+  aoe2: "4.6",
+  rust: "4.7",
+  terraria: "4.9",
+  icarus: "4.4",
+  squad: "4.8",
+  windrose: "4.5",
+  palworld: "4.8",
+  spidermanmm: "4.9",
+  subnautica: "4.9",
+  misery: "4.5",
+  phasmophobia: "4.9",
+  minecraft: "4.9",
+  valorant: "4.7",
+  sekiro: "4.8",
+};
+
+// Tự động gán rating vào gameData nếu thiếu
+Object.keys(gameData).forEach(function (id) {
+  if (!gameData[id].rating && _gameRatingMap[id]) {
+    gameData[id].rating = _gameRatingMap[id];
+  }
+});
+
 // ==================== ĐỌC PARAMS ====================
 function getGameId() {
   const params = new URLSearchParams(window.location.search);
@@ -5592,10 +5792,11 @@ function renderPage(game) {
       return;
     }
 
+    var cartPrice = game.price === "Miễn phí" ? "0đ" : game.price;
     cart.push({
       id: game.id,
       name: game.name,
-      price: game.price,
+      price: cartPrice,
       image: game.images?.[0] || game.heroImage || "",
     });
     localStorage.setItem(getCartKey(), JSON.stringify(cart));
@@ -5689,9 +5890,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const gameId = params.get("game");
     if (!gameId || !gameData[gameId]) return null;
-    const allIds = Object.keys(gameData);
-    const idx = allIds.indexOf(gameId);
-    return parseFloat((4.3 + (idx % 7) * 0.1).toFixed(1));
+    return parseFloat(gameData[gameId].rating);
   }
 
   // THAY BẰNG:

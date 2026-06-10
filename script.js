@@ -61,7 +61,7 @@ const gamePageMap = {
   Windrose: "windrose",
   Palworld: "palworld",
   "LEGO® Batman™: Legacy of the Dark Knight": "legobatman",
-  "Marvel’s Spider-Man: Miles Morales": "spidermanmm",
+  "Marvel's Spider-Man: Miles Morales": "spidermanmm",
   "Wuthering Waves": "wutheringwaves",
   "ELDEN RING": "eldenring",
   Subnautica: "subnautica",
@@ -260,7 +260,7 @@ const games = [
     genre: "nhapvai",
   },
   {
-    name: "Marvel’s Spider-Man: Miles Morales",
+    name: "Marvel's Spider-Man: Miles Morales",
     price: "1.159.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499",
@@ -443,35 +443,35 @@ const games = [
   },
   {
     name: "eFootball",
-    price: "Miễn phí",
+    price: "89.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/0fb7eebc292768714f2b3be666d59b59a11b0031/header.jpg?t=1772677104",
     genre: "thethao",
   },
   {
     name: "Football, Tactics & Glory",
-    price: "400.000đ",
+    price: "126.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/375530/header.jpg?t=1772636313",
     genre: "thethao",
   },
   {
     name: "Kopanito All-Stars Soccer",
-    price: "200.000đ",
+    price: "84.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/399820/header.jpg?t=1506520477",
     genre: "thethao",
   },
   {
     name: "Football Drama",
-    price: "140.000đ",
+    price: "98.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/876190/header.jpg?t=1725006050",
     genre: "thethao",
   },
   {
     name: "Street Power Football",
-    price: "350.000đ",
+    price: "112.000đ",
     image:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1275760/header.jpg?t=1771250404",
     genre: "thethao",
@@ -754,8 +754,105 @@ const games = [
     genre: "chiensuat",
   },
 ];
+// Bảng rating đồng bộ với gameData trong game.js
+var _gameRatingMap = {
+  gta5: "4.3",
+  eafc25: "4.4",
+  blackmyth: "4.5",
+  cs2: "4.5",
+  genshin: "4.8",
+  codbo3: "4.6",
+  forzahorizon6: "4.9",
+  pubg: "4.6",
+  battlefield6: "4.7",
+  marvelrivals: "4.8",
+  legobatman: "4.7",
+  wutheringwaves: "4.8",
+  eldenring: "5.0",
+  tft: "4.7",
+  aov: "4.6",
+  nba2k26: "4.5",
+  gamblewithfriends: "4.4",
+  belowzero: "4.8",
+  ninesols: "4.9",
+  everythingisvampires: "4.6",
+  kerbal: "4.8",
+  spacehaven: "4.7",
+  everythingcrab: "4.5",
+  rvthereyet: "4.4",
+  deeprock: "4.9",
+  smalland: "4.6",
+  eaplay: "4.7",
+  farcry5: "4.8",
+  worldwarz: "4.7",
+  outerworlds: "4.8",
+  shovelknight: "4.9",
+  aoe: "4.9",
+  footballtactics: "4.7",
+  kopanito: "4.6",
+  footballdrama: "4.4",
+  streetpowerfootball: "4.5",
+  footballmanager2021: "4.9",
+  "90minutefever": "4.3",
+  pro11: "4.4",
+  dreamleaguesoccer: "4.5",
+  finalsoccervr: "4.6",
+  wreckfest: "4.7",
+  sekiro: "4.8",
+  projectcars2: "4.9",
+  f12020: "4.3",
+  asphalt8: "4.4",
+  trackmaniacturbo: "4.5",
+  assettocorsacomp: "4.6",
+  gridautosport: "4.7",
+  witcher3: "4.8",
+  trackmania2valley: "4.9",
+  burnoutparadise: "4.3",
+  sonicracingcrossworlds: "4.4",
+  realracing3: "4.5",
+  hotshotracing: "4.6",
+  forzamotorsport: "4.7",
+  wrcgenerations: "4.8",
+  dirtrally2: "4.9",
+  needforspeedheat: "4.3",
+  forzahorizon4: "4.4",
+  forzahorizon5: "4.5",
+  legendofleagues: "4.6",
+  r6siege: "4.8",
+  overwatch2: "4.9",
+  farfarwest: "4.3",
+  apexlegends: "4.4",
+  skyrim: "4.6",
+  discoelysium: "4.7",
+  maddennfl24: "4.8",
+  fconline: "4.9",
+  mafia: "4.3",
+  assettocorsa: "4.4",
+  starcraft2: "4.5",
+  aoe2: "4.6",
+  rust: "4.7",
+  terraria: "4.9",
+  icarus: "4.4",
+  squad: "4.8",
+  windrose: "4.5",
+  palworld: "4.8",
+  spidermanmm: "4.9",
+  subnautica: "4.9",
+  misery: "4.5",
+  phasmophobia: "4.9",
+  yapyap: "4.5",
+  efootball: "4.6",
+  minecraft: "4.9",
+  valorant: "4.7",
+};
+
 games.forEach((game, index) => {
-  game.rating = (4.3 + (index % 7) * 0.1).toFixed(1);
+  var gameId = gamePageMap[game.name];
+  if (gameId && _gameRatingMap[gameId]) {
+    game.rating = _gameRatingMap[gameId];
+  } else {
+    game.rating = (4.3 + (index % 7) * 0.1).toFixed(1);
+  }
 });
 
 function escapeHtml(text) {
@@ -768,6 +865,7 @@ function escapeHtml(text) {
 
 function renderGames(gamesList) {
   gamesDiv.innerHTML = "";
+  let html = "";
 
   gamesList.forEach((game) => {
     const title = String(game.name).trim();
@@ -777,7 +875,7 @@ function renderGames(gamesList) {
       ? `style="cursor:pointer;" onclick="window.location.href='${pageUrl}'"`
       : "";
 
-    gamesDiv.innerHTML += `
+    html += `
       <div class="game-card">
         <div ${clickableOpen}>
           <img src="${game.image}" alt="${escapeHtml(title)}">
@@ -801,6 +899,7 @@ function renderGames(gamesList) {
       </div>
     `;
   });
+  gamesDiv.innerHTML = html;
 }
 
 function setSliderVisible(isVisible) {
@@ -1362,7 +1461,8 @@ function addToCart(name, price, image) {
     return;
   }
 
-  cart.push({ name, price, image });
+  var normalizedPrice = price === "Miễn phí" ? "0đ" : price;
+  cart.push({ name, price: normalizedPrice, image });
   localStorage.setItem(getCartKey(), JSON.stringify(cart));
 
   updateCartCount();
@@ -1374,12 +1474,12 @@ function addToCart(name, price, image) {
 }
 
 function parsePrice(price) {
-  if (price === "Miễn phí") {
-    return 0;
-  }
-  return Number(
-    String(price).replaceAll(".", "").replace("đ", "").replace("Ä‘", ""),
-  );
+  if (!price) return 0;
+  var s = String(price).trim();
+  if (s === "Miễn phí" || s === "0" || s === "0đ") return 0;
+  var cleaned = s.replace(/[^\d]/g, "");
+  var num = Number(cleaned);
+  return isNaN(num) ? 0 : num;
 }
 
 function renderCart() {
@@ -1409,7 +1509,7 @@ function renderCart() {
 
     <div class="cart-info">
         <div class="cart-name">${item.name}</div>
-        <div class="cart-price">${item.price}</div>
+        <div class="cart-price">${parsePrice(item.price) === 0 ? "0đ" : item.price}</div>
     </div>
 
     <button class="btn btn-sm btn-danger"
