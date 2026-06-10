@@ -1248,49 +1248,96 @@ function showMedia() {
   if (!hasSlider() || !isSliderActive) return;
 
   clearTimeout(imageTimer);
-  if (typeof mediaList === "undefined" || mediaList.length === 0) return;
 
   const media = mediaList[currentMedia];
   const container = document.getElementById("media");
-  if (!container) return;
+
+  const item = document.createElement("div");
+  item.className = "media-item";
 
   if (media.type === "video") {
-    if (typeof YT === "undefined" || !YT.Player) return;
-    container.innerHTML = `<div id="player"></div>`;
-    player = new YT.Player("player", {
+  const playerId = `player-${Date.now()}`;
+
+  item.innerHTML = `<div id="${playerId}"></div>`;
+
+  container.appendChild(item);
+
+  setTimeout(() => {
+    item.classList.add("active");
+
+    player = new YT.Player(playerId, {
       videoId: media.id,
-      playerVars: { autoplay: 1, mute: 1 },
-      events: { onStateChange: onPlayerStateChange },
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+      },
+      events: {
+        onStateChange: onPlayerStateChange,
+      },
     });
-  } else {
-    container.innerHTML = `<img src="${media.src}">`;
-    imageTimer = setTimeout(() => {
-      if (isSliderActive) nextMedia();
-    }, 5000);
-  }
+  }, 20);
+}
+else {
+  item.innerHTML = `<img src="${media.src}">`;
+
+  container.appendChild(item);
+
+  setTimeout(() => {
+    item.classList.add("active");
+  }, 20);
+}
+const oldItems = container.querySelectorAll(".media-item");
+
+if (oldItems.length > 1) {
+  const old = oldItems[0];
+
+  old.classList.remove("active");
+
+  setTimeout(() => {
+    old.remove();
+  }, 600);
 }
 
+  if (media.type === "image") {
+    imageTimer = setTimeout(nextMedia, 5000);
+  }
+}
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.ENDED && isSliderActive) {
     nextMedia();
   }
 }
 
+
+
 function nextMedia() {
   if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
     return;
+
   currentMedia++;
   if (currentMedia >= mediaList.length) currentMedia = 0;
+
   showMedia();
 }
 
 function prevMedia() {
   if (!hasSlider() || !isSliderActive || typeof mediaList === "undefined")
     return;
+
   currentMedia--;
-  if (currentMedia < 0) currentMedia = mediaList.length - 1;
+
+  if (currentMedia < 0)
+    currentMedia = mediaList.length - 1;
+
   showMedia();
 }
+
+  changeMedia(() => {
+    currentMedia--;
+    if (currentMedia < 0) currentMedia = mediaList.length - 1;
+    showMedia();
+  });
+
 
 // BỘ TỰ ĐỘNG THEO DÕI ĐỂ ẨN/HIỆN VÀ TẮT SLIDER CHẠY NGẦM
 function startWatchingSupportPage() {
