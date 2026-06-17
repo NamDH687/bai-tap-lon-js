@@ -5834,7 +5834,13 @@ function renderPage(game) {
       cart = [];
     }
 
-    const existed = cart.some((item) => item.id === game.id);
+    // Giỏ hàng có thể được tạo bởi nhiều trang khác nhau:
+    // - Trang chủ (`script.js`) lưu item dạng { name, price, image } (không có `id`)
+    // - Trang này (`game.js`) lưu item dạng { id, name, price, image }
+    // Vì vậy cần check trùng theo `id` (nếu có) hoặc fallback theo `name`.
+    const existed = cart.some(
+      (item) => item?.id === game.id || item?.name === game.name,
+    );
     if (existed) {
       showCartToast(game.name + " đã có trong giỏ hàng rồi!", false);
       return;
