@@ -1,5 +1,5 @@
 body {
-  padding-top: 110px; /* hoặc thử 100px, 105px tùy navbar cao bao nhiêu */
+  padding-top: 110px; 
 }
 #cart-count {
   background: var(--red);
