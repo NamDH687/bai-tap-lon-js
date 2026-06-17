@@ -122,28 +122,26 @@
     return `<a href="${p.main}#lich-su" id="infoBtn">THƯ VIỆN</a>`;
   }
 
-  function buildCartModal(p) {
+  function buildCartSidebar(p) {
     if (p.page === "main") return "";
 
     return `
-      <div class="modal fade" id="cartModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Giỏ hàng</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-              <div id="cartItems"></div>
-              <hr>
-              <h5>Tổng tiền: <span id="cartTotal">0đ</span></h5>
-              <h5>Số dư: <span id="userBalance">0đ</span></h5>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" id="clearCartBtn">Xóa giỏ hàng</button>
-              <button type="button" class="btn btn-success" id="checkoutNowBtn">Thanh toán ngay</button>
-            </div>
+      <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+          <h2>Giỏ Hàng Của Bạn</h2>
+          <span id="closeCartBtn">✕</span>
+        </div>
+        <div id="cartItems" class="cart-items">
+          <p class="empty-cart">Giỏ hàng trống.</p>
+        </div>
+        <div class="cart-footer">
+          <div class="cart-total">
+            <span>Tổng tiền:</span>
+            <span id="cartTotal">0đ</span>
           </div>
+          <button type="button" class="checkout-btn" id="checkoutCartBtn">
+            Tiến Hành Thanh Toán
+          </button>
         </div>
       </div>
     `;
@@ -253,7 +251,7 @@
         </div>
         ${cartButton}
       </div>
-      ${buildCartModal(p)}
+      ${buildCartSidebar(p)}
       ${buildAccountModals(p)}
     `;
   }
@@ -380,9 +378,12 @@
   }
 
   function parseCartPrice(price) {
-    return Number(
-      String(price).replaceAll(".", "").replace("đ", "").replace("Ã„â€˜", ""),
-    );
+    if (!price) return 0;
+    const s = String(price).trim();
+    if (s === "Miễn phí" || s === "0" || s === "0đ") return 0;
+    const cleaned = s.replace(/[^\d]/g, "");
+    const num = Number(cleaned);
+    return isNaN(num) ? 0 : num;
   }
 
   function getCart() {
@@ -439,31 +440,39 @@
   function renderSharedCart() {
     const cartItems = document.getElementById("cartItems");
     const cartTotal = document.getElementById("cartTotal");
-    const userBalance = document.getElementById("userBalance");
 
-    if (!cartItems || !cartTotal || !userBalance) return;
+    if (!cartItems || !cartTotal) return;
 
     const cart = getCart();
+    cartItems.innerHTML = "";
+
     let total = 0;
 
     if (cart.length === 0) {
       cartItems.innerHTML = `<p class="text-muted mb-0">Giỏ hàng trống</p>`;
     } else {
-      cartItems.innerHTML = cart
-        .map((item) => {
-          total += parseCartPrice(item.price);
-          return `
-            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
-              <span>${item.name}</span>
-              <span>${item.price}</span>
+      cart.forEach((item, index) => {
+        total += parseCartPrice(item.price);
+        const priceDisplay =
+          parseCartPrice(item.price) === 0 ? "0đ" : item.price;
+
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image || ""}" class="cart-img" alt="">
+            <div class="cart-info">
+              <div class="cart-name">${item.name}</div>
+              <div class="cart-price">${priceDisplay}</div>
             </div>
-          `;
-        })
-        .join("");
+            <button type="button" class="btn btn-sm btn-danger remove-cart-item" data-index="${index}">
+              X
+            </button>
+          </div>
+        `;
+      });
     }
 
     cartTotal.innerText = total.toLocaleString("vi-VN") + "đ";
-    userBalance.innerText = getUserBalance().toLocaleString("vi-VN") + "đ";
+    updateCartCount();
   }
 
   function initCart() {
@@ -472,63 +481,64 @@
     const openCartBtn = document.getElementById("openCartBtn");
     if (openCartBtn) {
       openCartBtn.addEventListener("click", function () {
-        const cartModal = document.getElementById("cartModal");
-        if (!cartModal || typeof bootstrap === "undefined") return;
+        const cartSidebar = document.getElementById("cartSidebar");
+        if (!cartSidebar) return;
 
         renderSharedCart();
-        new bootstrap.Modal(cartModal).show();
+        cartSidebar.style.display = "flex";
       });
     }
 
-    const clearCartBtn = document.getElementById("clearCartBtn");
-    if (clearCartBtn) {
-      clearCartBtn.addEventListener("click", function () {
-        localStorage.removeItem(getCartKey());
-        renderSharedCart();
-        updateCartCount();
+    const closeCartBtn = document.getElementById("closeCartBtn");
+    if (closeCartBtn) {
+      closeCartBtn.addEventListener("click", function () {
+        const cartSidebar = document.getElementById("cartSidebar");
+        if (cartSidebar) cartSidebar.style.display = "none";
       });
     }
-    const checkoutNowBtn = document.getElementById("checkoutNowBtn");
-    if (checkoutNowBtn) {
-      checkoutNowBtn.addEventListener("click", function () {
-        const currentUser = localStorage.getItem("currentUser");
+
+    const cartItems = document.getElementById("cartItems");
+    if (cartItems) {
+      cartItems.addEventListener("click", function (e) {
+        const removeBtn = e.target.closest(".remove-cart-item");
+        if (!removeBtn) return;
+
+        const cart = getCart();
+        cart.splice(Number(removeBtn.dataset.index), 1);
+        saveCart(cart);
+        renderSharedCart();
+      });
+    }
+
+    const checkoutCartBtn = document.getElementById("checkoutCartBtn");
+    if (checkoutCartBtn) {
+      checkoutCartBtn.addEventListener("click", function () {
+        const currentUser = getCurrentUser();
         if (!currentUser) {
-          alert("Vui lòng đăng nhập trước khi thanh toán!");
+          alert("Vui lòng đăng nhập trước khi thanh toán");
           return;
         }
 
         const cart = getCart();
         if (cart.length === 0) {
-          alert("Giỏ hàng trống!");
+          alert("Giỏ hàng trống");
           return;
-        }
-
-        function parseCartPrice(price) {
-          if (!price || price === "Miễn phí") return 0;
-          return Number(
-            String(price).replaceAll(".", "").replace("đ", "").trim(),
-          );
         }
 
         const total = cart.reduce(
           (sum, item) => sum + parseCartPrice(item.price),
           0,
         );
-        const balanceKey = `balance:${currentUser}`;
-        const balance = Number(localStorage.getItem(balanceKey) || 0);
+        const balance = getUserBalance(currentUser);
 
         if (balance < total) {
-          alert(
-            `Số dư không đủ!\n\nTổng tiền: ${total.toLocaleString("vi-VN")}đ\nSố dư hiện tại: ${balance.toLocaleString("vi-VN")}đ\n\nVui lòng nạp thêm tiền.`,
-          );
+          alert("Số dư không đủ, vui lòng nạp thêm tiền");
           return;
         }
 
-        // Trừ tiền
         const newBalance = balance - total;
-        localStorage.setItem(balanceKey, String(newBalance));
+        setUserBalance(newBalance, currentUser);
 
-        // Lưu game vào thư viện
         const purchasedKey = `purchasedGames:${currentUser}`;
         const purchased = JSON.parse(localStorage.getItem(purchasedKey)) || [];
         cart.forEach((item) => {
@@ -538,12 +548,10 @@
         });
         localStorage.setItem(purchasedKey, JSON.stringify(purchased));
 
-        // Xóa giỏ hàng
         localStorage.removeItem(getCartKey());
+        renderSharedCart();
 
-        alert(
-          `✅ Thanh toán thành công!\n\nĐã mua ${cart.length} game.\nSố dư còn lại: ${newBalance.toLocaleString("vi-VN")}đ`,
-        );
+        alert("Thanh toán thành công!\nTài khoản game đã được gửi.");
         location.reload();
       });
     }
