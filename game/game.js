@@ -5921,6 +5921,7 @@ function renderPage(game) {
         ? `✅ Thêm game thành công!\n\n"${game.name}" đã được lưu vào thư viện.`
         : `✅ Thanh toán thành công!\n\n"${game.name}" đã được lưu vào thư viện.\nSố dư còn lại: ${newBalance.toLocaleString("vi-VN")}đ`,
     );
+    location.reload();
   });
 }
 
