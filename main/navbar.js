@@ -107,8 +107,6 @@
   }
 
   function buildSupportLink(p) {
-    // Trang main: toggle support section tại chỗ (xử lý bằng JS)
-    // Trang game và các trang khác: chuyển thẳng sang trang chủ #ho-tro
     if (p.page === "main") {
       return `<a href="#" id="supportBtn">HỖ TRỢ</a>`;
     }
@@ -358,7 +356,6 @@
         e.preventDefault();
         e.stopPropagation();
         if (confirm("Đăng xuất tài khoản?")) {
-          // Xóa giỏ hàng của tài khoản này khi đăng xuất
           localStorage.removeItem(getCartKey(currentUser));
           localStorage.removeItem("currentUser");
           location.reload();
@@ -556,9 +553,7 @@
       });
     }
   }
-
-  // Khi trang chủ được mở với hash #ho-tro (ví dụ từ trang game navigate sang),
-  // tự động hiện support-container và scroll đến ngay, không cần click thêm.
+  
   function handleSupportHash() {
     if (window.location.hash === "#ho-tro") {
       const sc = document.getElementById("support-container");
@@ -585,7 +580,6 @@
     if (paths.page !== "main") {
       initDeposit();
     }
-    // Xử lý hash #ho-tro sau khi DOM sẵn sàng
     if (paths.page === "main") {
       if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", handleSupportHash);
