@@ -785,6 +785,11 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/393380/aa36f6d31a74ca6b1949f35464305ac105e83c52/header_alt_assets_8.jpg?t=1778698936",
+      "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/176130/Originals/squad-6.jpg",
+      "https://cdn.nexus.gg/assets/vidya/161739f937114280bd47c73b976cd131/images/screenshots/8.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvVu_PkjdXADH3o1wGGj-kEdDLHbjrC9E1kcI-CgKwaQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-A1L-AjDeq6A6kpXIZpuPJXuvG17seCXMyDt9VV8bV4Shgn4DdCMyU9ZK&s=10",
+
     ],
 
     tagline: "Không phải anh hùng. Chỉ có đồng đội.",
@@ -847,6 +852,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/dabf1f6f9513340c90c154b3cf02c9661aeaeecb/header_alt_assets_7.jpg?t=1778835753",
+      "https://assetsio.gnwcdn.com/marvel-rivals-review-header.png?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+      "https://www.marvelrivals.com/m/gw/20241128112248/img/3_ba97929e.jpg",
+      "https://cdn2.unrealengine.com/marvel-rivals-gameplay-1920x1080-a6062b61e4b5.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMIZuLmrKxqstwzano9LHyS41XxsCmOemzYUJ38A0joLkP8Y6EOmSUXMk&s=10"
     ],
 
     tagline: "Các siêu anh hùng Marvel bước vào cuộc chiến sinh tử.",
@@ -909,6 +918,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3041230/7e838d87d787735d5d29d72777c5ee55653dfb2b/header.jpg?t=1777529081",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_VxUKYlkfgU-ZycNdzlCupQ0GDsAjnmdUE01I8vgBow&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Cdig1S9B2eGrd4kHDCJ6-TtUWu76z4ndnmI5FU0V4Og78PArPVzRuhN6&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtwK_a8UKLBuAdiXoN-CUDhj9Vg1bHlprJms5j7UkGoP9_CZpwWRGNp0o&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeLQhPNszJAeSi-gRVaMeev4sTRkkWZaNeDB4J_ndqrTlIFwKsXBKHmfiA&s=10",
     ],
 
     tagline: "Khám phá vùng đất chưa ai từng đặt chân đến.",
@@ -970,6 +983,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/058bd87dc17a7179e07c446aa64d0574ca43ab9d/header.jpg?t=1773936597",
+      "https://images2.thanhnien.vn/528068263637045248/2024/4/12/palword-17128843028941822052024.jpg",
+      "https://imageio.forbes.com/specials-images/imageserve/65ad3151c5e9344e4880b95a/caught/0x0.jpg?format=jpg&width=480",
+      "https://media.wired.com/photos/6792722b5518d959a6696287/16:9/w_2000,h_1125,c_limit/Palworld-Devs-Indie-Games-Culture-20240119_Palworld_Screenshot_01.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThhSEWWyaH4heyYp5Bz1qvVqlbjAt-XoTp8cVTgUn0zJkcTNo6QzDWajyt&s=10",
     ],
 
     tagline: "Thu phục, xây dựng và sinh tồn trong thế giới của Pal.",
@@ -1032,6 +1049,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2215200/a07a9a6c0c9c1225f5b260b4f29fe40e6f099f6b/header.jpg?t=1778617453",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThhSCZ3PtiN7sPQE_n9eZRMKM7s2ALwIganXlhWr9pwceX7H6kjQ5Lt2yY&s=10",
+      "https://gameinformer.com/sites/default/files/styles/content_header_l/public/2025/08/19/a22f83f6/lego_batman_03.jpg.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3uOI5fLLBhAj4VDSmDpsl7DNJk6sKmv5aQCO8yLJ_q2-eLgvbT4QWLU3X&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdTipOklQqx5GOx6Nh9L0vJ6VctSPb82JMx8mX2Fx6uNyIuibqsG22yV4&s=10",
     ],
 
     tagline: "Gotham được xây lại bằng những viên gạch LEGO.",
@@ -1093,6 +1114,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1817190/header.jpg?t=1763569499",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmHNBmVWtZRY0e2Mdz9zGXbCAw_NfZuLjFH32hj71Bg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_akBRXOuVMaUXjLUPorhfkMEVcoqSbcowda2P_2BIRg&s=10",
+      "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll6clkkn1qdkd3",
+      "https://cf-images.us-east-1.prod.boltdns.net/v1/static/5359769168001/dc059ce2-3ca1-4d1c-b444-3af6790e8ce1/6534a289-cfb9-43cc-8dda-b3fc9345a82d/1280x720/match/image.jpg"
     ],
 
     tagline: "Người Nhện mới của New York đã xuất hiện.",
@@ -1154,6 +1179,10 @@ const gameData = {
 
     images: [
       "https://cdn-media.sforum.vn/storage/app/media/phuonganh/cantarella-wuthering-waves.jpg",
+      "https://res.ldplayer.net/rms/ldplayer/process/img/f42231626f364b799de6e32c4701971a1716360282.webp?x-oss-process=image/format,webp/quality,Q_100/resize,w_1024",
+      "https://sm.pcmag.com/t/pcmag_au/review/w/wuthering-/wuthering-waves_j951.1920.jpg",
+      "https://gamelade.vn/wp-content/uploads/2025/07/maxresdefault-27.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHfrqrqW8m81TWxm1QZtDNNo0PqGXLV4TPZzLiCM6fE3Gug3yPK3tHb9ps&s=10"
     ],
 
     tagline: "Thức tỉnh sau tận thế và khám phá thế giới mới.",
@@ -1215,6 +1244,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg?t=1767883716",
+      "https://p325k7wa.twic.pics/high/elden-ring/elden-ring/08-shadow-of-the-erdtree/elden-ring-expansion-SOTE/00-page-content/ER_SOTEEdition_EditionKeyArtnew.jpg?twic=v1/resize=760/step=10/quality=80",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaa96UnULCwVKMdbnxAVR5VYLXsqn3aXQ3oprEzDwbn7mNbq9CCgEqsKQ&s=10",
+      "https://cdn.mos.cms.futurecdn.net/fNyjvMw8evGHzbri3GWGRj.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFll0VJBxGPCVG8_hDoGmTac7INkgxMRTL6PllpsmwoQHeIOaNIJabEK8&s=10"
     ],
 
     tagline: "Đứng lên, Tarnished. Hãy trở thành Elden Lord.",
@@ -1276,6 +1309,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/264710/header_292x136.jpg?t=1777456112",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTuQ3fslQUh6x1fyCu7pIPF-mbkpzcTtlHTHEoTk0UUWffwaAXMjfVPtZp&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu-VLxuIHXPbv3F-QKK6OMoFyHUlxVtCnR8aa3GK3aGRoi5NsKZrlolQc&s=10",
+      "https://m.media-amazon.com/images/I/717IMQtvRnL._AC_UF350,350_QL80_.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSda4CBWCb61m09pQ7rfnhNgjS-RUl9_5F82-OAma2e6Q&s=10"
     ],
 
     tagline: "Một đại dương xa lạ. Hàng nghìn bí mật dưới đáy sâu.",
@@ -1336,7 +1373,11 @@ const gameData = {
       "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
 
     images: [
-      "https://images.seeklogo.com/logo-png/38/2/teamfight-tactics-logo-png_seeklogo-387179.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyBeHhEUW09lq0N6wIFDwV_tu-ZjnR5qcjvVvoXjfyDkD76S4QcIq7jfg&s=10",
+      "https://play-lh.googleusercontent.com/W6kaDgisc_-YKmLgTooYbz4s-LPAFryPQLm1oDbO_4iGV1IpzQnQJFwfs302DRV9s2YqRdjcZBZaaJwB-5p3cF8=w1024",
+      "https://static.invenglobal.com/upload/image/2022/02/16/i1645006290973559.jpeg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRrklKJondTpxM5X4tISUJrSCHa4OegVAvD9zqaeuv_I4H11riLCMeMa65&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWmpYxd-cO3bxj52rSXzHLsDV8IsrSMUZYlo2-rWy5nET1J5qcJ6Rdn-I&s=10"
     ],
 
     tagline: "Sắp xếp đội hình. Thống trị bàn cờ.",
@@ -1398,7 +1439,11 @@ const gameData = {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvJIcWWmq9HgJznaAYMGmFBT7C1dSPncVwQ&s",
 
     images: [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvJIcWWmq9HgJznaAYMGmFBT7C1dSPncVwQ&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfEvdlu5pqyUrxv0G3din4AlqoQQrny9jAhq9UxpbE2g&s=10",
+      "https://play-lh.googleusercontent.com/MObJZPYIiHF4LAPfiT-xU9hadurDBCHMEucXg19rYH8SGLUd4L7IVI8nz3mcjShki2xRAQzkyO2lspONrXXL=w1080",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/store/software/switch/70010000002022/57bb49e87e286df9f70bdb5f27a26452dbbe4585bcaed0e98119ea5887f780e1",
+      "https://play-lh.googleusercontent.com/qaIPrENNmqMSS7Kcm3_urwVIufr-lKgqJlt3gjjH52hgsyVSpHFIkcyLGWmk4sus-UIVtHcTKu_NuQq052YC=w526-h296-rw",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlU3o5bJu0Xe1itFkOyo3WfbhDy73mka9NWzZ1o58fJFpYzILMg5kMGNI&s=10"
     ],
 
     tagline: "5 đấu 5. Chiến thắng thuộc về chiến thuật tốt nhất.",
@@ -1461,6 +1506,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/3c8f3700289081daa466b27681cd08cd2eeff04d/header_292x136_alt_assets_5.jpg?t=1778857348",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIEO55ygdcZ-4cPFY1mFbOXGfBVcXAOcLiAsWXi_bPO6_iO0Y56ax6S_ZL&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfv3mhHbs4lqSIGVbWfC4VKgfGPTTfJLplc3QctLJOEoW5qH82WEVo7768&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_-OBV3-8Q_cpBtnaDLEDJUyJ2zgzv5uTN_1DgwMwfjoFJwJKPWCP2lRM&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyZs3Ts6U6ssNxfR9RufFun2CypbcHvctbFPKnjg554w&s=10"
     ],
 
     tagline: "Sân đấu NBA chân thực hơn bao giờ hết.",
@@ -1523,6 +1572,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3892270/395e6d7972474333a698b26f8aa5597bf38109a1/header_292x136.jpg?t=1778274309",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3892270/9a6b05a5fe5b3b0dd8d70bf9dfa3d9a737d5c65e/ss_9a6b05a5fe5b3b0dd8d70bf9dfa3d9a737d5c65e.1920x1080.jpg?t=1778274309",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCAKwA0Vwg7fSlrR77oV0BIlF9D1dtH8uBh5cedFL_v4N9OZ10ONcNcfc&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzRJ09POzv6h53I86M7iKJQgnxnsuaanbqXixXAC2YHltRpOJsf6r3lzs&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDZB0qkVReJajagoqNX9_UdfAkDJLfFOBheodRKY0zFrceejUnO3NWOM8&s=10"
     ],
 
     tagline: "Niềm vui nhân đôi khi chơi cùng bạn bè.",
@@ -1583,6 +1636,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/848450/header_292x136.jpg?t=1777456254",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe5_l0_IxW0-mpYsNLDyV4Cf6MLhvMK2nwvVl0aGGOrQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6R6LWBaKjPQpc5i_j7gp0LWIg978893oyznhMJdsC7V-l-8Mu_DXBFZTp&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQssYpQMik8G2XKHKImDTSreDXPmGeOf1omRiizK7Lr3GpTWCNIFw3lpyM&s=10",
+      "https://imageio.forbes.com/blogs-images/davidthier/files/2019/02/Capture-1200x672.jpg?height=398&width=711&fit=bounds"
     ],
 
     tagline: "Sinh tồn giữa đại dương băng giá của hành tinh 4546B.",
@@ -1645,6 +1702,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1809540/header_292x136.jpg?t=1762838904",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDX60d-lRE3GHzoeBr1lF_5gh7KeSLUMhG3_6V3F4XOUU8cWoUGMKOmONo&s=10",
+      "https://static0.thegamerimages.com/wordpress/wp-content/uploads/wm/2024/06/yi-fighting-the-first-sol-boss-in-nine-sols.jpg?w=1600&h=900&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6r3-e1r5R5a-W6xQyWXDWnODvq43PB9VcLLDRgRs8MPie24mBmZF9IIk&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDEt0-BX02rM3agznVL2tl1G_PM2hn7DdlJV-ZTI-nE1thdGiLnw4-GDWu&s=10"
     ],
 
     tagline: "Hành trình báo thù trong thế giới thần thoại Taopunk.",
@@ -1707,6 +1768,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2119830/f4aa2f3b4b352f7f373026fe592d32eef2c72fce/header_292x136.jpg?t=1779043039",
+      "https://nguyencongpc.vn/media/news/2810_kham-pha-misery-game-sinh-ton-dinh-cao-moi-ra-mat-tai-steam1.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxoErCY9lZclgG92W58wam4r_OeoUc9xzOmarAc7Y-5OmRUrq9AeG7FOxk&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX1cQI1OyCYgCjb9paCedle-uTV0_IehzlvCJM1UVhybVhOIx5i45Bs6w&s=10",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2119830/b854bb803bcc6f09ad1eb2e8877bd6fd246e9525/ss_b854bb803bcc6f09ad1eb2e8877bd6fd246e9525.1920x1080.jpg?t=1778733532"
     ],
 
     tagline: "Nơi nỗi sợ hãi là kẻ săn mồi thực sự.",
@@ -1769,6 +1834,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/739630/0a424398a10445bbb922b45771dab7118fe139d2/header_292x136_alt_assets_10.jpg?t=1778659672",
+      "https://img.opencritic.com/game/17566/NuHoENSh.jpg",
+      "https://hips.hearstapps.com/hmg-prod/images/phasmophobia-console-trailer-68400ac89d873.jpg?resize=980:*",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRBiOKp_UgZjD-wFnSNl-Y_wCkeamXYSz7vDV0rNg6DvNK7xBHz-wjW5wG&s=10",
+      "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/01/phasmophobia.jpg"
     ],
 
     tagline: "Bạn không săn ma. Bạn tìm cách sống sót khỏi chúng.",
@@ -1830,6 +1899,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/74928/ctl750vzp7zd7y1t/04efa8acdde02428165e45627516a24a08a8cb86/header_292x136.jpg?t=1777982271",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP8a95-Bu079Z0Ir3xNdj5YSjtiFpkWRoNa5oNtSAiIg&s=10",
+      "https://i.guim.co.uk/img/media/bb6ae8de121be3ad0b88022d2b18d594ac17b8ef/0_0_7211_4056/master/7211.jpg?width=445&dpr=1&s=none&crop=none",
+      "https://i.ytimg.com/vi/IGSmDtFySh4/hqdefault.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM5sv09KrmAQP1VtDynLAtQ2pFKSzJRUiF-pRfIA20xRsyECdtXvnir1QP&s=10"
     ],
 
     tagline: "Khi màn đêm buông xuống, mọi thứ đều trở thành ma cà rồng.",
@@ -1892,6 +1965,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/220200/header_292x136.jpg?t=1738037585",
+      "https://cdn.mos.cms.futurecdn.net/jfQaJHqfKGTheSdC68rcx-1200-80.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/283740/ss_45271b096b5c5ddea1c31fe2fe1e6a78b1ef3634.1920x1080.jpg?t=1738037589",
+      "https://cdn.mos.cms.futurecdn.net/7423zWfxAneVLjzgSqwjqA.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1HJfzvr07hLGoNpj1ycSHvUhq1nznB4AFyBilYVb7xK-yyGDvGpUyBrA&s=10"
     ],
 
     tagline: "Không gian vô tận — Mỗi vụ phóng đều là một bài học vật lý.",
@@ -1956,6 +2033,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/979110/73529f7afc14ec281cad99fe0284cbed06c552f0/header_292x136.jpg?t=1778684449",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMCunQuBFxulU84ypnKrPt8Q779JQc3E3gO4d94bb1cA&s=10",
+      "https://cdn.loaded.com/media/catalog/product/s/s/ss_f0565ff50257d42717da10052cc8cd643745da88.1920x1080.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQveSq9UN9QHSk2Em_naY7eBLSjB5twcBwfw7caCLCJwQ&s",
+      "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/20013367/space_haven_2.jpg?w=1600&h=1200&fit=crop"
     ],
 
     tagline:
@@ -2021,6 +2102,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3526710/a5fb804268a798d5026a9a9d4c946cccc23b7420/header_292x136.jpg?t=1778230287",
+      "https://www.wingamestore.com/images_screenshots/everything-is-crab-the-animal-evolution-roguelite-153715.jpg",
+      "https://wl-static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497,quality=75/games/77543/0-full.jpg",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526710/791a102dc795eefc9c91177e7933d0d6894a2156/ss_791a102dc795eefc9c91177e7933d0d6894a2156.1920x1080.jpg?t=1779981441",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3526710/565c0694b26341731c357935659a107a48324cf8/ss_565c0694b26341731c357935659a107a48324cf8.1920x1080.jpg?t=1779981441"
     ],
 
     tagline: "Tiến hóa thành cua — Vì cuối cùng mọi thứ đều trở thành cua.",
@@ -2084,6 +2169,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3949040/cae24b4ed7f4531be51f0d63f785b7d253f92dc3/header_292x136.jpg?t=1778071815",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3949040/7d246f94e4ec2ff4c7be3ded82bcdd558274d7c7/ss_7d246f94e4ec2ff4c7be3ded82bcdd558274d7c7.1920x1080.jpg?t=1778071815",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-Vl32oc8--zvbiCYUcqofZFv8UtRUBXaHz1t47_HzJYrCWMZ0WznT0c&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4_wjkeRnnALNKx-5fZBq7CWnJaQLc_0EHtbjU3VfvJ-G7k8ZAj9I027c&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdPAbz7CsnUY9QM43s4owN_-SPTMhcOqtYGq5_CPDCrInh5oApDqAWfVE&s=10"
     ],
 
     tagline: "Ngôi nhà trên bánh xe — Hành trình là đích đến.",
@@ -2149,6 +2238,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/548430/header_292x136.jpg?t=1775555380",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwdXt4Xh4zAGgcumbwcx8ttQ2PJHsf_EJRwEpfn_HAWfEspsKl3vsl3YL4&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk76iWw50ezpI23vwF3M_Wo5zsyoBB2X_oJ88f607cRntwRhTIBXJcANFp&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf2I-Osvz9YiOcuVG8FJHpF6co7iQlIZ6QHUMt5-AVIKBXdTBNUSGQwICd&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDDtYiGU2uu2spbBfz9vJykInVExxd6XOMl9LCbEvTfWrD2baiX5eXzp8g&s=10"
     ],
 
     tagline: "Rock and Stone! Đào sâu hơn, chiến đấu mạnh hơn.",
@@ -2213,7 +2306,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/768200/c4d6a8769de55af18600a7bd8634d9133dc5f4b3/header_292x136_alt_assets_7.jpg?t=1776193569",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/768200/c4d6a8769de55af18600a7bd8634d9133dc5f4b3/header_292x136_alt_assets_7.jpg?t=1776193569",
+      "https://cdn1.epicgames.com/offer/390584f0f63a4e69978eafa4d4fce9e7/EGS_SmallandSurvivetheWilds_MergeGamesLtd_S1_2560x1440-6b34faee679082a206a5b83146e250ed",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDAkbHv6pFuOZH5f8QtzoiZrV_W65tzSc8Q6i_CC97LA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiNKU0W54MyLWwTMIm2d-YR1LpPVtZhO6Y-vDHjQkI8IMe2SAJuK-FBOE&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrU7fIqTjX7-_kVj120O2HlV5Mpr2pF8MHKgrPPy079b2jdf74ipHxCjY&s=10",
+      "https://i.ytimg.com/vi/gYOZu5MdmFE/maxresdefault.jpg"
     ],
 
     tagline:
@@ -2279,6 +2376,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1289670/49e5a469fef9e70e4f49e518986c07a5ae054212/header_292x136.jpg?t=1776976561",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1289670/5e19c5bb8f9c85e9634cd81966e2552f1a31030d/ss_5e19c5bb8f9c85e9634cd81966e2552f1a31030d.1920x1080.jpg?t=1776976561",
+      "https://st.quantrimang.com/photos/image/2024/04/03/ea-play-2.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJMy1cnr59WJkYzX57Z6tez7uQ71BtiEDewfYrOo4N-qVFkXtmJMOrE_o&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAX60duR6ub2uW6drCj__1zj4JsL6LEaRhQNowcmvB8kgdCLtz-uZU1jo&s=10"
     ],
 
     tagline: "Kho game EA trong tầm tay — Chơi nhiều hơn, tiết kiệm hơn.",
@@ -2343,7 +2444,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3834090/399b7aa5bd9ea359e6d77cec3032758ea27c597b/header_292x136.jpg?t=1775943797",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3834090/399b7aa5bd9ea359e6d77cec3032758ea27c597b/header_292x136.jpg?t=1775943797",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU6EmtHSuPqxwTcmfCILT36IjLulp9WL6V9SjmgtB0QQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYF-VAeAYPgrEy2ZWgi7ci5yc1F229Z5Jq11ebaS0wBuq0a910XVP3rk&s=10",
+      "https://gamesnight.nz/wp-content/uploads/2026/02/YAPYAP-Explained-What-is-It-2-1024x576.jpg",
+      "https://img.game8.co/4407455/6d7d5c8e9f7f5591d5fbacb3f2e04e27.png/show",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8cmD-q0dQP7p3V4-eLR0bjTuJjn-qgbn04fs8--DONkX8XrRWJc-Blaet&s=10"
     ],
 
     tagline:
@@ -2409,7 +2514,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552520/header_292x136.jpg?t=1762190084",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/552520/header_292x136.jpg?t=1762190084",
+      "https://gaming-cdn.com/images/products/1842/orig/far-cry-5-pc-game-ubisoft-connect-europe-cover.jpg?v=1701270032",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREELqcMvnHIuFfPCcRqskMLwiktd6YoHySLVnQ09QTyBMsH3Xn_-6kjBQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRafsSXe0o5KxYpNSjTfQcDZ8Zz7fbZsi2Q3uMDMA9acrTtdfmIBuXqq7cZ&s=10",
+      "https://cdn.tgdd.vn/GameApp/4/256045/Screentshots/tai-far-cry-5-cuoc-chien-chong-lai-project-at-edens-27-10-2021-1.png",
+      "https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/10GRQRTuHBUTG5HV8xlv6g/5ca8fdf6dba5fbff1ae4d299a7305cb5/open-world-feature.jpg"
     ],
 
     tagline:
@@ -2475,7 +2584,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/699130/b35277055fbb7e07c26c5e31e4398684c6461d53/header_292x136.jpg?t=1772017589",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/699130/b35277055fbb7e07c26c5e31e4398684c6461d53/header_292x136.jpg?t=1772017589",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnOZd5uEhZ01NOYfkfwPVkMMUeA3aNx74YjvlGKkDC2y-wHeh-nTp5ACY&s=10",
+      "https://i0.wp.com/epiloguegaming.com/wp-content/uploads/2019/08/image3-1.png?resize=1920%2C1080&ssl=1",
+      "https://st.quantrimang.com/photos/image/2019/04/25/WorldWar-Z-6.jpg",
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_11_26_638366143207347764_world-war-z-thum.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5fAwYPM__w08SPypINqY2D3PVKm_ytMp-CP3FTjzx7HqDHeGzlnZfV44I&s=10",
     ],
 
     tagline:
@@ -2541,6 +2654,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/578650/header.jpg?t=1776350110",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmnwDWBbVKKuv_lwqBX03EY-t3BU1N7Wxrgo0wQsFoixRwUIUupWbzQn8&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUlMhbtGBCuMjTGIUW_46I_4f201BKWM-3Ix7W94TpIFb3scsWPoH9m1o&s=10",
+      "https://cdn2.unrealengine.com/Diesel%2Fproduct%2Frosemallow%2Fhome%2FEGS_Obsidian_OuterWorlds_Carousel11_Exterior1_2560x1440-2560x1440-76e3c914100aa9b497c14cdb5f085829a210b9d6.jpg?resize=1&w=480&h=270&quality=medium",
+      "https://cdn-media.sforum.vn/storage/app/media/phuonganh/the-outer-worlds-2-3.jpg"
     ],
 
     tagline:
@@ -2606,7 +2723,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/63181/31j88g810ntngeud/3a26d44c27071a93e2c499b898b0696b9d474758/header_292x136.jpg?t=1776771125",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/63181/31j88g810ntngeud/3a26d44c27071a93e2c499b898b0696b9d474758/header_292x136.jpg?t=1776771125",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Xv7Tt0biTcIJX2gA_hDTAM519_W-zH1NWa9j5ROliVfVo2YRVB2B3M8&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpXLP_J_MKE9nivnGYNP_GeWeqEz6vTQdBwKsycjEm85z3pz8V4bfq9AE&s=10",
+      "https://file.hstatic.net/1000231532/file/game_hay_shovel_knight_treasure_trove_nintendo_switch_f48cc5add51f4c7a877153fab2efa36c_grande.jpg",
+      "https://file.hstatic.net/1000231532/file/huong_dan_choi_shovel_knight_treasure_trove_nintendo_switch_694762438b4140d8bd1185911fd8bf33_grande.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJSySrAbMGpfxZasiIrPDHwbConJLEOrnj2JAw6M0R8nGitAE0yDkJE6M&s=10"
     ],
 
     tagline: "Một chiếc xẻng — Một huyền thoại.",
@@ -2671,7 +2792,11 @@ const gameData = {
       "https://upload.wikimedia.org/wikipedia/commons/4/40/Age_of_Empires_franchise_logo.png",
 
     images: [
-      "https://upload.wikimedia.org/wikipedia/commons/4/40/Age_of_Empires_franchise_logo.png",
+      "https://imgs.vietnamnet.vn/Images/2017/06/14/10/20170614103727-aoe.jpg?width=0&s=KHifrhIvicKPfJEf6SKYIw",
+      "https://cellphones.com.vn/sforum/wp-content/uploads/2023/04/tai-aoe-age-of-empires-10.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9CgeYft-uJ2uns-gs22x13RFTRe1L0VI3vWusq9Oboef63O2LAWm2TDB-&s=10",
+      "https://play-lh.googleusercontent.com/87NKjTi5qpqOetD5j4-myKrojdRKU5oqLx_s5XSuicpEEfBglT53ghVq5jUwwsnAeAgROfujTtFcDT1zDAXi=w526-h296-rw",
+      "https://cellphones.com.vn/sforum/wp-content/uploads/2023/04/tai-aoe-age-of-empires-1.jpg"
     ],
 
     tagline: "Xây dựng đế chế — Viết lại lịch sử bằng chính đôi tay bạn.",
@@ -2733,7 +2858,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqxI1uw5l495FvkKKzYtE04o9-6kEg2ynm9TptYXr1Q&s=10",
+      "https://www.konami.com/efootball/s/img/page/overview/coop_en.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYoCgJriAV3op1ulaI84xBU05ylNcyyoY0MxMnuzojeI7x1b-pevD-qHNy&s=10",
+      "https://gamek.mediacdn.vn/133514250583805952/2021/9/1/photo-1-16304984655121182179891.jpg",
+      "https://tedishop.vn/wp-content/uploads/2025/03/eFootball-4-Tedi-Shop.jpg"
     ],
 
     tagline: "Trải nghiệm bóng đá chân thực thế hệ mới.",
@@ -2799,6 +2928,10 @@ const gameData = {
 
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/375530/header.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-jlhs56qHDfACFjhreHMzA7jyIGs1ujkmfqgEWAJ_6hA4HPabsCaq0A4&s=10",
+      "https://img.youtube.com/vi/zFWAGjiqn-A/0.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkDfuLRBlhkR08pEh0ICzpIiZYp1crapMAHoWYujAQloT8Pqtw13xOmFY&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvs9ON_ievNXkgpbvdoTV_EZh1CaJbKsBTA2Vkf6t4XtFwtGWgvZLeSOE&s=10"
     ],
 
     tagline: "Bóng đá là chiến thuật — Không chỉ là kỹ năng.",
@@ -2861,7 +2994,11 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/399820/header.jpg",
 
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/399820/header.jpg",
+      "https://didongviet.vn/dchannel/wp-content/uploads/2024/03/koranito-all-stars-soccer-bia-didongviet.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPC51CfMDBTBLlbwCx729sXvspJFJ8RgibaQEzxvI6HqNJ9mTLi8tiylI&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk_dgcBO8AW4gs8MEH7i-qqcn6Ts9VvG3Cn9Tbm0B4s-lUu4di64LCYm0B&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJdUd2SDqz1gMeulhJ-WmC_OgYPPpNkYwRnN8d4rFnBQ&s",
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/399820/ss_dd075d0fba9a6f8e6d278fca0f3af170e5292198.600x338.jpg?t=1506520477"
     ],
 
     tagline: "Bóng đá arcade vui nhộn không có luật lệ rườm rà.",
@@ -2925,6 +3062,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/876190/header.jpg?t=1725006050",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS4JKaZEamgNDfrvSU0yL1JKHHpUvYWJRuRkZo1dIM_HfdD_S0SVtEehbo&s=10",
+      "https://img.itch.zone/aW1hZ2UvMjgxNDc2LzI2MTc1MzkucG5n/original/ifMFao.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL0jXnsmmaW3OGB8vS6G9Nhnbb_ox-FwlF_b-SPUuUwypIzQ7ccyf64kE&s=10",
+      "https://images.steamusercontent.com/ugc/798738358566436569/173E9F27952910F6B2A687F16DCABF13FCE834F3/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
     ],
 
     tagline: "Bóng đá không chỉ có trên sân cỏ.",
@@ -2988,6 +3129,10 @@ const gameData = {
 
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1275760/header.jpg?t=1771250404",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1fMF3hKO5cC7OBJe6HmK0xmb8nKYeASmVFKMwPaflvGL2AtQCaQfqC0HC&s=10",
+      "https://assets.nintendo.eu/video/private/w_900/ne9ox0tavf0erkbst8hp.jpg",
+      "https://img.redbull.com/images/q_auto,f_auto/redbullcom/2020/8/24/jtx5mwkzwy2lv8vjiki4/street-power-football-characters",
+      "https://i0.wp.com/waytoomany.games/wp-content/uploads/2020/09/Street-Power-Soccer_20200912191506.jpg?resize=860%2C484&ssl=1"
     ],
 
     tagline: "Bóng đá đường phố với phong cách freestyle đỉnh cao.",
@@ -3047,7 +3192,11 @@ const gameData = {
     heroImage:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1436173/header.jpg?t=1641312996",
     images: [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1436173/header.jpg?t=1641312996",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTvAImnPA7jwenl1nad0Ypi7bNta7uX5TzIlTj5Y7CBL_nb3LdjQRYqt0&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLZvDcmoLLWwKqQZhbKblqlbzIjkgYotQRgMkvJ57FqYkZR1FI8rDVi0Nf&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9nA67YRZ9GlVjrmR1OdpY2FXcA8LXKj85stJUOzNME6dKCbPorp21gF-&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMS_0YP95O99ltO-Mnmv32axYLbm5ctcq0KP0Z0ubzX5o1gr-HGZ6Y35yx&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJhhaLW7BwA1mHS6scdjenzsxhSU9ojyAL4Ef2_aZzm4EoB2cb_G_Hmpoj&s=10"
     ],
 
     tagline: "Chiến lược trong tầm tay — Quản lý đội bóng mơ ước của bạn.",
@@ -3108,6 +3257,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/468070/header.jpg?t=1738484847",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/468070/header.jpg?t=1738484847",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGY4PXnNxdAYjWISalBg4s-H4nmpxGIMlmZJigIzJX4ECI_ug-RUD69TJD&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSntoztZxOZx1tcG-XH0dB3wBhYF7i0Y9hHFxKdder2V-j5B4BRgGVF2LpJ&s=10",
+      "https://imag.malavida.com/mvimgbig/download-fs/90-minute-fever-20487-7.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSakAaI4L5O6J55seK46tvI4xa-4EoSQkigQMx4j1CaPY8Ng7xRw7CzMvE6&s=10"
     ],
 
     tagline: "90 phút quyết định tất cả — Đối đầu thật sự, kết quả thật sự.",
@@ -3168,6 +3321,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/844960/header.jpg?t=1686569072",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/844960/header.jpg?t=1686569072",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/844960/ss_fb8431c44d6d8aaf8c9719de2ee591c154db231c.1920x1080.jpg?t=1686569072",
+      "https://i.ytimg.com/vi/UCzOubXT3Mg/maxresdefault.jpg",
+      "https://store-images.s-microsoft.com/image/apps.21215.14029641674107557.15c47afb-9a03-447f-914e-305051babf45.673fd339-7776-4243-b455-71b9571b16e9?h=1280",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfpxnGVLvqVdl28XvV18BocMJNP9AYsCpD1PkgydKp-3ZOvAu4tCTnCEhu&s=10"
     ],
 
     tagline: "Xây dựng triều đại của bạn — Từ sân tập đến chức vô địch.",
@@ -3224,7 +3381,13 @@ const gameData = {
     accentColor: "#0077c8",
 
     heroImage: "https://cdn-media.sforum.vn/storage/app/media/dls-2025-13.jpg",
-    images: ["https://cdn-media.sforum.vn/storage/app/media/dls-2025-13.jpg"],
+    images: [
+      "https://cdn-media.sforum.vn/storage/app/media/dls-2025-13.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0u9GxlcDCskbclIqvBz_UH8SJgsFzEH0hkqmwYhXTO5jx6IQFq0mFMmg&s=10",
+      "https://cdn2.fptshop.com.vn/unsafe/1240x0/filters:format(webp):quality(75)/2_58eac2f9bf.jpg",
+      "https://i.ytimg.com/vi/j7MKiXx2h4s/maxresdefault.jpg",
+      "https://img.utdstc.com/screen/397/46a/39746a8cb9877f062bc513e0c5f7b315855be9adc3d1d42c454e2ec5c4610ef0:600"
+    ],
 
     tagline: "Tạo dựng đội hình trong mơ — Chinh phục mọi giải đấu.",
 
@@ -3280,6 +3443,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/555060/header.jpg?t=1671597867",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/555060/header.jpg?t=1671597867",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsHbMIfk0UYJAYPZMnb42rRZHaRn3EdI_oqc8snxtOxA&s=10",
+      "https://m.media-amazon.com/images/I/81WGZubwyjL._AC_UF350,350_QL80_.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpjyRFSgbkJt1fn3B-x6N8QMFWF5gGf2ZLzOjze2-Yc1udcTKYpW0OmFw&s=10",
+      "https://i.ytimg.com/vi/Ut9sQg_qD1w/maxresdefault.jpg"
     ],
 
     tagline: "Bước thẳng vào sân cỏ — Trải nghiệm bóng đá chưa từng có.",
@@ -3340,6 +3507,10 @@ const gameData = {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3EXFblxsqVsC8sCsJQ8Rl1t6z4AI2mib9g&s",
     images: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw3EXFblxsqVsC8sCsJQ8Rl1t6z4AI2mib9g&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4GHdbBuMkcVKd4MO5ECT-bUCOun9HLCDDw22T3zy_U8bbyUDEWv9DFqmh&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpf4Anh6EMbNPa6dErzI6-qtU4pclyRxxh8hj0q6QqmElextuXYw18ha0&s=10",
+      "https://haloshop.vn/wp-content/uploads/2025/02/madden-nfl-24-41-700x700w.jpg",
+      "https://hoanghamobile.com/tin-tuc/wp-content/uploads/2024/01/madden-nfl-24-1.jpg"
     ],
 
     tagline: "Chạm tay vào Super Bowl — Từng đường chuyền đều mang ý nghĩa.",
@@ -3400,6 +3571,10 @@ const gameData = {
       "https://yt3.googleusercontent.com/4W8oATzTPHLlUha4Jk4WXGvvvnoEqvCXvEv88tBYDfWo1atYM7R4zXTgTqeD0R75PTu5vor0aQ=s900-c-k-c0x00ffffff-no-rj",
     images: [
       "https://yt3.googleusercontent.com/4W8oATzTPHLlUha4Jk4WXGvvvnoEqvCXvEv88tBYDfWo1atYM7R4zXTgTqeD0R75PTu5vor0aQ=s900-c-k-c0x00ffffff-no-rj",
+      "https://play-lh.googleusercontent.com/l6XGECPjTUKOKAUOsf_SPFqFKkCEZ3Iidbybdv1n--qh4k1aVtspwoRE5Jd8KfYyWhTxQtyx1fRI5_JN2eCeXg=w1024",
+      "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/177318/Originals/huong-dan-download-fo4-mobile-1.jpg",
+      "https://cdn.oneesports.vn/wp-content/uploads/sites/4/2023/10/FC-Online-Dao-tao-cau-thu-1024x607.jpg",
+      "https://cdn.24h.com.vn/upload/2-2025/images/2025-05-08/tai-game-ea-sports-fc-online-fifa-online-4-trai-nghiem-bong-da-dinh-cao_10--1--1746668712-10-width739height412.jpg"
     ],
 
     tagline: "Đội hình huyền thoại trong tay bạn — Miễn phí, không giới hạn.",
@@ -3462,6 +3637,10 @@ const gameData = {
       "https://static0.anpoimages.com/wordpress/wp-content/uploads/2022/08/wreckfest.png?w=1600&h=900&fit=crop",
     images: [
       "https://static0.anpoimages.com/wordpress/wp-content/uploads/2022/08/wreckfest.png?w=1600&h=900&fit=crop",
+      "https://play-lh.googleusercontent.com/nbqn0A8HYwe91Rd0KIBFsGn4UPA3EprKd-xmsmBhNRSBie875LD0ANq2Yx0mi5B3AQ=w1080",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA7RmCRPUyFLT6FptKGby9u002FLkDl4-XexPVo8lOkQ&s",
+      "https://play-lh.googleusercontent.com/XFSyXRnH_1U3KmNlLDfaZp793TH0_ZzB86lIwBufrSlEEvZ-PFOWGrwBZeXMuDzVbyc=w1080",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5dObpinMvNzxix63TID4L-BwwuQnQj1tCATYuj6xMF8bbKSlnIugsRw&s=10"
     ],
 
     tagline: "Không cần luật lệ — Chỉ cần là người cuối cùng còn chạy được.",
@@ -3522,6 +3701,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/378860/header.jpg?t=1663714740",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/378860/header.jpg?t=1663714740",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-D16l5Rm_kUpS63P5owSj4uz6ZPxOBVPkakHybOcD6U3m5uhxy5JLTqw&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPpN-El24Xc0ymbHfmmt_Bfmb5H85YJNcuycyZkiLyPFgbXRb5IVuz5Fg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRexvVygyjSSs2pUHFVO1Qvmx3uXFnkjOhopakcVpw-lufirlZhzJA64Ztc&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu7FthW7kuBVONrFBMqG3wAAB2744lWTYRTAEZNKNvCm5xkC6ExvNcQI5d&s=10"
     ],
 
     tagline:
@@ -3583,6 +3766,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1080110/header.jpg?t=1678892552",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1080110/header.jpg?t=1678892552",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkCi0FdlWOIfr8W1HIhGOQMLAAjfE73i1FzJBNHxAvvQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyDfq8ZxNNdDR63-eB8rviICalYcIYLL_bcSDxCoyRdIiF-6k_EqN67XDP&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM9VOTL89ieiloCy60s5nJT-Rht4Mx-vKnKirBIgQWRd83eMvSvxgeJBpp&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKOfBF7AWmz5BmIfmz3LcLj-WFsavYE81sHKPasELoiilICpdV48xmyxiU&s=10"
     ],
 
     tagline: "Tốc độ của F1 trong tầm tay — Hãy trở thành nhà vô địch.",
@@ -3643,6 +3830,10 @@ const gameData = {
       "https://upload.wikimedia.org/wikipedia/vi/8/87/Asphalt_8_Airborne_open_screenshot.jpg",
     images: [
       "https://upload.wikimedia.org/wikipedia/vi/8/87/Asphalt_8_Airborne_open_screenshot.jpg",
+      "https://store-images.s-microsoft.com/image/apps.49590.9007199266242715.49d2b2a8-8240-4c93-bd0b-209bee7ba373.2bc7dc1b-cbcd-4b2b-bec2-01a76ab5d707",
+      "https://allaboutwindowsphone.com/images/features/misc/asphalt8_rev_02.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk0NNQAd9lhwXBbRNiu4ogxygt2GADwuB4hdHrgTF9cd7zTPeneLyJzmo&s=10",
+      "https://www.slashgear.com/img/gallery/asphalt-8-airborne-official-new-maps-physics-and-weather-effects/intro-import.jpg"
     ],
 
     tagline: "Bay lên, đua xuống — Vật lý không còn là rào cản.",
@@ -3699,6 +3890,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/375900/header.jpg?t=1680016593",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/375900/header.jpg?t=1680016593",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgmb8WemF2uqZYm4FOyTi3O4_jyiNSPfpGK5GgMn3nVZVc7-h_QR2C2pM&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7QYQdDOGQfzJr-y4mt8ncEJ7Hs8NTb_8IGo7wIeoMst1O-OiSz7tAdHI&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoSFF1QcDcZHTWV7JkZqcmSyw9HuOOlKMcGwL2eUemyIoJabJXcF61d_ym&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdxWQ3lpk1M1tlSIX4J2of7HwGysIbbWvUthsUKHG9otRIsZ5gRKdzY0Ni&s=10"
     ],
 
     tagline:
@@ -3760,6 +3955,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/805550/header.jpg?t=1766404577",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/805550/header.jpg?t=1766404577",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS48DCEuYTAmqMPR_FFrvmIt8aexMqxiuLK1JZqgCVd_w&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjqhJM49smZRIuAcOxGMjHXpQEgH0VonPKlyuP2P178qMovGpxBaWAj58&s=10",
+      "https://i.ytimg.com/vi/zH99auA3cL4/maxresdefault.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRCcjZuwKStzLmodqycyrQDcDVC3yVak-HNYb7dGdWJKZNJYnpSDaRCwk&s=10"
     ],
 
     tagline: "GT World Challenge chính thức — Đua xe GT3 đỉnh cao nhất.",
@@ -3820,6 +4019,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/255220/header.jpg?t=1593617496",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/255220/header.jpg?t=1593617496",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmeo5nJaKB--rjNO5Qis9xTdmQNkA0fFVIzBVsWcCErA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtfZrPjrVVQ_vLp1ESXgdbb-0L4-KJsijOxiZYQzRuPQL-icqXafYISZT3&s=10",
+      "https://play-lh.googleusercontent.com/S4OGA4gt0gVWN0cdEI433n3fIOUYSRRhLOUWfU_tKiDrMAiep-DD7W80YsUQL_9mT4A-XPWr4-NI1UWqR3UhA84=w526-h296-rw",
+      "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/store/software/switch/70010000008783/eed4b57677423a878dac892e112df719a45193864f7b81d70ccaa1159b5a8eca"
     ],
 
     tagline: "Năm thể loại đua — Một sự nghiệp duy nhất.",
@@ -3880,6 +4083,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/243360/header.jpg?t=1680016531",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/243360/header.jpg?t=1680016531",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTImB3QR7dXp2K05PvYXlRXAjwjWp6chJxU_IrjDK4KzQJajhguPo5osVvs&s=10",
+      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/243360/ss_cf949d073a996a6fa57c219879fded95d3d180c2.1920x1080.jpg?t=1680016531",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjMXJX8nejUacA8Fi-BM_Qh5k1Wh2hgUwY1knDNHngzOX9RSaja6ySSldv&s=10",
+      "https://i.ytimg.com/vi/ISLDwsb5YCc/maxresdefault.jpg"
     ],
 
     tagline:
@@ -3941,6 +4148,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg?t=1777392081",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1238080/header.jpg?t=1777392081",
+      "https://store-images.s-microsoft.com/image/apps.61463.69242235395687976.60c3c0b9-9cce-4803-b1e8-f6861422bd64.016051ee-3834-49aa-acaa-6e86512f3eec",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoqNimqxLqmmoQFG2c-6dJIiHukHWNTKduihf5vUfX4kJFEtG_pqc7fRM&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5V3Rp7RPoj32dM_JPHIx8MDticYoc4m72_LULnZn4uJgWRavKyw1MllTo&s=10",
+      "https://cdn1.epicgames.com/spt-assets/3267f60098f1423d86871c58e304bd79/burnout-paradise-remastered-s0fzm.jpg?resize=1&w=480&h=270&quality=medium"
     ],
 
     tagline: "Tự do tuyệt đối — Paradise City không có luật, chỉ có tốc độ.",
@@ -4000,7 +4211,11 @@ const gameData = {
     heroImage:
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2486820/a5720c156c0cfbfaa11c2a5037ca414f0640f522/header_alt_assets_7.jpg?t=1777437605",
     images: [
-      "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2486820/a5720c156c0cfbfaa11c2a5037ca414f0640f522/header_alt_assets_7.jpg?t=1777437605",
+      "https://cdn1.epicgames.com/offer/da1c2c6e190147019e4188f24687a17c/EGS_SonicRacingCrossWorlds_SonicTeam_S1_2560x1440-6fa12a0e93ef5d4cb81a806a6fd2fbc0",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzDkXq6gl_TcRLUFrf5wXRXTNwNPYeUke9Sf0qLmknLwFtK7jLTCDcn-P&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR51Y3CTQFktQWGRWOrQyElP1CqyRSZjoaqR0pJ9laLIxJbrPaOZgY-5V6k&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCTXacwJ3yHAht72sUgY97WRblueKPcowYHOK0QBdEC3p8xDijthUafoFD&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-MjBIOdTF-pCKzG3PApm_NRatVd1E0s30DVm0uJwwpPdA_wYosatE8nlu&s=10"
     ],
 
     tagline:
@@ -4062,6 +4277,10 @@ const gameData = {
       "https://upload.wikimedia.org/wikipedia/en/5/5d/Real_Racing_3.jpg",
     images: [
       "https://upload.wikimedia.org/wikipedia/en/5/5d/Real_Racing_3.jpg",
+      "https://play-lh.googleusercontent.com/M-dRF8tgPkC0_Hi_3IiGZtNUi1Vd_2nSksa5g5bdCC3UmzztOAT1KA3S4V4XXMbkVbh2=w1080",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7v8S6lY_a1ziaiN7fdYmW7tkb6_pb_k0LvdWcr6_txA&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBTnx0NYlahCi0lk8SH8SRC1ogshpJZyoL-xiGyxhclc0Jie1YcqjjT_nC&s=10",
+      "https://images.sftcdn.net/images/t_app-cover-s,f_auto/p/32fda458-96db-11e6-8bcd-00163ec9f5fa/3845362168/real-racing-3-screenshot.jpg"
     ],
 
     tagline:
@@ -4119,6 +4338,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/609920/header.jpg?t=1753707980",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/609920/header.jpg?t=1753707980",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY1vR8fZl3mUmdAX9C9tW7oxrEP97s3rmJv0jD__zfUcUTa-IGhk68t-s&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAQyu72JFX7tIDXt_Xpi36ZqZ0_HdWUxOX0z6b0ANREj9M_vwrekRe66E&s=10",
+      "https://i0.wp.com/higherplaingames.com/wp-content/uploads/2020/09/hotshot-racing-1280-1586401670693.jpg?fit=1280%2C720&ssl=1",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6p6_2qQurKUrS4FlxEDns3nSchWx5Ksyczfr0HcRL-w&s=10"
     ],
 
     tagline: "Tốc độ cổ điển — Cảm giác arcade xưa nay sống lại.",
@@ -4179,6 +4402,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2440510/header.jpg?t=1747073895",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2440510/header.jpg?t=1747073895",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi3o1OZ_Gt9n88MhD2l7CTsHg2QQX05aSCf1qI7SETpGZjOS-KJ5ireVo&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwgPNb66EEsu7VRq4WY9_cjusvVcdM8xyMg6c48f2gBNM3rKZf6nUwRpM&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9td8c9bgtbms3qjjjguzVmi2gMOdIZi4cXJD5isW1wYt7YXZSwtgUD8g&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl-WFFioV-wLjqjNjTwn2WENNiofQYQ9qytgIicaohTCEJKorbPTYZ5jo&s=10"
     ],
 
     tagline:
@@ -4240,6 +4467,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1953520/header.jpg?t=1764149287",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1953520/header.jpg?t=1764149287",
+      "https://i.ytimg.com/vi/0uPSnP7Lny4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAyowJ-aNjN8qw7-8u54vVmBNj17Q",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwl2UUBLGe0adkmJYqjcY-i1gUWl_4oFv5h4gM8HXFFpTq6Broy2JiPTYa&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiuDF43gWWJy1QXDSHNvIaw9BR7UElSJABORPCjpNPGPC-tLqeXKuywEZT&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcilOubD4f7LHmHRLe4g0MpkD8Uc8DW-C0aTNa9NouOBVyDLAFrot04_2Z&s=10"
     ],
 
     tagline: "Rally chính thức FIA WRC — Bùn, đá và tốc độ không lồng được.",
@@ -4300,6 +4531,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/690790/header.jpg?t=1777396417",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/690790/header.jpg?t=1777396417",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzsSDcJ2Pa7cXu7moYxKiyceZVrOt2SlTt0i2BI8X71A&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxzljZurbzNO2lzgT0j0WjIYi6_-DJa4EltyKFLD6EgA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTISiz2BBwZWQPvk4oR0psP9KG-uU9Qi2MJXqNz2tTeFmxv3zOLR8QmO9Qu&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuqt57cOC9u7zcTIFgrJAeJiWkIJ5j5OIfLDgpcpxRGsqlRT1koWQBhT8&s=10"
     ],
 
     tagline:
@@ -4361,6 +4596,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg?t=1777414224",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1222680/header.jpg?t=1777414224",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLd1Fbcx-LzXdsJbBAoZ0eWeDc_QsSsrcjjQga46YytJc85JtKOmcFOlBG&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnWZKpF55GYj0poEm6_Ly7MuWZDQUY_Zqfnsy_mw4FARI8oXNNJ0dP6bI&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4dQFanMEATpUnjvG4lKVI_mK0Ce8yRrlk_N4Yngorh9-0oV2Yk7fqhBA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlNPyB7JLwvKMQaBw51JqpBUSvZ3xI5P5G7Gj57G2s0Y6r_jUqvb7za2s&s=10"
     ],
 
     tagline: "Ban ngày kiếm tiền, ban đêm đánh cược tất cả.",
@@ -4421,6 +4660,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1293830/header.jpg?t=1734336342",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1293830/header.jpg?t=1734336342",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnOv5w9mB3k0RuTlCoiMpxyyvAmfin8SaUduH9iM6dwQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ60G_EETlt0MSTcciMqiuJkc8-maZ9mGBdenVfhwJeUaqAKRe8t2BcsTKW&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwjsYujj9o0RCSJcm0m1ardnNEykCzUA6uV3fVtqMJxqMushFjas_0EqQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHn8wUL0kB9tljmQ_SfDefsJYRWuDVtTz4b3aM2Pf8Ghtnlrxwj-RAXDpc&s=10"
     ],
 
     tagline: "Bốn mùa. Một nước Anh. Vô số con đường để chinh phục.",
@@ -4481,6 +4724,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1551360/header.jpg?t=1746471508",
+      "https://longhungpc.vn/media/lib/18-11-2022/cau-hinh-choi-forza-horizon-5-2.jpg",
+      "https://i.ytimg.com/vi/lWJZUAwLjf4/maxresdefault.jpg",
+      "https://cellphones.com.vn/sforum/wp-content/uploads/2021/10/Forza-Horizon-5.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxqH8hGxz1z1lO4xFQCxTqX1-9tPQlA2EEmClVIAnfbTaALFCKS31QfIE&s=10"
     ],
 
     tagline: "Mexico rực lửa — Bản đồ đẹp nhất trong lịch sử Forza Horizon.",
@@ -4542,7 +4789,7 @@ const gameData = {
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/244210/header.jpg?t=1754985171",
       "https://i.ytimg.com/vi/zH99auA3cL4/maxresdefault.jpg",
-      "https://assettocorsa.gg/wp-content/uploads/85.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVjOeVcIwvt7nPaz4XyzMxcQpH21ud-YxGzAW5mw8h3w&s=10",
       "https://static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497/images/thumbs/0001721_assetto-corsa-competizione-gt4-pack.png",
       "https://cdn2.fptshop.com.vn/unsafe/Uploads/images/tin-tuc/171646/Originals/assetto-corsa-game-dua-xe-mo-phong-thuc-te-4.jpg",
     ],
@@ -4592,7 +4839,6 @@ const gameData = {
     },
   },
 
-  // ==================== NHẬP VAI ====================
 
   sekiro: {
     id: "sekiro",
@@ -4607,6 +4853,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/header.jpg?t=1762888662",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ShYWKPMHowscanwm704AZjvLqLgNN0p3ZOlQ4ONGRXB-bCOMO44l8A0&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhnAEFhwwtG4eFRj3nyk88NM6uffYXE9adQo4HfUQ4-DR7_dKSa4H7WxkZ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzrsdtsUVit7_sf2ZdcaKV2iSZA3ArvHSFBjDB2IoyHd_kdmC6g4SVqIlK&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTG7B9CFXYqmugTuGEdNYS4Zmjz9GwFBODhC4H4uFH2jMA6v7SIc58yfQ&s=10"
     ],
 
     tagline: "Chết đi. Sống lại. Mạnh hơn. — Nhưng không phải lần này.",
@@ -4667,6 +4917,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1768303991",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTijfl9WaS4JW2zRYhJMkrv1MI8uBWCV-AAsGKDmVVamQ&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPKDCOMbfA8U14Y2RIlC6AwAzxneLQYaGso0XvExW1sg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqPAHKKv8p6DxoCzIUFnjm3PGi7qszY3NM6NGZw2cNiA6a3Upid-TSShZb&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6wL2yYamCeXzKqIYnWbbKd9rBWGcEFcDsVo0p7mSGD-UoKS9HiprFd9qh&s=10"
     ],
 
     tagline: "Không có người tốt hay kẻ xấu — Chỉ có lựa chọn và hậu quả.",
@@ -4726,7 +4980,11 @@ const gameData = {
     heroImage:
       "https://store-images.s-microsoft.com/image/apps.21661.14216416494490173.9772fa78-5a01-45ce-9b9e-6ec61a10f4e2.f787fea4-1e7a-4458-a112-c5ac10fec5c0",
     images: [
-      "https://store-images.s-microsoft.com/image/apps.21661.14216416494490173.9772fa78-5a01-45ce-9b9e-6ec61a10f4e2.f787fea4-1e7a-4458-a112-c5ac10fec5c0",
+      "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Homepage_Discover-our-games_MC-Vanilla-KeyArt_864x864.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREhCzimmg33nw7-pWgCQ2mKd6qJRllcj5seCZYEKwqJA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThBtrI7INUQqrmh24cyLda8qDX2NFJ8yYhoUGd3OJPdcVmM_X7OwQFFMk&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX7wMqDmeT3K-N1Nhx05RF4uLVU2cYRLUQEnR-rft1efwT-ILqwWE54rBX&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMHiIpsNWlasUofIrFGhRlCJC8_JnpsLKPwYEX52KVYA&s=10"
     ],
 
     tagline: "Không giới hạn. Không hướng dẫn. Chỉ có trí tưởng tượng của bạn.",
@@ -4786,7 +5044,11 @@ const gameData = {
     heroImage:
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778",
     images: [
-      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/489830/header.jpg?t=1753715778",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHzr_kvKAwNPheOZeQOZ2aLHMNCqdqU2o1fmJw_6rTpgLgCJAJYqevHLE&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTujT24V4S4d-G_z3G4-iJmbIEzuoQ7yxKdmyQq44yNYUdfXCVa38yWLUg&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9A10HbRlP57V1GnU4Hwoji1STSmPA_lUh2VisSUFSDatuzD44-BN_wYYh&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR8fvgXVSEs4kZ5B8MeWJqDPuKFs7wJFKSP0nYwY9VOeA9nXfq90fm-jzs&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa3GRIhxbGvOvibOWqTkNyjNQCKFnZwYe8cKL2CPFxbImxtTNjc_KU7as&s=10"
     ],
 
     tagline:
@@ -4848,6 +5110,10 @@ const gameData = {
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/header.jpg?t=1778854831",
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/header.jpg?t=1778854831",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJzXlLt7zLVB0oLH-temya_zurCYd0gQfU77mgLDFIa707s91TAwfiYHXN&s=10",
+      "https://static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497/images/thumbs/0193083_disco-elysium-the-final-cut-row.jpeg",
+      "https://static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497/images/thumbs/0193079_disco-elysium-the-final-cut-row.jpeg",
+      "https://cdn2.unrealengine.com/Diesel%2Fproductv2%2Fdisco-elysium%2Fhome%2FEGS_DiscoElysium_ZAUM_G1A_05-1920x1080-002ce0ef2ad7baa76ba8d53a04e4a264dd54f550.jpg?resize=1&w=480&h=270&quality=medium"
     ],
 
     tagline: "Bạn không nhớ mình là ai — Nhưng cả thành phố nhớ rất rõ.",
@@ -4910,6 +5176,10 @@ const gameData = {
       "https://www.riotgames.com/darkroom/1200/1dbd7211e78ce5faa7a8af9d10afad47:2b5979e3922758399ba389561e797919/ps-f2p-val-console-launch-16x9.jpg",
     images: [
       "https://www.riotgames.com/darkroom/1200/1dbd7211e78ce5faa7a8af9d10afad47:2b5979e3922758399ba389561e797919/ps-f2p-val-console-launch-16x9.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNTfC2psd6lWwuxSBLNX0TE2Xm1JvEMNAUsDpc1951sA&s",
+      "https://cdn2.fptshop.com.vn/unsafe/800x0/valorant_la_gi_5_bf9475dc95.jpg",
+      "https://cdn-media.sforum.vn/storage/app/media/huymanh/valorant-mobile%20(3).jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8ytSQBsBo-ggwwuiTYj3_a84JjDjY6I4KwiQTJrcw6bjK8qosem8TCFE&s=10"
     ],
 
     tagline: "5 vs 5. Một viên đạn thay đổi tất cả. Bạn có đủ bản lĩnh không?",
@@ -4970,6 +5240,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/97ce482d2a8ec5d2beb1081e954ac1ec16eea1fb/header_alt_assets_21.jpg?t=1779209046",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/97ce482d2a8ec5d2beb1081e954ac1ec16eea1fb/header_alt_assets_21.jpg?t=1779209046",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKkmPm1h5GwDiwoHrzwKYeDvd5-3oOeStDo1dNc9vv0KzIpcpPDCSf_o5v&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOr6MJsckrzh5L2QOk9p7fL_Pc4GtNGTR4V7oZQ1pfzKlSfPcZT2-O5l8I&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2eY42tYlxrmQO3nxHZIR0Mvy_vKOr4VO88sjcnEQ_qW9OoEjYiHX0dX0&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0LrGROaC4sM7XHOPG-S-rOKcmKBoGxkmglLn_0jYU-g&s"
     ],
 
     tagline: "Phá tường. Cài bẫy. Mỗi góc phòng đều là chiến trường.",
@@ -5030,6 +5304,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/1f84e73b8095ab9f40b1bc2c81845330979afc09/header_alt_assets_20.jpg?t=1778610036",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/1f84e73b8095ab9f40b1bc2c81845330979afc09/header_alt_assets_20.jpg?t=1778610036",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmlTcFUvIKv3zV0L3F7mhOc-4aLbjXzYbzv0YtKj53BA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQypk0Q8SCGB2Jb-gyL4EtW7ymn3eLWoIlCiP_UvKDqBUEGIvxJl1D8kUST&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdKiDJPGkMIshh8HvY_wJTx6Bhn2cAj6eGLNEf35Pa86I9heeLmlnWGU4Z&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4fkvQrVynpKmCiJFrss6DMCYJ68OPCRcPzkq5UQ8UvNkJkhcVljIhp8e2&s=10"
     ],
 
     tagline:
@@ -5094,6 +5372,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/0bd74245b869287a2dc7f682e6013f7ed08d98e3/header.jpg?t=1778502442",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/0bd74245b869287a2dc7f682e6013f7ed08d98e3/header.jpg?t=1778502442",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwXbUQP-0oz8uCzyfVx_Mq4PLSvzZDLuiXExyKGFr-5A&s",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yQkPLMjz1G2Ew0ZyuS8pMINn6Dk7yN1vbZZk6GgqIr1sO-6qkWfK9wEr&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgUZD_dhNJsXwsfVqUF0YsSNWR58qVlkIxdwGmwoDlaA&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL5g99QN-RsxgZ0zqVsrpfrsr2EPzWwD4PauHfDzeW6PBYr8w89eL1G1o&s=10"
     ],
 
     tagline: "Đội ba. Không để lại ai phía sau. Cuộc chiến cuối cùng bắt đầu.",
@@ -5155,7 +5437,7 @@ const gameData = {
     images: [
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/header.jpg?t=1759852929",
       "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1030840/ss_7a147e0dd092400229c6c1fd513625a62ae9a4eb.1920x1080.jpg?t=1759852929",
-      "https://stevivor.com/wp-content/uploads/2020/09/MafiaReview1.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaNEhBt3wOMKLn8ReXjRpcnpmd30BLO1cnaKjsq9Vi6g&s=10",
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1030840/ss_f531c551d9794deafc1e45421b70e8d4c254aaca.1920x1080.jpg?t=1779310017",
       "https://media.gqitalia.it/photos/5f7c01c2c6e0bedb05357e44/16:9/w_2560%2Cc_limit/MafiaDE-LostHeaven1-1920.jpg",
     ],
@@ -5220,6 +5502,10 @@ const gameData = {
       "https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/09/league-of-legends.jpeg?fit=1607%2C895&ssl=1",
     images: [
       "https://i0.wp.com/highschool.latimes.com/wp-content/uploads/2021/09/league-of-legends.jpeg?fit=1607%2C895&ssl=1",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrReiKErtROSPmiGJ4OEXHc7NBVbRB6dIH4YL66vQece5_D8HpXDVWXxC1&s=10",
+      "https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/League_of_Legends_Screenshot_2018.png/330px-League_of_Legends_Screenshot_2018.png",
+      "https://cdn.techinasia.com/wp-content/uploads/2016/07/hero-moba-league-meld.jpg",
+      "https://cdn.arstechnica.net/wp-content/uploads/2019/10/LOLWR_Gameplay_Lux.jpg"
     ],
 
     tagline:
@@ -5281,6 +5567,10 @@ const gameData = {
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3124540/21362a3efa8067bf28d0abf350c2a13cd39e61bc/header_alt_assets_3.jpg?t=1778234595",
     images: [
       "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3124540/21362a3efa8067bf28d0abf350c2a13cd39e61bc/header_alt_assets_3.jpg?t=1778234595",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTABPBNuZJ5wcTfuzUNCKBW5b6TEqdwQpD6h0vEhQd5QMBQmiaxhRgjoV8&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNU06eDl51b3XD8i1KD4dj-6t_dCkDokC5LUYXH2kA4KrkaiPxH0tHSbI&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYHYaCit1ZiTOiWdWE-t2m4N0srghLn9queYexs9wU_99tI6bfsjF34Ww&s=10",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNPTFWhs0HCiuP7CJP9CbCfuA4oGRx_pqoC-CFwetWHLOyyizwKKtx2jQ&s=10"
     ],
 
     tagline: "Miền Tây hoang dã — Nơi chỉ kẻ khôn ngoan mới sống sót.",
