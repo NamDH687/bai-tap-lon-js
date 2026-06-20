@@ -10,7 +10,6 @@ body {
   font-weight: 700;
 }
 
-/* ===== HERO TAGLINE BANNER ===== */
 .hero-tagline-banner {
   width: 100%;
   background:
@@ -45,7 +44,6 @@ body {
   line-height: 1.5;
 }
 
-/* ===== PRODUCT SECTION ===== */
 .product-page {
   width: 100%;
   background: #111;
@@ -77,7 +75,6 @@ body {
   font-weight: 500;
 }
 
-/* ===== SLIDER ===== */
 .slider-wrap {
   position: relative;
   border-radius: 8px;
@@ -254,7 +251,6 @@ body {
   border-color: var(--accent);
 }
 
-/* ===== INFO PANEL ===== */
 .info-panel {
   display: flex;
   flex-direction: column;
@@ -365,7 +361,6 @@ body {
   margin-top: 1px;
 }
 
-/* ===== CONTENT AREA ===== */
 .page {
   background: #1a1a1a;
   color: var(--text);
@@ -416,7 +411,6 @@ body {
   font-weight: 600;
 }
 
-/* ===== REVIEW SECTION ===== */
 .review-subtitle {
   font-size: 13px;
   color: #888;
@@ -605,7 +599,6 @@ body {
   background: #c62828;
 }
 
-/* ===== RIGHT PANEL - SPECS ===== */
 .right-panel {
   width: 420px;
   min-width: 380px;
@@ -643,7 +636,6 @@ body {
   border-left: 1px solid #1c1c1c;
 }
 
-/* ===== SUPPORT SECTION ===== */
 .support-wrapper {
   max-width: 1100px;
   margin: 36px auto;
@@ -845,7 +837,6 @@ body {
   background: #c62828;
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
   .product-body {
     grid-template-columns: 1fr;
