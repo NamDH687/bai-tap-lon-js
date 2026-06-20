@@ -41,8 +41,6 @@ function setUserBalance(balance, username = getCurrentUser()) {
   localStorage.setItem(getBalanceKey(username), String(balance));
 }
 
-// Định nghĩa danh sách game đầy đủ kèm thể loại (genre)
-// Thêm vào đầu script.js, sau phần khai báo const games = [...]
 const gamePageMap = {
   "GTA V": "gta5",
   "EA FC 25": "eafc25",
@@ -136,7 +134,7 @@ const gamePageMap = {
 
 function getGamePageUrl(gameName) {
   const id = gamePageMap[gameName];
-  if (id) return `./game/game.html?game=${id}`; // chỉnh đường dẫn cho đúng cấu trúc thư mục
+  if (id) return `./game/game.html?game=${id}`;
   return null;
 }
 const games = [
@@ -1104,7 +1102,6 @@ if (document.getElementById("storeBtn")) {
   initMainPage();
 }
 
-//  HIỆU ỨNG ĐÓNG/MỞ CHO PHẦN FAQ HỖ TRỢ
 const faqQuestions = document.querySelectorAll(".sp-faq-question");
 faqQuestions.forEach((question) => {
   question.addEventListener("click", () => {
@@ -1121,13 +1118,11 @@ faqQuestions.forEach((question) => {
 });
 
 const mediaList = [
-  // VIDEO
   {
     type: "video",
     id: "u83VdXAVq08",
   },
 
-  // ẢNH
   {
     type: "image",
     src: "https://game8.vn/media/202208/images/wukong-3195.jpg",
@@ -1292,30 +1287,23 @@ function prevMedia() {
   showMedia();
 }
 
-// BỘ TỰ ĐỘNG THEO DÕI ĐỂ ẨN/HIỆN VÀ TẮT SLIDER CHẠY NGẦM
 function startWatchingSupportPage() {
   const supportContainer = document.getElementById("support-container");
 
   if (!supportContainer) return;
 
-  // Hàm thực hiện tắt/bật slider dựa trên trạng thái ẩn hiện của form Hỗ Trợ
   function checkAndToggle() {
-    // Nếu khu vực Hỗ trợ ĐANG HIỆN (không phải display: none)
     if (supportContainer.style.display !== "none") {
       setSliderVisible(false);
     }
-    // Nếu khu vực Hỗ trợ ĐANG ẨN (Trang chủ đang hiện)
     else {
       if (currentView === "home" && !isSliderActive) {
         setSliderVisible(true);
       }
     }
   }
-
-  // Chạy kiểm tra ngay lần đầu load trang
   checkAndToggle();
 
-  // Cấu hình bộ theo dõi sự thay đổi thuộc tính style của trang Hỗ Trợ
   const observer = new MutationObserver(checkAndToggle);
   observer.observe(supportContainer, {
     attributes: true,
@@ -1323,7 +1311,6 @@ function startWatchingSupportPage() {
   });
 }
 
-// Kích hoạt khi toàn bộ tài nguyên trang sẵn sàng
 window.addEventListener("load", () => {
   startWatchingSupportPage();
   if (hasSlider() && isSliderActive) {
@@ -1337,9 +1324,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// giỏ hàng
 
-// Nap tien
 document.addEventListener("click", function (e) {
   if (e.target.id !== "confirmDeposit") return;
 
@@ -1368,7 +1353,6 @@ document.addEventListener("click", function (e) {
   location.reload();
 });
 
-// Danh gia
 function loadReviews() {
   const reviewList = document.getElementById("reviewList");
   if (!reviewList) return;
@@ -1412,7 +1396,6 @@ if (sendReviewBtn) {
 
 loadReviews();
 
-// Gio hang
 let cart = JSON.parse(localStorage.getItem(getCartKey())) || [];
 
 function updateCartCount() {
@@ -1448,7 +1431,6 @@ document.addEventListener("click", function (e) {
 });
 
 function addToCart(name, price, image) {
-  // chặn nếu đã mua
   if (isGamePurchased(name)) {
     alert("Bạn đã sở hữu game này rồi!");
     return;
