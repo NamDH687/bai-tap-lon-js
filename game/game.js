@@ -1,4 +1,3 @@
-// ==================== DỮ LIỆU GAME ====================
 function getCartKey() {
   const user = localStorage.getItem("currentUser");
   return user ? `cart:${user}` : "cart:guest";
@@ -5747,7 +5746,6 @@ const gameData = {
 
 const gameIndexMap = { gta5: 0, eafc25: 1, blackmyth: 2, cs2: 3, genshin: 4 };
 
-// Bảng rating đầy đủ — tự động bổ sung vào gameData nếu thiếu
 const _gameRatingMap = {
   gta5: "4.3",
   eafc25: "4.4",
@@ -5839,20 +5837,17 @@ const _gameRatingMap = {
   sekiro: "4.8",
 };
 
-// Tự động gán rating vào gameData nếu thiếu
 Object.keys(gameData).forEach(function (id) {
   if (!gameData[id].rating && _gameRatingMap[id]) {
     gameData[id].rating = _gameRatingMap[id];
   }
 });
 
-// ==================== ĐỌC PARAMS ====================
 function getGameId() {
   const params = new URLSearchParams(window.location.search);
   return params.get("game") || "gta5";
 }
 
-// ==================== SLIDER ====================
 let currentSlide = 0;
 let animating = false;
 let slides = [];
@@ -5939,7 +5934,6 @@ function goTo(next) {
   });
 }
 
-// ==================== FAQ / ACCORDION ====================
 function initFAQ() {
   document.querySelectorAll(".sp-faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -5956,7 +5950,6 @@ function initFAQ() {
   });
 }
 
-// ==================== FILTER REVIEW ====================
 function initFilterBtns() {
   document.querySelectorAll(".filter-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -5968,7 +5961,6 @@ function initFilterBtns() {
   });
 }
 
-// ==================== RENDER PAGE ====================
 function renderPage(game) {
   document.documentElement.style.setProperty("--accent", game.accentColor);
 
@@ -5981,7 +5973,6 @@ function renderPage(game) {
   document.getElementById("soldCount").style.display = "none";
   document.getElementById("ratingText").style.display = "none";
 
-  // Stars
   const starsEl = document.querySelector(".stars");
   if (starsEl) {
     const idx = gameIndexMap[getGameId()] ?? 0;
@@ -6012,7 +6003,6 @@ function renderPage(game) {
     starsEl.innerHTML = html;
   }
 
-  // Price
   const priceToShow = game.price || "Liên hệ";
   document.getElementById("priceNew").textContent = priceToShow;
   if (priceToShow === "Miễn phí") {
@@ -6050,7 +6040,6 @@ function renderPage(game) {
   initFAQ();
   initFilterBtns();
 
-  // Kiểm tra game đã mua -> đổi nút thành "ĐÃ SỞ HỮU"
   const currentUser = localStorage.getItem("currentUser");
   if (currentUser) {
     const purchased =
@@ -6124,8 +6113,6 @@ function renderPage(game) {
       cart = [];
     }
 
-    // Giỏ hàng có thể được tạo bởi nhiều trang khác nhau:
-    // check trùng theo `id` (nếu có) hoặc fallback theo `name`.
     const existed = cart.some(
       (item) => item?.id === game.id || item?.name === game.name,
     );
@@ -6215,7 +6202,6 @@ function renderPage(game) {
   });
 }
 
-// ==================== INIT ====================
 document.addEventListener("DOMContentLoaded", () => {
   const id = getGameId();
   const game = gameData[id] || gameData["gta5"];
@@ -6225,10 +6211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("navbarReady", () => {});
 window.addEventListener("load", () => {});
 
-// ==================== REVIEW SYSTEM ====================
 document.addEventListener("DOMContentLoaded", () => {
-  // ---------- helpers ----------
-  // THAY BẰNG:
   function getRatingFromParam() {
     const params = new URLSearchParams(window.location.search);
     const gameId = params.get("game");
@@ -6236,7 +6219,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return parseFloat(gameData[gameId].rating);
   }
 
-  // THAY BẰNG:
   function buildDistribution(rating) {
     const params = new URLSearchParams(window.location.search);
     const gameId = params.get("game");
@@ -6261,7 +6243,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return { counts, total };
   }
 
-  // ---------- pool review giả ----------
   const fakeReviewPool = [
     {
       name: "Jack 5 củ",
@@ -6410,12 +6391,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  // ---------- render fake reviews ----------
   function renderFakeReviews(rating) {
     const list = document.getElementById("reviewList");
     if (!list) return;
 
-    // Ẩn "Chưa có đánh giá nào"
     const noMsg = document.getElementById("noReviewMsg");
     if (noMsg) noMsg.style.display = "none";
     document.querySelectorAll("*").forEach((el) => {
@@ -6483,7 +6462,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
-  // ---------- chạy sau khi DOM ổn định ----------
   setTimeout(() => {
     let rating = getRatingFromParam();
     if (!rating) {
@@ -6501,19 +6479,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const scoreEl = document.querySelector(".rating-score");
     if (scoreEl) scoreEl.textContent = rating.toFixed(1);
 
-    // Cập nhật tiêu đề section
     document.querySelectorAll(".section-title").forEach((el) => {
       if (el.textContent.startsWith("Đánh giá")) {
         el.textContent = `Đánh giá (${total.toLocaleString("vi-VN")})`;
       }
     });
 
-    // Cập nhật ratingText
     const ratingText = document.getElementById("ratingText");
     if (ratingText)
       ratingText.textContent = `(${total.toLocaleString("vi-VN")} đánh giá)`;
 
-    // Cập nhật stars trong rating-row
     const starsEl = document.querySelector(".rating-row .stars");
     if (starsEl) {
       const r = rating;
@@ -6537,7 +6512,6 @@ document.addEventListener("DOMContentLoaded", () => {
       starsEl.innerHTML = html;
     }
 
-    // Cập nhật bars
     const barRows = document.querySelectorAll(".rating-bars .bar-row");
     [5, 4, 3, 2, 1].forEach((star, i) => {
       const row = barRows[i];
@@ -6551,7 +6525,6 @@ document.addEventListener("DOMContentLoaded", () => {
         label.textContent = `${pct}% | ${count.toLocaleString("vi-VN")} đánh giá`;
     });
 
-    // Ẩn "Chưa có đánh giá nào" lần cuối
     const noMsg = document.getElementById("noReviewMsg");
     if (noMsg) noMsg.style.display = "none";
     document.querySelectorAll("*").forEach((el) => {
@@ -6563,11 +6536,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Render fake reviews
     renderFakeReviews(rating);
   }, 300);
 
-  // ==================== REVIEW SUBMIT ====================
   (function () {
     let selectedStar = 0;
 
